@@ -1,0 +1,102 @@
+/* Additional CSS utilities for the Colala PWA Seller project */
+
+/* Animation utilities */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+/* Gradient text utility */
+.text-gradient {
+  background: linear-gradient(to right, #FF0000, #70064B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Box shadow utilities for cards */
+.shadow-card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-card-hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Focus utilities */
+.focus-primary:focus {
+  outline: 2px solid #E53E3E;
+  outline-offset: 2px;
+}
+
+/* Container with max-width constraint */
+.max-container {
+  max-width: 1080px !important;
+}
+
+/* Responsive grid utilities */
+.grid-responsive {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Button hover effects */
+.btn-hover-scale {
+  transition: transform 0.2s ease-in-out;
+}
+
+.btn-hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Status colors */
+.status-success {
+  color: #10B981;
+  background-color: #ECFDF5;
+}
+
+.status-warning {
+  color: #F59E0B;
+  background-color: #FFFBEB;
+}
+
+.status-error {
+  color: #E53E3E;
+  background-color: #FEF2F2;
+}
+
+/* Loading states */
+.loading-shimmer {
+  background: linear-gradient(90deg, #F2F2F2 25%, #E0DFDF 50%, #F2F2F2 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #F2F2F2;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #E53E3E;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #C53030;
+}

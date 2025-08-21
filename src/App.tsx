@@ -1,14 +1,22 @@
 import PWABadge from './PWABadge.tsx'
+import Header from './layout/header.tsx'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './index.css'
 
 function App() {
   return (
-    <>
-      <h1 className="decorative-heading text-5xl">
-        Welcome to Colala PWA Seller
-      </h1>
-      <PWABadge />
-    </>
+    <Router>
+      <div className="min-h-screen bg-background">
+        <Header />
+        <div className="container-custom py-8">
+          <Routes>
+            {/* <Route path="/" element={<HomePage />} /> */}
+            
+          </Routes>
+          <PWABadge />
+        </div>
+      </div>
+    </Router>
   )
 }
 

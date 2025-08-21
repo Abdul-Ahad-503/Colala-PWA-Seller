@@ -6,12 +6,42 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        // Primary Colors
+        primary: '#E53E3E',
+        
+        // Background Colors
+        background: '#F9F9F9',
+        'background-light': '#FAFAFA',
+        'card-bg': '#FFFFFF',
+        
+        // Text Colors
+        'text-primary': '#222222',
+        'text-primary-alt': '#1A1A1A',
+        'text-secondary': '#555555',
+        'text-tertiary': '#666666',
+        'text-important': '#E53E3E',
+        
+        // Border Colors
+        'border-light': '#F2F2F2',
+        'border-gray': '#E0DFDF',
+        
+        // Gradient Colors
+        'gradient-start': '#FF0000',
+        'gradient-end': '#70064B',
+      },
       fontFamily: {
         'sans': ['Manrope', 'sans-serif'],
-        'oleo': ['Oleo Script', 'cursive'],
+        'decorative': ['Oleo Script', 'cursive'],
       },
-      colors: {
-        primary: '#E53E3E',
+      maxWidth: {
+        'container': '1080px',
+      },
+      backgroundImage: {
+        'gradient-primary': 'linear-gradient(to right, #FF0000, #70064B)',
+      },
+      animation: {
+        'spin-slow': 'spin 3s linear infinite',
       },
       spacing: {
         '13': '3.25rem',
@@ -23,6 +53,10 @@ export default {
       },
       borderRadius: {
         '4xl': '2rem',
+      },
+      boxShadow: {
+        'card': '0 2px 8px rgba(0, 0, 0, 0.1)',
+        'card-hover': '0 4px 12px rgba(0, 0, 0, 0.15)',
       },
     },
   },

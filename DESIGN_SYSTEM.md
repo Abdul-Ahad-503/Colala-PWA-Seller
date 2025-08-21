@@ -171,3 +171,74 @@ src/
 - Custom utility classes are available in utilities.css
 - Font loading is optimized with preconnect headers
 - The system supports both light theme (current) and can be extended for dark theme
+
+// TASK: Set up TailwindCSS to allow dynamic primary color based on user input.
+// Default primary color is #E53E3E, but users can change it via UI (e.g., color picker).
+// We want to update the theme color across the whole app dynamically.
+
+// 1. In tailwind.config.js, define primary color using a CSS variable:
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        primary: 'var(--color-primary)', // dynamic primary color
+      },
+    },
+  },
+  // other Tailwind settings...
+};
+
+// 2. In global CSS (e.g., index.css or App.css), set the initial value for the variable:
+:root {
+  --color-primary: #E53E3E; /* default primary color */
+}
+
+// 3. In React, create a ThemeContext to allow changing the primary color at runtime
+import React, { createContext, useState, useEffect } from 'react';
+
+export const ThemeContext = createContext();
+
+export const ThemeProvider = ({ children }) => {
+  const [primaryColor, setPrimaryColor] = useState('#E53E3E');
+
+  // Load color from localStorage on initial render
+  useEffect(() => {
+    const storedColor = localStorage.getItem('primaryColor');
+    if (storedColor) setPrimaryColor(storedColor);
+  }, []);
+
+  // Apply the color to the root element when it changes
+  useEffect(() => {
+    document.documentElement.style.setProperty('--color-primary', primaryColor);
+    localStorage.setItem('primaryColor', primaryColor);
+  }, [primaryColor]);
+
+  return (
+    <ThemeContext.Provider value={{ primaryColor, setPrimaryColor }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+};
+
+// 4. Wrap your <App /> component with <ThemeProvider /> in main.jsx or index.js
+
+// 5. Use the primary color class in your components like this:
+<button className="bg-primary text-white p-2 rounded">
+  Dynamic Theme Button
+</button>
+
+// 6. In any component, use useContext to access and update the primary color:
+import { useContext } from 'react';
+import { ThemeContext } from './ThemeContext';
+
+const ThemeSwitcher = () => {
+  const { primaryColor, setPrimaryColor } = useContext(ThemeContext);
+
+  return (
+    <input
+      type="color"
+      value={primaryColor}
+      onChange={(e) => setPrimaryColor(e.target.value)}
+    />
+  );
+};

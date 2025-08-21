@@ -1,4 +1,199 @@
 @import "tailwindcss";
-*{
-  font-family: 'Manrope', sans-serif;
+
+@theme {
+  --color-primary: #E53E3E;
+  --color-background: #F9F9F9;
+  --color-background-light: #FAFAFA;
+  --color-card-bg: #FFFFFF;
+  --color-text-primary: #222222;
+  --color-text-primary-alt: #1A1A1A;
+  --color-text-secondary: #555555;
+  --color-text-tertiary: #666666;
+  --color-text-important: #E53E3E;
+  --color-border-light: #F2F2F2;
+  --color-border-gray: #E0DFDF;
+  --color-gradient-start: #FF0000;
+  --color-gradient-end: #70064B;
+  
+  --font-family-sans: 'Manrope', sans-serif;
+  --font-family-decorative: 'Oleo Script', cursive;
+  
+  --max-width-container: 1080px;
+  
+  --background-image-gradient-primary: linear-gradient(to right, #FF0000, #70064B);
+  
+  --box-shadow-card: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --box-shadow-card-hover: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+@layer base {
+  * {
+    font-family: var(--font-family-sans);
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-background);
+    /* color: var(--color-text-primary); */
+    /* line-height: 1.6; */
+  }
+  
+  
+}
+
+@layer components {
+  /* Container */
+  .container-custom {
+    max-width: var(--max-width-container);
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  /* Typography */
+  .decorative-heading {
+    font-family: var(--font-family-decorative);
+    font-size: 2.5rem;
+    background: var(--background-image-gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+    margin: 2rem 0;
+  }
+  
+  /* Buttons */
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    opacity: 0.9;
+  }
+  
+  .btn-hover-scale {
+    transition: transform 0.2s;
+  }
+  
+  .btn-hover-scale:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Cards */
+  .card {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border-light);
+    border-radius: 0.5rem;
+    box-shadow: var(--box-shadow-card);
+  }
+  
+  /* Text Utilities */
+  .text-important {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+  
+  /* Status Colors */
+  .status-success {
+    color: #22c55e;
+  }
+  
+  .status-warning {
+    color: #f59e0b;
+  }
+  
+  .status-error {
+    color: #ef4444;
+  }
+}
+
+@layer utilities {
+  /* Animations */
+  .animate-spin-slow {
+    animation: spin 3s linear infinite;
+  }
+  
+  .loading-shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  
+  /* Gradients */
+  .text-gradient {
+    background: var(--background-image-gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .bg-gradient-primary {
+    background: var(--background-image-gradient-primary);
+  }
+  
+  /* Enhanced Shadows */
+  .shadow-card-hover {
+    box-shadow: var(--box-shadow-card-hover);
+  }
+  
+  /* Custom Background Colors */
+  .bg-background {
+    background-color: var(--color-background);
+  }
+  
+  .bg-card-bg {
+    background-color: var(--color-card-bg);
+  }
+  
+  /* Custom Text Colors */
+  .text-text-primary {
+    color: var(--color-text-primary);
+  }
+  
+  .text-text-primary-alt {
+    color: var(--color-text-primary-alt);
+  }
+  
+  .text-text-secondary {
+    color: var(--color-text-secondary);
+  }
+  
+  .text-text-tertiary {
+    color: var(--color-text-tertiary);
+  }
+}
+
+.font_Oleo{
+  font-family: "Oleo Script", cursive;
+  font-weight: 700;
+  
+}
+
+.active_page {
+  position: relative;
+    color: white;
+    font-weight: 700;
+}
+
+.active_page .underline {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 6px;
+  background-color: white;
+  border-radius: 999px;
 }

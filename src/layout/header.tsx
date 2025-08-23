@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import IMAGES from "../constants";
+import Login from "../pages/login/login";
 
 const Header: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [cartCount] = useState(0);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [userEmail, setUserEmail] = useState<string | null>(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const location = useLocation();
+
+  // Note: Removed persistent cookie checking - login is now session-based only
 
   // Get active page based on current location
   const getActivePage = () => {
@@ -20,6 +26,16 @@ const Header: React.FC = () => {
   };
 
   const activePage = getActivePage();
+
+  const handleAccountClick = () => {
+    // Always allow opening login modal (for demo/testing purposes)
+    setIsLoginOpen(true);
+  };
+
+  const handleLogin = (email: string) => {
+    setIsLoggedIn(true);
+    setUserEmail(email);
+  };
 
   return (
     <header className="bg-primary text-white rounded-b-3xl overflow-hidden">
@@ -59,7 +75,10 @@ const Header: React.FC = () => {
           {/* Right Side - Account and Cart */}
           <div className="flex items-center gap-6">
             {/* Account Section */}
-            <div className="flex items-center gap-3">
+            <div 
+              className="flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity"
+              onClick={handleAccountClick}
+            >
               <div className=" flex items-center justify-center">
                 <img 
                   src={IMAGES.user} 
@@ -68,8 +87,12 @@ const Header: React.FC = () => {
                 />
               </div>
               <div className="">
-                <div className="text-sm text-white text-opacity-90">Hi Sasha Stores</div>
-                <div className="text-[16px] font-semibold">Account</div>
+                <div className="text-sm text-white text-opacity-90">
+                  {isLoggedIn ? `Hi ${userEmail?.split('@')[0]}` : "Hi Sasha Stores"}
+                </div>
+                <div className="text-[16px] font-semibold">
+                  Account
+                </div>
               </div>
             </div>
 
@@ -106,27 +129,27 @@ const Header: React.FC = () => {
             <div className="flex gap-24 text-[16px] text-[#FFFFFFB2] px-7">
           
           <Link to="/">
-            <h3 className={`pb-4 ${getActivePage() === "home" ? "active_page" : ""}`}>
+            <h3 className={`pb-4 ${activePage === "home" ? "active_page" : ""}`}>
               Home <div className="underline" />
             </h3>
           </Link>
           <Link to="/feed">
-            <h3 className={`pb-4 ${getActivePage() === "feed" ? "active_page" : ""}`}>
+            <h3 className={`pb-4 ${activePage === "feed" ? "active_page" : ""}`}>
               Feed <div className="underline" />
             </h3>
           </Link>
           <Link to="/chat">
-            <h3 className={`pb-4 ${getActivePage() === "chat" ? "active_page" : ""}`}>
+            <h3 className={`pb-4 ${activePage === "chat" ? "active_page" : ""}`}>
               Chat <div className="underline" />
             </h3>
           </Link>
           <Link to="/orders">
-            <h3 className={`pb-4 ${getActivePage() === "orders" ? "active_page" : ""}`}>
+            <h3 className={`pb-4 ${activePage === "orders" ? "active_page" : ""}`}>
               Orders <div className="underline" />
             </h3>
           </Link>
           <Link to="/settings">
-            <h3 className={`pb-4 ${getActivePage() === "settings" ? "active_page" : ""}`}>
+            <h3 className={`pb-4 ${activePage === "settings" ? "active_page" : ""}`}>
               Settings <div className="underline" />
             </h3>
           </Link>
@@ -134,6 +157,13 @@ const Header: React.FC = () => {
           </nav>
         </div>
       </div>
+
+      {/* Login Modal */}
+      <Login
+        isOpen={isLoginOpen}
+        onClose={() => setIsLoginOpen(false)}
+        onLogin={handleLogin}
+      />
     </header>
   );
 };

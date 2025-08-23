@@ -26,6 +26,9 @@ const IMAGES = {
   storeCover: '/storeCover.svg',
   whatsapp: '/whatsapp.svg',
   x: '/X.svg',
+  login: '/login.svg',
+  Xcircle: '/XCircle.svg',
+  backarrow: '/backarrow.svg',
 };
 
 export default IMAGES;

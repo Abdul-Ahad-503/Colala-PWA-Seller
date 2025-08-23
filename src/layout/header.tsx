@@ -19,7 +19,7 @@ const Header: React.FC = () => {
     return "";
   };
 
-  const activePage = getActivePage();
+  // const activePage = getActivePage();
 
   return (
     <header className="bg-primary text-white rounded-b-3xl overflow-hidden">

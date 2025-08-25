@@ -1,7 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import IMAGES from "../../constants";
+import StorePopup from "./StorePopup";
+import StoreBuilderPopup from "./StoreBuilderPopup";
 
 const HomePage: React.FC = () => {
+  const [isStorePopupOpen, setIsStorePopupOpen] = useState(false);
+  const [isStoreBuilderPopupOpen, setIsStoreBuilderPopupOpen] = useState(false);
+
+  const handleViewProfile = () => {
+    setIsStorePopupOpen(true);
+  };
+
+  const handleClosePopup = () => {
+    setIsStorePopupOpen(false);
+  };
+
+  const handleStoreBuilder = () => {
+    setIsStoreBuilderPopupOpen(true);
+  };
+
+  const handleCloseStoreBuilder = () => {
+    setIsStoreBuilderPopupOpen(false);
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <div className="container-custom ">
@@ -31,10 +52,15 @@ const HomePage: React.FC = () => {
 
             {/* Action Buttons */}
             <div className="flex justify-end gap-2 pt-4 mb-4">
-              <button className="bg-black text-white px-5 py-2 rounded-[10px] text-[10px] font-medium">
+              <button 
+                onClick={handleViewProfile}
+                className="bg-black text-white px-5 py-2 rounded-[10px] text-[10px] font-medium"
+              >
                 View Profile
               </button>
-              <button className="bg-primary text-white px-5 py-2 rounded-[10px] text-[10px] font-medium">
+              <button className="bg-primary text-white px-5 py-2 rounded-[10px] text-[10px] font-medium"
+                onClick={handleStoreBuilder}
+              >
                 Store Builder
               </button>
             </div>
@@ -131,7 +157,7 @@ const HomePage: React.FC = () => {
                 </div>
 
               {/* Promo Banner */}
-              <div className="bg-[#E53E3E] text-white rounded-b-[20px]  py-2 -mt-4 z-0 shadow-md">
+              <div className="bg-primary text-white rounded-b-[20px]  py-2 -mt-4 z-0 shadow-md">
                   <div className="flex items-center pt-3 px-4 gap-2">
                     <img
                       src={IMAGES.megaphone}
@@ -336,6 +362,12 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </div>
+      
+      {/* Store Popup Modal */}
+      <StorePopup isOpen={isStorePopupOpen} onClose={handleClosePopup} />
+      
+      {/* Store Builder Popup Modal */}
+      <StoreBuilderPopup isOpen={isStoreBuilderPopupOpen} onClose={handleCloseStoreBuilder} />
     </div>
   );
 };

@@ -102,7 +102,7 @@ const Login: React.FC<LoginProps> = ({ isOpen, onClose, onLogin }) => {
         <div className="w-1/2 p-12 flex flex-col justify-center">
           {/* Header */}
           <div className="text-center mb-8">
-            <h2 className="text-[24px] font-semibold text-[#E53E3E] mb-2">Login</h2>
+            <h2 className="text-[24px] font-semibold text-primary mb-2">Login</h2>
             <p className="text-gray-500 text-[14px]">Login to you account</p>
           </div>
 
@@ -178,7 +178,7 @@ const Login: React.FC<LoginProps> = ({ isOpen, onClose, onLogin }) => {
           <div className="text-center mt-6">
             <button
               onClick={handleForgotPassword}
-              className="text-[#E53E3E] text-[14px] hover:text-red-600 font-medium"
+              className="text-primary text-[14px] hover:text-red-600 font-medium"
             >
               Forgot Password ?
             </button>

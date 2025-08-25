@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import IMAGES from "../../constants";
 import StorePopup from "./StorePopup";
 import StoreBuilderPopup from "./StoreBuilderPopup";
+import { useDynamicColors } from "../../hooks/useDynamicColors";
 
 const HomePage: React.FC = () => {
   const [isStorePopupOpen, setIsStorePopupOpen] = useState(false);
   const [isStoreBuilderPopupOpen, setIsStoreBuilderPopupOpen] = useState(false);
+  const colors = useDynamicColors();
 
   const handleViewProfile = () => {
     setIsStorePopupOpen(true);
@@ -41,7 +43,10 @@ const HomePage: React.FC = () => {
           <div className="relative px-6 ">
             {/* Profile Picture */}
             <div className="absolute -top-8 left-9">
-              <div className="w-16 h-16 bg-primary rounded-full  overflow-hidden">
+              <div 
+                className="w-16 h-16 rounded-full overflow-hidden"
+                style={colors.getPrimaryBg()}
+              >
                 <img
                   src={IMAGES.sasha}
                   alt="Sasha Stores"
@@ -58,8 +63,10 @@ const HomePage: React.FC = () => {
               >
                 View Profile
               </button>
-              <button className="bg-primary text-white px-5 py-2 rounded-[10px] text-[10px] font-medium"
+              <button 
+                className="text-white px-5 py-2 rounded-[10px] text-[10px] font-medium"
                 onClick={handleStoreBuilder}
+                style={colors.getButtonStyle()}
               >
                 Store Builder
               </button>
@@ -157,7 +164,10 @@ const HomePage: React.FC = () => {
                 </div>
 
               {/* Promo Banner */}
-              <div className="bg-primary text-white rounded-b-[20px]  py-2 -mt-4 z-0 shadow-md">
+              <div 
+                className="text-white rounded-b-[20px] py-2 -mt-4 z-0 shadow-md"
+                style={colors.getPrimaryBg()}
+              >
                   <div className="flex items-center pt-3 px-4 gap-2">
                     <img
                       src={IMAGES.megaphone}
@@ -196,7 +206,10 @@ const HomePage: React.FC = () => {
 
               {/* Action Buttons */}
               <div className="flex gap-3">
-                <button className="flex-1 bg-primary text-white py-4 rounded-[15px] text-xs font-normal">
+                <button 
+                  className="flex-1 text-white py-4 rounded-[15px] text-xs font-normal"
+                  style={colors.getButtonStyle()}
+                >
                   Add Product
                 </button>
                 <button className="flex-1 bg-black text-white py-4 rounded-[15px] text-xs font-normal">

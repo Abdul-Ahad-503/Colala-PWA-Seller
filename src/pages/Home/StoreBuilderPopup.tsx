@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import IMAGES from '../../constants';
+import { useColor } from '../../contexts/ColorContext';
+import { useDynamicColors } from '../../hooks/useDynamicColors';
 
 interface StoreBuilderPopupProps {
   isOpen: boolean;
@@ -7,6 +9,9 @@ interface StoreBuilderPopupProps {
 }
 
 const StoreBuilderPopup: React.FC<StoreBuilderPopupProps> = ({ isOpen, onClose }) => {
+  const { primaryColor, updateTheme } = useColor();
+  const colors = useDynamicColors();
+  
   const [formData, setFormData] = useState({
     storeName: 'Sasha Stores',
     email: 'Sashastores@gmail.com',
@@ -16,7 +21,7 @@ const StoreBuilderPopup: React.FC<StoreBuilderPopupProps> = ({ isOpen, onClose }
     categories: ['Electronics'],
     profileBanner: '',
     promotionalBanner: '',
-    selectedColor: 'primary'
+    selectedColor: primaryColor
   });
 
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -32,7 +37,7 @@ const StoreBuilderPopup: React.FC<StoreBuilderPopupProps> = ({ isOpen, onClose }
   ];
 
   const colorOptions = [
-    'primary', '#0000FF', '#008000', '#00FF48', '#374F23', '#4C1066', '#800080', '#FBFF00', '#FF0066', '#FFA500'
+    '#E53E3E', '#0000FF', '#008000', '#00FF48', '#374F23', '#4C1066', '#800080', '#FBFF00', '#FF0066', '#FFA500'
   ];
 
   const handleInputChange = (field: string, value: string | boolean) => {
@@ -50,6 +55,10 @@ const StoreBuilderPopup: React.FC<StoreBuilderPopupProps> = ({ isOpen, onClose }
 
   const handleSave = () => {
     console.log('Saving store details:', formData);
+    
+    // Update the global theme with the selected color
+    updateTheme(formData.selectedColor);
+    
     onClose();
   };
 
@@ -89,7 +98,8 @@ const StoreBuilderPopup: React.FC<StoreBuilderPopupProps> = ({ isOpen, onClose }
               type="text"
               value={formData.storeName}
               onChange={(e) => handleInputChange('storeName', e.target.value)}
-              className="w-full p-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+              className="w-full p-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2"
+              style={colors.getFocusRing()}
               placeholder="Store Name"
             />
           </div>
@@ -100,10 +110,17 @@ const StoreBuilderPopup: React.FC<StoreBuilderPopupProps> = ({ isOpen, onClose }
               type="email"
               value={formData.email}
               onChange={(e) => handleInputChange('email', e.target.value)}
-              className="w-full p-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+              className="w-full p-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2"
+              style={colors.getFocusRing()}
               placeholder="Email"
             />
-            <button className="absolute right-3 top-1/2 transform border border-primary text-[10px] px-5 py-1 rounded-[5px] -translate-y-1/2 text-primary text-xs">
+            <button 
+              className="absolute right-3 top-1/2 transform border text-[10px] px-5 py-1 rounded-[5px] -translate-y-1/2 text-xs"
+              style={{ 
+                ...colors.getPrimaryBorder(),
+                ...colors.getPrimaryText()
+              }}
+            >
               Verify
             </button>
           </div>
@@ -114,7 +131,8 @@ const StoreBuilderPopup: React.FC<StoreBuilderPopupProps> = ({ isOpen, onClose }
               type="tel"
               value={formData.phone}
               onChange={(e) => handleInputChange('phone', e.target.value)}
-              className="w-full p-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+              className="w-full p-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2"
+              style={colors.getFocusRing()}
               placeholder="Phone Number"
             />
           </div>
@@ -131,9 +149,8 @@ const StoreBuilderPopup: React.FC<StoreBuilderPopupProps> = ({ isOpen, onClose }
               />
               <div
                 onClick={() => handleInputChange('showPhoneOnProfile', !formData.showPhoneOnProfile)}
-                className={`w-11 h-[18px] rounded-full cursor-pointer transition-colors  pt-0 ${
-                  formData.showPhoneOnProfile ? 'bg-primary' : 'bg-gray-300'
-                }`}
+                className={`w-11 h-[18px] rounded-full cursor-pointer transition-colors pt-0`}
+                style={colors.getToggleStyle(formData.showPhoneOnProfile)}
               >
                 <div
                   className={`w-4 h-4 bg-white pt-2 rounded-full shadow transform transition-transform ${
@@ -149,7 +166,8 @@ const StoreBuilderPopup: React.FC<StoreBuilderPopupProps> = ({ isOpen, onClose }
             <select
               value={formData.location}
               onChange={(e) => handleInputChange('location', e.target.value)}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary appearance-none bg-white"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 appearance-none bg-white"
+              style={colors.getFocusRing()}
             >
               {locations.map(location => (
                 <option key={location} value={location}>{location}</option>
@@ -169,7 +187,8 @@ const StoreBuilderPopup: React.FC<StoreBuilderPopupProps> = ({ isOpen, onClose }
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary appearance-none bg-white"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 appearance-none bg-white"
+                style={colors.getFocusRing()}
               >
                 <option value="">Select a category</option>
                 {categories.filter(cat => !formData.categories.includes(cat)).map(category => (
@@ -188,12 +207,14 @@ const StoreBuilderPopup: React.FC<StoreBuilderPopupProps> = ({ isOpen, onClose }
               {formData.categories.map(category => (
                 <span
                   key={category}
-                  className="bg-red-100 text-red-800 px-3 py-1 rounded-full text-xs flex items-center gap-1"
+                  className="px-3 py-1 rounded-full text-xs flex items-center gap-1"
+                  style={colors.getCategoryStyle()}
                 >
                   {category}
                   <button
                     onClick={() => handleCategoryRemove(category)}
-                    className="ml-1 text-red-600 hover:text-red-800"
+                    className="ml-1 hover:opacity-80"
+                    style={colors.getPrimaryText()}
                   >
                     ×
                   </button>
@@ -256,10 +277,10 @@ const StoreBuilderPopup: React.FC<StoreBuilderPopupProps> = ({ isOpen, onClose }
                 <button
                   key={color}
                   onClick={() => handleInputChange('selectedColor', color)}
-                  className={`w-12 h-12  rounded-full  ${
-                    formData.selectedColor === color ? 'ring ring-gray-800 ring-offset-2' : 'border-transparent  '
-                  } ${color === 'primary' ? 'bg-primary' : ''}`}
-                  style={color !== 'primary' ? { backgroundColor: color } : {}}
+                  className={`w-12 h-12 rounded-full ${
+                    formData.selectedColor === color ? 'ring ring-gray-800 ring-offset-2' : 'border-transparent'
+                  }`}
+                  style={{ backgroundColor: color }}
                 />
               ))}
             </div>
@@ -270,7 +291,8 @@ const StoreBuilderPopup: React.FC<StoreBuilderPopupProps> = ({ isOpen, onClose }
         <div className="p-6 ">
           <button
             onClick={handleSave}
-            className="w-full bg-primary text-white  text-sm py-5 rounded-[15px] font-normal hover:bg-red-600 transition-colors"
+            className="w-full text-white text-sm py-5 rounded-[15px] font-normal hover:opacity-90 transition-colors"
+            style={colors.getButtonStyle()}
           >
             Save Details
           </button>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import IMAGES from '../../constants';
 import ProductCard from '../../components/ProductCard';
+import { useDynamicColors } from '../../hooks/useDynamicColors';
 import { storeProducts, storeInfo } from './dataset';
 
 interface StorePopupProps {
@@ -31,6 +32,7 @@ const getCategoryColor = (category: string) => {
 };
 
 const StorePopup: React.FC<StorePopupProps> = ({ isOpen, onClose }) => {
+  const colors = useDynamicColors();
   const [activeTab, setActiveTab] = useState('products');
   const [searchQuery, setSearchQuery] = useState('');
   const [showFilter, setShowFilter] = useState(false);
@@ -124,7 +126,10 @@ const StorePopup: React.FC<StorePopupProps> = ({ isOpen, onClose }) => {
                     </div>
                   </div>
                   {/* Right side: Follow Button */}
-                  <button className="bg-primary text-white  py-2 px-8 rounded-[10px] text-xs hover:bg-red-600 transition-colors">
+                  <button 
+                    className="text-white py-2 px-8 rounded-[10px] text-xs hover:opacity-90 transition-colors"
+                    style={colors.getButtonStyle()}
+                  >
                     Follow
                   </button>
                 </div>
@@ -222,7 +227,10 @@ const StorePopup: React.FC<StorePopupProps> = ({ isOpen, onClose }) => {
                 </div>
 
               {/* Promo Banner */}
-              <div className="bg-primary text-white rounded-b-[20px]  py-2 -mt-4 z-0 shadow-md">
+              <div 
+                className="text-white rounded-b-[20px] py-2 -mt-4 z-0 shadow-md"
+                style={colors.getPrimaryBg()}
+              >
                   <div className="flex items-center pt-3 px-4 gap-2">
                     <img
                       src={IMAGES.megaphone}
@@ -239,7 +247,8 @@ const StorePopup: React.FC<StorePopupProps> = ({ isOpen, onClose }) => {
                 <div className="space-y-2 mt-5">
                   <a
                     href={`tel:${storeInfo.phone}`}
-                    className="w-full bg-primary text-white py-3 rounded-[15px] text-xs hover:bg-red-600 transition-colors block text-center"
+                    className="w-full text-white py-3 rounded-[15px] text-xs hover:opacity-90 transition-colors block text-center"
+                    style={colors.getButtonStyle()}
                   >
                     Call
                   </a>

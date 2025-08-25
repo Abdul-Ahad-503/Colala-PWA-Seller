@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Cookies from 'js-cookie';
 import IMAGES from '../../constants';
 import RegisterLevel2 from './registerlevel2';
+import RegisterLevel3 from './registerlevel3';
 
 interface RegisterProps {
   isOpen: boolean;
@@ -23,6 +24,7 @@ const Register: React.FC<RegisterProps> = ({ isOpen, onClose, onRegister, onBack
   const [showUploadStep, setShowUploadStep] = useState(false);
   const [showCategoryStep, setShowCategoryStep] = useState(false);
   const [showLevel2, setShowLevel2] = useState(false);
+  const [showLevel3, setShowLevel3] = useState(false);
   const [profileImage, setProfileImage] = useState<File | null>(null);
   const [bannerImage, setBannerImage] = useState<File | null>(null);
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -101,6 +103,15 @@ const Register: React.FC<RegisterProps> = ({ isOpen, onClose, onRegister, onBack
     setShowLevel2(false);
   };
 
+  const handleBackToLevel2 = () => {
+    setShowLevel3(false);
+  };
+
+  const handleProceedToLevel3 = () => {
+    setShowLevel2(false);
+    setShowLevel3(true);
+  };
+
   const handleBackToUpload = () => {
     setShowCategoryStep(false);
   };
@@ -145,7 +156,45 @@ const Register: React.FC<RegisterProps> = ({ isOpen, onClose, onRegister, onBack
         onRegister={onRegister}
         onBackToLogin={onBackToLogin}
         onBackToLevel1={handleBackToLevel1}
+        onProceedToLevel3={handleProceedToLevel3}
       />
+    );
+  }
+
+  // Show Level 3 registration after completing Level 2
+  if (showLevel3) {
+    return (
+      <div className="fixed inset-0 backdrop-brightness-50 bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div className="bg-white rounded-3xl overflow-hidden w-[876px] max-w-4xl h-[666px] flex relative">
+          {/* Close Button */}
+          <button
+            onClick={onClose}
+            className="absolute top-6 right-6 w-10 h-10 -mt-3 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors z-10"
+          >
+            <img src={IMAGES.Xcircle} alt="Close" className="w-8 h-8" />
+          </button>
+
+          {/* Left Side - Same as other levels */}
+          <div className="w-1/2 bg-gradient-to-br from-red-500 to-red-600 relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-full">
+              <img 
+                src={IMAGES.login} 
+                alt="Woman with phone" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          {/* Right Side - Level 3 Content */}
+          <RegisterLevel3
+            isOpen={true}
+            onClose={onClose}
+            onRegister={onRegister}
+            onBackToLogin={onBackToLogin}
+            onBackToLevel2={handleBackToLevel2}
+          />
+        </div>
+      </div>
     );
   }
 

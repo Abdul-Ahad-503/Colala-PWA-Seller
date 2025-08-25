@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Cookies from 'js-cookie';
 import IMAGES from '../../constants';
+import RegisterLevel2Files from './registerlevel2files';
+import RegisterLevel3 from './registerlevel3';
 
 interface RegisterLevel2Props {
   isOpen: boolean;
@@ -8,6 +10,7 @@ interface RegisterLevel2Props {
   onRegister: (email: string) => void;
   onBackToLogin: () => void;
   onBackToLevel1: () => void;
+  onProceedToLevel3?: () => void;
 }
 
 const RegisterLevel2: React.FC<RegisterLevel2Props> = ({ 
@@ -15,7 +18,8 @@ const RegisterLevel2: React.FC<RegisterLevel2Props> = ({
   onClose, 
   onRegister, 
   onBackToLogin,
-  onBackToLevel1 
+  onBackToLevel1,
+  onProceedToLevel3
 }) => {
   const [businessName, setBusinessName] = useState('');
   const [businessType, setBusinessType] = useState('');
@@ -24,6 +28,8 @@ const RegisterLevel2: React.FC<RegisterLevel2Props> = ({
   const [isLoading, setIsLoading] = useState(false);
   const [currentLevel] = useState(2);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [showLevel2Files, setShowLevel2Files] = useState(false);
+  const [showLevel3, setShowLevel3] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const businessTypeOptions = [
@@ -56,7 +62,7 @@ const RegisterLevel2: React.FC<RegisterLevel2Props> = ({
 
     setIsLoading(true);
 
-    // Simulate final registration process
+    // Simulate processing and then proceed to Level 2 Files (NIN/CAC upload)
     setTimeout(() => {
       // Store Level 2 registration data in cookies
       const level2Data = {
@@ -77,17 +83,11 @@ const RegisterLevel2: React.FC<RegisterLevel2Props> = ({
 
       // Update cookies
       Cookies.set('userRegistration', JSON.stringify(updatedData), { expires: 7 });
-      Cookies.set('isLoggedIn', 'true', { expires: 7 });
 
       setIsLoading(false);
-      onRegister(updatedData.storeEmail || '');
-      onClose();
       
-      // Reset form
-      setBusinessName('');
-      setBusinessType('');
-      setNinNumber('');
-      setCacNumber('');
+      // Open Level 2 file upload step (NIN/CAC uploads)
+      setShowLevel2Files(true);
     }, 1000);
   };
 
@@ -108,6 +108,25 @@ const RegisterLevel2: React.FC<RegisterLevel2Props> = ({
   const handleViewBenefits = () => {
     // Handle view benefits action
     console.log('View benefits clicked');
+  };
+
+  const handleBackToLevel2 = () => {
+    setShowLevel2Files(false);
+  };
+
+  const handleProceedToLevel3 = () => {
+    setShowLevel2Files(false);
+    if (onProceedToLevel3) {
+      onProceedToLevel3();
+    } else {
+      // Fallback to internal state if prop not provided
+      setShowLevel3(true);
+    }
+  };
+
+  const handleLevel3Complete = (email: string) => {
+    onRegister(email);
+    setShowLevel3(false);
   };
 
   if (!isOpen) return null;
@@ -282,6 +301,24 @@ const RegisterLevel2: React.FC<RegisterLevel2Props> = ({
           </form>
         </div>
       </div>
+
+      {/* Level 2 Files Registration Modal */}
+      <RegisterLevel2Files
+        isOpen={showLevel2Files}
+        onClose={onClose}
+        onBackToLogin={onBackToLogin}
+        onBackToLevel2={handleBackToLevel2}
+        onProceedToLevel3={handleProceedToLevel3}
+      />
+
+      {/* Level 3 Registration Modal */}
+      <RegisterLevel3
+        isOpen={showLevel3}
+        onClose={onClose}
+        onRegister={handleLevel3Complete}
+        onBackToLogin={onBackToLogin}
+        onBackToLevel2={() => setShowLevel3(false)}
+      />
     </div>
   );
 };

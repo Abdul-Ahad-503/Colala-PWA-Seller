@@ -197,3 +197,27 @@
   background-color: white;
   border-radius: 999px;
 }
+
+/* Custom Scrollbar for Level 3 Registration */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #E53E3E #f1f1f1;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #E53E3E;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #d53030;
+}

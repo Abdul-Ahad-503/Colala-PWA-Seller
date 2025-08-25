@@ -29,6 +29,11 @@ const IMAGES = {
   login: '/login.svg',
   Xcircle: '/XCircle.svg',
   backarrow: '/backarrow.svg',
+  storeCoverSmall: '/storeCoverSmall.svg',
+  laptop: '/laptop.svg',
+  laptop2: '/laptop2.svg  ',
+  cutBg: '/cut-bg.svg',
+  shopping_Cart: '/shopping-cart.svg'
 };
 
 export default IMAGES;

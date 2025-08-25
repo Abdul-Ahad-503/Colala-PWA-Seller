@@ -202,7 +202,7 @@
 /* Custom Scrollbar for Level 3 Registration */
 .custom-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: #E53E3E #f1f1f1;
+  scrollbar-color: var(--color-primary) #f1f1f1;
 }
 
 .custom-scrollbar::-webkit-scrollbar {
@@ -215,10 +215,40 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #E53E3E;
+  background: var(--color-primary);
   border-radius: 10px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #d53030;
+}
+
+.pop_up::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 6px;
+
+  width: 118px;
+  height: 8px;
+  margin: 0px; /* center & space below */
+  background-color:#D9D9D9; /* adjust color as needed */
+  border-radius: 10px; /* for full rounding */
+}
+
+.pop_up h2{
+  font-family: 'Oleo Script', cursive;
+  
+  font-weight: 400;
+  text-align: center;
+  margin: 0;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

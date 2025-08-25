@@ -77,13 +77,13 @@ const Login: React.FC<LoginProps> = ({ isOpen, onClose, onLogin }) => {
 
   return (
     <div className="fixed inset-0 backdrop-brightness-50 bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-3xl overflow-hidden w-[876px] max-w-4xl h-[666px] flex relative">
+      <div className="bg-white rounded-3xl  overflow-hidden w-[876px] max-w-4xl h-[666px] flex relative">
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-6 right-6 w-10 h-10 -mt-3 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors z-10"
+          className="absolute top-6  right-6 w-10 h-10 -mt-3 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors z-10"
         >
-          <img src={IMAGES.Xcircle} alt="Close" className="w-8 h-8" />
+          <img src={IMAGES.Xcircle} alt="Close" className="w-8 h-8 ml-10" />
         </button>
 
         {/* Left Side - Complete Frame with Main Image Only */}

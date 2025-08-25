@@ -3,6 +3,7 @@ import Cookies from 'js-cookie';
 import IMAGES from '../../constants';
 import RegisterLevel2 from './registerlevel2';
 import RegisterLevel3 from './registerlevel3';
+import RegisterLevel4 from './registerlevel4';
 
 interface RegisterProps {
   isOpen: boolean;
@@ -25,6 +26,7 @@ const Register: React.FC<RegisterProps> = ({ isOpen, onClose, onRegister, onBack
   const [showCategoryStep, setShowCategoryStep] = useState(false);
   const [showLevel2, setShowLevel2] = useState(false);
   const [showLevel3, setShowLevel3] = useState(false);
+  const [showLevel4, setShowLevel4] = useState(false);
   const [profileImage, setProfileImage] = useState<File | null>(null);
   const [bannerImage, setBannerImage] = useState<File | null>(null);
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -105,6 +107,17 @@ const Register: React.FC<RegisterProps> = ({ isOpen, onClose, onRegister, onBack
 
   const handleBackToLevel2 = () => {
     setShowLevel3(false);
+    setShowLevel2(true);
+  };
+
+  const handleBackToLevel3 = () => {
+    setShowLevel4(false);
+    setShowLevel3(true);
+  };
+
+  const handleProceedToLevel4 = () => {
+    setShowLevel3(false);
+    setShowLevel4(true);
   };
 
   const handleProceedToLevel3 = () => {
@@ -161,6 +174,43 @@ const Register: React.FC<RegisterProps> = ({ isOpen, onClose, onRegister, onBack
     );
   }
 
+  // Show Level 4 registration after completing Level 3
+  if (showLevel4) {
+    return (
+      <div className="fixed inset-0 backdrop-brightness-50 bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div className="bg-white rounded-3xl overflow-hidden w-[876px] max-w-4xl h-[666px] flex relative">
+          {/* Close Button */}
+          <button
+            onClick={onClose}
+            className="absolute top-6 right-6 w-10 h-10 -mt-3 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors z-10"
+          >
+            <img src={IMAGES.Xcircle} alt="Close" className="w-8 h-8" />
+          </button>
+
+          {/* Left Side - Same as other levels */}
+          <div className="w-1/2 bg-gradient-to-br from-red-500 to-red-600 relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-full">
+              <img 
+                src={IMAGES.login} 
+                alt="Woman with phone" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          {/* Right Side - Level 4 Content */}
+          <RegisterLevel4
+            isOpen={true}
+            onClose={onClose}
+            onRegister={onRegister}
+            onBackToLogin={onBackToLogin}
+            onBackToLevel3={handleBackToLevel3}
+          />
+        </div>
+      </div>
+    );
+  }
+
   // Show Level 3 registration after completing Level 2
   if (showLevel3) {
     return (
@@ -192,6 +242,7 @@ const Register: React.FC<RegisterProps> = ({ isOpen, onClose, onRegister, onBack
             onRegister={onRegister}
             onBackToLogin={onBackToLogin}
             onBackToLevel2={handleBackToLevel2}
+            onProceedToLevel4={handleProceedToLevel4}
           />
         </div>
       </div>
@@ -206,9 +257,9 @@ const Register: React.FC<RegisterProps> = ({ isOpen, onClose, onRegister, onBack
           {/* Close Button */}
           <button
             onClick={onClose}
-            className="absolute top-6 right-6 w-10 h-10 -mt-3 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors z-10"
+            className="absolute top-6  right-6 w-10 h-10 -mt-3 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors z-10"
           >
-            <img src={IMAGES.Xcircle} alt="Close" className="w-8 h-8" />
+            <img src={IMAGES.Xcircle} alt="Close" className="w-8 h-8 ml-10" />
           </button>
 
           {/* Left Side - Same as before */}
@@ -366,7 +417,7 @@ const Register: React.FC<RegisterProps> = ({ isOpen, onClose, onRegister, onBack
                   <button
                     onClick={handleProceedToLevel2}
                     disabled={isLoading}
-                    className="flex-1 bg-red-500 text-[14px] hover:bg-red-600 text-white font-xs py-1.5 px-4 rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="flex-1 bg-red-500 text-[11px] hover:bg-red-600 text-white font-lg py-5 px-5 rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isLoading ? (
                       <div className="flex items-center justify-center">
@@ -382,7 +433,7 @@ const Register: React.FC<RegisterProps> = ({ isOpen, onClose, onRegister, onBack
                   </button>
                   <button
                     onClick={onClose}
-                    className="flex-1 bg-black text-[14px] hover:bg-gray-800 text-white font-xs py-4 px-5 rounded-xl transition-colors"
+                    className="flex-1 bg-black text-[14px] hover:bg-gray-800 text-white font-medium py-4 px-5 rounded-xl transition-colors"
                   >
                     Home
                   </button>
@@ -391,7 +442,7 @@ const Register: React.FC<RegisterProps> = ({ isOpen, onClose, onRegister, onBack
                 {/* Login Button */}
                 <button
                   onClick={onBackToLogin}
-                  className="w-full bg-[#EBEBEB] text-[14px] hover:bg-gray-200 text-[#000000] font-medium py-4 px-6 rounded-xl transition-colors"
+                  className="w-full bg-[#EBEBEB] text-[14px] hover:bg-gray-200 text-[#000000] font-medium py-4 px-2 rounded-xl transition-colors"
                 >
                   Login
                 </button>
@@ -413,7 +464,7 @@ const Register: React.FC<RegisterProps> = ({ isOpen, onClose, onRegister, onBack
             onClick={onClose}
             className="absolute top-6 right-6 w-10 h-10 -mt-3 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors z-10"
           >
-            <img src={IMAGES.Xcircle} alt="Close" className="w-8 h-8" />
+            <img src={IMAGES.Xcircle} alt="Close" className="w-8 h-8 ml-10" />
           </button>
 
           {/* Left Side - Same as before */}

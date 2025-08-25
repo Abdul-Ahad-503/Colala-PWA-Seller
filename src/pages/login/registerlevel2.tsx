@@ -139,7 +139,7 @@ const RegisterLevel2: React.FC<RegisterLevel2Props> = ({
           onClick={onClose}
           className="absolute top-6 right-6 w-10 h-10 -mt-3 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors z-10"
         >
-          <img src={IMAGES.Xcircle} alt="Close" className="w-8 h-8" />
+          <img src={IMAGES.Xcircle} alt="Close" className="w-8 h-8 ml-10" />
         </button>
 
         {/* Left Side - Same as before */}

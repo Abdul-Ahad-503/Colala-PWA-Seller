@@ -87,7 +87,7 @@ const RegisterLevel2Files: React.FC<RegisterLevel2FilesProps> = ({
           onClick={onClose}
           className="absolute top-6 right-6 w-10 h-10 -mt-3 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors z-10"
         >
-          <img src={IMAGES.Xcircle} alt="Close" className="w-8 h-8" />
+          <img src={IMAGES.Xcircle} alt="Close" className="w-8 h-8 ml-10" />
         </button>
 
         {/* Left Side */}
@@ -139,10 +139,10 @@ const RegisterLevel2Files: React.FC<RegisterLevel2FilesProps> = ({
               
               {/* NIN Slip Upload */}
               <div>
-                <label className="block text-[14px] font-medium text-gray-700 mb-3">
+                <label className="block text-[14px] font-medium text-[#000000] mb-3 ">
                   Upload a copy of your NIN Slip
                 </label>
-                <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-red-400 transition-colors">
+                <div className="shadow-lg rounded-lg p-8 bg-[#FFFFFF] text-center  transition-colors">
                   <input
                     type="file"
                     id="ninSlip"
@@ -152,8 +152,8 @@ const RegisterLevel2Files: React.FC<RegisterLevel2FilesProps> = ({
                   />
                   <label htmlFor="ninSlip" className="cursor-pointer">
                     <div className="flex flex-col items-center">
-                      <div className="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
-                        <img src={IMAGES.camera} alt="Upload" className="w-8 h-8 text-gray-400" />
+                      <div className="w-16 h-16  rounded-lg flex items-center justify-center mb-4">
+                        <img src="/public/Camera11.svg" alt="Upload" className="w-8 h-8 text-gray-400" />
                       </div>
                       {ninSlipFile ? (
                         <div className="text-center">
@@ -161,7 +161,7 @@ const RegisterLevel2Files: React.FC<RegisterLevel2FilesProps> = ({
                           <p className="text-[12px] text-gray-600">{ninSlipFile.name}</p>
                         </div>
                       ) : (
-                        <p className="text-[14px] text-gray-500">Upload a clear picture of your NIN Slip</p>
+                        <p className="text-[10px] -mt-6 text-gray-500">Upload a clear picture of your NIN Slip</p>
                       )}
                     </div>
                   </label>
@@ -170,10 +170,10 @@ const RegisterLevel2Files: React.FC<RegisterLevel2FilesProps> = ({
 
               {/* CAC Certificate Upload */}
               <div>
-                <label className="block text-[14px] font-medium text-gray-700 mb-3">
+                <label className="block text-[14px] font-medium text-[#000000] mb-3">
                   Upload a copy of your CAC Certificate
                 </label>
-                <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-red-400 transition-colors">
+                <div className="shadow-lg rounded-lg p-10 text-center transition-colors">
                   <input
                     type="file"
                     id="cacCertificate"
@@ -183,8 +183,8 @@ const RegisterLevel2Files: React.FC<RegisterLevel2FilesProps> = ({
                   />
                   <label htmlFor="cacCertificate" className="cursor-pointer">
                     <div className="flex flex-col items-center">
-                      <div className="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
-                        <img src={IMAGES.camera} alt="Upload" className="w-8 h-8 text-gray-400" />
+                      <div className="w-16 h-16  rounded-lg flex items-center justify-center mb-4">
+                        <img src="/public/Camera11.svg" alt="Upload" className="w-8 h-8 text-gray-400" />
                       </div>
                       {cacCertificateFile ? (
                         <div className="text-center">
@@ -192,7 +192,7 @@ const RegisterLevel2Files: React.FC<RegisterLevel2FilesProps> = ({
                           <p className="text-[12px] text-gray-600">{cacCertificateFile.name}</p>
                         </div>
                       ) : (
-                        <p className="text-[14px] text-gray-500">Upload a clear picture of your CAC Certificate</p>
+                        <p className="text-[10px] text-gray-500 -mt-6">Upload a clear picture of your CAC Certificate</p>
                       )}
                     </div>
                   </label>
@@ -204,7 +204,7 @@ const RegisterLevel2Files: React.FC<RegisterLevel2FilesProps> = ({
             </form>
 
             {/* Action Buttons */}
-            <div className="space-y-4">
+            <div className="space-y-4 -mt-6">
               {/* Back Arrow, Proceed, and Home Buttons */}
               <div className="flex items-center gap-4">
                 <button
@@ -218,7 +218,7 @@ const RegisterLevel2Files: React.FC<RegisterLevel2FilesProps> = ({
                   type="button"
                   onClick={handleProceedToLevel3}
                   disabled={isLoading}
-                  className="flex-1 bg-red-500 text-[14px] hover:bg-red-600 text-white font-medium py-4 px-6 rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex-1 bg-red-500 text-[11px] hover:bg-red-600 text-white font-lg py-4.5 px-5 rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isLoading ? (
                     <div className="flex items-center justify-center">
@@ -235,7 +235,7 @@ const RegisterLevel2Files: React.FC<RegisterLevel2FilesProps> = ({
                 <button
                   type="button"
                   onClick={onClose}
-                  className="flex-1 bg-black text-[14px] hover:bg-gray-800 text-white font-medium py-4 px-6 rounded-xl transition-colors"
+                  className="flex-1 bg-black text-[14px] hover:bg-gray-800 text-white font-sm py-4 px-6 rounded-xl transition-colors"
                 >
                   Home
                 </button>

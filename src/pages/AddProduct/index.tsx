@@ -28,6 +28,38 @@ const AddProduct: React.FC = () => {
   const [productImages, setProductImages] = useState<File[]>([]);
   const [productVideo, setProductVideo] = useState<File | null>(null);
   const [variants, setVariants] = useState<string[]>([]);
+  const [isDescriptionPopupOpen, setIsDescriptionPopupOpen] = useState(false);
+  const [isCategoryPopupOpen, setIsCategoryPopupOpen] = useState(false);
+  const [isBrandPopupOpen, setIsBrandPopupOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState('Mobile Phones');
+  const [selectedBrand, setSelectedBrand] = useState('Apple');
+
+  // Dummy datasets
+  const categories = [
+    'Mobile Phones',
+    'Laptops',
+    'Tablets',
+    'Smart Watches',
+    'Headphones',
+    'Cameras',
+    'Gaming Consoles',
+    'Smart TVs',
+    'Home Appliances',
+    'Fashion & Clothing'
+  ];
+
+  const brands = [
+    'Apple',
+    'Samsung',
+    'Google',
+    'OnePlus',
+    'Xiaomi',
+    'Huawei',
+    'Sony',
+    'LG',
+    'Motorola',
+    'Nokia'
+  ];
 
   const handleInputChange = (field: string, value: string | boolean) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -251,14 +283,14 @@ const AddProduct: React.FC = () => {
             </div>
 
             {/* Full Description */}
-            <div>
-              <textarea
-                placeholder="full description"
-                value={formData.fullDescription}
-                onChange={(e) => handleInputChange('fullDescription', e.target.value)}
-                rows={6}
-                className="w-full p-4 py-5 border border-[#CDCDCD] rounded-2xl bg-white text-sm placeholder-gray-400 focus:outline-none focus:border-gray-400 focus:ring-0 resize-none"
-              />
+            <div 
+              className="flex items-center justify-between p-4 py-5 border border-[#CDCDCD] rounded-2xl bg-white cursor-pointer hover:bg-gray-50 transition-colors"
+              onClick={() => setIsDescriptionPopupOpen(true)}
+            >
+              <span className={`text-sm ${formData.fullDescription ? 'text-black' : 'text-gray-400'}`}>
+                {formData.fullDescription || 'Full Description'}
+              </span>
+              <img src={IMAGES.caretLeft} alt="Arrow" className="w-6 h-6" />
             </div>
 
             {/* Price */}
@@ -468,6 +500,213 @@ const AddProduct: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Description Popup */}
+      {isDescriptionPopupOpen && (
+        <div className="fixed inset-0 backdrop-brightness-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-3xl w-full max-w-md h-auto flex flex-col overflow-hidden relative">
+            {/* Header */}
+            <div className="flex items-center justify-center p-6 bg-white border-b border-gray-100 pop_up">
+              <h2 className="text-lg font-semibold text-black">Full Description</h2>
+              <button
+                onClick={() => setIsDescriptionPopupOpen(false)}
+                className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors absolute right-4 top-4"
+              >
+                <img src={IMAGES.Xcircle} alt="Close" className="w-6 h-6" />
+              </button>
+            </div>
+
+            {/* Content */}
+            <div className="p-6 space-y-4">
+              {/* Category-like sections */}
+              <div 
+                className="flex items-center justify-between p-4 border border-gray-200 rounded-2xl bg-white cursor-pointer hover:bg-gray-50 transition-colors"
+                onClick={() => setIsCategoryPopupOpen(true)}
+              >
+                <span className="text-sm text-black">{selectedCategory}</span>
+                <img src={IMAGES.caretLeft} alt="Arrow" className="w-5 h-5" />
+              </div>
+
+              <div 
+                className="flex items-center justify-between p-4 border border-gray-200 rounded-2xl bg-white cursor-pointer hover:bg-gray-50 transition-colors"
+                onClick={() => setIsBrandPopupOpen(true)}
+              >
+                <span className="text-sm text-black">{selectedBrand}</span>
+                <img src={IMAGES.caretLeft} alt="Arrow" className="w-5 h-5" />
+              </div>
+
+              {/* Specification fields */}
+              <div>
+                <input
+                  type="text"
+                  placeholder="Model"
+                  className="w-full p-4 border border-gray-200 rounded-2xl bg-white text-sm placeholder-gray-400 focus:outline-none focus:border-gray-400 focus:ring-0"
+                />
+              </div>
+
+              <div>
+                <input
+                  type="text"
+                  placeholder="Storage"
+                  className="w-full p-4 border border-gray-200 rounded-2xl bg-white text-sm placeholder-gray-400 focus:outline-none focus:border-gray-400 focus:ring-0"
+                />
+              </div>
+
+              <div>
+                <input
+                  type="text"
+                  placeholder="Resolution"
+                  className="w-full p-4 border border-gray-200 rounded-2xl bg-white text-sm placeholder-gray-400 focus:outline-none focus:border-gray-400 focus:ring-0"
+                />
+              </div>
+
+              <div>
+                <input
+                  type="text"
+                  placeholder="Color"
+                  className="w-full p-4 border border-gray-200 rounded-2xl bg-white text-sm placeholder-gray-400 focus:outline-none focus:border-gray-400 focus:ring-0"
+                />
+              </div>
+
+              <div>
+                <input
+                  type="text"
+                  placeholder="Display"
+                  className="w-full p-4 border border-gray-200 rounded-2xl bg-white text-sm placeholder-gray-400 focus:outline-none focus:border-gray-400 focus:ring-0"
+                />
+              </div>
+
+              <div>
+                <input
+                  type="text"
+                  placeholder="Screen Size"
+                  className="w-full p-4 border border-gray-200 rounded-2xl bg-white text-sm placeholder-gray-400 focus:outline-none focus:border-gray-400 focus:ring-0"
+                />
+              </div>
+
+              <div>
+                <input
+                  type="text"
+                  placeholder="Battery"
+                  className="w-full p-4 border border-gray-200 rounded-2xl bg-white text-sm placeholder-gray-400 focus:outline-none focus:border-gray-400 focus:ring-0"
+                />
+              </div>
+
+              <div>
+                <input
+                  type="text"
+                  placeholder="Camera"
+                  className="w-full p-4 border border-gray-200 rounded-2xl bg-white text-sm placeholder-gray-400 focus:outline-none focus:border-gray-400 focus:ring-0"
+                />
+              </div>
+            </div>
+
+            {/* Save Button */}
+            <div className="p-6 pt-0">
+              <button
+                onClick={() => {
+                  // Here you would collect all the specification data and create a description
+                  setIsDescriptionPopupOpen(false);
+                }}
+                className="w-full py-4 text-white rounded-2xl font-medium text-base"
+                style={colors.getButtonStyle()}
+              >
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Category Sub-Popup */}
+      {isCategoryPopupOpen && (
+        <div className="fixed inset-0 backdrop-brightness-50 flex items-center justify-center z-[60] p-4">
+          <div className="bg-white rounded-3xl w-full max-w-md h-auto flex flex-col overflow-hidden relative">
+            {/* Header */}
+            <div className="flex items-center justify-between p-6 bg-white border-b border-gray-100">
+              <h2 className="text-lg font-semibold text-black">Select Category</h2>
+              <button
+                onClick={() => setIsCategoryPopupOpen(false)}
+                className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors"
+              >
+                <img src={IMAGES.Xcircle} alt="Close" className="w-6 h-6" />
+              </button>
+            </div>
+
+            {/* Category List */}
+            <div className="p-6 space-y-3 max-h-96 overflow-y-auto">
+              {categories.map((category, index) => (
+                <div 
+                  key={index}
+                  className={`flex items-center justify-between p-4 border rounded-2xl cursor-pointer transition-colors ${
+                    selectedCategory === category 
+                      ? 'border-blue-500 bg-blue-50' 
+                      : 'border-gray-200 bg-white hover:bg-gray-50'
+                  }`}
+                  onClick={() => {
+                    setSelectedCategory(category);
+                    setIsCategoryPopupOpen(false);
+                  }}
+                >
+                  <span className={`text-sm ${
+                    selectedCategory === category ? 'text-blue-600 font-medium' : 'text-black'
+                  }`}>{category}</span>
+                  {selectedCategory === category && (
+                    <div className="w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center">
+                      <span className="text-white text-xs">✓</span>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Brand Sub-Popup */}
+      {isBrandPopupOpen && (
+        <div className="fixed inset-0 backdrop-brightness-50 flex items-center justify-center z-[60] p-4">
+          <div className="bg-white rounded-3xl w-full max-w-md h-auto flex flex-col overflow-hidden relative">
+            {/* Header */}
+            <div className="flex items-center justify-between p-6 bg-white border-b border-gray-100">
+              <h2 className="text-lg font-semibold text-black">Select Brand</h2>
+              <button
+                onClick={() => setIsBrandPopupOpen(false)}
+                className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors"
+              >
+                <img src={IMAGES.Xcircle} alt="Close" className="w-6 h-6" />
+              </button>
+            </div>
+
+            {/* Brand List */}
+            <div className="p-6 space-y-3 max-h-96 overflow-y-auto">
+              {brands.map((brand, index) => (
+                <div 
+                  key={index}
+                  className={`flex items-center justify-between p-4 border rounded-2xl cursor-pointer transition-colors ${
+                    selectedBrand === brand 
+                      ? 'border-blue-500 bg-blue-50' 
+                      : 'border-gray-200 bg-white hover:bg-gray-50'
+                  }`}
+                  onClick={() => {
+                    setSelectedBrand(brand);
+                    setIsBrandPopupOpen(false);
+                  }}
+                >
+                  <span className={`text-sm ${
+                    selectedBrand === brand ? 'text-blue-600 font-medium' : 'text-black'
+                  }`}>{brand}</span>
+                  {selectedBrand === brand && (
+                    <div className="w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center">
+                      <span className="text-white text-xs">✓</span>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

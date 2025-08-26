@@ -35,6 +35,8 @@ const IMAGES = {
   cutBg: '/cut-bg.svg',
   shopping_Cart: '/shopping-cart.svg',
   image : '/Image.svg',
+  caretLeft: '/CaretLeft.svg',
+  DownloadSimple: '/DownloadSimple.svg'
 };
 
 export default IMAGES;

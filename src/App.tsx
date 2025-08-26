@@ -1,6 +1,7 @@
 import PWABadge from './PWABadge.tsx'
 import Header from './layout/header.tsx'
 import HomePage from './pages/Home'
+import AddProduct from './pages/AddProduct'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { ColorProvider } from './contexts/ColorContext'
 import './index.css'
@@ -14,7 +15,7 @@ function App() {
           <div className="container-custom py-8">
             <Routes>
               <Route path="/" element={<HomePage />} />
-              
+              <Route path="/add-product" element={<AddProduct />} />
             </Routes>
             <PWABadge />
           </div>

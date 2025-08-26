@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import IMAGES from "../../constants";
 import StorePopup from "./StorePopup";
 import StoreBuilderPopup from "./StoreBuilderPopup";
@@ -224,12 +225,13 @@ const HomePage: React.FC = () => {
 
               {/* Action Buttons */}
               <div className="flex gap-3">
-                <button 
-                  className="flex-1 text-white py-4 rounded-[15px] text-xs font-normal"
+                <Link 
+                  to="/add-product"
+                  className="flex-1 text-white py-4 rounded-[15px] text-xs font-normal text-center block"
                   style={colors.getButtonStyle()}
                 >
                   Add Product
-                </button>
+                </Link>
                 <button className="flex-1 bg-black text-white py-4 rounded-[15px] text-xs font-normal">
                   Add Service
                 </button>

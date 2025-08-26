@@ -33,7 +33,8 @@ const IMAGES = {
   laptop: '/laptop.svg',
   laptop2: '/laptop2.svg  ',
   cutBg: '/cut-bg.svg',
-  shopping_Cart: '/shopping-cart.svg'
+  shopping_Cart: '/shopping-cart.svg',
+  image : '/Image.svg',
 };
 
 export default IMAGES;

@@ -1,16 +1,23 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import IMAGES from "../../constants";
 import StorePopup from "./StorePopup";
 import StoreBuilderPopup from "./StoreBuilderPopup";
+import ProfilePage from "../ProfilePage";
 import { useDynamicColors } from "../../hooks/useDynamicColors";
 
 const HomePage: React.FC = () => {
   const [isStorePopupOpen, setIsStorePopupOpen] = useState(false);
   const [isStoreBuilderPopupOpen, setIsStoreBuilderPopupOpen] = useState(false);
+  const [currentView, setCurrentView] = useState<'dashboard' | 'profile'>('profile'); // Start with profile view
   const colors = useDynamicColors();
 
   const handleViewProfile = () => {
-    setIsStorePopupOpen(true);
+    setCurrentView('dashboard'); // Switch to dashboard when "View Profile" is clicked from ProfilePage
+  };
+
+  const handleViewProfileFromDashboard = () => {
+    setIsStorePopupOpen(true); // Show store popup when "View Profile" is clicked from dashboard
   };
 
   const handleClosePopup = () => {
@@ -24,6 +31,18 @@ const HomePage: React.FC = () => {
   const handleCloseStoreBuilder = () => {
     setIsStoreBuilderPopupOpen(false);
   };
+
+  // Conditionally render profile page or dashboard
+  if (currentView === 'profile') {
+    return (
+      <>
+        <ProfilePage onViewProfile={handleViewProfile} />
+        
+        {/* Store Builder Popup Modal */}
+        <StoreBuilderPopup isOpen={isStoreBuilderPopupOpen} onClose={handleCloseStoreBuilder} />
+      </>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background">
@@ -58,7 +77,7 @@ const HomePage: React.FC = () => {
             {/* Action Buttons */}
             <div className="flex justify-end gap-2 pt-4 mb-4">
               <button 
-                onClick={handleViewProfile}
+                onClick={handleViewProfileFromDashboard}
                 className="bg-black text-white px-5 py-2 rounded-[10px] text-[10px] font-medium"
               >
                 View Profile
@@ -206,15 +225,19 @@ const HomePage: React.FC = () => {
 
               {/* Action Buttons */}
               <div className="flex gap-3">
-                <button 
-                  className="flex-1 text-white py-4 rounded-[15px] text-xs font-normal"
+                <Link 
+                  to="/add-product"
+                  className="flex-1 text-white py-4 rounded-[15px] text-xs font-normal text-center block"
                   style={colors.getButtonStyle()}
                 >
                   Add Product
-                </button>
-                <button className="flex-1 bg-black text-white py-4 rounded-[15px] text-xs font-normal">
+                </Link>
+                <Link 
+                  to="/add-service"
+                  className="flex-1 bg-black text-white py-4 rounded-[15px] text-xs font-normal text-center block"
+                >
                   Add Service
-                </button>
+                </Link>
               </div>
             </div>
 

@@ -51,7 +51,7 @@ const StorePopup: React.FC<StorePopupProps> = ({ isOpen, onClose }) => {
           <h2 className="text-2xl font-bold font-decorative">My Store</h2>
           <button
             onClick={onClose}
-            className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 absolute top-4 right-4"
+            className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 absolute  -right-6 top-3"
           >
             <img src={IMAGES.Xcircle} alt="Close" className="w-6 h-6" />
           </button>

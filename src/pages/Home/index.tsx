@@ -232,9 +232,12 @@ const HomePage: React.FC = () => {
                 >
                   Add Product
                 </Link>
-                <button className="flex-1 bg-black text-white py-4 rounded-[15px] text-xs font-normal">
+                <Link 
+                  to="/add-service"
+                  className="flex-1 bg-black text-white py-4 rounded-[15px] text-xs font-normal text-center block"
+                >
                   Add Service
-                </button>
+                </Link>
               </div>
             </div>
 

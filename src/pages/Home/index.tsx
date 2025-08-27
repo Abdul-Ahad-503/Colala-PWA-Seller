@@ -345,21 +345,23 @@ const HomePage: React.FC = () => {
               </div>
 
               {/* My Products */}
-              <div className="bg-white rounded-[20px] shadow-sm p-6">
-                <div className="flex flex-col items-start mb-4">
-                  <div className="w-13 h-13 bg-red-50 rounded-full flex items-center justify-center mb-4">
-                    <img
-                      src={IMAGES.notepad}
-                      alt="Products"
-                      className="w-6 h-6"
-                    />
+              <Link to="/my-products" className="block">
+                <div className="bg-white rounded-[20px] shadow-sm p-6 hover:bg-gray-50 transition-colors cursor-pointer">
+                  <div className="flex flex-col items-start mb-4">
+                    <div className="w-13 h-13 bg-red-50 rounded-full flex items-center justify-center mb-4">
+                      <img
+                        src={IMAGES.notepad}
+                        alt="Products"
+                        className="w-6 h-6"
+                      />
+                    </div>
+                    <h3 className="text-[14px] font-medium text-primary mb-2">My Products</h3>
                   </div>
-                  <h3 className="text-[14px] font-medium text-primary mb-2">My Products</h3>
+                  <p className="text-[12px] text-[#00000080]">
+                    This is home for all your products manage everything here
+                  </p>
                 </div>
-                <p className="text-[12px] text-[#00000080]">
-                  This is home for all your products manage everything here
-                </p>
-              </div>
+              </Link>
 
               {/* Statistics */}
               <div className="bg-white rounded-[20px] shadow-sm p-6">

@@ -36,7 +36,17 @@ const IMAGES = {
   shopping_Cart: '/shopping-cart.svg',
   image : '/Image.svg',
   caretLeft: '/CaretLeft.svg',
-  DownloadSimple: '/DownloadSimple.svg'
+  DownloadSimple: '/DownloadSimple.svg',
+  pencil: '/Pencil.svg',
+  DotsThree: '/DotsThree.svg',
+  iphone: '/iphone.jpg',
+  top1: '/top1.jpg',
+  top2: '/top2.jpg',
+  top3: '/top3.jpg',
+  top4: '/top4.jpg',
+  PencilSimpleLine: '/PencilSimpleLine.svg',
+  DotsThreeOutlineVertical: '/DotsThreeOutlineVertical.svg',
+  fire: '/Fire.svg',
 };
 
 export default IMAGES;

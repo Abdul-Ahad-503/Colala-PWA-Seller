@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import IMAGES from '../../constants';
+import SelectCategory from './selectcategory';
 
 interface CreateStore2Props {
   onBackToUpload: () => void;
@@ -7,20 +8,16 @@ interface CreateStore2Props {
 }
 
 const CreateStore2: React.FC<CreateStore2Props> = ({ onBackToUpload, onProceedToNext }) => {
-  const [selectedCategory, setSelectedCategory] = useState('');
-  const [selectedSubcategories, setSelectedSubcategories] = useState<string[]>([]);
+  const [selectedCategories, setSelectedCategories] = useState<string[]>(['Electronics', 'Phones']);
+  const [showCategoryModal, setShowCategoryModal] = useState(false);
   const [whatsappLink, setWhatsappLink] = useState('');
   const [instagramLink, setInstagramLink] = useState('');
   const [facebookLink, setFacebookLink] = useState('');
   const [twitterLink, setTwitterLink] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubcategoryToggle = (subcategory: string) => {
-    setSelectedSubcategories(prev => 
-      prev.includes(subcategory) 
-        ? prev.filter(item => item !== subcategory)
-        : [...prev, subcategory]
-    );
+  const handleCategoryModalApply = (categories: string[]) => {
+    setSelectedCategories(categories);
   };
 
   const handleViewBenefits = () => {
@@ -75,49 +72,29 @@ const CreateStore2: React.FC<CreateStore2Props> = ({ onBackToUpload, onProceedTo
         <div className="mb-6">
           <p className="text-[14px] text-gray-700 mb-4 font-medium">Add Category</p>
           
-          {/* Select Category Dropdown */}
+          {/* Select Category Button */}
           <div className="relative mb-4">
-            <select
-              value={selectedCategory}
-              onChange={(e) => setSelectedCategory(e.target.value)}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white text-gray-700 text-[14px] appearance-none cursor-pointer"
+            <button
+              onClick={() => setShowCategoryModal(true)}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white text-gray-700 text-[14px] text-left flex items-center justify-between hover:bg-gray-50"
             >
-              <option value="">Select Category</option>
-              <option value="electronics">Electronics</option>
-              <option value="fashion">Fashion</option>
-              <option value="home">Home & Garden</option>
-              <option value="sports">Sports</option>
-              <option value="books">Books</option>
-            </select>
-            <div className="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none">
+              <span> Select Category</span>
               <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
-            </div>
+            </button>
           </div>
 
           {/* Category Tags */}
-          <div className="flex gap-2 mb-4">
-            <button
-              onClick={() => handleSubcategoryToggle('Electronics')}
-              className={`px-4 py-2 rounded-full text-[12px] font-medium transition-colors ${
-                selectedSubcategories.includes('Electronics')
-                  ? 'bg-[#E53E3E] text-white'
-                  : 'bg-[#FFDEDE] text-[#E53E3E] hover:bg-[#FFDEDE]'
-              }`}
-            >
-              Electronics
-            </button>
-            <button
-              onClick={() => handleSubcategoryToggle('Phones')}
-              className={`px-4 py-2 rounded-full text-[12px] font-medium transition-colors ${
-                selectedSubcategories.includes('Phones')
-                  ? 'bg-[#E53E3E] text-white'
-                  : 'bg-[#FFDEDE] text-[#E53E3E] hover:bg-[#FFDEDE]'
-              }`}
-            >
-              Phones
-            </button>
+          <div className="flex flex-wrap gap-2 mb-4">
+            {selectedCategories.map((category) => (
+              <button
+                key={category}
+                className="bg-[#FFDEDE] text-[#E53E3E] px-4 py-2 rounded-full text-[12px] font-medium"
+              >
+                {category}
+              </button>
+            ))}
           </div>
         </div>
 
@@ -166,28 +143,34 @@ const CreateStore2: React.FC<CreateStore2Props> = ({ onBackToUpload, onProceedTo
       </div>
 
       {/* Action Buttons */}
-      <div className="mt-8 flex items-center space-x-4">
+      <div className=" flex items-center space-x-4 -mt-4">
         {/* Back Arrow */}
         <button
           onClick={onBackToUpload}
           className="p-2 rounded-lg transition-colors"
         >
-          <img src={IMAGES.backarrow} alt="Back" />
+          <img src={IMAGES.backarrow} alt="Back"   />
         </button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
 
         {/* Save and Exit Button */}
         <button
-          onClick={handleSaveAndExit}
-          className="w-[257px] h-[60px] bg-[#000000] text-[14px] text-white font-sm rounded-2xl hover:bg-gray-800 transition-colors"
-        >
-          Save & Exit
-        </button>
-
-        {/* Proceed to Level 2 Button */}
-        <button
-          onClick={handleProceedToLevel2}
+         onClick={handleProceedToLevel2}
           disabled={isLoading}
-          className="w-[320px] h-[60px] bg-[#E53E3E] text-[14px] text-white font-sm rounded-2xl hover:bg-red-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-[300px] h-[60px] bg-[#E53E3E] text-[14px] text-white font-sm rounded-2xl hover:bg-red-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isLoading ? (
             <div className="flex items-center justify-center">
@@ -201,7 +184,22 @@ const CreateStore2: React.FC<CreateStore2Props> = ({ onBackToUpload, onProceedTo
             'Proceed to Level 2'
           )}
         </button>
+
+        {/* Proceed to Level 2 Button */}
+        <button
+           onClick={handleSaveAndExit}
+          className="w-[300px] h-[60px] bg-[#000000] text-[14px] text-white font-sm rounded-2xl hover:bg-gray-800 transition-colors"
+        >
+          Save & Exit
+        </button>
       </div>
+
+      {/* Select Category Modal */}
+      <SelectCategory
+        isOpen={showCategoryModal}
+        onClose={() => setShowCategoryModal(false)}
+        onApply={handleCategoryModalApply}
+      />
     </div>
   );
 };

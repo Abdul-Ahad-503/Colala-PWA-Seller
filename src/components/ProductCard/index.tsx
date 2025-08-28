@@ -1,9 +1,11 @@
 import React, { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ServiceBadge from '../ServiceBadge';
 import IMAGES from '../../constants';
 import EditMenuPopup from './EditMenuPopup';
 
 interface ProductCardProps {
+  id: string;
   image: string;
   name: string;
   price: string;
@@ -24,6 +26,7 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
+  id,
   image,
   name,
   price,
@@ -45,6 +48,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   const [isEditMenuOpen, setIsEditMenuOpen] = useState(false);
   const [menuPosition, setMenuPosition] = useState({ x: 0, y: 0 });
   const editButtonRef = useRef<HTMLButtonElement>(null);
+  const navigate = useNavigate();
 
   const handleEditClick = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -57,8 +61,16 @@ const ProductCard: React.FC<ProductCardProps> = ({
     }
     setIsEditMenuOpen(true);
   };
+
+  const handleCardClick = () => {
+    navigate(`/product-details/${id}`);
+  };
+
   return (
-    <div className="bg-white rounded-[20px] max-w-47 overflow-hidden border border-gray-200 shadow-sm relative">
+    <div 
+      className="bg-white rounded-[20px] max-w-47 overflow-hidden border border-gray-200 shadow-sm relative cursor-pointer"
+      onClick={handleCardClick}
+    >
       {/* Product Image */}
       <div className="relative bg-gray-100">
         <img

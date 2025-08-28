@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import IMAGES from '../../constants';
 import ResetPassword from './resetpassword';
 import CreateStore2 from './createstore2';
+import CreateStore3 from './createstore3';
+import CreateStore4 from './createstore4';
+import CreateStore5 from './createstore5';
+import CreateStore6 from './createstore6';
 
 const CreateStore: React.FC = () => {
   const [storeName, setStoreName] = useState('');
@@ -13,6 +17,10 @@ const CreateStore: React.FC = () => {
   const [showResetPassword, setShowResetPassword] = useState(false);
   const [showUploadStep, setShowUploadStep] = useState(false);
   const [showCategoryStep, setShowCategoryStep] = useState(false);
+  const [showLevel2Step, setShowLevel2Step] = useState(false);
+  const [showLevel2FilesStep, setShowLevel2FilesStep] = useState(false);
+  const [showLevel3Step, setShowLevel3Step] = useState(false);
+  const [showLevel4Step, setShowLevel4Step] = useState(false);
   const [profileImage, setProfileImage] = useState<File | null>(null);
   const [bannerImage, setBannerImage] = useState<File | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -112,8 +120,72 @@ const CreateStore: React.FC = () => {
   };
 
   const handleProceedToNext = () => {
-    alert('Store created successfully!');
-    // Here you can navigate to next page or reset the form
+    setIsLoading(true);
+    
+    // Move to Level 2 step
+    setTimeout(() => {
+      setIsLoading(false);
+      setShowCategoryStep(false);
+      setShowLevel2Step(true);
+    }, 1000);
+  };
+
+  const handleBackToCategories = () => {
+    setShowLevel2Step(false);
+    setShowCategoryStep(true);
+  };
+
+  const handleProceedFromLevel2 = () => {
+    setIsLoading(true);
+    
+    // Move to Level 2 Files step (NIN/CAC upload)
+    setTimeout(() => {
+      setIsLoading(false);
+      setShowLevel2Step(false);
+      setShowLevel2FilesStep(true);
+    }, 1000);
+  };
+
+  const handleBackToLevel2 = () => {
+    setShowLevel2FilesStep(false);
+    setShowLevel2Step(true);
+  };
+
+  const handleProceedFromLevel2Files = () => {
+    setIsLoading(true);
+    
+    // Move to Level 3 step
+    setTimeout(() => {
+      setIsLoading(false);
+      setShowLevel2FilesStep(false);
+      setShowLevel3Step(true);
+    }, 1000);
+  };
+
+  const handleBackToLevel2Files = () => {
+    setShowLevel3Step(false);
+    setShowLevel2FilesStep(true);
+  };
+
+  const handleProceedFromLevel3 = () => {
+    setIsLoading(true);
+    
+    // Move to Level 4 step (address, delivery pricing, color selection)
+    setTimeout(() => {
+      setIsLoading(false);
+      setShowLevel3Step(false);
+      setShowLevel4Step(true);
+    }, 1000);
+  };
+
+  const handleBackToLevel3 = () => {
+    setShowLevel4Step(false);
+    setShowLevel3Step(true);
+  };
+
+  const handleProceedFromLevel4 = () => {
+    alert('Store creation completed successfully!');
+    // Here you can navigate to completion or dashboard
   };
 
   return (
@@ -222,7 +294,27 @@ const CreateStore: React.FC = () => {
 
           {/* Right Content Area */}
           <div className="flex-1 p-8 ml-12">
-            {showCategoryStep ? (
+            {showLevel4Step ? (
+              <CreateStore6
+                onBackToLevel3={handleBackToLevel3}
+                onProceedToNext={handleProceedFromLevel4}
+              />
+            ) : showLevel3Step ? (
+              <CreateStore5
+                onBackToLevel2Files={handleBackToLevel2Files}
+                onProceedToNext={handleProceedFromLevel3}
+              />
+            ) : showLevel2FilesStep ? (
+              <CreateStore4
+                onBackToLevel2={handleBackToLevel2}
+                onProceedToNext={handleProceedFromLevel2Files}
+              />
+            ) : showLevel2Step ? (
+              <CreateStore3
+                onBackToCategories={handleBackToCategories}
+                onProceedToNext={handleProceedFromLevel2}
+              />
+            ) : showCategoryStep ? (
               <CreateStore2 
                 onBackToUpload={handleBackToUpload}
                 onProceedToNext={handleProceedToNext}

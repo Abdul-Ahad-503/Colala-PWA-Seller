@@ -5,20 +5,26 @@ interface EditMenuPopupProps {
   isOpen: boolean;
   onClose: () => void;
   position: { x: number; y: number };
+  isSold?: boolean;
+  isOutOfStock?: boolean;
   onProductStat: () => void;
   onMarkAsSold: () => void;
   onBoostProduct: () => void;
   onMarkAsUnavailable: () => void;
+  onMarkAsAvailable: () => void;
 }
 
 const EditMenuPopup: React.FC<EditMenuPopupProps> = ({
   isOpen,
   onClose,
   position,
+  isSold = false,
+  isOutOfStock = false,
   onProductStat,
   onMarkAsSold,
   onBoostProduct,
-  onMarkAsUnavailable
+  onMarkAsUnavailable,
+  onMarkAsAvailable
 }) => {
   if (!isOpen) return null;
 
@@ -51,16 +57,30 @@ const EditMenuPopup: React.FC<EditMenuPopupProps> = ({
             <span className="text-sm font-medium text-gray-700">Product Stat</span>
           </button>
           
-          <button
-            onClick={() => {
-              onMarkAsSold();
-              onClose();
-            }}
-            className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors text-left"
-          >
-            <img src={IMAGES.sealCheck} alt="Mark as Sold" width="20" height="20" className="text-gray-600" />
-            <span className="text-sm font-medium text-gray-700">Mark as Sold</span>
-          </button>
+          {/* Conditional Sold/Available Button */}
+          {isSold ? (
+            <button
+              onClick={() => {
+                onMarkAsAvailable();
+                onClose();
+              }}
+              className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors text-left"
+            >
+              <img src={IMAGES.sealCheck} alt="Mark as Available" width="20" height="20" className="text-gray-600" />
+              <span className="text-sm font-medium text-gray-700">Mark as Available</span>
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                onMarkAsSold();
+                onClose();
+              }}
+              className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors text-left"
+            >
+              <img src={IMAGES.sealCheck} alt="Mark as Sold" width="20" height="20" className="text-gray-600" />
+              <span className="text-sm font-medium text-gray-700">Mark as Sold</span>
+            </button>
+          )}
           
           <button
             onClick={() => {
@@ -73,16 +93,30 @@ const EditMenuPopup: React.FC<EditMenuPopupProps> = ({
             <span className="text-sm font-medium text-gray-700">Boost Product</span>
           </button>
           
-          <button
-            onClick={() => {
-              onMarkAsUnavailable();
-              onClose();
-            }}
-            className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors text-left"
-          >
-            <img src={IMAGES.Xcircle} alt="Mark as unavailable" width="20" height="20" className="text-gray-600" />
-            <span className="text-sm font-medium text-gray-700">Mark as unavailable</span>
-          </button>
+          {/* Conditional Unavailable/Available Button */}
+          {isOutOfStock ? (
+            <button
+              onClick={() => {
+                onMarkAsAvailable();
+                onClose();
+              }}
+              className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors text-left"
+            >
+              <img src={IMAGES.sealCheck} alt="Mark as Available" width="20" height="20" className="text-gray-600" />
+              <span className="text-sm font-medium text-gray-700">Mark as Available</span>
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                onMarkAsUnavailable();
+                onClose();
+              }}
+              className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors text-left"
+            >
+              <img src={IMAGES.Xcircle} alt="Mark as unavailable" width="20" height="20" className="text-gray-600" />
+              <span className="text-sm font-medium text-gray-700">Mark as unavailable</span>
+            </button>
+          )}
         </div>
       </div>
     </>

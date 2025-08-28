@@ -20,6 +20,7 @@ interface ProductCardProps {
   onMarkAsSold?: () => void;
   onBoostProduct?: () => void;
   onMarkAsUnavailable?: () => void;
+  onMarkAsAvailable?: () => void;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
@@ -38,7 +39,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
   onProductStat = () => {},
   onMarkAsSold = () => {},
   onBoostProduct = () => {},
-  onMarkAsUnavailable = () => {}
+  onMarkAsUnavailable = () => {},
+  onMarkAsAvailable = () => {}
 }) => {
   const [isEditMenuOpen, setIsEditMenuOpen] = useState(false);
   const [menuPosition, setMenuPosition] = useState({ x: 0, y: 0 });
@@ -77,7 +79,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
       {/* Product Info */}
       <div className="p-2 pt-1">
         {/* Product Name */}
-        <h3 className="text-[10px] font-medium text-black mb-3 line-clamp-1">{name}</h3>
+        <h3 className="text-[10px] font-medium text-black mb-1 line-clamp-1">{name}</h3>
         
         {/* Price */}
         <div className="flex items-center gap-2 mb-3">
@@ -148,7 +150,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
       
       {/* Out of Stock/Sold Overlay - Covers entire card */}
       {(isOutOfStock || isSold) && (
-        <div className="absolute inset-0 bg-[#000000CC] bg-opacity-60 flex items-center justify-center rounded-[20px]">
+        <div className="absolute inset-0 bg-[#000000CC] bg-opacity-60 flex items-center justify-center rounded-[20px] pointer-events-none">
           <span className="text-white font-semibold text-lg">Out of Stock</span>
         </div>
       )}
@@ -158,10 +160,13 @@ const ProductCard: React.FC<ProductCardProps> = ({
         isOpen={isEditMenuOpen}
         onClose={() => setIsEditMenuOpen(false)}
         position={menuPosition}
+        isSold={isSold}
+        isOutOfStock={isOutOfStock}
         onProductStat={onProductStat}
         onMarkAsSold={onMarkAsSold}
         onBoostProduct={onBoostProduct}
         onMarkAsUnavailable={onMarkAsUnavailable}
+        onMarkAsAvailable={onMarkAsAvailable}
       />
     </div>
   );

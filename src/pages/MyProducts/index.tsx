@@ -6,8 +6,8 @@ const MyProducts: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'products' | 'services'>('products');
   const [activeFilter, setActiveFilter] = useState<'all' | 'sponsored' | 'outOfStock'>('all');
 
-  // Sample product data
-  const products = [
+  // Sample product data - now as state
+  const [products, setProducts] = useState([
     {
       id: '1',
       image: IMAGES.top1,
@@ -138,7 +138,7 @@ const MyProducts: React.FC = () => {
       productClicks: 15,
       messages: 5
     }
-  ];
+  ]);
 
   // Filter products based on active filter
   const filteredProducts = products.filter(product => {
@@ -155,6 +155,49 @@ const MyProducts: React.FC = () => {
     console.log('More actions for product:', productId);
   };
 
+  const handleMarkAsSold = (productId: string) => {
+    setProducts(prevProducts => 
+      prevProducts.map(product => 
+        product.id === productId 
+          ? { ...product, isSold: true, isOutOfStock: false }
+          : product
+      )
+    );
+    console.log(`Product ${productId} marked as sold`);
+  };
+
+  const handleMarkAsUnavailable = (productId: string) => {
+    setProducts(prevProducts => 
+      prevProducts.map(product => 
+        product.id === productId 
+          ? { ...product, isOutOfStock: true, isSold: false }
+          : product
+      )
+    );
+    console.log(`Product ${productId} marked as unavailable`);
+  };
+
+  const handleMarkAsAvailable = (productId: string) => {
+    setProducts(prevProducts => 
+      prevProducts.map(product => 
+        product.id === productId 
+          ? { ...product, isOutOfStock: false, isSold: false }
+          : product
+      )
+    );
+    console.log(`Product ${productId} marked as available`);
+  };
+
+  const handleProductStat = (productId: string) => {
+    console.log('View product statistics:', productId);
+    // Here you could navigate to a stats page or show a modal
+  };
+
+  const handleBoostProduct = (productId: string) => {
+    console.log('Boost product:', productId);
+    // Here you could implement boost functionality
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="container-custom py-8">
@@ -164,10 +207,10 @@ const MyProducts: React.FC = () => {
         </div>
 
         {/* Tabs */}
-        <div className="flex mb-6">
+        <div className="flex mb-6 border-b">
           <button
             onClick={() => setActiveTab('products')}
-            className={`px-6 py-3 text-sm font-medium border-b-2 transition-colors ${
+            className={`px-6 py-3 text-sm font-medium border-b-5  -mb-[1px] transition-colors ${
               activeTab === 'products'
                 ? 'text-red-500 border-red-500'
                 : 'text-gray-500 border-transparent hover:text-gray-700'
@@ -191,9 +234,9 @@ const MyProducts: React.FC = () => {
         <div className="flex gap-3 mb-8">
           <button
             onClick={() => setActiveFilter('all')}
-            className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${
+            className={`px-13 py-3 rounded-[10px] text-xs  transition-colors ${
               activeFilter === 'all'
-                ? 'bg-red-500 text-white'
+                ? 'bg-primary text-white'
                 : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50'
             }`}
           >
@@ -201,9 +244,9 @@ const MyProducts: React.FC = () => {
           </button>
           <button
             onClick={() => setActiveFilter('sponsored')}
-            className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${
+            className={`px-8 py-3 rounded-[10px] text-xs transition-colors ${
               activeFilter === 'sponsored'
-                ? 'bg-red-500 text-white'
+                ? 'bg-primary text-white'
                 : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50'
             }`}
           >
@@ -211,9 +254,9 @@ const MyProducts: React.FC = () => {
           </button>
           <button
             onClick={() => setActiveFilter('outOfStock')}
-            className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${
+            className={`px-7 py-3 rounded-[10px] text-xs transition-colors ${
               activeFilter === 'outOfStock'
-                ? 'bg-red-500 text-white'
+                ? 'bg-primary text-white'
                 : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50'
             }`}
           >
@@ -238,6 +281,11 @@ const MyProducts: React.FC = () => {
               messages={product.messages}
               onEdit={() => handleEdit(product.id)}
               onMore={() => handleMore(product.id)}
+              onProductStat={() => handleProductStat(product.id)}
+              onMarkAsSold={() => handleMarkAsSold(product.id)}
+              onBoostProduct={() => handleBoostProduct(product.id)}
+              onMarkAsUnavailable={() => handleMarkAsUnavailable(product.id)}
+              onMarkAsAvailable={() => handleMarkAsAvailable(product.id)}
             />
           ))}
         </div>

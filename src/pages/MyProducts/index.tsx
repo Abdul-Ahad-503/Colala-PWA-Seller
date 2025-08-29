@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import ProductCard from '../../components/ProductCard/index';
 import ProductStatsPopup from '../../components/ProductCard/ProductStatsPopup';
+import BoostAdPopup from '../../components/ProductCard/BoostAdPopup';
 import IMAGES from '../../constants';
 
 const MyProducts: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'products' | 'services'>('products');
   const [activeFilter, setActiveFilter] = useState<'all' | 'sponsored' | 'outOfStock'>('all');
   const [statsPopup, setStatsPopup] = useState<{ isOpen: boolean; productId: string | null }>({ 
+    isOpen: false, 
+    productId: null 
+  });
+  const [boostPopup, setBoostPopup] = useState<{ isOpen: boolean; productId: string | null }>({ 
     isOpen: false, 
     productId: null 
   });
@@ -289,8 +294,17 @@ const MyProducts: React.FC = () => {
   };
 
   const handleBoostProduct = (productId: string) => {
-    console.log('Boost product:', productId);
-    // Here you could implement boost functionality
+    setBoostPopup({ isOpen: true, productId });
+  };
+
+  const handleBoostProceed = () => {
+    console.log('Proceeding with boost for product:', boostPopup.productId);
+    // Here you would implement the actual boost logic
+    setBoostPopup({ isOpen: false, productId: null });
+  };
+
+  const handleBoostClose = () => {
+    setBoostPopup({ isOpen: false, productId: null });
   };
 
   return (
@@ -364,6 +378,7 @@ const MyProducts: React.FC = () => {
           {filteredProducts.map((product) => (
             <ProductCard
               key={product.id}
+              id={product.id}
               image={product.image}
               name={product.name}
               price={product.price}
@@ -448,6 +463,13 @@ const MyProducts: React.FC = () => {
           />
         );
       })()}
+
+      {/* Boost Ad Popup */}
+      <BoostAdPopup
+        isOpen={boostPopup.isOpen}
+        onClose={handleBoostClose}
+        onProceed={handleBoostProceed}
+      />
     </div>
   );
 };

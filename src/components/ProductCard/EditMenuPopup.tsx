@@ -47,73 +47,79 @@ const EditMenuPopup: React.FC<EditMenuPopupProps> = ({
       >
         <div className="flex flex-col">
           <button
-            onClick={() => {
+            onClick={(e) => {
+              e.stopPropagation();
               onProductStat();
               onClose();
             }}
             className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors text-left"
           >
-            <img src={IMAGES.chartBar} alt="Product Stat" width="20" height="20" className="text-gray-600" />
+            <img src={IMAGES.chartBar} alt="Product Stat" width="24" height="24" className="text-gray-600" />
             <span className="text-sm font-medium text-gray-700">Product Stat</span>
           </button>
           
           {/* Conditional Sold/Available Button */}
           {isSold ? (
             <button
-              onClick={() => {
+              onClick={(e) => {
+                e.stopPropagation();
                 onMarkAsAvailable();
                 onClose();
               }}
               className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors text-left"
             >
-              <img src={IMAGES.sealCheck} alt="Mark as Available" width="20" height="20" className="text-gray-600" />
+              <img src={IMAGES.UserCheck} alt="Mark as Available" width="24" height="24" className="text-gray-600" />
               <span className="text-sm font-medium text-gray-700">Mark as Available</span>
             </button>
           ) : (
             <button
-              onClick={() => {
+              onClick={(e) => {
+                e.stopPropagation();
                 onMarkAsSold();
                 onClose();
               }}
               className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors text-left"
             >
-              <img src={IMAGES.sealCheck} alt="Mark as Sold" width="20" height="20" className="text-gray-600" />
+              <img src={IMAGES.UserCheck} alt="Mark as Sold" width="20" height="20" className="text-gray-600" />
               <span className="text-sm font-medium text-gray-700">Mark as Sold</span>
             </button>
           )}
           
           <button
-            onClick={() => {
+            onClick={(e) => {
+              e.stopPropagation();
               onBoostProduct();
               onClose();
             }}
             className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors text-left"
           >
-            <img src={IMAGES.megaphone} alt="Boost Product" width="20" height="20" className="text-gray-600" />
+            <img src={IMAGES.ChartLineUp} alt="Boost Product" width="24" height="24" className="text-gray-600" />
             <span className="text-sm font-medium text-gray-700">Boost Product</span>
           </button>
           
           {/* Conditional Unavailable/Available Button */}
           {isOutOfStock ? (
             <button
-              onClick={() => {
+              onClick={(e) => {
+                e.stopPropagation();
                 onMarkAsAvailable();
                 onClose();
               }}
               className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors text-left"
             >
-              <img src={IMAGES.sealCheck} alt="Mark as Available" width="20" height="20" className="text-gray-600" />
+              <img src={IMAGES.Cross} alt="Mark as Available" width="24" height="24" className="text-gray-600" />
               <span className="text-sm font-medium text-gray-700">Mark as Available</span>
             </button>
           ) : (
             <button
-              onClick={() => {
+              onClick={(e) => {
+                e.stopPropagation();
                 onMarkAsUnavailable();
                 onClose();
               }}
               className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors text-left"
             >
-              <img src={IMAGES.Xcircle} alt="Mark as unavailable" width="20" height="20" className="text-gray-600" />
+              <img src={IMAGES.Cross} alt="Mark as unavailable" width="20" height="20" className="text-gray-600" />
               <span className="text-sm font-medium text-gray-700">Mark as unavailable</span>
             </button>
           )}

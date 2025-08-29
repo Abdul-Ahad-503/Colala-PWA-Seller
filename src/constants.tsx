@@ -50,7 +50,15 @@ const IMAGES = {
   feedPhone: '/FeedPhone.svg',
    vee: '/Vee.png',
     adam: '/adams.svg',
-    download: '/download.svg'
+    download: '/download.svg',
+  Trash: '/Trash.svg',
+  shoppingCartSimpleWhite: '/ShoppingCartSimpleWhite.svg',
+  Cross: '/Cross.svg',
+  ChartLineUp: '/ChartLineUp.svg',
+  UserCheck: '/UserCheck.svg',
+  MegaPhoneColored: '/MegaPhoneColored.svg',
+  
+
 };
 
 export default IMAGES;

@@ -47,6 +47,14 @@ const IMAGES = {
   PencilSimpleLine: '/PencilSimpleLine.svg',
   DotsThreeOutlineVertical: '/DotsThreeOutlineVertical.svg',
   fire: '/Fire.svg',
+  Trash: '/Trash.svg',
+  shoppingCartSimpleWhite: '/ShoppingCartSimpleWhite.svg',
+  Cross: '/Cross.svg',
+  ChartLineUp: '/ChartLineUp.svg',
+  UserCheck: '/UserCheck.svg',
+  MegaPhoneColored: '/MegaPhoneColored.svg',
+  
+
 };
 
 export default IMAGES;

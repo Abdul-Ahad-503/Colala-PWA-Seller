@@ -9,6 +9,7 @@ const ProductDetails: React.FC = () => {
   const [selectedColor, setSelectedColor] = useState<string>('black');
   const [selectedSize, setSelectedSize] = useState<string>('S');
   const [quantity, setQuantity] = useState<number>(1);
+  const [selectedThumbnail, setSelectedThumbnail] = useState<number>(0);
 
   // Sample product data
   const product = {
@@ -54,24 +55,24 @@ const ProductDetails: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen">
       {/* Header */}
-      <div className="bg-white border-b border-gray-200 sticky top-0 z-10">
-        <div className="container-custom py-4">
+      <div className="">
+        <div className="container-custom ">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2 text-sm text-gray-600">
+            <div className="flex items-center gap-2 text-2xl text-gray-600">
               <button onClick={handleBack} className="text-gray-600 hover:text-gray-800">
                 My product
               </button>
               <span>/</span>
-              <span className="font-semibold text-black">Product Details</span>
+              <span className="font-semibold  text-black">Product Details</span>
             </div>
             <div className="flex items-center gap-4">
-              <button className="p-2 hover:bg-gray-100 rounded-full">
-                <img src={IMAGES.DotsThreeOutlineVertical} alt="More" width="20" height="20" />
+              <button className="p-2 hover:bg-gray-200 bg-white shadow-sm rounded-full">
+                <img src={IMAGES.DotsThreeOutlineVertical} alt="More" width="24" height="24" />
               </button>
-              <button className="p-2 hover:bg-gray-100 rounded-full">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <button className="p-2 hover:bg-gray-200 bg-white shadow-sm rounded-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                   <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
                 </svg>
               </button>
@@ -82,40 +83,44 @@ const ProductDetails: React.FC = () => {
 
       {/* Content */}
       <div className="container-custom py-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Left Column - Images */}
-          <div className="space-y-4">
-            {/* Main Image */}
-            <div className="bg-white rounded-xl p-4">
+        <div className="flex gap-6">
+          {/* Left Side - Thumbnail Images */}
+          <div className="flex flex-col gap-3">
+            {product.thumbnails.map((thumb, index) => (
+              <div key={index} className="flex-shrink-0">
+                <img 
+                  src={thumb} 
+                  alt={`${product.name} ${index + 1}`}
+                  onClick={() => setSelectedThumbnail(index)}
+                  className={`w-20 h-20 object-cover rounded-lg cursor-pointer border-2 ${
+                    selectedThumbnail === index ? 'border-red-500' : 'border-gray-200'
+                  } hover:border-red-400 transition-colors`}
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Main Image */}
+          <div className="flex-1 max-w-md">
+            <div className="bg-white rounded-xl">
               <img 
-                src={product.mainImage} 
+                src={product.thumbnails[selectedThumbnail]} 
                 alt={product.name}
                 className="w-full h-80 object-cover rounded-lg"
               />
             </div>
-
-            {/* Thumbnail Images */}
-            <div className="flex gap-2 overflow-x-auto">
-              {product.thumbnails.map((thumb, index) => (
-                <div key={index} className="flex-shrink-0">
-                  <img 
-                    src={thumb} 
-                    alt={`${product.name} ${index + 1}`}
-                    className="w-16 h-16 object-cover rounded-lg border-2 border-gray-200 hover:border-red-500 cursor-pointer"
-                  />
-                </div>
-              ))}
-            </div>
           </div>
 
-          {/* Right Column - Product Info */}
-          <div className="space-y-6">
+          {/* Right Side - Product Info */}
+          <div className="flex-1 space-y-6">
             {/* Product Title and Price */}
             <div>
-              <h1 className="text-2xl font-bold text-black mb-2">{product.name}</h1>
-              <div className="flex items-center gap-4 mb-4">
-                <span className="text-2xl font-bold text-red-500">{product.price}</span>
-                <span className="text-lg text-gray-400 line-through">{product.originalPrice}</span>
+              <h1 className="text-2xl font-bold text-black mb-3">{product.name}</h1>
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-4">
+                  <span className="text-2xl font-bold text-red-500">{product.price}</span>
+                  <span className="text-lg text-gray-400 line-through">{product.originalPrice}</span>
+                </div>
                 <div className="flex items-center gap-1">
                   <span className="text-red-500">★</span>
                   <span className="text-sm text-gray-600">{product.rating}</span>
@@ -123,23 +128,32 @@ const ProductDetails: React.FC = () => {
               </div>
 
               {/* Progress bars */}
-              <div className="space-y-1">
-                <div className="h-2 bg-orange-500 rounded-full"></div>
-                <div className="h-2 bg-blue-500 rounded-full"></div>
-                <div className="h-2 bg-blue-600 rounded-full"></div>
+              <div className="space-y-1 mb-6">
+                <div className="flex items-center">
+                  <span className="text-xs text-white bg-orange-500 px-2 py-1 rounded mr-2">▼</span>
+                  <span className="text-xs text-white bg-orange-500 px-3 py-1 rounded-full flex-1">Information tag 1</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="text-xs text-white bg-blue-500 px-2 py-1 rounded mr-2">▼</span>
+                  <span className="text-xs text-white bg-blue-500 px-3 py-1 rounded-full flex-1">Information tag 2</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="text-xs text-white bg-purple-600 px-2 py-1 rounded mr-2">▼</span>
+                  <span className="text-xs text-white bg-purple-600 px-3 py-1 rounded-full flex-1">Information tag 3</span>
+                </div>
               </div>
             </div>
 
             {/* Color Selection */}
             <div>
-              <h3 className="text-sm font-medium text-black mb-3">Color</h3>
-              <div className="flex gap-2">
+              <h3 className="text-base font-medium text-black mb-3">Color</h3>
+              <div className="flex gap-3">
                 {product.colors.map((color) => (
                   <button
                     key={color.name}
                     onClick={() => setSelectedColor(color.name.toLowerCase())}
-                    className={`w-8 h-8 rounded-full border-2 ${
-                      selectedColor === color.name.toLowerCase() ? 'border-gray-800' : 'border-gray-300'
+                    className={`w-12 h-12 rounded-full border-3 ${
+                      selectedColor === color.name.toLowerCase() ? 'border-red-500' : 'border-gray-300'
                     }`}
                     style={{ backgroundColor: color.value }}
                   />
@@ -149,13 +163,13 @@ const ProductDetails: React.FC = () => {
 
             {/* Size Selection */}
             <div>
-              <h3 className="text-sm font-medium text-black mb-3">Size</h3>
-              <div className="flex gap-2">
+              <h3 className="text-base font-medium text-black mb-3">Size</h3>
+              <div className="flex gap-3">
                 {product.sizes.map((size) => (
                   <button
                     key={size}
                     onClick={() => setSelectedSize(size)}
-                    className={`px-4 py-2 rounded-lg border text-sm font-medium ${
+                    className={`px-4 py-3 rounded-lg border text-sm font-medium ${
                       selectedSize === size 
                         ? 'bg-red-500 text-white border-red-500' 
                         : 'bg-white text-gray-700 border-gray-300 hover:border-gray-400'
@@ -169,18 +183,20 @@ const ProductDetails: React.FC = () => {
 
             {/* Bulk Prices */}
             <div>
-              <div className="bg-red-500 text-white px-4 py-2 rounded-t-lg">
+              <div className="bg-red-500 text-white px-4 py-3 rounded-t-lg">
                 <h3 className="font-medium">Bulk Prices</h3>
               </div>
               <div className="bg-white border border-gray-200 rounded-b-lg overflow-hidden">
-                <div className="grid grid-cols-4 bg-gray-50 text-xs font-medium text-gray-600 p-3 border-b">
+                <div className="grid grid-cols-4 bg-gray-50 text-sm font-medium text-gray-600 p-3 border-b">
                   <span>Quantity</span>
                   <span>Amount</span>
                   <span>You Save</span>
                   <span>%</span>
                 </div>
                 {product.bulkPrices.map((price, index) => (
-                  <div key={index} className="grid grid-cols-4 p-3 text-sm border-b border-gray-100 last:border-b-0">
+                  <div key={index} className={`grid grid-cols-4 p-3 text-sm border-b border-gray-100 last:border-b-0 ${
+                    index % 2 === 0 ? 'bg-red-50' : 'bg-white'
+                  }`}>
                     <span className="text-gray-700">{price.quantity}</span>
                     <span className="text-gray-700">{price.amount}</span>
                     <span className="text-gray-700">{price.youSave}</span>
@@ -190,42 +206,46 @@ const ProductDetails: React.FC = () => {
               </div>
             </div>
 
-            {/* Quantity and Total */}
-            <div className="space-y-4">
-              <div>
-                <span className="text-sm text-gray-600">Quantity set</span>
-                <div className="text-xl font-bold text-red-500 mt-1">{product.price}</div>
-              </div>
+            {/* Quantity Left and Price */}
+            <div className="space-y-2">
+              <div className="text-sm text-gray-500">Quantity left</div>
+              <div className="text-2xl font-bold text-red-500">{product.price}</div>
+            </div>
 
-              <div className="flex items-center gap-4">
-                <button 
-                  onClick={() => handleQuantityChange('decrement')}
-                  className="w-10 h-10 bg-red-500 text-white rounded-lg flex items-center justify-center font-bold text-lg hover:bg-red-600"
-                >
-                  -
-                </button>
-                <span className="text-xl font-bold text-black px-4">{quantity}</span>
-                <button 
-                  onClick={() => handleQuantityChange('increment')}
-                  className="w-10 h-10 bg-red-500 text-white rounded-lg flex items-center justify-center font-bold text-lg hover:bg-red-600"
-                >
-                  +
-                </button>
-              </div>
+            {/* Quantity Controls */}
+            <div className="flex items-center gap-4">
+              <button 
+                onClick={() => handleQuantityChange('decrement')}
+                className="w-12 h-12 bg-red-500 text-white rounded-lg flex items-center justify-center font-bold text-xl hover:bg-red-600"
+              >
+                -
+              </button>
+              <span className="text-2xl font-bold text-black px-4">{quantity}</span>
+              <button 
+                onClick={() => handleQuantityChange('increment')}
+                className="w-12 h-12 bg-red-500 text-white rounded-lg flex items-center justify-center font-bold text-xl hover:bg-red-600"
+              >
+                +
+              </button>
             </div>
 
             {/* Action Buttons */}
             <div className="space-y-3">
               <div className="flex gap-3">
                 <button className="p-3 border border-gray-300 rounded-lg hover:bg-gray-50">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                    <line x1="9" y1="9" x2="15" y2="15"/>
-                    <line x1="15" y1="9" x2="9" y2="15"/>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-red-500">
+                    <path d="M3 6h18"/>
+                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
+                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
                   </svg>
                 </button>
                 <button className="p-3 border border-gray-300 rounded-lg hover:bg-gray-50">
-                  <img src={IMAGES.chartBar} alt="Stats" width="20" height="20" />
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-gray-600">
+                    <path d="M3 3v5h5"/>
+                    <path d="M3 8l8-8h8v8"/>
+                    <path d="M21 16v5h-5"/>
+                    <path d="M21 16l-8 8H5v-8"/>
+                  </svg>
                 </button>
                 <button className="flex-1 bg-red-500 text-white py-3 px-6 rounded-lg font-medium hover:bg-red-600">
                   Edit Product
@@ -244,7 +264,7 @@ const ProductDetails: React.FC = () => {
           <div className="flex gap-4 mb-6">
             <button
               onClick={() => setSelectedTab('description')}
-              className={`px-6 py-2 rounded-lg font-medium ${
+              className={`px-6 py-3 rounded-lg font-medium ${
                 selectedTab === 'description' 
                   ? 'bg-red-500 text-white' 
                   : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
@@ -254,7 +274,7 @@ const ProductDetails: React.FC = () => {
             </button>
             <button
               onClick={() => setSelectedTab('reviews')}
-              className={`px-6 py-2 rounded-lg font-medium ${
+              className={`px-6 py-3 rounded-lg font-medium ${
                 selectedTab === 'reviews' 
                   ? 'bg-red-500 text-white' 
                   : 'bg-gray-200 text-gray-700 hover:bg-gray-300'

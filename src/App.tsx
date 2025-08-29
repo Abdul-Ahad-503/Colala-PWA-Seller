@@ -9,6 +9,8 @@ import ProductDetails from './pages/ProductDetails'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { ColorProvider } from './contexts/ColorContext'
 import './index.css'
+import Chat from './pages/chat/chat';
+import Feed from './pages/feed/Feed';
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
               <Route path="/my-products" element={<MyProducts />} />
               <Route path="/product-details/:id" element={<ProductDetails />} />
               <Route path="/createstore" element={<CreateStore />} />
+               <Route path="/chat" element={<Chat />} />
+                <Route path="/feed" element={<Feed />} />
             </Routes>
             <PWABadge />
           </div>

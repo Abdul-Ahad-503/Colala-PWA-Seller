@@ -127,14 +127,7 @@ const DeliveryPricingDetail: React.FC<DeliveryPricingDetailProps> = ({
           </h3>
         </div>
 
-        {/* Content */}
-        <div 
-          className="w-[680px] space-y-6 max-h-[500px] overflow-y-auto custom-scrollbar" 
-          style={{
-            scrollbarWidth: 'thin',
-            scrollbarColor: '#CBD5E0 #F7FAFC'
-          }}
-        >
+       
           {/* State Dropdown */}
           <div className="mb-6">
             <div className="relative">
@@ -150,7 +143,7 @@ const DeliveryPricingDetail: React.FC<DeliveryPricingDetailProps> = ({
                 <option value="Rivers">Rivers</option>
                 <option value="Oyo">Oyo</option>
               </select>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none">
+              <div className="absolute inset-y-0 right-0 mr-75 flex items-center pr-4 pointer-events-none">
                 <svg className="w-5 h-5 mr-62 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
@@ -159,7 +152,7 @@ const DeliveryPricingDetail: React.FC<DeliveryPricingDetailProps> = ({
           </div>
 
           {/* Delivery Locations List */}
-          <div className="space-y-3 mb-6 w-[600px]">
+          <div className="space-y-3 mb-6 w-[680px]">
             {deliveryLocations.map((location) => (
               <div key={location.id} className="bg-white rounded-xl p-3 border border-gray-100 shadow-sm">
                 {/* State Label and Badge */}
@@ -193,7 +186,7 @@ const DeliveryPricingDetail: React.FC<DeliveryPricingDetailProps> = ({
                 <div className="flex gap-2 -mt-10">
                   <button
                     onClick={() => handleToggleLocation(location.id)}
-                    className="bg-[#E53E3E] ml-56 text-white text-[8px] font-medium py-2 px-6 rounded-2xl hover:bg-red-600 transition-colors"
+                    className="bg-[#E53E3E] ml-132 text-white text-[8px] font-medium py-2 px-6 rounded-2xl hover:bg-red-600 transition-colors"
                   >
                     Edit
                   </button>
@@ -225,7 +218,7 @@ const DeliveryPricingDetail: React.FC<DeliveryPricingDetailProps> = ({
           onClose={handleCloseAddPricingModal}
           onSave={handleSaveNewPricing}
         />
-      </div>
+    
     </>
   );
 };

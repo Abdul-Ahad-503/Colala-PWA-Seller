@@ -6,6 +6,7 @@ interface AddNewAddressProps {
   isOpen: boolean;
   onSave: (addressData: any) => void;
   onBack: () => void;
+    onClose: () => void;
 }
 
 interface OpeningHours {
@@ -44,6 +45,9 @@ const AddNewAddress: React.FC<AddNewAddressProps> = ({
     saturday: { from: '', to: '' },
     sunday: { from: '', to: '' }
   });
+
+    // Modal state for adding new address
+    const [showAddNewModal, setShowAddNewModal] = useState(false);
 
   const timeOptions = [
     '12:00 AM', '12:30 AM', '1:00 AM', '1:30 AM', '2:00 AM', '2:30 AM',
@@ -436,7 +440,7 @@ const AddNewAddress: React.FC<AddNewAddressProps> = ({
             {/* Add New Button */}
             <div className="text-center mt-4">
               <button
-                onClick={handleAddNew}
+                onClick={() => setShowAddNewModal(true)}
                 className="bg-[#E53E3E] w-[680px] text-white font-small  py-4 px-8 rounded-lg transition-colors hover:bg-red-600 text-[14px]"
               >
                 Add New
@@ -455,6 +459,147 @@ const AddNewAddress: React.FC<AddNewAddressProps> = ({
         mode={locationModalMode}
         selectedState={state}
       />
+
+      {/* Add New Address Modal Overlay */}
+      {showAddNewModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center  backdrop-brightness-50 bg-opacity-40">
+          <div className="bg-[#F9F9F9] rounded-[24px] shadow-lg w-[430px] max-h-[95vh] overflow-y-auto pt-4 pb-6 px-6 relative flex flex-col hide-scrollbar ">
+            {/* Close button */}
+            <button
+              className="absolute top-6 right-6 text-gray-500 hover:text-gray-700"
+              onClick={() => {
+                setShowAddNewModal(false);
+                setShowLocationModal(false);
+              }}
+            >
+              <img src="/public/Vector.svg" alt="Close" />
+            </button>
+            {/* Title */}
+         
+            <h2 className=" flex flex-col items-center justify-center text-center  text-[22px] font-bold font-serif pop_up  mb-6 mt-2">Add New Address</h2>
+            <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-4">
+              {/* State and Local Government Selection */}
+              <button
+                type="button"
+                onClick={() => {
+                  setLocationModalMode('state');
+                  setShowLocationModal(true);
+                }}
+                className="w-full flex items-center justify-between px-4 py-3 rounded-[16px] bg-[#FFFFFF] shadow-medium text-[15px] text-black border-none focus:outline-none"
+              >
+                <span>{state || 'State'}</span>
+                <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  if (state) {
+                    setLocationModalMode('lga');
+                    setShowLocationModal(true);
+                  } else {
+                    alert('Please select a state first');
+                  }
+                }}
+                className="w-full flex items-center justify-between px-4 py-3 rounded-[16px] bg-[#FFFFFF] shadow-medium  text-[15px] text-black border-none focus:outline-none"
+              >
+                <span>{localGovernment || 'Local Government'}</span>
+                <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+              {/* Full Address */}
+              <textarea
+                value={fullAddress}
+                onChange={(e) => setFullAddress(e.target.value)}
+                placeholder="Enter full address"
+                rows={3}
+                className="w-full h-[175px] px-4 py-3 rounded-[16px] bg-[#FFFFFF]  shadow-medium text-[14px] text-black border-none focus:outline-none resize-none"
+              />
+              {/* Opening Hours */}
+              <div>
+                <div className="text-[14px] font-medium -mt-3 mb-2">Opening Hours</div>
+                <div className="grid grid-cols-3 gap-1">
+                  <div className="col-span-1"></div>
+                  <div className="col-span-1 text-[13px] text-gray-500">From</div>
+                  <div className="col-span-1 text-[13px] text-gray-500">To</div>
+                  {Object.entries(openingHours).map(([day, times]) => (
+                    <>
+                      <div className="col-span-1 text-[13px] text-black font-medium">{day.charAt(0).toUpperCase() + day.slice(1)}</div>
+                      <div className="col-span-1">
+                        <select
+                          value={times.from}
+                          onChange={(e) => setOpeningHours(prev => ({ ...prev, [day as keyof WeeklyHours]: { ...prev[day as keyof WeeklyHours], from: e.target.value } }))}
+                          className="w-full px-2 py-2 rounded-[8px] bg-[#F7F7F7] text-[14px] border border-gray-300 focus:outline-none"
+                        >
+                          <option value="">From</option>
+                          {timeOptions.map((time) => (
+                            <option key={time} value={time}>{time}</option>
+                          ))}
+                        </select>
+                      </div>
+                      <div className="col-span-1">
+                        <select
+                          value={times.to}
+                          onChange={(e) => setOpeningHours(prev => ({ ...prev, [day as keyof WeeklyHours]: { ...prev[day as keyof WeeklyHours], to: e.target.value } }))}
+                          className="w-full px-2 py-2 rounded-[8px] bg-[#F7F7F7] text-[14px] border border-gray-300 focus:outline-none"
+                        >
+                          <option value="">To</option>
+                          {timeOptions.map((time) => (
+                            <option key={time} value={time}>{time}</option>
+                          ))}
+                        </select>
+                      </div>
+                    </>
+                  ))}
+                </div>
+              </div>
+              {/* Main Store Checkbox */}
+              <div className="flex items-center gap-2 mt-2 mb-2">
+                <input
+                  type="checkbox"
+                  checked={isMainStore}
+                  onChange={(e) => setIsMainStore(e.target.checked)}
+                  className="accent-[#E53E3E] w-4 h-4 rounded focus:ring-0 border border-gray-300"
+                />
+                <span className="text-[14px] text-black">Mark as Main Store</span>
+              </div>
+              {/* Save Button */}
+              <button
+                type="button"
+                onClick={() => { setShowSavedAddress(true); setShowAddNewModal(false); }}
+                className="w-full bg-[#E53E3E] text-white font-sm py-3 rounded-[14px] text-[14px] mt-2"
+              >
+                Save
+              </button>
+            </form>
+            {/* Location Modal for Add New Address modal */}
+            <LocationModal
+              isOpen={showLocationModal}
+              onClose={() => setShowLocationModal(false)}
+              onSelectState={handleSelectState}
+              onSelectLGA={handleSelectLGA}
+              mode={locationModalMode}
+              selectedState={state}
+            />
+          </div>
+        </div>
+        
+      )}
+      {/* Transparent scrollbar CSS */}
+      <style>{`
+.custom-scrollbar::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+`}</style>
     </div>
   );
 };

@@ -47,6 +47,10 @@ const IMAGES = {
   PencilSimpleLine: '/PencilSimpleLine.svg',
   DotsThreeOutlineVertical: '/DotsThreeOutlineVertical.svg',
   fire: '/Fire.svg',
+  feedPhone: '/FeedPhone.svg',
+   vee: '/Vee.png',
+    adam: '/adams.svg',
+    download: '/download.svg'
 };
 
 export default IMAGES;

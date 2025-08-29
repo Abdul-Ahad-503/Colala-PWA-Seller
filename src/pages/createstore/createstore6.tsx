@@ -59,7 +59,7 @@ const CreateStore6: React.FC<CreateStore6Props> = ({
     setShowAddAddress(true);
   };
 
-  const handleBackFromAddress = () => {
+  const handleCloseAddAddress = () => {
     setShowAddAddress(false);
   };
 
@@ -104,7 +104,8 @@ const CreateStore6: React.FC<CreateStore6Props> = ({
       <AddNewAddress
         isOpen={true}
         onSave={handleSaveAddress}
-        onBack={handleBackFromAddress}
+        onBack={handleCloseAddAddress}
+        onClose={handleCloseAddAddress}
       />
     );
   }

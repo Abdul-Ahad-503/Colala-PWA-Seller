@@ -127,19 +127,19 @@ const ProductDetails: React.FC = () => {
                 </div>
               </div>
 
-              {/* Progress bars */}
+              {/* Information Tags/Badges */}
               <div className="space-y-1 mb-6">
-                <div className="flex items-center">
-                  <span className="text-xs text-white bg-orange-500 px-2 py-1 rounded mr-2">▼</span>
-                  <span className="text-xs text-white bg-orange-500 px-3 py-1 rounded-full flex-1">Information tag 1</span>
+                <div className="flex items-center bg-[#FFA500] text-white rounded-[2px]">
+                  <span className="bg-[url('/1.png')] w-[21px] flex items-center justify-center rounded-l-[2px] h-[16px] mr-2"><img src={IMAGES.shoppingCartSimpleWhite} className='w-[10px] h-[10px] ' alt="" /></span>
+                  <span className="text-[8px]">Information tag 1</span>
                 </div>
-                <div className="flex items-center">
-                  <span className="text-xs text-white bg-blue-500 px-2 py-1 rounded mr-2">▼</span>
-                  <span className="text-xs text-white bg-blue-500 px-3 py-1 rounded-full flex-1">Information tag 2</span>
+                <div className="flex items-center bg-[#0000FF] text-white rounded-[2px]">
+                  <span className="bg-[url('/3.png')] w-[21px] flex items-center justify-center rounded-l-[2px] h-[16px] mr-2"><img src={IMAGES.shoppingCartSimpleWhite} className='w-[10px] h-[10px] ' alt="" /></span>
+                  <span className="text-[8px]">Information tag 2</span>
                 </div>
-                <div className="flex items-center">
-                  <span className="text-xs text-white bg-purple-600 px-2 py-1 rounded mr-2">▼</span>
-                  <span className="text-xs text-white bg-purple-600 px-3 py-1 rounded-full flex-1">Information tag 3</span>
+                <div className="flex items-center bg-[#800080] text-white rounded-[2px]">
+                  <span className="bg-[url('/2.png')] w-[21px] flex items-center justify-center rounded-l-[2px] h-[16px] mr-2"><img src={IMAGES.shoppingCartSimpleWhite} className='w-[10px] h-[10px] ' alt="" /></span>
+                  <span className="text-[8px]">Information tag 3</span>
                 </div>
               </div>
             </div>
@@ -163,15 +163,15 @@ const ProductDetails: React.FC = () => {
 
             {/* Size Selection */}
             <div>
-              <h3 className="text-base font-medium text-black mb-3">Size</h3>
+              <h3 className="text-base font-medium text-black mb-3 border-t ">Size</h3>
               <div className="flex gap-3">
                 {product.sizes.map((size) => (
                   <button
                     key={size}
                     onClick={() => setSelectedSize(size)}
-                    className={`px-4 py-3 rounded-lg border text-sm font-medium ${
-                      selectedSize === size 
-                        ? 'bg-red-500 text-white border-red-500' 
+                    className={`px-[18px] py-[13px] rounded-[15px] border text-sm font-medium ${
+                      selectedSize === size
+                        ? 'bg-red-500 text-white border-red-500'
                         : 'bg-white text-gray-700 border-gray-300 hover:border-gray-400'
                     }`}
                   >
@@ -183,24 +183,24 @@ const ProductDetails: React.FC = () => {
 
             {/* Bulk Prices */}
             <div>
-              <div className="bg-red-500 text-white px-4 py-3 rounded-t-lg">
+              <div className="bg-red-500 text-white px-4 py-3 ">
                 <h3 className="font-medium">Bulk Prices</h3>
               </div>
-              <div className="bg-white border border-gray-200 rounded-b-lg overflow-hidden">
-                <div className="grid grid-cols-4 bg-gray-50 text-sm font-medium text-gray-600 p-3 border-b">
+              <div className="bg-white overflow-hidden">
+                <div className="grid grid-cols-4 bg-gray-50 text-xs font-medium text-gray-700 px-[10px] py-[15px] ">
                   <span>Quantity</span>
                   <span>Amount</span>
                   <span>You Save</span>
-                  <span>%</span>
+                  <span className='justify-self-end'>%</span>
                 </div>
                 {product.bulkPrices.map((price, index) => (
-                  <div key={index} className={`grid grid-cols-4 p-3 text-sm border-b border-gray-100 last:border-b-0 ${
-                    index % 2 === 0 ? 'bg-red-50' : 'bg-white'
+                  <div key={index} className={`grid grid-cols-4 px-[10px] py-[15px] text-sm ${
+                    index % 2 === 0 ? 'bg-red-100' : 'bg-white'
                   }`}>
-                    <span className="text-gray-700">{price.quantity}</span>
-                    <span className="text-gray-700">{price.amount}</span>
-                    <span className="text-gray-700">{price.youSave}</span>
-                    <span className="text-red-500 font-medium">{price.percentage}</span>
+                    <span className="text-gray-800 font-medium">{price.quantity}</span>
+                    <span className="text-gray-800 font-medium">{price.amount}</span>
+                    <span className="text-gray-800 font-medium">{price.youSave}</span>
+                    <span className="text-red-500 justify-self-end font-medium">{price.percentage}</span>
                   </div>
                 ))}
               </div>

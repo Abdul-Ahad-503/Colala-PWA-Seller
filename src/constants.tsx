@@ -47,6 +47,8 @@ const IMAGES = {
   PencilSimpleLine: '/PencilSimpleLine.svg',
   DotsThreeOutlineVertical: '/DotsThreeOutlineVertical.svg',
   fire: '/Fire.svg',
+  shoppingCartSimpleWhite: '/ShoppingCartSimpleWhite.svg',
+
 };
 
 export default IMAGES;

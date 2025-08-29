@@ -47,7 +47,8 @@ const EditMenuPopup: React.FC<EditMenuPopupProps> = ({
       >
         <div className="flex flex-col">
           <button
-            onClick={() => {
+            onClick={(e) => {
+              e.stopPropagation();
               onProductStat();
               onClose();
             }}
@@ -60,7 +61,8 @@ const EditMenuPopup: React.FC<EditMenuPopupProps> = ({
           {/* Conditional Sold/Available Button */}
           {isSold ? (
             <button
-              onClick={() => {
+              onClick={(e) => {
+                e.stopPropagation();
                 onMarkAsAvailable();
                 onClose();
               }}
@@ -71,7 +73,8 @@ const EditMenuPopup: React.FC<EditMenuPopupProps> = ({
             </button>
           ) : (
             <button
-              onClick={() => {
+              onClick={(e) => {
+                e.stopPropagation();
                 onMarkAsSold();
                 onClose();
               }}
@@ -83,7 +86,8 @@ const EditMenuPopup: React.FC<EditMenuPopupProps> = ({
           )}
           
           <button
-            onClick={() => {
+            onClick={(e) => {
+              e.stopPropagation();
               onBoostProduct();
               onClose();
             }}
@@ -96,7 +100,8 @@ const EditMenuPopup: React.FC<EditMenuPopupProps> = ({
           {/* Conditional Unavailable/Available Button */}
           {isOutOfStock ? (
             <button
-              onClick={() => {
+              onClick={(e) => {
+                e.stopPropagation();
                 onMarkAsAvailable();
                 onClose();
               }}
@@ -107,7 +112,8 @@ const EditMenuPopup: React.FC<EditMenuPopupProps> = ({
             </button>
           ) : (
             <button
-              onClick={() => {
+              onClick={(e) => {
+                e.stopPropagation();
                 onMarkAsUnavailable();
                 onClose();
               }}

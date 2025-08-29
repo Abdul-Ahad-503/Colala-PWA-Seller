@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import BoostAdPopup from '../../components/ProductCard/BoostAdPopup';
 import IMAGES from '../../constants';
 
 const ProductDetails: React.FC = () => {
@@ -10,6 +11,7 @@ const ProductDetails: React.FC = () => {
   const [selectedSize, setSelectedSize] = useState<string>('S');
   const [quantity, setQuantity] = useState<number>(1);
   const [selectedThumbnail, setSelectedThumbnail] = useState<number>(0);
+  const [boostPopup, setBoostPopup] = useState<boolean>(false);
 
   // Sample product data
   const product = {
@@ -52,6 +54,20 @@ const ProductDetails: React.FC = () => {
     } else if (action === 'decrement' && quantity > 1) {
       setQuantity(prev => prev - 1);
     }
+  };
+
+  const handleBoostPost = () => {
+    setBoostPopup(true);
+  };
+
+  const handleBoostProceed = () => {
+    console.log('Proceeding with boost for product:', productId);
+    // Here you would implement the actual boost logic
+    setBoostPopup(false);
+  };
+
+  const handleBoostClose = () => {
+    setBoostPopup(false);
   };
 
   return (
@@ -288,7 +304,10 @@ const ProductDetails: React.FC = () => {
                 </button>
               </div>
               
-              <button className="w-full bg-black text-xs text-white py-4 rounded-[15px] hover:bg-gray-800">
+              <button 
+                onClick={handleBoostPost}
+                className="w-full bg-black text-xs text-white py-4 rounded-[15px] hover:bg-gray-800"
+              >
                 Boost Post
               </button>
             </div>
@@ -297,6 +316,13 @@ const ProductDetails: React.FC = () => {
 
         
       </div>
+
+      {/* Boost Ad Popup */}
+      <BoostAdPopup
+        isOpen={boostPopup}
+        onClose={handleBoostClose}
+        onProceed={handleBoostProceed}
+      />
     </div>
   );
 };

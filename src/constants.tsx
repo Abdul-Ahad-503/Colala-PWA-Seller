@@ -49,6 +49,11 @@ const IMAGES = {
   fire: '/Fire.svg',
   Trash: '/Trash.svg',
   shoppingCartSimpleWhite: '/ShoppingCartSimpleWhite.svg',
+  Cross: '/Cross.svg',
+  ChartLineUp: '/ChartLineUp.svg',
+  UserCheck: '/UserCheck.svg',
+  MegaPhoneColored: '/MegaPhoneColored.svg',
+  
 
 };
 

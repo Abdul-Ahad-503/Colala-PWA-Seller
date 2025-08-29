@@ -92,7 +92,7 @@ const ProductDetails: React.FC = () => {
                   src={thumb} 
                   alt={`${product.name} ${index + 1}`}
                   onClick={() => setSelectedThumbnail(index)}
-                  className={`w-20 h-20 object-cover rounded-lg cursor-pointer border-2 ${
+                  className={`w-[65px] h-[65px] object-cover rounded-lg cursor-pointer border-2 ${
                     selectedThumbnail === index ? 'border-red-500' : 'border-gray-200'
                   } hover:border-red-400 transition-colors`}
                 />
@@ -101,13 +101,57 @@ const ProductDetails: React.FC = () => {
           </div>
 
           {/* Main Image */}
-          <div className="flex-1 max-w-md">
+          <div className="flex-1 max-w-md space-y-4">
             <div className="bg-white rounded-xl">
               <img 
                 src={product.thumbnails[selectedThumbnail]} 
                 alt={product.name}
-                className="w-full h-80 object-cover rounded-lg"
+                className="w-[430px] h-92 object-cover rounded-lg"
               />
+            </div>
+
+            {/* Description/Reviews Section */}
+            <div>
+              <div className="flex gap-4 mb-4 -ml-23 mt-7">
+                <button
+                  onClick={() => setSelectedTab('description')}
+                  className={`px-7 py-3 rounded-[10px] text-xs  ${
+                    selectedTab === 'description' 
+                      ? 'bg-red-500 text-white' 
+                      : ' border border-[#CDCDCD] text-gray-700 hover:bg-gray-300'
+                  }`}
+                >
+                  Description
+                </button>
+                <button
+                  onClick={() => setSelectedTab('reviews')}
+                  className={`px-7 py-3 rounded-[10px] text-xs  ${
+                    selectedTab === 'reviews' 
+                      ? 'bg-red-500 text-white' 
+                      : ' border border-[#CDCDCD] text-gray-700 hover:bg-gray-300'
+                  }`}
+                >
+                  Reviews
+                </button>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 -ml-23">
+                {selectedTab === 'description' ? (
+                  <div>
+                    <h3 className="font-semibold text-lg mb-4">Product Description</h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      The iPhone 12 Pro Max features a 6.7-inch Super Retina XDR display, A14 Bionic chip, 
+                      Pro camera system with LiDAR Scanner, and 5G capability. Available in multiple colors 
+                      and storage options to suit your needs.
+                    </p>
+                  </div>
+                ) : (
+                  <div>
+                    <h3 className="font-semibold text-lg mb-4">Customer Reviews</h3>
+                    <p className="text-gray-600">No reviews yet. Be the first to review this product!</p>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
 
@@ -130,15 +174,15 @@ const ProductDetails: React.FC = () => {
               {/* Information Tags/Badges */}
               <div className="space-y-1 mb-6">
                 <div className="flex items-center bg-[#FFA500] text-white rounded-[2px]">
-                  <span className="bg-[url('/1.png')] w-[21px] flex items-center justify-center rounded-l-[2px] h-[16px] mr-2"><img src={IMAGES.shoppingCartSimpleWhite} className='w-[10px] h-[10px] ' alt="" /></span>
+                  <span className="bg-[url('/1.png')] w-[21px] flex items-center pl-0.5 rounded-l-[2px] h-[16px] mr-2"><img src={IMAGES.shoppingCartSimpleWhite} className='w-[10px] h-[10px] ' alt="" /></span>
                   <span className="text-[8px]">Information tag 1</span>
                 </div>
                 <div className="flex items-center bg-[#0000FF] text-white rounded-[2px]">
-                  <span className="bg-[url('/3.png')] w-[21px] flex items-center justify-center rounded-l-[2px] h-[16px] mr-2"><img src={IMAGES.shoppingCartSimpleWhite} className='w-[10px] h-[10px] ' alt="" /></span>
+                  <span className="bg-[url('/3.png')] w-[21px] flex items-center pl-0.5 rounded-l-[2px] h-[16px] mr-2"><img src={IMAGES.shoppingCartSimpleWhite} className='w-[10px] h-[10px] ' alt="" /></span>
                   <span className="text-[8px]">Information tag 2</span>
                 </div>
                 <div className="flex items-center bg-[#800080] text-white rounded-[2px]">
-                  <span className="bg-[url('/2.png')] w-[21px] flex items-center justify-center rounded-l-[2px] h-[16px] mr-2"><img src={IMAGES.shoppingCartSimpleWhite} className='w-[10px] h-[10px] ' alt="" /></span>
+                  <span className="bg-[url('/2.png')] w-[21px] flex items-center pl-0.5 rounded-l-[2px] h-[16px] mr-2"><img src={IMAGES.shoppingCartSimpleWhite} className='w-[10px] h-[10px] ' alt="" /></span>
                   <span className="text-[8px]">Information tag 3</span>
                 </div>
               </div>
@@ -194,7 +238,7 @@ const ProductDetails: React.FC = () => {
                   <span className='justify-self-end'>%</span>
                 </div>
                 {product.bulkPrices.map((price, index) => (
-                  <div key={index} className={`grid grid-cols-4 px-[10px] py-[15px] text-sm ${
+                  <div key={index} className={`grid grid-cols-4 px-[10px] py-[15px] text-sm  last:border-b ${
                     index % 2 === 0 ? 'bg-red-100' : 'bg-white'
                   }`}>
                     <span className="text-gray-800 font-medium">{price.quantity}</span>
@@ -206,102 +250,52 @@ const ProductDetails: React.FC = () => {
               </div>
             </div>
 
-            {/* Quantity Left and Price */}
-            <div className="space-y-2">
-              <div className="text-sm text-gray-500">Quantity left</div>
-              <div className="text-2xl font-bold text-red-500">{product.price}</div>
-            </div>
-
-            {/* Quantity Controls */}
-            <div className="flex items-center gap-4">
-              <button 
-                onClick={() => handleQuantityChange('decrement')}
-                className="w-12 h-12 bg-red-500 text-white rounded-lg flex items-center justify-center font-bold text-xl hover:bg-red-600"
-              >
-                -
-              </button>
-              <span className="text-2xl font-bold text-black px-4">{quantity}</span>
-              <button 
-                onClick={() => handleQuantityChange('increment')}
-                className="w-12 h-12 bg-red-500 text-white rounded-lg flex items-center justify-center font-bold text-xl hover:bg-red-600"
-              >
-                +
-              </button>
+            {/* Quantity Left and Controls */}
+            <div className="flex items-center justify-between border-b pb-5">
+              <div className="space-y-1">
+                <div className="text-sm text-gray-500">Quantity left</div>
+                <div className="text-2xl font-bold text-red-500">{product.price}</div>
+              </div>
+              
+              <div className="flex items-center gap-4">
+                <button 
+                  onClick={() => handleQuantityChange('decrement')}
+                  className="w-14 h-14 bg-red-500 text-white rounded-lg flex items-center justify-center font-bold text-xl hover:bg-red-600"
+                >
+                  −
+                </button>
+                <span className="text-2xl font-bold text-red-500 px-4">{quantity}</span>
+                <button 
+                  onClick={() => handleQuantityChange('increment')}
+                  className="w-14 h-14 bg-red-500 text-white rounded-lg flex items-center justify-center font-bold text-xl hover:bg-red-600"
+                >
+                  +
+                </button>
+              </div>
             </div>
 
             {/* Action Buttons */}
             <div className="space-y-3">
               <div className="flex gap-3">
                 <button className="p-3 border border-gray-300 rounded-lg hover:bg-gray-50">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-red-500">
-                    <path d="M3 6h18"/>
-                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
-                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
-                  </svg>
+                  <img src={IMAGES.Trash} alt="" />
                 </button>
                 <button className="p-3 border border-gray-300 rounded-lg hover:bg-gray-50">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-gray-600">
-                    <path d="M3 3v5h5"/>
-                    <path d="M3 8l8-8h8v8"/>
-                    <path d="M21 16v5h-5"/>
-                    <path d="M21 16l-8 8H5v-8"/>
-                  </svg>
+                  <img src={IMAGES.chartBar} alt="" />
                 </button>
-                <button className="flex-1 bg-red-500 text-white py-3 px-6 rounded-lg font-medium hover:bg-red-600">
+                <button className="flex-1 bg-primary text-xs text-white py-3 px-6 rounded-[15px] hover:bg-red-600">
                   Edit Product
                 </button>
               </div>
               
-              <button className="w-full bg-black text-white py-4 rounded-lg font-medium hover:bg-gray-800">
+              <button className="w-full bg-black text-xs text-white py-4 rounded-[15px] hover:bg-gray-800">
                 Boost Post
               </button>
             </div>
           </div>
         </div>
 
-        {/* Description/Reviews Section */}
-        <div className="mt-8">
-          <div className="flex gap-4 mb-6">
-            <button
-              onClick={() => setSelectedTab('description')}
-              className={`px-6 py-3 rounded-lg font-medium ${
-                selectedTab === 'description' 
-                  ? 'bg-red-500 text-white' 
-                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-              }`}
-            >
-              Description
-            </button>
-            <button
-              onClick={() => setSelectedTab('reviews')}
-              className={`px-6 py-3 rounded-lg font-medium ${
-                selectedTab === 'reviews' 
-                  ? 'bg-red-500 text-white' 
-                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-              }`}
-            >
-              Reviews
-            </button>
-          </div>
-
-          <div className="bg-white rounded-xl p-6">
-            {selectedTab === 'description' ? (
-              <div>
-                <h3 className="font-semibold text-lg mb-4">Product Description</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  The iPhone 12 Pro Max features a 6.7-inch Super Retina XDR display, A14 Bionic chip, 
-                  Pro camera system with LiDAR Scanner, and 5G capability. Available in multiple colors 
-                  and storage options to suit your needs.
-                </p>
-              </div>
-            ) : (
-              <div>
-                <h3 className="font-semibold text-lg mb-4">Customer Reviews</h3>
-                <p className="text-gray-600">No reviews yet. Be the first to review this product!</p>
-              </div>
-            )}
-          </div>
-        </div>
+        
       </div>
     </div>
   );

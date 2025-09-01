@@ -134,13 +134,13 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ onViewProfile }) => {
               <div className="flex gap-3">
                 <Link 
                   to="/add-product"
-                  className="flex-1 bg-pink-400 text-white py-4 rounded-[15px] text-sm font-medium text-center block"
+                  className="flex-1 bg-primary opacity-50 text-white py-4 rounded-[15px] text-sm font-medium text-center block"
                 >
                   Add Product
                 </Link>
                 <Link 
                   to="/add-service"
-                  className="flex-1 bg-gray-600 text-white py-4 rounded-[15px] text-sm font-medium text-center block"
+                  className="flex-1 bg-gray-600 opacity-50 text-white py-4 rounded-[15px] text-sm font-medium text-center block"
                 >
                   Add Service
                 </Link>
@@ -205,7 +205,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ onViewProfile }) => {
                 <div className="flex flex-col items-start mb-4">
                   <div className="w-13 h-13 bg-red-50 rounded-full flex items-center justify-center mb-4">
                     <img
-                      src={IMAGES.shoppingCart}
+                      src={IMAGES.shoppingCartSimple}
                       alt="Orders"
                       className="w-6 h-6"
                     />
@@ -227,7 +227,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ onViewProfile }) => {
                 <div className="flex flex-col items-start mb-4">
                   <div className="w-13 h-13 bg-red-50 rounded-full flex items-center justify-center mb-4">
                     <img
-                      src={IMAGES.shoppingBag}
+                      src={IMAGES.notepad}
                       alt="Products"
                       className="w-6 h-6"
                     />

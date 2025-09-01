@@ -122,39 +122,42 @@ const ServiceDetails: React.FC = () => {
 
           {/* Right Side - Service Info */}
           <div className="flex-1 max-w-[540px]">
-            <div className="space-y-6">
+            <div className="space-y-3">
               {/* Service Name and Rating */}
-              <div>
-                <h1 className="text-2xl font-semibold text-gray-900 mb-2">
+              <div className="flex justify-between items-center border-b border-b-[#00000080]">
+                <div className="left">
+                    <h1 className="text-[20px] text-gray-900 mb-1">
                   {service.name}
                 </h1>
+                <div className="text-[18px] font-bold text-primary mb-2">
+                  {service.priceRange}
+                </div>
+                </div>
                 <div className="flex items-center gap-1 mb-4">
                   <svg className="w-5 h-5 text-red-500 fill-current" viewBox="0 0 20 20">
                     <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
                   </svg>
                   <span className="text-lg font-medium">{service.rating}</span>
                 </div>
-                <div className="text-2xl font-bold text-red-500 mb-6">
-                  {service.priceRange}
-                </div>
+                
               </div>
 
               {/* Description */}
-              <div>
-                <h3 className="text-lg font-medium text-gray-900 mb-3">Description</h3>
-                <p className="text-gray-700 leading-relaxed">
+              <div className="border-b border-b-[#00000080] pb-4">
+                <h3 className="text-xs  text-[#00000080] mb-2">Description</h3>
+                <p className="text-black text-sm font-medium leading-relaxed">
                   {service.description}
                 </p>
               </div>
 
               {/* Price Breakdown */}
               <div>
-                <h3 className="text-lg font-medium text-gray-900 mb-4">Price Breakdown</h3>
-                <div className="space-y-3">
+                <h3 className="text-xs  text-[#00000080] mb-2">Price Breakdown</h3>
+                <div className="space-y-[3px]">
                   {service.priceBreakdown.map((item, index) => (
-                    <div key={index} className="flex items-center justify-between py-3 px-4 bg-gray-100 rounded-lg">
-                      <span className="text-gray-800 font-medium">{item.category}</span>
-                      <span className="text-red-500 font-semibold">{item.price}</span>
+                    <div key={index} className="flex items-center text-xs justify-between py-3 px-4 bg-[#EDEDED] rounded border border-[#CACACA] first:rounded-t-[15px] last:rounded-b-[15px]">
+                      <span className="text-gray-800 ">{item.category}</span>
+                      <span className="text-primary font-bold">{item.price}</span>
                     </div>
                   ))}
                 </div>
@@ -162,13 +165,13 @@ const ServiceDetails: React.FC = () => {
 
               {/* Action Buttons */}
               <div className="flex gap-4 pt-6">
-                <button className="flex items-center gap-2 px-6 py-3 bg-white border border-gray-300 rounded-xl hover:bg-gray-50 transition-colors">
-                  <img src={IMAGES.shoppingCart} alt="Cart" width="20" height="20" />
+                <button className="flex items-center gap-2 px-6 py-3 bg-white border border-gray-300 rounded-2xl hover:bg-gray-50 transition-colors">
+                  <img src={IMAGES.Trash} alt="Cart" width="30" height="30" />
                 </button>
-                <button className="flex items-center gap-2 px-6 py-3 bg-white border border-gray-300 rounded-xl hover:bg-gray-50 transition-colors">
-                  <img src={IMAGES.chartBar} alt="Stats" width="20" height="20" />
+                <button className="flex items-center gap-2 px-6 py-3 bg-white border border-gray-300 rounded-2xl hover:bg-gray-50 transition-colors">
+                  <img src={IMAGES.chartBar} alt="Stats" width="30" height="30" />
                 </button>
-                <button className="flex-1 bg-red-500 text-white py-3 rounded-xl font-medium hover:bg-red-600 transition-colors">
+                <button className="flex-1 bg-primary text-white py-3 rounded-2xl text-xs hover:bg-red-600 transition-colors">
                   Edit Service
                 </button>
               </div>

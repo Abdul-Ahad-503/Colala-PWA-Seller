@@ -3,6 +3,7 @@ import ProductCard from '../../components/ProductCard/index';
 import ServiceCard from '../../components/ServiceCard/index';
 import ProductStatsPopup from '../../components/ProductCard/ProductStatsPopup';
 import BoostAdPopup from '../../components/ProductCard/BoostAdPopup';
+import ServiceDetailsPopup from '../../components/ServiceCard/ServiceDetailsPopup';
 import IMAGES from '../../constants';
 
 const MyProducts: React.FC = () => {
@@ -16,6 +17,11 @@ const MyProducts: React.FC = () => {
     isOpen: false, 
     productId: null,
     productData: null
+  });
+  const [serviceDetailsPopup, setServiceDetailsPopup] = useState<{ isOpen: boolean; serviceId: string | null; serviceData: any }>({ 
+    isOpen: false, 
+    serviceId: null,
+    serviceData: null
   });
 
   // Sample product data - now as state
@@ -340,6 +346,27 @@ const MyProducts: React.FC = () => {
     setBoostPopup({ isOpen: false, productId: null, productData: null });
   };
 
+  const handleServiceDetails = (serviceId: string) => {
+    const service = services.find(s => s.id === serviceId);
+    setServiceDetailsPopup({ 
+      isOpen: true, 
+      serviceId,
+      serviceData: {
+        ...service,
+        orderId: "ORD-12345FFKSK",
+        dateCreated: "July 19, 2025 - 07:22AM",
+        views: service?.serviceViews || 2000,
+        phoneViews: 15,
+        chats: service?.messages || 5,
+        chartData: []
+      }
+    });
+  };
+
+  const handleServiceDetailsClose = () => {
+    setServiceDetailsPopup({ isOpen: false, serviceId: null, serviceData: null });
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="container-custom py-8">
@@ -444,6 +471,7 @@ const MyProducts: React.FC = () => {
                   messages={service.messages}
                   isSponsored={service.isSponsored}
                   isOutOfStock={service.isOutOfStock}
+                  onDetails={() => handleServiceDetails(service.id)}
                 />
               ))
           }
@@ -518,6 +546,25 @@ const MyProducts: React.FC = () => {
         isOpen={boostPopup.isOpen}
         onClose={handleBoostClose}
         productData={boostPopup.productData}
+      />
+
+      {/* Service Details Popup */}
+      <ServiceDetailsPopup
+        isOpen={serviceDetailsPopup.isOpen}
+        onClose={handleServiceDetailsClose}
+        serviceId={serviceDetailsPopup.serviceId || ''}
+        serviceName={serviceDetailsPopup.serviceData?.name || ''}
+        serviceData={serviceDetailsPopup.serviceData || {
+          image: '',
+          name: '',
+          priceRange: '',
+          orderId: '',
+          dateCreated: '',
+          views: 0,
+          phoneViews: 0,
+          chats: 0,
+          chartData: []
+        }}
       />
     </div>
   );

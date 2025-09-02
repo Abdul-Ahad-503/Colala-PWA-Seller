@@ -48,7 +48,7 @@ const IMAGES = {
   DotsThreeOutlineVertical: '/DotsThreeOutlineVertical.svg',
   fire: '/Fire.svg',
   feedPhone: '/FeedPhone.svg',
-   vee: '/Vee.png',
+   vee: '/vee.svg',
     adam: '/adams.svg',
     download: '/download.svg',
   Trash: '/Trash.svg',

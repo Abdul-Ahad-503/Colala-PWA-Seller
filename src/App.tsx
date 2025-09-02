@@ -11,6 +11,7 @@ import { ColorProvider } from './contexts/ColorContext'
 import './index.css'
 import Chat from './pages/chat/chat';
 import Feed from './pages/feed/Feed';
+import OrderDetails from './pages/orders/OrderDetails.tsx';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
               <Route path="/createstore" element={<CreateStore />} />
                <Route path="/chat" element={<Chat />} />
                 <Route path="/feed" element={<Feed />} />
+                <Route path="/orders" element={<OrderDetails />} />
             </Routes>
             <PWABadge />
           </div>

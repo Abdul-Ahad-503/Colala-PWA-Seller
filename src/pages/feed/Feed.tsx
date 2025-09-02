@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { feedPosts, formatNumber, FeedPost, Comment, Reply } from "./feedData";
 import IMAGES from "../../constants";
+import CreatePost from "./CreatePost";
 
 const Feed: React.FC = () => {
   const [posts, setPosts] = useState<FeedPost[]>(feedPosts);
@@ -10,6 +11,7 @@ const Feed: React.FC = () => {
   const [showReplies, setShowReplies] = useState<{ [key: string]: boolean }>({});
   const [replyingTo, setReplyingTo] = useState<{ [key: string]: boolean }>({});
   const [dropdownOpen, setDropdownOpen] = useState<{ [key: string]: boolean }>({});
+  const [showCreatePost, setShowCreatePost] = useState<boolean>(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Handle clicking outside dropdown to close it
@@ -77,6 +79,38 @@ const Feed: React.FC = () => {
         console.log('Report post:', postId);
         break;
     }
+  };
+
+  // Handle create post modal
+  const handleOpenCreatePost = () => {
+    setShowCreatePost(true);
+  };
+
+  const handleCloseCreatePost = () => {
+    setShowCreatePost(false);
+  };
+
+  const handleCreatePost = (selectedImage: string, postText: string) => {
+    if (selectedImage) {
+      setPosts(prevPosts => 
+        prevPosts.map(post => 
+          post.id === '1' ? { ...post, image: selectedImage } : post
+        )
+      );
+    }
+    
+    // If you want to create a new post instead of updating existing one, you can add:
+    // const newPost = {
+    //   id: Date.now().toString(),
+    //   user: "Current User",
+    //   avatar: IMAGES.adam,
+    //   content: postText,
+    //   image: selectedImage,
+    //   likes: 0,
+    //   isLiked: false,
+    //   // ... other post properties
+    // };
+    // setPosts(prevPosts => [newPost, ...prevPosts]);
   };
 
   // Handle new comment
@@ -170,27 +204,50 @@ const Feed: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-6">
+    <div className="min-h-screen bg-[#F9F9F9] py-6">
       <div className="max-w-[1080px] mx-auto px-4">
         
+        {/* Top Navigation Buttons */}
+        <div className="mb-6">
+          {/* My Posts / All Posts Toggle */}
+          <div className="flex gap-4 mb-4">
+            <button className="px-20 py-4 bg-[#E53E3E] text-white rounded-xl font-medium text-[10px]">
+              My Posts
+            </button>
+            <button className="px-20 py-4 bg-[#FFFFFF] text-gray-600 rounded-xl font-medium text-[10px]  transition-colors">
+              All Posts
+            </button>
+          </div>
+          
+          {/* Add New Posts Button */}
+          <button 
+            onClick={handleOpenCreatePost}
+            className="w-[420px] bg-[#E53E3E] text-white py-4 rounded-xl font-medium text-[10px] flex items-center justify-center gap-2 hover:bg-red-600 transition-colors"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+            </svg>
+            Add New Posts
+          </button>
+        </div>
         
         <div className="space-y-6">
           {posts.map((post) => (
             <div key={post.id} className="flex gap-6">
               {/* Left Side - Post */}
-              <div className="flex-1 max-w-md">
-                <div className="rounded-2xl    overflow-hidden items-center px-7">
+              <div className="w-[450px] flex-shrink-0">
+                <div className="rounded-2xl overflow-hidden items-center px-7">
                   {/* Post Header */}
                   <div className="flex items-center justify-between p-4 px-0">
                     <div className="flex items-center space-x-3">
                       <img 
                         src={post.avatar} 
                         alt={post.author}
-                        className="w-10 h-10 rounded-full object-cover"
+                        className="w-[55px] h-[55px] rounded-full object-cover"
                       />
                       <div>
-                        <h3 className="font-semibold text-gray-900">{post.author}</h3>
-                        <p className="text-sm text-gray-500">Lagos, Nigeria • {post.timestamp}</p>
+                        <h3 className="font-semibold text-[12px] text-gray-900">{post.author}</h3>
+                        <p className="text-[10px] text-gray-500">Lagos, Nigeria • {post.timestamp}</p>
                       </div>
                     </div>
                     <div className="relative" ref={dropdownRef}>
@@ -210,40 +267,26 @@ const Feed: React.FC = () => {
                             onClick={() => handleDropdownAction('share', post.id)}
                             className="w-full flex items-center space-x-3 px-4 py-4 mb-[2px] text-left bg-white rounded-xl hover:bg-gray-50 transition-colors"
                           >
-                            <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z" />
-                            </svg>
+                            <img src="/public/share.svg" alt="Share Post" className="w-5 h-5 text-black" />
                             <span className="text-gray-700 text-sm">Share this post</span>
                           </button>
                           
-                          <button
-                            onClick={() => handleDropdownAction('follow', post.id)}
-                            className="w-full flex items-center space-x-3 px-4 py-4 mb-[2px] text-left bg-white rounded-xl  hover:bg-gray-50 transition-colors"
-                          >
-                            <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                            </svg>
-                            <span className="text-gray-700 text-sm">Follow User</span>
-                          </button>
+                         
                           
                           <button
                             onClick={() => handleDropdownAction('hide', post.id)}
                             className="w-full flex items-center space-x-3 px-4 py-4 mb-[2px] text-left bg-white rounded-xl hover:bg-gray-50 transition-colors"
                           >
-                            <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21" />
-                            </svg>
-                            <span className="text-gray-700 text-sm">Hide Post</span>
+                            <img src="/public/editpost.svg" alt="Edit Post" className="w-5 h-5 text-black" />
+                            <span className="text-gray-700 text-sm">Edit Post</span>
                           </button>
                           
                           <button
                             onClick={() => handleDropdownAction('report', post.id)}
                             className="w-full flex items-center space-x-3 px-4 py-4 mb-[2px] text-left bg-white rounded-xl hover:bg-gray-50 transition-colors"
                           >
-                            <svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.664-.833-2.464 0L4.35 16.5c-.77.833.192 2.5 1.732 2.5z" />
-                            </svg>
-                            <span className="text-red-500 text-sm">Report Post</span>
+                            <img src="/public/deletepost.svg" alt="Delete Post" className="w-5 h-5 text-black" />
+                            <span className="text-red-500 text-sm">Delete Post</span>
                           </button>
                         </div>
                       )}
@@ -255,13 +298,13 @@ const Feed: React.FC = () => {
                     <img 
                       src="public/Feedphone.svg" 
                       alt="Post content"
-                      className="w-97 h-97 object-cover"
+                      className="w-[390px] h-[390px] object-cover"
                     />
                   </div>
 
                   {/* Post Content */}
                   <div className="py-4 ">
-                    <p className="text-gray-800 bg-[#F0F0F0] text-sm py-[18px] px-[15px] rounded-[10px]">{post.caption}</p>
+                    <p className="text-gray-800 bg-[#F0F0F0] text-sm py-[18px] px-[15px] text-[14px] rounded-[10px]">{post.caption}</p>
 
                     {/* Post Actions */}
                     <div className="flex items-center justify-between pt-2 pr-3">
@@ -317,132 +360,124 @@ const Feed: React.FC = () => {
 
               {/* Right Side - Comments Panel */}
               {showComments[post.id] && (
-                <div className="flex-1 max-w-2xl ">
+                <div className="w-[645px] mr-12 -mt-34 flex-shrink-0">
                   <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 h-fit">
                     {/* Comments Header */}
-                    <div className="p-4 border-b border-gray-100">
-                      <h4 className="text-lg font-semibold text-gray-800">Comments</h4>
+                    <div className="p-4  border-gray-100">
+                      <h4 className="text-[20px] font-semibold text-gray-800">Comments</h4>
                     </div>
                     
                     {/* Comments List */}
-                    <div className="p-4 space-y-4 max-h-96 overflow-y-auto">
-                      {post.postComments.map((comment) => (
-                        <div key={comment.id} className="space-y-2">
-                          <div className="flex space-x-3">
-                            <img 
-                              src={comment.avatar} 
-                              alt={comment.author}
-                              className="w-8 h-8 rounded-full object-cover flex-shrink-0"
-                            />
-                            <div className="flex-1">
-                              <div className="flex items-center space-x-2 mb-1">
-                                <h5 className="font-medium text-gray-900 text-sm">{comment.author}</h5>
-                                <span className="text-xs text-gray-500">{comment.timestamp}</span>
+                    <div className="p-6 space-y-6  ">
+                      {/* Adam Chris Comment 1 */}
+                      <div className="space-y-3">
+                        <div className="flex space-x-3">
+                          <img 
+                            src={IMAGES.adam} 
+                            alt="Adam Chris"
+                            className="w-[47px] h-[47px] rounded-full object-cover flex-shrink-0"
+                          />
+                          <div className="flex-1">
+                            <div className="flex items-center space-x-2 mb-1">
+                              <h5 className="font-semibold text-gray-900 text-[12px] text-base">Adam Chris</h5>
+                              <span className="text-[12px] text-gray-500">1 min</span>
+                            </div>
+                            <p className="text-gray-800 text-base text-[12px] mb-3">This product looks really nice, do you deliver nationwide ?</p>
+                            <div className="flex items-center space-x-4">
+                              <button className="text-[12px] text-gray-600 hover:text-blue-500 transition-colors">
+                                Reply
+                              </button>
+                              <div className="flex items-center space-x-1 text-[12px] text-gray-600">
+                               <img src="/public/comment.svg" alt="Comment" className="w-[11px] h-[11px" />
+                                <span>30</span>
                               </div>
-                              <p className="text-gray-700 text-sm mb-2">{comment.content}</p>
-                              <div className="flex items-center space-x-4 text-xs text-gray-500">
-                                <button 
-                                  onClick={() => toggleReplyInput(comment.id)}
-                                  className="hover:text-blue-500 transition-colors"
-                                >
-                                  Reply
-                                </button>
-                                <span className="flex items-center space-x-1">
-                                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                                  </svg>
-                                  <span>{comment.likes}</span>
-                                </span>
-                                {comment.replies.length > 0 && (
-                                  <button
-                                    onClick={() => toggleReplies(comment.id)}
-                                    className="hover:text-blue-500 transition-colors"
-                                  >
-                                    {showReplies[comment.id] ? 'Hide' : 'Show'} {comment.replies.length} replies
-                                  </button>
-                                )}
-                              </div>
-
-                              {/* Reply Input */}
-                              {replyingTo[comment.id] && (
-                                <div className="mt-3 flex space-x-2">
-                                  <img 
-                                    src={IMAGES.sasha} 
-                                    alt="Your avatar"
-                                    className="w-6 h-6 rounded-full object-cover flex-shrink-0"
-                                  />
-                                  <div className="flex-1 flex space-x-2">
-                                    <input
-                                      type="text"
-                                      placeholder="Write a reply..."
-                                      value={newReply[comment.id] || ""}
-                                      onChange={(e) => setNewReply(prev => ({
-                                        ...prev,
-                                        [comment.id]: e.target.value
-                                      }))}
-                                      className="flex-1 bg-gray-100 rounded-full px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                      onKeyPress={(e) => {
-                                        if (e.key === 'Enter') {
-                                          handleReply(post.id, comment.id);
-                                        }
-                                      }}
-                                    />
-                                    <button 
-                                      onClick={() => handleReply(post.id, comment.id)}
-                                      className="bg-blue-500 text-white rounded-full p-1 hover:bg-blue-600 transition-colors"
-                                    >
-                                      <svg className="w-3 h-3 rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                                      </svg>
-                                    </button>
-                                  </div>
-                                </div>
-                              )}
-
-                              {/* Replies */}
-                              {showReplies[comment.id] && comment.replies.length > 0 && (
-                                <div className="mt-3 ml-4 space-y-2 border-l-2 border-gray-100 pl-3">
-                                  {comment.replies.map((reply) => (
-                                    <div key={reply.id} className="flex space-x-2">
-                                      <img 
-                                        src={reply.avatar} 
-                                        alt={reply.author}
-                                        className="w-6 h-6 rounded-full object-cover flex-shrink-0"
-                                      />
-                                      <div className="flex-1">
-                                        <div className="flex items-center space-x-2 mb-1">
-                                          <h6 className="font-medium text-gray-900 text-xs">{reply.author}</h6>
-                                          <span className="text-xs text-gray-500">{reply.timestamp}</span>
-                                        </div>
-                                        <p className="text-gray-700 text-xs mb-1">{reply.content}</p>
-                                        <div className="flex items-center space-x-2 text-xs text-gray-500">
-                                          <span className="flex items-center space-x-1">
-                                            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                                            </svg>
-                                            <span>{reply.likes}</span>
-                                          </span>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  ))}
-                                </div>
-                              )}
                             </div>
                           </div>
                         </div>
-                      ))}
+                      </div>
+
+                      {/* Adam Chris Comment 2 */}
+                      <div className="space-y-3">
+                        <div className="flex space-x-3">
+                          <img 
+                            src={IMAGES.adam} 
+                            alt="Adam Chris"
+                            className="w-[47px] h-[41px] rounded-full object-cover flex-shrink-0"
+                          />
+                          <div className="flex-1">
+                            <div className="flex items-center space-x-2 mb-2">
+                              <h5 className="font-semibold text-[12px] text-gray-900 text-base">Adam Chris</h5>
+                              <span className="text-[12px] text-gray-500">1 min</span>
+                            </div>
+                            <p className="text-gray-800 text-base text-[12px] mb-3">This product looks really nice, do you deliver nationwide ?</p>
+                            <div className="flex items-center space-x-4">
+                              <button className="text-[12px] text-gray-600 hover:text-blue-500 transition-colors">
+                                Reply
+                              </button>
+                              <div className="flex items-center space-x-1 text-[12px] text-gray-600">
+                                <img src="/public/comment.svg" alt="Comment" className="w-[11px] h-[11px]" />
+                                <span>30</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Adam Chris Comment 3 */}
+                      <div className="space-y-3 ">
+                        <div className="flex space-x-3">
+                          <img 
+                            src={IMAGES.adam} 
+                            alt="Adam Chris"
+                            className="w-[41px] h-[41px] rounded-full object-cover flex-shrink-0"
+                          />
+                          <div className="flex-1">
+                            <div className="flex items-center space-x-2 mb-2">
+                              <h5 className="font-semibold text-[12px] text-gray-900 text-base">Adam Chris</h5>
+                              <span className="text-[12px] text-gray-500">1 min</span>
+                            </div>
+                            <p className="text-gray-800 text-base text-[12px] mb-3">This product looks really nice, do you deliver nationwide ?</p>
+                            <div className="flex items-center space-x-4">
+                              <button className="text-[12px] text-gray-600 hover:text-blue-500 transition-colors">
+                                Reply
+                              </button>
+                              <div className="flex items-center space-x-1 text-[12px] text-gray-600">
+                                <img src="/public/comment.svg" alt="Comment" className="w-[11px] h-[11px]" />
+                                <span>30</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+
+                      {/* Sasha Stores Reply */}
+                      <div className="space-y-3 ml-12">
+                        <div className="flex space-x-3">
+                          <img 
+                            src={IMAGES.adam}
+                            alt="Sasha Stores"
+                            className="w-[40px] h-[40px] rounded-full object-cover flex-shrink-0"
+                          />
+                          <div className="flex-1">
+                            <div className="flex items-center space-x-2 mb-2">
+                              <h5 className="font-semibold text-[10px] text-gray-900 text-base">Sasha Stores</h5>
+                              <span className="text-[10px] text-gray-500">1 min</span>
+                            </div>
+                            <p className="text-gray-800 text-base">
+                              <span className="text-red-500 text-[10px] font-medium">@Adam Chris</span>
+                              {' '}
+                              <span className="text-[10px]">We do deliver nationwide.</span>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
 
                     {/* Add Comment */}
-                    <div className="p-4 border-t border-gray-100">
+                    <div className="p-6  -mt-6 w-[651px]  rounded-b-2xl">
                       <div className="flex space-x-3">
-                        <img 
-                          src={IMAGES.sasha} 
-                          alt="Your avatar"
-                          className="w-8 h-8 rounded-full object-cover flex-shrink-0"
-                        />
-                        <div className="flex-1 flex space-x-2">
+                        <div className="flex-1 relative">
                           <input
                             type="text"
                             placeholder="Type a message"
@@ -451,7 +486,7 @@ const Feed: React.FC = () => {
                               ...prev,
                               [post.id]: e.target.value
                             }))}
-                            className="flex-1 bg-gray-100 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full bg-[#E0E0E0] rounded-2xl px-6 py-3 pr-12 text-sm border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             onKeyPress={(e) => {
                               if (e.key === 'Enter') {
                                 handleComment(post.id);
@@ -460,11 +495,9 @@ const Feed: React.FC = () => {
                           />
                           <button 
                             onClick={() => handleComment(post.id)}
-                            className="bg-blue-500 text-white rounded-full p-2 hover:bg-blue-600 transition-colors"
+                            className="absolute right-2 top-1/2 transform -translate-y-1/2  text-white rounded-full p-2 transition-colors"
                           >
-                            <svg className="w-4 h-4 rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                            </svg>
+                            <img src="/public/sendmsg.svg" alt="Send" className="w-5 h-5" />
                           </button>
                         </div>
                       </div>
@@ -476,6 +509,12 @@ const Feed: React.FC = () => {
           ))}
         </div>
 
+        {/* Create Post Modal */}
+        <CreatePost 
+          isOpen={showCreatePost}
+          onClose={handleCloseCreatePost}
+          onCreatePost={handleCreatePost}
+        />
        
       </div>
     </div>

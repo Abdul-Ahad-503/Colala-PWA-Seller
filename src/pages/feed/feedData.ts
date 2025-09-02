@@ -114,7 +114,7 @@ export const feedPosts: FeedPost[] = [
   {
     id: "2",
     author: "Vale Stones",
-    avatar: IMAGES.adam,
+    avatar: IMAGES.vee,
     timestamp: "4h ago", 
     caption: "Get this phone at a cheap price for a limited period",
     image: IMAGES.feedPhone,
@@ -126,7 +126,7 @@ export const feedPosts: FeedPost[] = [
       {
         id: "c5",
         author: "John Doe",
-        avatar: IMAGES.vee,
+        avatar: IMAGES.adam,
         content: "Amazing deal! Is this still available?",
         timestamp: "2h",
         likes: 15,
@@ -135,7 +135,7 @@ export const feedPosts: FeedPost[] = [
       {
         id: "c6",
         author: "Jane Smith",
-        avatar: IMAGES.vee,
+        avatar: IMAGES.profile,
         content: "I'm interested in purchasing this",
         timestamp: "1h",
         likes: 8,
@@ -146,7 +146,7 @@ export const feedPosts: FeedPost[] = [
   {
     id: "3",
     author: "Tech Store",
-    avatar: IMAGES.vee,
+    avatar: IMAGES.profile,
     timestamp: "6h ago",
     caption: "Latest smartphone collection now available with amazing discounts!",
     image: IMAGES.feedPhone,
@@ -158,7 +158,7 @@ export const feedPosts: FeedPost[] = [
       {
         id: "c7",
         author: "Mike Johnson",
-        avatar: IMAGES.vee,
+        avatar: IMAGES.adam,
         content: "What's the price range?",
         timestamp: "3h",
         likes: 20,

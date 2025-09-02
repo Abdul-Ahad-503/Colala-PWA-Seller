@@ -9,6 +9,18 @@ import ProductDetails from './pages/ProductDetails'
 import ServiceDetails from './pages/ServiceDetails'
 import BoostProduct from './pages/BoostProduct'
 import AdPreview from './pages/BoostProduct/AdPreview'
+import Settings from './pages/settings/Settings'
+import EditProfile from './pages/settings/EditProfile'
+import Orders from './pages/settings/Orders'
+import SavedItems from './pages/settings/SavedItems'
+import FollowedStores from './pages/settings/FollowedStores'
+import Reviews from './pages/settings/Reviews'
+import Referrals from './pages/settings/Referrals'
+import Support from './pages/settings/Support'
+import FAQs from './pages/settings/FAQs'
+import LoyaltyPoints from './pages/settings/LoyaltyPoints'
+import SellerLeaderboard from './pages/settings/SellerLeaderboard'
+import SavedAddresses from './pages/settings/SavedAddresses'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { ColorProvider } from './contexts/ColorContext'
 import './index.css'
@@ -33,9 +45,22 @@ function App() {
               <Route path="/boost-product" element={<BoostProduct />} />
               <Route path="/boost-product/preview" element={<AdPreview />} />
               <Route path="/createstore" element={<CreateStore />} />
-               <Route path="/chat" element={<Chat />} />
-                <Route path="/feed" element={<Feed />} />
-                <Route path="/orders" element={<OrderDetails />} />
+              <Route path="/chat" element={<Chat />} />
+              <Route path="/feed" element={<Feed />} />
+              <Route path="/orders" element={<OrderDetails />} />
+              <Route path="/settings" element={<Settings />}>
+                <Route path="edit-profile" element={<EditProfile />} />
+                <Route path="orders" element={<Orders />} />
+                <Route path="saved-items" element={<SavedItems />} />
+                <Route path="saved-addresses" element={<SavedAddresses />} />
+                <Route path="followed-stores" element={<FollowedStores />} />
+                <Route path="reviews" element={<Reviews />} />
+                <Route path="referrals" element={<Referrals />} />
+                <Route path="support" element={<Support />} />
+                <Route path="faqs" element={<FAQs />} />
+                <Route path="loyalty-points" element={<LoyaltyPoints />} />
+                <Route path="seller-leaderboard" element={<SellerLeaderboard />} />
+              </Route>
             </Routes>
             <PWABadge />
           </div>

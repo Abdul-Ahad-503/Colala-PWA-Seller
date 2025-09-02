@@ -10,8 +10,6 @@ import ServiceDetails from './pages/ServiceDetails'
 import BoostProduct from './pages/BoostProduct'
 import AdPreview from './pages/BoostProduct/AdPreview'
 import Settings from './pages/settings/Settings'
-import EditProfile from './pages/settings/EditProfile'
-import Orders from './pages/settings/Orders'
 import SavedItems from './pages/settings/SavedItems'
 import FollowedStores from './pages/settings/FollowedStores'
 import Reviews from './pages/settings/Reviews'
@@ -21,6 +19,12 @@ import FAQs from './pages/settings/FAQs'
 import LoyaltyPoints from './pages/settings/LoyaltyPoints'
 import SellerLeaderboard from './pages/settings/SellerLeaderboard'
 import SavedAddresses from './pages/settings/SavedAddresses'
+import Analytics from './pages/settings/Analytics'
+import Subscriptions from './pages/settings/Subscriptions'
+import PromotedProducts from './pages/settings/PromotedProducts'
+import Announcements from './pages/settings/Announcements'
+import AccountAccessControl from './pages/settings/AccountAccessControl'
+import MyProductsServices from './pages/settings/MyProductsServices'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { ColorProvider } from './contexts/ColorContext'
 import './index.css'
@@ -49,8 +53,11 @@ function App() {
               <Route path="/feed" element={<Feed />} />
               <Route path="/orders" element={<OrderDetails />} />
               <Route path="/settings" element={<Settings />}>
-                <Route path="edit-profile" element={<EditProfile />} />
-                <Route path="orders" element={<Orders />} />
+                <Route path="analytics" element={<Analytics />} />
+                <Route path="subscriptions" element={<Subscriptions />} />
+                <Route path="promoted-products" element={<PromotedProducts />} />
+                <Route path="announcements" element={<Announcements />} />
+                <Route path="My-Products" element={<MyProductsServices />} />
                 <Route path="saved-items" element={<SavedItems />} />
                 <Route path="saved-addresses" element={<SavedAddresses />} />
                 <Route path="followed-stores" element={<FollowedStores />} />
@@ -60,6 +67,7 @@ function App() {
                 <Route path="faqs" element={<FAQs />} />
                 <Route path="loyalty-points" element={<LoyaltyPoints />} />
                 <Route path="seller-leaderboard" element={<SellerLeaderboard />} />
+                <Route path="account-access-control" element={<AccountAccessControl />} />
               </Route>
             </Routes>
             <PWABadge />

@@ -21,6 +21,7 @@ import FAQs from './pages/settings/FAQs'
 import LoyaltyPoints from './pages/settings/LoyaltyPoints'
 import SellerLeaderboard from './pages/settings/SellerLeaderboard'
 import SavedAddresses from './pages/settings/SavedAddresses'
+import ManageCoupons from './pages/settings/ManageCoupons'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { ColorProvider } from './contexts/ColorContext'
 import './index.css'
@@ -60,6 +61,7 @@ function App() {
                 <Route path="faqs" element={<FAQs />} />
                 <Route path="loyalty-points" element={<LoyaltyPoints />} />
                 <Route path="seller-leaderboard" element={<SellerLeaderboard />} />
+                <Route path="Manage-coupons" element={<ManageCoupons />} />
               </Route>
             </Routes>
             <PWABadge />

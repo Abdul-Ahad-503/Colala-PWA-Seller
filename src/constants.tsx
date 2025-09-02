@@ -61,6 +61,17 @@ const IMAGES = {
   MapPinLine: '/MapPinLine.svg',
   Money: '/Money.svg',
   sealPercent: '/SealPercent.svg',
+  chartBarWhite: '/ChartBarWhite.svg',
+  ChartLineUpWhite: '/ChartLineUpWhite.svg',
+  ShieldCheckWhite: '/ShieldCheckWhite.svg',
+  StarWhite: '/StarWhite.svg',
+  Users: '/Users.svg',
+  Question: '/Question.svg',
+  Ranking: '/Ranking.svg',
+  Headset: '/Headset.svg',
+  SignOut: '/SignOut.svg',
+  LockKey: '/LockKey.svg',
+  airbaloon: '/airbloon.svg'
 
 };
 

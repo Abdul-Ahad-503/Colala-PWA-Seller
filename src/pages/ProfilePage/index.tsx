@@ -96,73 +96,81 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ onViewProfile }) => {
               </div>
 
               {/* Store Stats */}
-              <div className="flex gap-8 mb-6">
-                <div className="text-center">
-                  <div className="flex items-center gap-1">
-                    <img src={IMAGES.user} alt="Followers" className="w-4 h-4" />
-                    <span className="text-[12px] text-gray-600">11</span>
+              <div className="bg-white rounded-xl p-4 pb-0 mb-6 shadow-sm">
+                <div className="flex justify-between items-center">
+                  <div className="text-center">
+                    <div className="flex gap-1">
+                      <img src={IMAGES.shop} alt="Qty Sold" className="w-6 h-6" />
+                    <div className="flex flex-col items-center justify-center">
+                      <div className="text-[10px] text-gray-500 ">Qty Sold</div>
+                    <div className="text-lg font-medium">-</div>
+                    </div>
+                    </div>
                   </div>
-                </div>
-                <div className="text-center">
-                  <div className="flex items-center gap-1">
-                    <img src={IMAGES.user} alt="Following" className="w-4 h-4" />
-                    <span className="text-[12px] text-gray-600">8</span>
+                  <div className="text-center">
+                    <div className="flex gap-1">
+                      <img src={IMAGES.profile} alt="Followers" className="w-6 h-6" />
+                    <div className="flex flex-col items-center justify-center">
+                      <div className="text-[10px] text-gray-500 ">Followers</div>
+                    <div className="text-lg font-medium">-</div>
+                    </div>
+                    </div>
                   </div>
-                </div>
-                <div className="text-center">
-                  <div className="flex items-center gap-1">
-                    <img src={IMAGES.star} alt="Likes" className="w-4 h-4" />
-                    <span className="text-[12px] text-gray-600">343</span>
+                  <div className="text-center">
+                    <div className="flex gap-1">
+                      <img src={IMAGES.star} alt="Ratings" className="w-6 h-6" />
+                    <div className="flex flex-col items-center justify-center">
+                      <div className="text-[10px] text-gray-500 ">Ratings</div>
+                    <div className="text-lg font-medium">-</div>
+                    </div>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* Social Media Icons */}
-              <div className="flex gap-3 mb-6">
-                <img
-                  src={IMAGES.x}
-                  alt="X"
-                  className="w-11 h-11 cursor-pointer"
-                />
-                <img
-                  src={IMAGES.facebook}
-                  alt="Facebook"
-                  className="w-11 h-11 cursor-pointer"
-                />
-              </div>
+              
 
               {/* Action Buttons */}
               <div className="flex gap-3">
                 <Link 
                   to="/add-product"
-                  className="flex-1 text-white py-4 rounded-[15px] text-xs font-normal text-center block"
-                  style={colors.getButtonStyle()}
+                  className="flex-1 bg-primary opacity-50 text-white py-4 rounded-[15px] text-sm font-medium text-center block"
                 >
                   Add Product
                 </Link>
-                <button className="flex-1 bg-gray-600 text-white py-4 rounded-[15px] text-xs font-normal">
+                <Link 
+                  to="/add-service"
+                  className="flex-1 bg-gray-600 opacity-50 text-white py-4 rounded-[15px] text-sm font-medium text-center block"
+                >
                   Add Service
-                </button>
+                </Link>
               </div>
             </div>
 
+            
+
+            {/* Latest Orders */}
+            <div className="bg-white rounded-[20px] shadow-sm p-6">
+              <h2 className="text-sm font-medium mb-3 text-black">Latest Orders</h2>
+              <p className="text-xs text-gray-500 text-center py-8">No orders yet</p>
+            </div>
+          </div>
+
+          {/* Right Section - Promotional Banner + Management Cards */}
+          <div className="flex-1 space-y-6">
             {/* Store Setup Banner with promo style */}
-            <div className="bg-white rounded-[20px] shadow-sm relative overflow-hidden">
+            <div className="bg-[#FFE5E5] rounded-[20px] shadow-sm relative overflow-hidden">
               <div className="p-6 pb-0">
-                <h3 className="font-medium text-black mb-2">
+                <h3 className="text-sm text-black mb-2">
                   Finish creating your store to start selling and reaching
                 </h3>
                 <p className="text-black mb-4">out wide range of audience</p>
                 <div className="flex items-center justify-between mb-4">
-                  <button 
-                    className="bg-white border text-xs px-4 py-2 rounded-[10px] font-medium"
-                    style={{
-                      ...colors.getPrimaryText(),
-                      ...colors.getPrimaryBorder()
-                    }}
-                  >
+                  <Link 
+                    to="/createstore"
+                    className="bg-primary text-white border text-[10px] px-10 py-4 rounded-[10px] text-center inline-block">
                     Create Store
-                  </button>
+                  </Link>
                   <div className="text-right">
                     <div className="text-xs text-gray-600 mb-1">Recent page completion (70%)</div>
                     <div className="w-16 h-1 bg-gray-200 rounded-full">
@@ -177,43 +185,10 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ onViewProfile }) => {
                   </div>
                 </div>
               </div>
-              
-              {/* Promo Banner */}
-              <div 
-                className="text-white rounded-b-[20px] py-2 -mt-4 z-0 shadow-md"
-                style={colors.getPrimaryBg()}
-              >
-                <div className="flex items-center pt-3 px-4 gap-2">
-                  <img
-                    src={IMAGES.megaphone}
-                    alt="Megaphone"
-                    className="w-3 h-3"
-                  />
-                  <p className="text-[10px] font-normal">
-                    Product sales going on from Sept 7 - Oct 30
-                  </p>
-                </div>
-              </div>
             </div>
-
-            {/* Latest Orders */}
-            <div className="bg-white rounded-[20px] shadow-sm p-6">
-              <h2 className="text-sm font-medium mb-3 text-black">Latest Orders</h2>
-              <p className="text-xs text-gray-500 text-center py-8">No orders yet</p>
-            </div>
-          </div>
-
-          {/* Right Section - Promotional Banner + Management Cards */}
-          <div className="flex-1 space-y-6">
             {/* Promotional Banner */}
-            <div className="bg-gray-100 rounded-[20px] p-6 text-center">
-              <div className="w-20 h-20 bg-gray-200 rounded-lg mx-auto mb-4 flex items-center justify-center">
-                <img
-                  src={IMAGES.image}
-                  alt="Add Banner"
-                  className="w-8 h-8 opacity-50"
-                />
-              </div>
+            <div className="bg-[#DFDFDF] rounded-[20px] p-6 text-center">
+              
               <p className="text-sm text-gray-600 mb-3">Your promotional banners appear here</p>
               <p className="text-xs text-gray-500 mb-4">Complete your store setup to proceed</p>
               <button 
@@ -231,7 +206,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ onViewProfile }) => {
                 <div className="flex flex-col items-start mb-4">
                   <div className="w-13 h-13 bg-red-50 rounded-full flex items-center justify-center mb-4">
                     <img
-                      src={IMAGES.shoppingCart}
+                      src={IMAGES.shoppingCartSimple}
                       alt="Orders"
                       className="w-6 h-6"
                     />
@@ -253,7 +228,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ onViewProfile }) => {
                 <div className="flex flex-col items-start mb-4">
                   <div className="w-13 h-13 bg-red-50 rounded-full flex items-center justify-center mb-4">
                     <img
-                      src={IMAGES.shoppingBag}
+                      src={IMAGES.notepad}
                       alt="Products"
                       className="w-6 h-6"
                     />

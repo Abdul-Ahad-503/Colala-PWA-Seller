@@ -60,12 +60,6 @@ const ProductDetails: React.FC = () => {
     setBoostPopup(true);
   };
 
-  const handleBoostProceed = () => {
-    console.log('Proceeding with boost for product:', productId);
-    // Here you would implement the actual boost logic
-    setBoostPopup(false);
-  };
-
   const handleBoostClose = () => {
     setBoostPopup(false);
   };
@@ -321,7 +315,13 @@ const ProductDetails: React.FC = () => {
       <BoostAdPopup
         isOpen={boostPopup}
         onClose={handleBoostClose}
-        onProceed={handleBoostProceed}
+        productData={{
+          name: product.name,
+          price: product.price,
+          originalPrice: product.originalPrice,
+          image: product.mainImage,
+          status: 'Available'
+        }}
       />
     </div>
   );

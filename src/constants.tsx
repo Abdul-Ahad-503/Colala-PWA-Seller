@@ -57,6 +57,9 @@ const IMAGES = {
   ChartLineUp: '/ChartLineUp.svg',
   UserCheck: '/UserCheck.svg',
   MegaPhoneColored: '/MegaPhoneColored.svg',
+  Eraser: '/Eraser.svg',
+  MapPinLine: '/MapPinLine.svg',
+  Money: '/Money.svg',
   
 
 };

@@ -1,18 +1,28 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import IMAGES from '../../constants';
 
 interface BoostAdPopupProps {
   isOpen: boolean;
   onClose: () => void;
-  onProceed: () => void;
+  productData?: any;
 }
 
 const BoostAdPopup: React.FC<BoostAdPopupProps> = ({
   isOpen,
   onClose,
-  onProceed
+  productData
 }) => {
+  const navigate = useNavigate();
+
   if (!isOpen) return null;
+
+  const handleProceed = () => {
+    onClose();
+    navigate('/boost-product', { 
+      state: { productData } 
+    });
+  };
 
   return (
     <div className="fixed inset-0 backdrop-brightness-50 flex items-center justify-center z-50 p-4">
@@ -81,7 +91,7 @@ const BoostAdPopup: React.FC<BoostAdPopupProps> = ({
 
             {/* Proceed Button */}
             <button
-              onClick={onProceed}
+              onClick={handleProceed}
               className="w-full bg-primary text-white py-5 rounded-[15px]  text-sm hover:bg-red-600 transition-colors my-3"
             >
               Proceed

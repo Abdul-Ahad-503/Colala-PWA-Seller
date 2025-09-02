@@ -6,6 +6,9 @@ import AddProduct from './pages/AddProduct'
 import AddService from './pages/AddService'
 import MyProducts from './pages/MyProducts'
 import ProductDetails from './pages/ProductDetails'
+import ServiceDetails from './pages/ServiceDetails'
+import BoostProduct from './pages/BoostProduct'
+import AdPreview from './pages/BoostProduct/AdPreview'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { ColorProvider } from './contexts/ColorContext'
 import './index.css'
@@ -26,6 +29,9 @@ function App() {
               <Route path="/add-service" element={<AddService />} />
               <Route path="/my-products" element={<MyProducts />} />
               <Route path="/product-details/:id" element={<ProductDetails />} />
+              <Route path="/service-details/:serviceId" element={<ServiceDetails />} />
+              <Route path="/boost-product" element={<BoostProduct />} />
+              <Route path="/boost-product/preview" element={<AdPreview />} />
               <Route path="/createstore" element={<CreateStore />} />
                <Route path="/chat" element={<Chat />} />
                 <Route path="/feed" element={<Feed />} />

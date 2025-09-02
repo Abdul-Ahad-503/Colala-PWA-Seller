@@ -166,10 +166,11 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ onViewProfile }) => {
                 </h3>
                 <p className="text-black mb-4">out wide range of audience</p>
                 <div className="flex items-center justify-between mb-4">
-                  <button 
-                    className="bg-primary text-white border text-[10px] px-10 py-4 rounded-[10px] ">
+                  <Link 
+                    to="/createstore"
+                    className="bg-primary text-white border text-[10px] px-10 py-4 rounded-[10px] text-center inline-block">
                     Create Store
-                  </button>
+                  </Link>
                   <div className="text-right">
                     <div className="text-xs text-gray-600 mb-1">Recent page completion (70%)</div>
                     <div className="w-16 h-1 bg-gray-200 rounded-full">

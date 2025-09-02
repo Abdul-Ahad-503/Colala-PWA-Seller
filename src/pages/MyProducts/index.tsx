@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import ProductCard from '../../components/ProductCard/index';
+import ServiceCard from '../../components/ServiceCard/index';
 import ProductStatsPopup from '../../components/ProductCard/ProductStatsPopup';
 import BoostAdPopup from '../../components/ProductCard/BoostAdPopup';
+import ServiceDetailsPopup from '../../components/ServiceCard/ServiceDetailsPopup';
 import IMAGES from '../../constants';
 
 const MyProducts: React.FC = () => {
@@ -11,9 +13,15 @@ const MyProducts: React.FC = () => {
     isOpen: false, 
     productId: null 
   });
-  const [boostPopup, setBoostPopup] = useState<{ isOpen: boolean; productId: string | null }>({ 
+  const [boostPopup, setBoostPopup] = useState<{ isOpen: boolean; productId: string | null; productData: any }>({ 
     isOpen: false, 
-    productId: null 
+    productId: null,
+    productData: null
+  });
+  const [serviceDetailsPopup, setServiceDetailsPopup] = useState<{ isOpen: boolean; serviceId: string | null; serviceData: any }>({ 
+    isOpen: false, 
+    serviceId: null,
+    serviceData: null
   });
 
   // Sample product data - now as state
@@ -240,12 +248,44 @@ const MyProducts: React.FC = () => {
     }
   ]);
 
-  // Filter products based on active filter
-  const filteredProducts = products.filter(product => {
-    if (activeFilter === 'sponsored') return product.isSponsored;
-    if (activeFilter === 'outOfStock') return product.isOutOfStock;
-    return true; // 'all' filter
-  });
+  // Sample services data
+  const [services] = useState([
+    {
+      id: 's1',
+      image: IMAGES.top1,
+      name: 'Sasha Fashion Designer',
+      priceRange: 'N5,000 - N20,000',
+      serviceViews: 200,
+      productClicks: 15,
+      messages: 3,
+      isSponsored: false,
+      isOutOfStock: false
+    },
+    {
+      id: 's2',
+      image: IMAGES.top2,
+      name: 'Sasha Fashion Designer',
+      priceRange: 'N5,000 - N20,000',
+      serviceViews: 200,
+      productClicks: 15,
+      messages: 3,
+      isSponsored: false,
+      isOutOfStock: false
+    }
+  ]);
+
+  // Filter products or services based on active tab and filter
+  const filteredItems = activeTab === 'products' 
+    ? products.filter(product => {
+        if (activeFilter === 'sponsored') return product.isSponsored;
+        if (activeFilter === 'outOfStock') return product.isOutOfStock;
+        return true; // 'all' filter
+      })
+    : services.filter(service => {
+        if (activeFilter === 'sponsored') return service.isSponsored;
+        if (activeFilter === 'outOfStock') return service.isOutOfStock;
+        return true; // 'all' filter
+      });
 
   const handleEdit = (productId: string) => {
     console.log('Edit product:', productId);
@@ -294,17 +334,37 @@ const MyProducts: React.FC = () => {
   };
 
   const handleBoostProduct = (productId: string) => {
-    setBoostPopup({ isOpen: true, productId });
-  };
-
-  const handleBoostProceed = () => {
-    console.log('Proceeding with boost for product:', boostPopup.productId);
-    // Here you would implement the actual boost logic
-    setBoostPopup({ isOpen: false, productId: null });
+    const product = products.find(p => p.id === productId);
+    setBoostPopup({ 
+      isOpen: true, 
+      productId,
+      productData: product 
+    });
   };
 
   const handleBoostClose = () => {
-    setBoostPopup({ isOpen: false, productId: null });
+    setBoostPopup({ isOpen: false, productId: null, productData: null });
+  };
+
+  const handleServiceDetails = (serviceId: string) => {
+    const service = services.find(s => s.id === serviceId);
+    setServiceDetailsPopup({ 
+      isOpen: true, 
+      serviceId,
+      serviceData: {
+        ...service,
+        orderId: "ORD-12345FFKSK",
+        dateCreated: "July 19, 2025 - 07:22AM",
+        views: service?.serviceViews || 2000,
+        phoneViews: 15,
+        chats: service?.messages || 5,
+        chartData: []
+      }
+    });
+  };
+
+  const handleServiceDetailsClose = () => {
+    setServiceDetailsPopup({ isOpen: false, serviceId: null, serviceData: null });
   };
 
   return (
@@ -373,41 +433,58 @@ const MyProducts: React.FC = () => {
           </button>
         </div>
 
-        {/* Products Grid */}
+        {/* Items Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-          {filteredProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              id={product.id}
-              image={product.image}
-              name={product.name}
-              price={product.price}
-              originalPrice={product.originalPrice}
-              isSponsored={product.isSponsored}
-              isOutOfStock={product.isOutOfStock}
-              isSold={product.isSold}
-              productViews={product.productViews}
-              productClicks={product.productClicks}
-              messages={product.messages}
-              onEdit={() => handleEdit(product.id)}
-              onMore={() => handleMore(product.id)}
-              onProductStat={() => handleProductStat(product.id)}
-              onMarkAsSold={() => handleMarkAsSold(product.id)}
-              onBoostProduct={() => handleBoostProduct(product.id)}
-              onMarkAsUnavailable={() => handleMarkAsUnavailable(product.id)}
-              onMarkAsAvailable={() => handleMarkAsAvailable(product.id)}
-            />
-          ))}
+          {activeTab === 'products' 
+            ? (filteredItems as any[]).map((product) => (
+                <ProductCard
+                  key={product.id}
+                  id={product.id}
+                  image={product.image}
+                  name={product.name}
+                  price={product.price}
+                  originalPrice={product.originalPrice}
+                  isSponsored={product.isSponsored}
+                  isOutOfStock={product.isOutOfStock}
+                  isSold={product.isSold}
+                  productViews={product.productViews}
+                  productClicks={product.productClicks}
+                  messages={product.messages}
+                  onEdit={() => handleEdit(product.id)}
+                  onMore={() => handleMore(product.id)}
+                  onProductStat={() => handleProductStat(product.id)}
+                  onMarkAsSold={() => handleMarkAsSold(product.id)}
+                  onBoostProduct={() => handleBoostProduct(product.id)}
+                  onMarkAsUnavailable={() => handleMarkAsUnavailable(product.id)}
+                  onMarkAsAvailable={() => handleMarkAsAvailable(product.id)}
+                />
+              ))
+            : (filteredItems as any[]).map((service) => (
+                <ServiceCard
+                  key={service.id}
+                  id={service.id}
+                  image={service.image}
+                  name={service.name}
+                  priceRange={service.priceRange}
+                  serviceViews={service.serviceViews}
+                  productClicks={service.productClicks}
+                  messages={service.messages}
+                  isSponsored={service.isSponsored}
+                  isOutOfStock={service.isOutOfStock}
+                  onDetails={() => handleServiceDetails(service.id)}
+                />
+              ))
+          }
         </div>
 
         {/* Empty State */}
-        {filteredProducts.length === 0 && (
+        {filteredItems.length === 0 && (
           <div className="text-center py-12">
             <div className="w-24 h-24 bg-gray-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-              <img src={IMAGES.image} alt="No products" className="w-12 h-12 opacity-40" />
+              <img src={IMAGES.image} alt={`No ${activeTab}`} className="w-12 h-12 opacity-40" />
             </div>
-            <h3 className="text-lg font-medium text-gray-900 mb-2">No products found</h3>
-            <p className="text-gray-500">No products match your current filter criteria.</p>
+            <h3 className="text-lg font-medium text-gray-900 mb-2">No {activeTab} found</h3>
+            <p className="text-gray-500">No {activeTab} match your current filter criteria.</p>
           </div>
         )}
       </div>
@@ -468,7 +545,26 @@ const MyProducts: React.FC = () => {
       <BoostAdPopup
         isOpen={boostPopup.isOpen}
         onClose={handleBoostClose}
-        onProceed={handleBoostProceed}
+        productData={boostPopup.productData}
+      />
+
+      {/* Service Details Popup */}
+      <ServiceDetailsPopup
+        isOpen={serviceDetailsPopup.isOpen}
+        onClose={handleServiceDetailsClose}
+        serviceId={serviceDetailsPopup.serviceId || ''}
+        serviceName={serviceDetailsPopup.serviceData?.name || ''}
+        serviceData={serviceDetailsPopup.serviceData || {
+          image: '',
+          name: '',
+          priceRange: '',
+          orderId: '',
+          dateCreated: '',
+          views: 0,
+          phoneViews: 0,
+          chats: 0,
+          chartData: []
+        }}
       />
     </div>
   );

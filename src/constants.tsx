@@ -60,7 +60,7 @@ const IMAGES = {
   Eraser: '/Eraser.svg',
   MapPinLine: '/MapPinLine.svg',
   Money: '/Money.svg',
-  
+  sealPercent: '/SealPercent.svg',
 
 };
 

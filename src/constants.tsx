@@ -71,7 +71,8 @@ const IMAGES = {
   Headset: '/Headset.svg',
   SignOut: '/SignOut.svg',
   LockKey: '/LockKey.svg',
-  airbaloon: '/airbloon.svg'
+  airbaloon: '/airbloon.svg',
+  Prohibit: '/Prohibit.svg',
 
 };
 

@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import IMAGES from '../../constants';
 
 const PromotedProducts: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const navigate = useNavigate();
 
   // Product data based on the image - 6 Dell Inspiron Laptops
   const promotedProducts = [
@@ -118,7 +120,7 @@ const PromotedProducts: React.FC = () => {
     product: typeof promotedProducts[0];
   }> = ({ product }) => {
     return (
-      <div className="bg-white rounded-[20px] max-w-[188px] overflow-hidden border border-gray-200 shadow-sm relative">
+      <div className="bg-white rounded-[20px] max-w-[190px] overflow-hidden border border-gray-200 shadow-sm relative">
         {/* Product Image */}
         <div className="relative bg-gray-100">
           <img
@@ -157,23 +159,26 @@ const PromotedProducts: React.FC = () => {
           </div>
 
           {/* Stats */}
-          <div className="space-y-2 mb-4">
+          <div className="space-y-2 mb-3">
             <div className="flex justify-between items-center">
-              <span className="text-sm text-gray-600">Product Views</span>
-              <span className="text-sm font-medium">{product.productViews}</span>
+              <span className="text-[8px] text-[#00000080]">Product Views</span>
+              <span className="text-[8px]">{product.productViews}</span>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-sm text-gray-600">Product Clicks</span>
-              <span className="text-sm font-medium">{product.productClicks}</span>
+              <span className="text-[8px] text-[#00000080]">Product Clicks</span>
+              <span className="text-[8px]">{product.productClicks}</span>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-sm text-gray-600">Messages</span>
-              <span className="text-sm font-medium">{product.messages}</span>
+              <span className="text-[8px] text-[#00000080]">Messages</span>
+              <span className="text-[8px]">{product.messages}</span>
             </div>
           </div>
 
           {/* View Details Button */}
-          <button className="w-full bg-red-500 text-white py-3 rounded-lg font-medium hover:bg-red-600 transition-colors">
+          <button 
+            onClick={() => navigate(`/settings/promotion-details/${product.id}`)}
+            className="w-full bg-primary text-[8px] text-white py-2 rounded-[10px] hover:bg-red-600 transition-colors mb-3"
+          >
             View Details
           </button>
         </div>
@@ -189,7 +194,7 @@ const PromotedProducts: React.FC = () => {
     <div className="flex-1 bg-white rounded-[20px] min-h-screen p-4">
       {/* Header */}
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-black mb-6">Promoted Product</h1>
+        <h1 className="text-[20px] font-semibold text-black mb-6">Promoted Product</h1>
         
         {/* Search and Filter Row */}
         <div className="flex gap-4 mb-6">
@@ -200,7 +205,7 @@ const PromotedProducts: React.FC = () => {
               placeholder="Search products"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+              className="w-full px-4 py-[22px] text-xs rounded-[15px] border border-[#CDCDCD] focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
             />
           </div>
           
@@ -209,15 +214,15 @@ const PromotedProducts: React.FC = () => {
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent appearance-none bg-white pr-10 min-w-[140px]"
+              className="px-4 py-5 text-xs rounded-[15px] border border-[#CDCDCD] focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent appearance-none bg-white pr-10 w-[104px]"
             >
               <option value="all">Categories</option>
               <option value="electronics">Electronics</option>
               <option value="clothing">Clothing</option>
               <option value="accessories">Accessories</option>
             </select>
-            <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
-              <svg className="w-4 h-4 fill-gray-400" viewBox="0 0 20 20">
+            <div className="absolute inset-y-0 right-0 flex items-center  pointer-events-none">
+              <svg className="w-[14px] h-[14px] fill-gray-400" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
               </svg>
             </div>

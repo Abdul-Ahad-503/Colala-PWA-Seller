@@ -22,6 +22,7 @@ import SavedAddresses from './pages/settings/SavedAddresses'
 import Analytics from './pages/settings/Analytics'
 import Subscriptions from './pages/settings/Subscriptions'
 import PromotedProducts from './pages/settings/PromotedProducts'
+import PromotionDetails from './pages/settings/PromotionDetails'
 import Announcements from './pages/settings/Announcements'
 import AccountAccessControl from './pages/settings/AccountAccessControl'
 import MyProductsServices from './pages/settings/MyProductsServices'
@@ -56,6 +57,7 @@ function App() {
                 <Route path="analytics" element={<Analytics />} />
                 <Route path="subscriptions" element={<Subscriptions />} />
                 <Route path="promoted-products" element={<PromotedProducts />} />
+                <Route path="promotion-details/:productId" element={<PromotionDetails />} />
                 <Route path="announcements" element={<Announcements />} />
                 <Route path="My-Products" element={<MyProductsServices />} />
                 <Route path="saved-items" element={<SavedItems />} />

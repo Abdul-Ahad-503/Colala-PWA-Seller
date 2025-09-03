@@ -130,11 +130,11 @@ const Settings: React.FC = () => {
                 </span>
                 <div>Account Access Control</div>
               </button>
-              <button onClick={handleLogout} className="text-[#E53E3E] text-left font-semibold text-sm flex hover:bg-[#e0dfdf] rounded-xl py-3 px-4 w-full">
+              <button onClick={handleLogout} className="text-[#E53E3E] text-left  bg-white hover:bg-[#e0dfdf] rounded-xl border border-gray-100 px-4 pl-2 py-4 shadow-sm mb-2 font-semibold text-sm flex  w-full">
                 <span><img src={IMAGES.SignOut} alt="" className="w-5 h-5 mr-3" /></span>
                 Logout
               </button>
-              <button onClick={handleDeleteAccount} className="text-gray-400 text-center hover:bg-[#e0dfdf] rounded-xl py-3 px-4 w-full">Delete Account</button>
+              <button onClick={handleDeleteAccount} className="text-gray-400  bg-white hover:bg-[#e0dfdf] rounded-xl border border-gray-100 px-4 pl-2 py-4 shadow-sm mb-2 text-center  w-full">Delete Account</button>
             </div>
         </div>
         {/* Right panel */}

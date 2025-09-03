@@ -82,6 +82,8 @@ const IMAGES = {
   ArrowLineUpRight: '/ArrowLineUpRight.svg',
   FunnelSimple: '/FunnelSimple.svg',
   CreditCard: '/CreditCard.svg',
+  MasterCard: '/MasterCard.svg',
+  active: '/active.svg'
 
 
 };

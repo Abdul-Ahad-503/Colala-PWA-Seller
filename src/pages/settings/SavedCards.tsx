@@ -9,7 +9,7 @@ const SavedCards: React.FC = () => {
       brand: 'bank',
       number: '**** **** **** 1234',
       holder: 'Sasha Collins',
-      gradient: 'from-[#E53E3E] via-[#BD0F7B] to-[#7B2CBF]',
+      gradient: 'from-[#F90909] to-[#920C5F]',
       autodebit: true
     },
     {
@@ -75,45 +75,43 @@ const SavedCards: React.FC = () => {
       {/* Cards Horizontal Scroll */}
       <div className="flex gap-6 overflow-x-auto  pb-4 mb-8 scrollbar-hide">
         {cards.map((card) => (
-          <div key={card.id} className="flex-shrink-0 w-[400px] space-y-4">
+          <div key={card.id} className="flex-shrink-0 w-[350px] space-y-4 bg-white shadow-[5px_5px_20px_0px_#00000040]">
             {/* Credit Card */}
-            <div className={`bg-gradient-to-r ${card.gradient} rounded-[20px] p-6 text-white relative overflow-hidden h-[200px]`}>
+            <div className={`bg-gradient-to-r ${card.gradient} rounded-[20px] p-[22px] text-white relative overflow-hidden `}>
               {/* Card Header */}
-              <div className="flex justify-between items-center mb-4">
-                <span className="text-xs opacity-90">{card.type}</span>
-                <div className="flex items-center gap-1">
-                  <span className="text-xs opacity-90">{card.brand}</span>
-                  <div className="w-6 h-6 bg-white bg-opacity-20 rounded-full"></div>
+              <div className="flex justify-between  mb-4">
+                <div className="flex gap-2">
+                  <span className="text-[10px]">{card.type}</span>
+                  <div className="">
+                    <img src={IMAGES.active} alt="Active" className="w-[38px] h-[13px]" />
+                    
+                  </div>
+                </div>
+                <div className="flex items-center">
+                  <img src={IMAGES.MasterCard} alt="MasterCard" className="w-12 h-8" />
                 </div>
               </div>
 
               {/* Card Number */}
               <div className="mb-6">
-                <p className="text-lg font-bold tracking-wider">{card.number}</p>
+                <p className="text-2xl font-bold ">{card.number}</p>
               </div>
 
               {/* Card Holder */}
-              <div className="mb-4">
-                <p className="text-sm opacity-90">{card.holder}</p>
+              <div className="mb-6 -mt-4">
+                <p className="text-base text-[#FFFFFF80]">{card.holder}</p>
               </div>
 
               {/* Card Actions */}
               <div className="absolute bottom-4 right-4 flex gap-3">
-                <button className="w-8 h-8 bg-white bg-opacity-20 rounded-lg flex items-center justify-center hover:bg-opacity-30 transition-colors">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                  </svg>
+                <button className="p-2 rounded-full   flex items-center justify-center bg-[#FFFFFF26] hover:bg-opacity-30 transition-colors">
+                  <img src={IMAGES.PencilSimpleLine} alt="" className='w-8 h-8' />
                 </button>
-                <button className="w-8 h-8 bg-white bg-opacity-20 rounded-lg flex items-center justify-center hover:bg-opacity-30 transition-colors">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                  </svg>
+                <button className="p-2 rounded-full   flex items-center justify-center bg-[#FFFFFF26] hover:bg-opacity-30 transition-colors">
+                  <img src={IMAGES.Trash} alt="" className='w-8 h-8' />
                 </button>
               </div>
-
-              {/* Decorative circles */}
-              <div className="absolute -top-8 -right-8 w-24 h-24 bg-white bg-opacity-10 rounded-full"></div>
-              <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-white bg-opacity-10 rounded-full"></div>
+              
             </div>
 
             {/* Card Settings */}

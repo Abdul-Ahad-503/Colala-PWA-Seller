@@ -80,7 +80,8 @@ const IMAGES = {
   third: '/third.png',
   questionMark: '/QuestionMark.png',
   ArrowLineUpRight: '/ArrowLineUpRight.svg',
-  FunnelSimple: '/FunnelSimple.svg'
+  FunnelSimple: '/FunnelSimple.svg',
+  CreditCard: '/CreditCard.svg',
 
 
 };

@@ -11,6 +11,7 @@ import BoostProduct from './pages/BoostProduct'
 import AdPreview from './pages/BoostProduct/AdPreview'
 import Settings from './pages/settings/Settings'
 import SavedItems from './pages/settings/SavedItems'
+import SavedCards from './pages/settings/SavedCards'
 import FollowedStores from './pages/settings/FollowedStores'
 import Reviews from './pages/settings/Reviews'
 import Referrals from './pages/settings/Referrals'
@@ -65,6 +66,7 @@ function App() {
                 <Route path="shopping-wallet" element={<ShoppingWallet />} />
                 <Route path="transaction-details" element={<TransactionDetails />} />
                 <Route path="saved-items" element={<SavedItems />} />
+                <Route path="saved-cards" element={<SavedCards />} />
                 <Route path="saved-addresses" element={<SavedAddresses />} />
                 <Route path="followed-stores" element={<FollowedStores />} />
                 <Route path="reviews" element={<Reviews />} />

@@ -10,22 +10,23 @@ import ServiceDetails from './pages/ServiceDetails'
 import BoostProduct from './pages/BoostProduct'
 import AdPreview from './pages/BoostProduct/AdPreview'
 import Settings from './pages/settings/Settings'
-import SavedItems from './pages/settings/SavedItems'
-import FollowedStores from './pages/settings/FollowedStores'
+import SavedCards from './pages/settings/SavedCards'
 import Reviews from './pages/settings/Reviews'
 import Referrals from './pages/settings/Referrals'
 import Support from './pages/settings/Support'
 import FAQs from './pages/settings/FAQs'
 import LoyaltyPoints from './pages/settings/LoyaltyPoints'
 import SellerLeaderboard from './pages/settings/SellerLeaderboard'
-import SavedAddresses from './pages/settings/SavedAddresses'
 import ManageCoupons from './pages/settings/ManageCoupons'
 import Analytics from './pages/settings/Analytics'
 import Subscriptions from './pages/settings/Subscriptions'
 import PromotedProducts from './pages/settings/PromotedProducts'
+import PromotionDetails from './pages/settings/PromotionDetails'
 import Announcements from './pages/settings/Announcements'
 import AccountAccessControl from './pages/settings/AccountAccessControl'
 import MyProductsServices from './pages/settings/MyProductsServices'
+import ShoppingWallet from './pages/settings/ShoppingWallet'
+import TransactionDetails from './pages/settings/TransactionDetails'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { ColorProvider } from './contexts/ColorContext'
 import './index.css'
@@ -57,11 +58,12 @@ function App() {
                 <Route path="analytics" element={<Analytics />} />
                 <Route path="subscriptions" element={<Subscriptions />} />
                 <Route path="promoted-products" element={<PromotedProducts />} />
+                <Route path="promotion-details/:productId" element={<PromotionDetails />} />
                 <Route path="announcements" element={<Announcements />} />
                 <Route path="My-Products" element={<MyProductsServices />} />
-                <Route path="saved-items" element={<SavedItems />} />
-                <Route path="saved-addresses" element={<SavedAddresses />} />
-                <Route path="followed-stores" element={<FollowedStores />} />
+                <Route path="shopping-wallet" element={<ShoppingWallet />} />
+                <Route path="transaction-details" element={<TransactionDetails />} />
+                <Route path="saved-cards" element={<SavedCards />} />
                 <Route path="reviews" element={<Reviews />} />
                 <Route path="referrals" element={<Referrals />} />
                 <Route path="support" element={<Support />} />

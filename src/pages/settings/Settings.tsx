@@ -69,7 +69,7 @@ const Settings: React.FC = () => {
                 </span>
                 <div className="pl-4 bg-white hover:bg-[#e0dfdf] w-full py-4 border border-[#F2F2F2] rounded-2xl font-semibold relative">
                   Subscriptions
-                  <span className="absolute right-4 top-1/2 -translate-y-1/2 bg-green-500 text-white text-xs px-2 py-1 rounded">Subscription Active</span>
+                  <span className="absolute right-0 top-1/2 -translate-y-1/2 bg-green-500 text-white text-[10px] px-2 py-1 rounded-l font-normal"> <img src={IMAGES.ShieldCheckWhite} className="w-3 h-3 inline" alt="" /> Subscription Active</span>
                 </div>
               </button>
               <button onClick={() => navigate('/settings/promoted-products')} className="flex items-center bg-[#3EC9E5] rounded-2xl px-0 shadow-sm relative text-left w-full">

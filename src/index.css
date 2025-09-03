@@ -180,7 +180,12 @@
   font-weight: 700;
   
 }
-
+.font_Oleo_400{
+  font-family: "Oleo Script", cursive;
+  font-weight: 400;
+  font-size: 70px;
+  
+}
 .active_page {
   position: relative;
     color: white;
@@ -251,4 +256,27 @@
 .hide-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* Hide scrollbar for Webkit browsers */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Tailwind utility for hiding scrollbars */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.br_top {
+  border-radius: 5/3px 0px 8/5px 0px ;
+}
+
+.clip-trapezoid {
+  clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
 }

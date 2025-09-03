@@ -1,242 +1,235 @@
 import React, { useState } from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer } from 'recharts';
 import IMAGES from '../../constants';
 
 const PromotedProducts: React.FC = () => {
-  const [activeTab, setActiveTab] = useState('active');
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('all');
 
+  // Product data based on the image - 6 Dell Inspiron Laptops
   const promotedProducts = [
     {
       id: 1,
-      name: 'Summer Floral Dress',
+      name: 'Dell Inspiron Laptop',
+      price: 'N2,000,000',
+      originalPrice: 'N5,000,000',
       image: IMAGES.top1,
-      status: 'active',
-      budget: '₦25,000',
-      spent: '₦18,500',
-      clicks: 1240,
-      views: 8650,
-      orders: 23,
-      startDate: '2025-08-15',
-      endDate: '2025-09-15'
+      isSponsored: true,
+      productViews: 200,
+      productClicks: 15,
+      messages: 3,
+      serviceBadges: [
+        { text: 'Free delivery', type: 'delivery' as const },
+        { text: '25% Off in bulk', type: 'discount' as const }
+      ]
     },
     {
       id: 2,
-      name: 'Cotton Casual Shirt',
+      name: 'Dell Inspiron Laptop',
+      price: 'N2,000,000',
+      originalPrice: 'N5,000,000',
       image: IMAGES.top2,
-      status: 'active',
-      budget: '₦15,000',
-      spent: '₦12,300',
-      clicks: 890,
-      views: 5420,
-      orders: 15,
-      startDate: '2025-08-20',
-      endDate: '2025-09-20'
+      isSponsored: true,
+      productViews: 200,
+      productClicks: 15,
+      messages: 3,
+      serviceBadges: [
+        { text: 'Free delivery', type: 'delivery' as const },
+        { text: '25% Off in bulk', type: 'discount' as const }
+      ]
     },
     {
       id: 3,
-      name: 'Designer Handbag',
+      name: 'Dell Inspiron Laptop',
+      price: 'N2,000,000',
+      originalPrice: 'N5,000,000',
       image: IMAGES.top3,
-      status: 'paused',
-      budget: '₦30,000',
-      spent: '₦22,100',
-      clicks: 1560,
-      views: 9200,
-      orders: 31,
-      startDate: '2025-08-01',
-      endDate: '2025-09-01'
+      isSponsored: true,
+      productViews: 200,
+      productClicks: 15,
+      messages: 3,
+      serviceBadges: [
+        { text: 'Free delivery', type: 'delivery' as const },
+        { text: '25% Off in bulk', type: 'discount' as const }
+      ]
+    },
+    {
+      id: 4,
+      name: 'Dell Inspiron Laptop',
+      price: 'N2,000,000',
+      originalPrice: 'N5,000,000',
+      image: IMAGES.top1,
+      isSponsored: true,
+      productViews: 200,
+      productClicks: 15,
+      messages: 3,
+      serviceBadges: [
+        { text: 'Free delivery', type: 'delivery' as const },
+        { text: '25% Off in bulk', type: 'discount' as const }
+      ]
+    },
+    {
+      id: 5,
+      name: 'Dell Inspiron Laptop',
+      price: 'N2,000,000',
+      originalPrice: 'N5,000,000',
+      image: IMAGES.top2,
+      isSponsored: true,
+      productViews: 200,
+      productClicks: 15,
+      messages: 3,
+      serviceBadges: [
+        { text: 'Free delivery', type: 'delivery' as const },
+        { text: '25% Off in bulk', type: 'discount' as const }
+      ]
+    },
+    {
+      id: 6,
+      name: 'Dell Inspiron Laptop',
+      price: 'N2,000,000',
+      originalPrice: 'N5,000,000',
+      image: IMAGES.top3,
+      isSponsored: true,
+      productViews: 200,
+      productClicks: 15,
+      messages: 3,
+      serviceBadges: [
+        { text: 'Free delivery', type: 'delivery' as const },
+        { text: '25% Off in bulk', type: 'discount' as const }
+      ]
     }
   ];
 
-  const performanceData = [
-    { day: 'Mon', clicks: 45, views: 320, orders: 3 },
-    { day: 'Tue', clicks: 52, views: 380, orders: 5 },
-    { day: 'Wed', clicks: 38, views: 290, orders: 2 },
-    { day: 'Thu', clicks: 68, views: 450, orders: 7 },
-    { day: 'Fri', clicks: 75, views: 520, orders: 8 },
-    { day: 'Sat', clicks: 92, views: 680, orders: 12 },
-    { day: 'Sun', clicks: 85, views: 610, orders: 10 }
-  ];
-
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'active': return 'text-green-600 bg-green-100';
-      case 'paused': return 'text-yellow-600 bg-yellow-100';
-      case 'completed': return 'text-blue-600 bg-blue-100';
-      default: return 'text-gray-600 bg-gray-100';
-    }
+  // Service Badge Component matching the existing design
+  const ServiceBadge: React.FC<{ text: string; type: 'delivery' | 'discount' }> = ({ text }) => {
+    return (
+      <div className="bg-[#FFA500] rounded-[2px] w-[60px] h-3 flex items-center text-white text-[6px] font-normal">
+        <div className="rounded-l-[2px] bg-[url('/cut-bg.svg')] w-4 h-3 bg-no-repeat flex justify-center items-center m-0 p-0">
+          <svg className="w-2 h-2 fill-white" viewBox="0 0 24 24">
+            <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L21.7 4H5.21l-.94-2H1zm16 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+          </svg>
+        </div>
+        <span className="text-[6px]">{text}</span>
+      </div>
+    );
   };
 
+  // Product Card Component matching the design in the image
+  const ProductCard: React.FC<{
+    product: typeof promotedProducts[0];
+  }> = ({ product }) => {
+    return (
+      <div className="bg-white rounded-[20px] max-w-[188px] overflow-hidden border border-gray-200 shadow-sm relative">
+        {/* Product Image */}
+        <div className="relative bg-gray-100">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full h-35 object-cover"
+          />
+          
+          {/* Sponsored Badge */}
+          {product.isSponsored && (
+            <div className="absolute top-3 left-3 bg-[#000000CC] text-white px-2 py-1 rounded-full text-xs flex items-center gap-1">
+              <img src={IMAGES.fire} alt="" className="w-3 h-3" />
+              Sponsored
+            </div>
+          )}
+        </div>
+
+        {/* Product Info */}
+        <div className="px-[10px] py-1">
+          {/* Product Name */}
+          <h3 className="text-[10px] font-medium text-black mb-2">{product.name}</h3>
+          
+          {/* Price */}
+          <div className="flex items-center gap-2 mb-[6px]">
+            <span className="text-xs font-bold text-primary">{product.price}</span>
+            {product.originalPrice && (
+              <span className="text-[8px] text-gray-400 line-through">{product.originalPrice}</span>
+            )}
+          </div>
+
+          {/* Service Badges */}
+          <div className="flex gap-1 pb-2 border-b border-b-[#C0C0C0] mb-1">
+            {product.serviceBadges.map((badge, index) => (
+              <ServiceBadge key={index} text={badge.text} type={badge.type} />
+            ))}
+          </div>
+
+          {/* Stats */}
+          <div className="space-y-2 mb-4">
+            <div className="flex justify-between items-center">
+              <span className="text-sm text-gray-600">Product Views</span>
+              <span className="text-sm font-medium">{product.productViews}</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-sm text-gray-600">Product Clicks</span>
+              <span className="text-sm font-medium">{product.productClicks}</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-sm text-gray-600">Messages</span>
+              <span className="text-sm font-medium">{product.messages}</span>
+            </div>
+          </div>
+
+          {/* View Details Button */}
+          <button className="w-full bg-red-500 text-white py-3 rounded-lg font-medium hover:bg-red-600 transition-colors">
+            View Details
+          </button>
+        </div>
+      </div>
+    );
+  };
+
+  const filteredProducts = promotedProducts.filter(product =>
+    product.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
-    <div className="flex-1 p-8 bg-white rounded-[20px]">
-      <div className="max-w-6xl">
-        <div className="flex items-center justify-between mb-6">
-          <h1 className="text-2xl font-semibold text-gray-900">Promoted Products</h1>
-          <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-            Create New Campaign
-          </button>
-        </div>
-
-        {/* Summary Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          <div className="bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl p-6 text-white">
-            <h3 className="text-sm font-medium opacity-90">Total Campaigns</h3>
-            <p className="text-2xl font-bold">3</p>
-            <span className="text-xs opacity-75">2 active, 1 paused</span>
+    <div className="flex-1 bg-white rounded-[20px] min-h-screen p-4">
+      {/* Header */}
+      <div className="mb-6">
+        <h1 className="text-2xl font-bold text-black mb-6">Promoted Product</h1>
+        
+        {/* Search and Filter Row */}
+        <div className="flex gap-4 mb-6">
+          {/* Search Input */}
+          <div className="flex-1">
+            <input
+              type="text"
+              placeholder="Search products"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            />
           </div>
-          <div className="bg-gradient-to-r from-green-500 to-green-600 rounded-xl p-6 text-white">
-            <h3 className="text-sm font-medium opacity-90">Total Spent</h3>
-            <p className="text-2xl font-bold">₦52,900</p>
-            <span className="text-xs opacity-75">of ₦70,000 budget</span>
-          </div>
-          <div className="bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl p-6 text-white">
-            <h3 className="text-sm font-medium opacity-90">Total Clicks</h3>
-            <p className="text-2xl font-bold">3,690</p>
-            <span className="text-xs opacity-75">+12% this week</span>
-          </div>
-          <div className="bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl p-6 text-white">
-            <h3 className="text-sm font-medium opacity-90">Total Orders</h3>
-            <p className="text-2xl font-bold">69</p>
-            <span className="text-xs opacity-75">1.87% conversion rate</span>
-          </div>
-        </div>
-
-        {/* Performance Chart */}
-        <div className="bg-gray-50 rounded-xl p-6 mb-8">
-          <h3 className="text-lg font-semibold mb-4">Weekly Performance</h3>
-          <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={performanceData}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="day" />
-              <YAxis />
-              <Bar dataKey="clicks" fill="#3B82F6" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="orders" fill="#10B981" radius={[4, 4, 0, 0]} />
-            </BarChart>
-          </ResponsiveContainer>
-          <div className="flex justify-center gap-6 mt-4">
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-              <span className="text-sm">Clicks</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-              <span className="text-sm">Orders</span>
+          
+          {/* Categories Dropdown */}
+          <div className="relative">
+            <select
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
+              className="px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent appearance-none bg-white pr-10 min-w-[140px]"
+            >
+              <option value="all">Categories</option>
+              <option value="electronics">Electronics</option>
+              <option value="clothing">Clothing</option>
+              <option value="accessories">Accessories</option>
+            </select>
+            <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+              <svg className="w-4 h-4 fill-gray-400" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Tabs */}
-        <div className="flex gap-1 bg-gray-100 rounded-lg p-1 mb-6">
-          <button
-            onClick={() => setActiveTab('active')}
-            className={`flex-1 py-2 px-4 rounded-md text-sm font-medium transition-colors ${
-              activeTab === 'active'
-                ? 'bg-white text-gray-900 shadow-sm'
-                : 'text-gray-600 hover:text-gray-900'
-            }`}
-          >
-            Active Campaigns
-          </button>
-          <button
-            onClick={() => setActiveTab('all')}
-            className={`flex-1 py-2 px-4 rounded-md text-sm font-medium transition-colors ${
-              activeTab === 'all'
-                ? 'bg-white text-gray-900 shadow-sm'
-                : 'text-gray-600 hover:text-gray-900'
-            }`}
-          >
-            All Campaigns
-          </button>
-        </div>
-
-        {/* Campaigns List */}
-        <div className="space-y-4">
-          {promotedProducts
-            .filter(product => activeTab === 'all' || product.status === 'active')
-            .map((product) => (
-            <div key={product.id} className="bg-gray-50 rounded-xl p-6">
-              <div className="flex items-center gap-6">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-16 h-16 object-cover rounded-lg"
-                />
-                
-                <div className="flex-1">
-                  <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-lg font-semibold">{product.name}</h3>
-                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(product.status)}`}>
-                      {product.status.charAt(0).toUpperCase() + product.status.slice(1)}
-                    </span>
-                  </div>
-                  
-                  <div className="grid grid-cols-2 md:grid-cols-6 gap-4 text-sm">
-                    <div>
-                      <div className="text-gray-600">Budget</div>
-                      <div className="font-medium">{product.budget}</div>
-                    </div>
-                    <div>
-                      <div className="text-gray-600">Spent</div>
-                      <div className="font-medium">{product.spent}</div>
-                    </div>
-                    <div>
-                      <div className="text-gray-600">Views</div>
-                      <div className="font-medium">{product.views.toLocaleString()}</div>
-                    </div>
-                    <div>
-                      <div className="text-gray-600">Clicks</div>
-                      <div className="font-medium">{product.clicks.toLocaleString()}</div>
-                    </div>
-                    <div>
-                      <div className="text-gray-600">Orders</div>
-                      <div className="font-medium">{product.orders}</div>
-                    </div>
-                    <div>
-                      <div className="text-gray-600">End Date</div>
-                      <div className="font-medium">{product.endDate}</div>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="flex flex-col gap-2">
-                  <button className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700">
-                    View Details
-                  </button>
-                  <button className="border border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm hover:bg-gray-50">
-                    {product.status === 'active' ? 'Pause' : 'Resume'}
-                  </button>
-                </div>
-              </div>
-              
-              {/* Progress Bar */}
-              <div className="mt-4">
-                <div className="flex justify-between text-xs text-gray-600 mb-1">
-                  <span>Budget Used</span>
-                  <span>{((parseInt(product.spent.replace(/[^\d]/g, '')) / parseInt(product.budget.replace(/[^\d]/g, ''))) * 100).toFixed(1)}%</span>
-                </div>
-                <div className="w-full bg-gray-200 rounded-full h-2">
-                  <div
-                    className="bg-blue-600 h-2 rounded-full"
-                    style={{
-                      width: `${(parseInt(product.spent.replace(/[^\d]/g, '')) / parseInt(product.budget.replace(/[^\d]/g, ''))) * 100}%`
-                    }}
-                  ></div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Empty State */}
-        {promotedProducts.filter(product => activeTab === 'all' || product.status === 'active').length === 0 && (
-          <div className="text-center py-12">
-            <img src={IMAGES.ChartLineUp} alt="No campaigns" className="w-16 h-16 mx-auto mb-4 opacity-50" />
-            <h3 className="text-lg font-medium text-gray-900 mb-2">No campaigns found</h3>
-            <p className="text-gray-600 mb-4">Create your first promotional campaign to boost your product visibility.</p>
-            <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700">
-              Create Campaign
-            </button>
-          </div>
-        )}
+      {/* Products Grid - 3 columns as shown in image */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {filteredProducts.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
       </div>
     </div>
   );

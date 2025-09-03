@@ -73,6 +73,9 @@ const IMAGES = {
   LockKey: '/LockKey.svg',
   airbaloon: '/airbloon.svg',
   Prohibit: '/Prohibit.svg',
+  faqsImage: '/faqsImage.svg',
+  phoneTablet: '/phoneTablet.jpg',
+
 
 };
 

@@ -85,7 +85,7 @@ const sampleReviews = [
     reviewText: 'Good laptop performance, highly recommended',
     timestamp: '07-14-25/11:45AM',
     storeName: 'Electronics Hub',
-    storeAvatar: IMAGES.computing,
+    storeAvatar: IMAGES.phoneTablet,
     storeId: '3'
   },
   {
@@ -97,7 +97,7 @@ const sampleReviews = [
     reviewText: 'Perfect headphones with excellent sound quality',
     timestamp: '07-13-25/09:30AM',
     storeName: 'Audio Store',
-    storeAvatar: IMAGES.headset,
+    storeAvatar: IMAGES.phoneTablet,
     storeId: '4'
   },
   {
@@ -109,7 +109,7 @@ const sampleReviews = [
     reviewText: 'Decent product but could be better',
     timestamp: '07-12-25/04:20PM',
     storeName: 'Gadget World',
-    storeAvatar: IMAGES.electronics,
+    storeAvatar: IMAGES.phoneTablet,
     storeId: '5'
   },
   {
@@ -394,15 +394,15 @@ const Reviews: React.FC = () => {
       {/* Review Modal */}
       {isModalOpen && selectedReview && (
         <div className="fixed inset-0 backdrop-brightness-50 bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-2xl p-6 max-w-md w-[430px] mx-4 relative">
+          <div className="bg-white rounded-2xl p-6 pt-0 max-w-md w-[430px] mx-4 relative">
             {/* Header */}
-            <div className="flex items-center justify-center mb-6 relative pop_up">
+            <div className="flex items-center justify-center mb-6 pt-6 relative pop_up">
               <h2 className="text-[20px] font-bold text-black OleoScript">My review</h2>
               <button 
                 onClick={handleCloseModal}
                 className="absolute right-0 w-6 h-6 flex items-center justify-center hover:bg-gray-100 rounded-full"
               >
-                <img src={IMAGES.xCircle} alt="Close" className="w-6 h-6" />
+                <img src={IMAGES.Xcircle} alt="Close" className="w-6 h-6" />
               </button>
             </div>
 
@@ -474,14 +474,14 @@ const Reviews: React.FC = () => {
                 </div>
                 <div className="w-16 h-16 rounded-lg overflow-hidden">
                   <img 
-                    src={IMAGES.computing}
+                    src={IMAGES.phoneTablet}
                     alt="Review image 2"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="w-16 h-16 rounded-lg overflow-hidden">
                   <img 
-                    src={IMAGES.electronics}
+                    src={IMAGES.phoneTablet}
                     alt="Review image 3"
                     className="w-full h-full object-cover"
                   />
@@ -515,16 +515,16 @@ const Reviews: React.FC = () => {
 
       {/* Edit Review Modal */}
       {isEditModalOpen && selectedReview && (
-        <div className="fixed inset-0 backdrop-brightness-50 bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-2xl p-6 max-w-md w-[430px] h-[530px] mx-4 relative">
+        <div className="fixed inset-0 backdrop-brightness-50 bg-opacity-50 flex items-center  justify-center z-50">
+          <div className="bg-white rounded-2xl p-6 pt-0 max-w-md w-[430px] h-[530px] mx-4 relative ">
             {/* Header */}
-            <div className="flex items-center justify-center mb-6 relative pop_up">
+            <div className="flex items-center justify-center mb-6 relative pop_up pt-6">
               <h2 className="text-[20px] font-bold text-black OleoScript">Leave a review</h2>
               <button 
                 onClick={handleCloseEditModal}
                 className="absolute right-0 w-6 h-6 flex items-center justify-center hover:bg-gray-100 rounded-full"
               >
-                <img src={IMAGES.xCircle} alt="Close" className="w-6 h-6" />
+                <img src={IMAGES.Xcircle} alt="Close" className="w-6 h-6" />
               </button>
             </div>
 

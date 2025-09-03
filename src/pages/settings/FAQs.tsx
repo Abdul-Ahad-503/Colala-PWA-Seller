@@ -121,13 +121,7 @@ const FAQs: React.FC = () => {
               ))}
             </div>
 
-            {/* Contact Support Section */}
-            <div className="mt-8 text-center py-6">
-              <p className="text-gray-500 mb-4 text-[12px]">Still need help?</p>
-              <button className="bg-[#E53E3E] text-white px-8 py-3 rounded-lg hover:bg-red-600 transition-colors font-medium text-[14px]">
-                Contact Support
-              </button>
-            </div>
+            
           </div>
         </div>
       </div>

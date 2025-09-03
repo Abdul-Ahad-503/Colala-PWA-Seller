@@ -38,7 +38,7 @@ const FAQs: React.FC = () => {
 
   return (
     <div className="flex-1 p-4 bg-gray-50 rounded-[20px]">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-4xl mx-auto min-h-screen">
         <h1 className="text-2xl font-semibold text-gray-900 mb-6">FAQs</h1>
         
         <div className="bg-white rounded-2xl shadow-sm overflow-hidden">

@@ -71,7 +71,20 @@ const IMAGES = {
   Headset: '/Headset.svg',
   SignOut: '/SignOut.svg',
   LockKey: '/LockKey.svg',
-  airbaloon: '/airbloon.svg'
+  airbaloon: '/airbloon.svg',
+  Prohibit: '/Prohibit.svg',
+  faqsImage: '/faqsImage.svg',
+  phoneTablet: '/phoneTablet.jpg',
+  first: '/first.png',
+  second: '/second.png',
+  third: '/third.png',
+  questionMark: '/QuestionMark.png',
+  ArrowLineUpRight: '/ArrowLineUpRight.svg',
+  FunnelSimple: '/FunnelSimple.svg',
+  CreditCard: '/CreditCard.svg',
+  MasterCard: '/MasterCard.svg',
+  active: '/active.svg'
+
 
 };
 

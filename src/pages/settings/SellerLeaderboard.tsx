@@ -280,11 +280,11 @@ const SellerLeaderboard: React.FC = () => {
                 onClick={() => setShowHowItWorksPopup(false)}
                 className="absolute top-4 right-4 cursor-pointer hover:opacity-70"
               >
-                <img src={IMAGES.xCircle} alt="Close" className="w-6 h-6" />
+                <img src={IMAGES.Xcircle} alt="Close" className="w-6 h-6" />
               </button>
 
               {/* Header */}
-              <div className="text-center mb-6 pop_up">
+              <div className="text-center flex justify-center mb-6 pop_up">
                 <h2 className="text-xl font-bold  text-gray-900 mb-2">How it works</h2>
               </div>
 

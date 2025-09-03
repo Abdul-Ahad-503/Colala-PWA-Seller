@@ -44,7 +44,12 @@ const Settings: React.FC = () => {
                   <span className="text-[8px] font-light text-[#FFFFFF80]">
                     Shopping Wallet <span className="text-sm font-bold text-white">₦50,000</span>
                   </span>
-                  <button className="bg-white text-[#000000] rounded-[10px] px-3 py-1 cursor-pointer text-xs mt-1">View</button>
+                  <button 
+                    onClick={() => navigate('/settings/shopping-wallet')}
+                    className="bg-white text-[#000000] rounded-[10px] px-3 py-1 cursor-pointer text-xs mt-1"
+                  >
+                    View
+                  </button>
                 </div>
               </div>
               <button onClick={() => navigate('/createstore')} className="bg-[#E53E3E] text-white rounded-xl w-full py-4 px-6 cursor-pointer font-normal text-sm ">Edit Profile</button>
@@ -69,7 +74,7 @@ const Settings: React.FC = () => {
                 </span>
                 <div className="pl-4 bg-white hover:bg-[#e0dfdf] w-full py-4 border border-[#F2F2F2] rounded-2xl font-semibold relative">
                   Subscriptions
-                  <span className="absolute right-4 top-1/2 -translate-y-1/2 bg-green-500 text-white text-xs px-2 py-1 rounded">Subscription Active</span>
+                  <span className="absolute right-0 top-1/2 -translate-y-1/2 bg-[#62E53E] text-white text-[10px] px-2 py-1 rounded-l font-normal"> <img src={IMAGES.ShieldCheckWhite} className="w-3 h-3 inline" alt="" /> Subscription Active</span>
                 </div>
               </button>
               <button onClick={() => navigate('/settings/promoted-products')} className="flex items-center bg-[#3EC9E5] rounded-2xl px-0 shadow-sm relative text-left w-full">
@@ -124,17 +129,23 @@ const Settings: React.FC = () => {
                 </span>
                 <div>Seller Leaderboard</div>
               </button>
+              <button onClick={() => navigate('/settings/saved-cards')} className={`flex items-center bg-white hover:bg-[#e0dfdf] rounded-xl px-4 pl-2 py-3 shadow-sm mb-2 relative w-full text-left ${isActive('saved-cards') ? 'border-2 border-[#E53E3E]' : 'border border-gray-100'}`}>
+                <span className="flex items-center justify-center w-13 h-9 rounded-l-xl">
+                  <img src={IMAGES.CreditCard} alt="Saved Cards" className="w-7 h-7" />
+                </span>
+                <div>Saved Cards</div>
+              </button>
               <button onClick={() => navigate('/settings/account-access-control')} className={`flex items-center bg-white hover:bg-[#e0dfdf] rounded-xl px-4 pl-2 py-3 shadow-sm mb-2 relative w-full text-left ${isActive('account-access-control') ? 'border-2 border-[#E53E3E]' : 'border border-gray-100'}`}>
                 <span className="flex items-center justify-center w-13 h-9 rounded-l-xl">
                   <img src={IMAGES.LockKey} alt="Account Access Control" className="w-7 h-7" />
                 </span>
                 <div>Account Access Control</div>
               </button>
-              <button onClick={handleLogout} className="text-[#E53E3E] text-left font-semibold text-sm flex hover:bg-[#e0dfdf] rounded-xl py-3 px-4 w-full">
+              <button onClick={handleLogout} className="text-[#E53E3E] text-left  bg-white hover:bg-[#e0dfdf] rounded-xl border border-gray-100 px-4 pl-2 py-4 shadow-sm mb-2 font-semibold text-sm flex  w-full">
                 <span><img src={IMAGES.SignOut} alt="" className="w-5 h-5 mr-3" /></span>
                 Logout
               </button>
-              <button onClick={handleDeleteAccount} className="text-gray-400 text-center hover:bg-[#e0dfdf] rounded-xl py-3 px-4 w-full">Delete Account</button>
+              <button onClick={handleDeleteAccount} className="text-gray-400  bg-white hover:bg-[#e0dfdf] rounded-xl border border-gray-100 px-4 pl-2 py-4 shadow-sm mb-2 text-center  w-full">Delete Account</button>
             </div>
         </div>
         {/* Right panel */}

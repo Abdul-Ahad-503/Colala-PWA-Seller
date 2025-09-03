@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import IMAGES from "../../constants";
 
 const Referrals: React.FC = () => {
-  const [activeTab, setActiveTab] = useState("search");
-  const [expandedFAQ, setExpandedFAQ] = useState<number | null>(3); // FAQ 4 is expanded by default
+  const [activeTab, setActiveTab] = useState("wallet");
+  const [expandedFAQ, setExpandedFAQ] = useState<number | null>(4); // FAQ 4 is expanded by default
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedCommission, setSelectedCommission] = useState("");
@@ -67,7 +67,7 @@ const Referrals: React.FC = () => {
       commission: "5%",
       store: "Sasha Stores",
       storeAvatar: IMAGES.sasha,
-      image: IMAGES.top5,
+      image: IMAGES.top2,
     },
   ];
 
@@ -472,17 +472,17 @@ const Referrals: React.FC = () => {
       {/* Withdrawal Popup */}
       {showWithdrawPopup && (
         <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-brightness-50">
-          <div className="bg-[#F9F9F9] rounded-3xl w-[430px] max-w-full p-6 shadow-2xl relative">
+          <div className="bg-[#F9F9F9] rounded-3xl w-[430px] max-w-full p-6 shadow-2xl relative ">
             {/* Close Button */}
             <button 
               onClick={() => setShowWithdrawPopup(false)}
               className="absolute top-4 right-4 cursor-pointer hover:opacity-70"
             >
-              <img src={IMAGES.xCircle} alt="Close" className="w-6 h-6" />
+              <img src={IMAGES.Xcircle} alt="Close" className="w-6 h-6" />
             </button>
 
             {/* Header */}
-            <div className="text-center mb-6 pop_up">
+            <div className="text-center flex justify-center mb-6 pop_up ">
               <h2 className="text-xl font-bold text-gray-900 mb-2">Withdraw</h2>
             </div>
 
@@ -577,11 +577,11 @@ const Referrals: React.FC = () => {
               onClick={() => setShowTransferPopup(false)}
               className="absolute top-4 right-4 cursor-pointer hover:opacity-70"
             >
-              <img src={IMAGES.xCircle} alt="Close" className="w-6 h-6" />
+              <img src={IMAGES.Xcircle} alt="Close" className="w-6 h-6" />
             </button>
 
             {/* Header */}
-            <div className="text-center mb-6 pop_up">
+            <div className="text-center flex justify-center mb-6 pop_up">
               <h2 className="text-xl font-bold text-gray-900 mb-2">Transfer</h2>
             </div>
 

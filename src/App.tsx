@@ -26,6 +26,7 @@ import PromotionDetails from './pages/settings/PromotionDetails'
 import Announcements from './pages/settings/Announcements'
 import AccountAccessControl from './pages/settings/AccountAccessControl'
 import MyProductsServices from './pages/settings/MyProductsServices'
+import ShoppingWallet from './pages/settings/ShoppingWallet'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { ColorProvider } from './contexts/ColorContext'
 import './index.css'
@@ -60,6 +61,7 @@ function App() {
                 <Route path="promotion-details/:productId" element={<PromotionDetails />} />
                 <Route path="announcements" element={<Announcements />} />
                 <Route path="My-Products" element={<MyProductsServices />} />
+                <Route path="shopping-wallet" element={<ShoppingWallet />} />
                 <Route path="saved-items" element={<SavedItems />} />
                 <Route path="saved-addresses" element={<SavedAddresses />} />
                 <Route path="followed-stores" element={<FollowedStores />} />

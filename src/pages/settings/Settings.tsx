@@ -44,7 +44,12 @@ const Settings: React.FC = () => {
                   <span className="text-[8px] font-light text-[#FFFFFF80]">
                     Shopping Wallet <span className="text-sm font-bold text-white">₦50,000</span>
                   </span>
-                  <button className="bg-white text-[#000000] rounded-[10px] px-3 py-1 cursor-pointer text-xs mt-1">View</button>
+                  <button 
+                    onClick={() => navigate('/settings/shopping-wallet')}
+                    className="bg-white text-[#000000] rounded-[10px] px-3 py-1 cursor-pointer text-xs mt-1"
+                  >
+                    View
+                  </button>
                 </div>
               </div>
               <button onClick={() => navigate('/createstore')} className="bg-[#E53E3E] text-white rounded-xl w-full py-4 px-6 cursor-pointer font-normal text-sm ">Edit Profile</button>

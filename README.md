@@ -328,7 +328,30 @@ const { primaryColor } = useColor();
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## � Contributors
+
+### **Core Development Team**
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/Abdul-Ahad-503">
+        <img src="https://github.com/Abdul-Ahad-503.png" width="100px;" alt="Abdul Ahad"/><br />
+        <sub><b>Abdul Ahad</b></sub>
+      </a><br />
+      <sub>Lead Developer</sub>
+    </td>
+    <td align="center">
+      <a href="https://github.com/Aman-ahmad1143">
+        <img src="https://github.com/Aman-ahmad1143.png" width="100px;" alt="Aman Ahmad"/><br />
+        <sub><b>Aman Ahmad</b></sub>
+      </a><br />
+      <sub>Full Stack Developer</sub>
+    </td>
+  </tr>
+</table>
+
+## �🙏 Acknowledgments
 
 - **React Team** - For the amazing React framework
 - **Vite Team** - For the lightning-fast build tool
@@ -338,7 +361,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 <div align="center">
-  <p><strong>Built with ❤️ by the Colala Team</strong></p>
+  <p><strong>Built with ❤️ by Abdul Ahad & Aman Ahmad</strong></p>
   <p>
     <a href="https://github.com/Abdul-Ahad-503/Colala-PWA-Seller">⭐ Star this project</a> •
     <a href="https://github.com/Abdul-Ahad-503/Colala-PWA-Seller/issues">🐛 Report Bug</a> •

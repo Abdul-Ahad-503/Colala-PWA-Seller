@@ -83,7 +83,7 @@ const BoostProduct: React.FC = () => {
               </h3>
               
               <div className="flex items-center gap-3">
-                <span className="text-2xl font-bold text-red-500">
+                <span className="text-2xl font-bold text-primary">
                   {productData?.price || "2,000,000"}
                 </span>
                 <span className="text-xs text-gray-400 line-through">
@@ -106,7 +106,7 @@ const BoostProduct: React.FC = () => {
               {/* Progress Bar */}
               <div className="mb-6">
                 <div className="w-full bg-gray-200 rounded-full h-2">
-                  <div className="bg-red-500 h-2 rounded-full" style={{ width: '49%' }}></div>
+                  <div className="bg-primary h-2 rounded-full" style={{ width: '49%' }}></div>
                 </div>
               </div>
 
@@ -122,7 +122,7 @@ const BoostProduct: React.FC = () => {
                 <label className="block text-gray-700 font-medium">Location</label>
                 <button
                   onClick={openLocationModal}
-                  className="w-full px-4 py-5 border border-[#E5E5E5] rounded-xl bg-white text-gray-900 text-left flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                  className="w-full px-4 py-5 border border-[#E5E5E5] rounded-xl bg-white text-gray-900 text-left flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                 >
                   <span className={selectedLocation ? 'text-gray-900' : 'text-gray-400'}>
                     {selectedLocation || 'Select location'}
@@ -152,12 +152,12 @@ const BoostProduct: React.FC = () => {
                     {/* Custom Slider Track */}
                     <div className="w-full h-1 bg-gray-300 rounded-full relative">
                       <div 
-                        className="h-1 bg-red-500 rounded-full"
+                        className="h-1 bg-primary rounded-full"
                         style={{ width: `${((dailyBudget - 500) / (10000 - 500)) * 100}%` }}
                       ></div>
                       {/* Slider Thumb */}
                       <div 
-                        className="absolute w-6 h-6 bg-red-500 rounded-full shadow-lg cursor-pointer transform -translate-y-4 -translate-x-3"
+                        className="absolute w-6 h-6 bg-primary rounded-full shadow-lg cursor-pointer transform -translate-y-4 -translate-x-3"
                         style={{ left: `${((dailyBudget - 500) / (10000 - 500)) * 100}%` }}
                       ></div>
                     </div>
@@ -188,12 +188,12 @@ const BoostProduct: React.FC = () => {
                   {/* Custom Slider Track */}
                   <div className="w-full h-1 bg-gray-300 rounded-full relative">
                     <div 
-                      className="h-1 bg-red-500 rounded-full"
+                      className="h-1 bg-primary rounded-full"
                       style={{ width: `${((duration - 1) / (30 - 1)) * 100}%` }}
                     ></div>
                     {/* Slider Thumb */}
                     <div 
-                      className="absolute w-6 h-6 bg-red-500 rounded-full shadow-lg cursor-pointer transform -translate-y-4 -translate-x-3"
+                      className="absolute w-6 h-6 bg-primary rounded-full shadow-lg cursor-pointer transform -translate-y-4 -translate-x-3"
                       style={{ left: `${((duration - 1) / (30 - 1)) * 100}%` }}
                     ></div>
                   </div>

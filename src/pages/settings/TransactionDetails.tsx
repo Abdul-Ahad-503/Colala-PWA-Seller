@@ -46,7 +46,7 @@ const TransactionDetails: React.FC = () => {
       </div>
 
       {/* Transaction Card */}
-      <div className="bg-gradient-to-b from-[#E53E3E] to-[#E53E3E] rounded-t-[30px] p-3 h-50 relative">
+      <div className="bg-gradient-to-b from-primary to-primary rounded-t-[30px] p-3 h-50 relative">
         {/* White Content Card */}
         <div className="bg-white rounded-[20px] p-6 mt-8 absolute left-1/2 transform -translate-x-1/2 w-full max-w-md shadow-lg">
           {/* Success Icon */}
@@ -58,7 +58,7 @@ const TransactionDetails: React.FC = () => {
             </div>
             
             {/* Amount */}
-            <h2 className="text-2xl font-bold text-[#E53E3E] mb-6">-{data.amount}</h2>
+            <h2 className="text-2xl font-bold text-primary mb-6">-{data.amount}</h2>
           </div>
 
           {/* Transaction Details Cards */}
@@ -68,7 +68,7 @@ const TransactionDetails: React.FC = () => {
               {/* Amount */}
               <div className="flex justify-between items-center py-2">
                 <span className="text-gray-900 text-sm font-medium">Amount</span>
-                <span className="text-[#E53E3E] font-semibold">{data.amount}</span>
+                <span className="text-primary font-semibold">{data.amount}</span>
               </div>
               
               {/* Divider */}

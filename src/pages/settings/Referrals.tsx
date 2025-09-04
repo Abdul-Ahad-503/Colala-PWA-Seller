@@ -115,7 +115,7 @@ const Referrals: React.FC = () => {
             onClick={() => setActiveTab("wallet")}
             className={`px-8 py-3 w-full rounded-lg  text-[10px] transition-colors ${
               activeTab === "wallet"
-                ? "bg-[#E53E3E] text-white"
+                ? "bg-primary text-white"
                 : " text-gray-600 hover:bg-gray-200"
             }`}
           >
@@ -125,7 +125,7 @@ const Referrals: React.FC = () => {
             onClick={() => setActiveTab("faqs")}
             className={`px-8 py-3 w-full rounded-lg  text-[10px] transition-colors ${
               activeTab === "faqs"
-                ? "bg-[#E53E3E] text-white"
+                ? "bg-primary text-white"
                 : " text-gray-600 hover:bg-gray-200"
             }`}
           >
@@ -135,7 +135,7 @@ const Referrals: React.FC = () => {
             onClick={() => setActiveTab("search")}
             className={`px-8 py-3 w-full rounded-lg  text-[10px] transition-colors ${
               activeTab === "search"
-                ? "bg-[#E53E3E] text-white"
+                ? "bg-primary text-white"
                 : " text-gray-600 hover:bg-gray-200"
             }`}
           >
@@ -212,7 +212,7 @@ const Referrals: React.FC = () => {
 
             {/* Refer and Earn Section */}
             <div className="mb-8">
-              <h2 className="text-sm font-bold text-[#E53E3E] mb-4">
+              <h2 className="text-sm font-bold text-primary mb-4">
                 Refer and Earn on Colala
               </h2>
               <p className=" mb-6 text-sm">
@@ -225,7 +225,7 @@ const Referrals: React.FC = () => {
                 {/* Step 1 */}
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0">
-                    <span className="text-[#E53E3E] font-bold text-sm">1</span>
+                    <span className="text-primary font-bold text-sm">1</span>
                   </div>
                   <div className="pt-1">
                     <p className=" font-normal text-xs">
@@ -243,7 +243,7 @@ const Referrals: React.FC = () => {
                 {/* Step 2 */}
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0">
-                    <span className="text-[#E53E3E] font-bold text-sm">2</span>
+                    <span className="text-primary font-bold text-sm">2</span>
                   </div>
                   <div className="pt-1">
                     <p className="font-normal text-xs">
@@ -258,7 +258,7 @@ const Referrals: React.FC = () => {
                 {/* Step 3 */}
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0">
-                    <span className="text-[#E53E3E] font-bold text-sm">3</span>
+                    <span className="text-primary font-bold text-sm">3</span>
                   </div>
                   <div className="pt-1">
                     <p className="font-normal text-xs">
@@ -357,7 +357,7 @@ const Referrals: React.FC = () => {
                   placeholder="Search Product"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E53E3E] focus:border-transparent"
+                  className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                 />
                 <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
                   <svg
@@ -383,7 +383,7 @@ const Referrals: React.FC = () => {
                 <select
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E53E3E] focus:border-transparent bg-white"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-white"
                 >
                   <option value="">Category</option>
                   <option value="electronics">Electronics</option>
@@ -395,7 +395,7 @@ const Referrals: React.FC = () => {
                 <select
                   value={selectedCommission}
                   onChange={(e) => setSelectedCommission(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E53E3E] focus:border-transparent bg-white"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-white"
                 >
                   <option value="">Commission</option>
                   <option value="3">3%</option>
@@ -430,7 +430,7 @@ const Referrals: React.FC = () => {
                             alt="store"
                             className="w-[14px] h-[14px] rounded-full"
                           />
-                          <span className="text-red-500 text-[8px] ">
+                          <span className="text-primary text-[8px] ">
                             {product.store}
                           </span>
                         </div>
@@ -444,7 +444,7 @@ const Referrals: React.FC = () => {
                       <h3 className="font-medium  text-sm mb-1">
                         {product.name}
                       </h3>
-                      <p className="text-[#E53E3E] font-bold text-xs mb-6">
+                      <p className="text-primary font-bold text-xs mb-6">
                         {product.price}
                       </p>
                       <p className="text-gray-600 text-xs">
@@ -457,7 +457,7 @@ const Referrals: React.FC = () => {
 
                     {/* Copy Link Button */}
                     <div className="flex-shrink-0 self-end mb-3 mr-5">
-                      <button className="bg-[#E53E3E] text-white px-4 py-2 rounded-lg text-[10px] cursor-pointer hover:bg-red-700 transition-colors">
+                      <button className="bg-primary text-white px-4 py-2 rounded-lg text-[10px] cursor-pointer hover:bg-red-700 transition-colors">
                         Copy link
                       </button>
                     </div>
@@ -495,7 +495,7 @@ const Referrals: React.FC = () => {
                   placeholder="Amount to withdraw"
                   value={withdrawalForm.amount}
                   onChange={(e) => setWithdrawalForm({...withdrawalForm, amount: e.target.value})}
-                  className="w-full bg-gray-50 border border-gray-200 rounded-[15px] text-sm px-4 py-5 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                  className="w-full bg-gray-50 border border-gray-200 rounded-[15px] text-sm px-4 py-5 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                 />
               </div>
 
@@ -506,7 +506,7 @@ const Referrals: React.FC = () => {
                   placeholder="Account Number"
                   value={withdrawalForm.accountNumber}
                   onChange={(e) => setWithdrawalForm({...withdrawalForm, accountNumber: e.target.value})}
-                  className="w-full bg-gray-50 border border-gray-200 rounded-[15px] text-sm px-4 py-5 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                  className="w-full bg-gray-50 border border-gray-200 rounded-[15px] text-sm px-4 py-5 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                 />
               </div>
 
@@ -517,7 +517,7 @@ const Referrals: React.FC = () => {
                   placeholder="Bank Name"
                   value={withdrawalForm.bankName}
                   onChange={(e) => setWithdrawalForm({...withdrawalForm, bankName: e.target.value})}
-                  className="w-full bg-gray-50 border border-gray-200 rounded-[15px] text-sm px-4 py-5 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                  className="w-full bg-gray-50 border border-gray-200 rounded-[15px] text-sm px-4 py-5 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                 />
               </div>
 
@@ -528,7 +528,7 @@ const Referrals: React.FC = () => {
                   placeholder="Account Name"
                   value={withdrawalForm.accountName}
                   onChange={(e) => setWithdrawalForm({...withdrawalForm, accountName: e.target.value})}
-                  className="w-full bg-gray-50 border border-gray-200 rounded-[15px] text-sm px-4 py-5 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                  className="w-full bg-gray-50 border border-gray-200 rounded-[15px] text-sm px-4 py-5 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                 />
               </div>
 
@@ -540,7 +540,7 @@ const Referrals: React.FC = () => {
                     id="saveDetails"
                     checked={withdrawalForm.saveDetails}
                     onChange={(e) => setWithdrawalForm({...withdrawalForm, saveDetails: e.target.checked})}
-                    className="w-4 h-4 text-[#E53E3E] bg-white border-gray-300 rounded focus:ring-[#E53E3E] cursor-pointer accent-[#E53E3E]"
+                    className="w-4 h-4 text-primary bg-white border-gray-300 rounded focus:ring-primary cursor-pointer accent-primary"
                   />
                   
                 </div>
@@ -553,7 +553,7 @@ const Referrals: React.FC = () => {
               <div className="pt-4">
                 <button
                   type="submit"
-                  className="w-full bg-[#E53E3E] text-white py-5 rounded-lg text-sm hover:bg-red-600 transition-colors cursor-pointer"
+                  className="w-full bg-primary text-white py-5 rounded-lg text-sm hover:bg-red-600 transition-colors cursor-pointer"
                   onClick={(e) => {
                     e.preventDefault();
                     // Handle withdrawal processing here
@@ -594,7 +594,7 @@ const Referrals: React.FC = () => {
                   placeholder="Amount to transfer"
                   value={transferForm.amount}
                   onChange={(e) => setTransferForm({...transferForm, amount: e.target.value})}
-                  className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                  className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                 />
               </div>
 
@@ -602,7 +602,7 @@ const Referrals: React.FC = () => {
               <div className="pt-4">
                 <button
                   type="submit"
-                  className="w-full bg-[#E53E3E] text-white py-3 rounded-lg font-medium hover:bg-red-600 transition-colors cursor-pointer"
+                  className="w-full bg-primary text-white py-3 rounded-lg font-medium hover:bg-red-600 transition-colors cursor-pointer"
                   onClick={(e) => {
                     e.preventDefault();
                     // Handle transfer processing here
@@ -656,7 +656,7 @@ const Referrals: React.FC = () => {
                   setTransferredAmount("");
                   // Navigate to wallet - you can add navigation logic here
                 }}
-                className="flex-1 bg-[#E53E3E] text-white py-3 rounded-lg font-medium hover:bg-red-600 transition-colors cursor-pointer"
+                className="flex-1 bg-primary text-white py-3 rounded-lg font-medium hover:bg-red-600 transition-colors cursor-pointer"
               >
                 Go to wallet
               </button>

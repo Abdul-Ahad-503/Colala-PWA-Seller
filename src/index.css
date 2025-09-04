@@ -2,6 +2,13 @@
 
 @theme {
   --color-primary: #E53E3E;
+  --color-primary-hover: #d73434;
+  --color-primary-light: #f7e7e7;
+  --color-primary-50: #fef2f2;
+  --color-primary-100: #fee2e2;
+  --color-primary-200: #fecaca;
+  --color-primary-600: #dc2626;
+  --color-primary-700: #b91c1c;
   --color-background: #F9F9F9;
   --color-background-light: #FAFAFA;
   --color-card-bg: #FFFFFF;

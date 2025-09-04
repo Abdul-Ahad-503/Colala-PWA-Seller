@@ -244,7 +244,7 @@ const AddNewAddress: React.FC<AddNewAddressProps> = ({
                 value={fullAddress}
                 onChange={(e) => setFullAddress(e.target.value)}
                 placeholder="Enter full address"
-                className="w-full h-32 px-4 py-3 border border-[#CDCDCD] rounded-lg bg-[#FFFFFF] text-gray-700 text-[14px] resize-none focus:outline-none focus:border-[#E53E3E]"
+                className="w-full h-32 px-4 py-3 border border-[#CDCDCD] rounded-lg bg-[#FFFFFF] text-gray-700 text-[14px] resize-none focus:outline-none focus:border-primary"
               />
             </div>
 
@@ -262,7 +262,7 @@ const AddNewAddress: React.FC<AddNewAddressProps> = ({
                       <select
                         value={openingHours[key as keyof WeeklyHours].from}
                         onChange={(e) => handleTimeChange(key as keyof WeeklyHours, 'from', e.target.value)}
-                        className="w-full px-3 py-2 border border-[#CDCDCD] rounded-lg bg-white text-gray-700 text-[14px] focus:outline-none focus:border-[#E53E3E]"
+                        className="w-full px-3 py-2 border border-[#CDCDCD] rounded-lg bg-white text-gray-700 text-[14px] focus:outline-none focus:border-primary"
                       >
                         <option value="">From</option>
                         {timeOptions.map((time) => (
@@ -276,7 +276,7 @@ const AddNewAddress: React.FC<AddNewAddressProps> = ({
                       <select
                         value={openingHours[key as keyof WeeklyHours].to}
                         onChange={(e) => handleTimeChange(key as keyof WeeklyHours, 'to', e.target.value)}
-                        className="w-full px-3 py-2 border border-[#CDCDCD] rounded-lg bg-white text-gray-700 text-[14px] focus:outline-none focus:border-[#E53E3E]"
+                        className="w-full px-3 py-2 border border-[#CDCDCD] rounded-lg bg-white text-gray-700 text-[14px] focus:outline-none focus:border-primary"
                       >
                         <option value="">To</option>
                         {timeOptions.map((time) => (
@@ -299,7 +299,7 @@ const AddNewAddress: React.FC<AddNewAddressProps> = ({
                     onChange={(e) => setIsMainStore(e.target.checked)}
                     className="sr-only"
                   />
-                  <div className={`w-5 h-5 rounded ${isMainStore ? 'bg-[#E53E3E]' : 'bg-white border-2 border-gray-300'} flex items-center justify-center`}>
+                  <div className={`w-5 h-5 rounded ${isMainStore ? 'bg-primary' : 'bg-white border-2 border-gray-300'} flex items-center justify-center`}>
                     {isMainStore && (
                       <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
@@ -315,7 +315,7 @@ const AddNewAddress: React.FC<AddNewAddressProps> = ({
             <div className="mb-6">
               <button
                 onClick={handleSave}
-                className="w-full bg-[#E53E3E] text-white font-medium py-4 px-6 rounded-lg transition-colors hover:bg-red-600 text-[14px]"
+                className="w-full bg-primary text-white font-medium py-4 px-6 rounded-lg transition-colors hover:bg-red-600 text-[14px]"
               >
                 Save
               </button>
@@ -347,7 +347,7 @@ const AddNewAddress: React.FC<AddNewAddressProps> = ({
             {/* Address Card */}
             <div className="bg-white rounded-lg shadow-sm overflow-hidden">
               {/* Red Header */}
-              <div className="bg-[#E53E3E] text-white px-6 py-4 flex items-center justify-between">
+              <div className="bg-primary text-white px-6 py-4 flex items-center justify-between">
                 <h4 className="text-[16px] font-medium">Address 1</h4>
                 <div className="flex items-center gap-4">
                   {/* Delete Icon */}
@@ -367,7 +367,7 @@ const AddNewAddress: React.FC<AddNewAddressProps> = ({
                   </button>
                   
                   {/* View on Map Button */}
-                  <button className="bg-white text-[#E53E3E] px-4 py-2 rounded-full text-[12px] font-medium hover:bg-gray-100 transition-colors">
+                  <button className="bg-white text-primary px-4 py-2 rounded-full text-[12px] font-medium hover:bg-gray-100 transition-colors">
                     View on Map
                   </button>
                 </div>
@@ -423,10 +423,10 @@ const AddNewAddress: React.FC<AddNewAddressProps> = ({
                       const isToday = key === 'wednesday'; // Highlight Wednesday as in the image
                       return (
                         <div key={key} className="flex justify-between items-center">
-                          <span className={`text-[10px] ${isToday ? 'text-[#E53E3E] font-medium' : 'text-gray-600'}`}>
+                          <span className={`text-[10px] ${isToday ? 'text-primary font-medium' : 'text-gray-600'}`}>
                             {label}
                           </span>
-                          <span className={`text-[10px] ${isToday ? 'text-[#E53E3E] font-medium' : 'text-black'}`}>
+                          <span className={`text-[10px] ${isToday ? 'text-primary font-medium' : 'text-black'}`}>
                             {hours.from && hours.to ? `${hours.from} - ${hours.to}` : 'Closed'}
                           </span>
                         </div>
@@ -441,7 +441,7 @@ const AddNewAddress: React.FC<AddNewAddressProps> = ({
             <div className="text-center mt-4">
               <button
                 onClick={() => setShowAddNewModal(true)}
-                className="bg-[#E53E3E] w-[680px] text-white font-small  py-4 px-8 rounded-lg transition-colors hover:bg-red-600 text-[14px]"
+                className="bg-primary w-[680px] text-white font-small  py-4 px-8 rounded-lg transition-colors hover:bg-red-600 text-[14px]"
               >
                 Add New
               </button>
@@ -561,7 +561,7 @@ const AddNewAddress: React.FC<AddNewAddressProps> = ({
                   type="checkbox"
                   checked={isMainStore}
                   onChange={(e) => setIsMainStore(e.target.checked)}
-                  className="accent-[#E53E3E] w-4 h-4 rounded focus:ring-0 border border-gray-300"
+                  className="accent-primary w-4 h-4 rounded focus:ring-0 border border-gray-300"
                 />
                 <span className="text-[14px] text-black">Mark as Main Store</span>
               </div>
@@ -569,7 +569,7 @@ const AddNewAddress: React.FC<AddNewAddressProps> = ({
               <button
                 type="button"
                 onClick={() => { setShowSavedAddress(true); setShowAddNewModal(false); }}
-                className="w-full bg-[#E53E3E] text-white font-sm py-3 rounded-[14px] text-[14px] mt-2"
+                className="w-full bg-primary text-white font-sm py-3 rounded-[14px] text-[14px] mt-2"
               >
                 Save
               </button>

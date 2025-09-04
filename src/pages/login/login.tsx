@@ -87,7 +87,7 @@ const Login: React.FC<LoginProps> = ({ isOpen, onClose, onLogin }) => {
         </button>
 
         {/* Left Side - Complete Frame with Main Image Only */}
-        <div className="w-1/2 bg-gradient-to-br from-red-500 to-red-600 relative overflow-hidden">
+        <div className="w-1/2 bg-gradient-to-br from-primary to-red-600 relative overflow-hidden">
           {/* Main Image - Woman with phone covering full left side */}
           <div className="absolute top-0 left-0 w-full h-full">
             <img 
@@ -118,7 +118,7 @@ const Login: React.FC<LoginProps> = ({ isOpen, onClose, onLogin }) => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter email address"
-                className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-700"
+                className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-700"
                 required
               />
             </div>
@@ -133,7 +133,7 @@ const Login: React.FC<LoginProps> = ({ isOpen, onClose, onLogin }) => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter password"
-                className="w-full pl-12 pr-12 py-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-700"
+                className="w-full pl-12 pr-12 py-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-700"
                 required
               />
               <button
@@ -149,7 +149,7 @@ const Login: React.FC<LoginProps> = ({ isOpen, onClose, onLogin }) => {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-red-500 text-[14px] hover:bg-red-600 text-white font-medium py-4 px-6 rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-primary text-[14px] hover:bg-red-600 text-white font-medium py-4 px-6 rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isLoading ? (
                 <div className="flex items-center justify-center">

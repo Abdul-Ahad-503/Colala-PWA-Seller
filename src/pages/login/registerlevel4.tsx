@@ -3,6 +3,7 @@ import Cookies from 'js-cookie';
 import IMAGES from '../../constants';
 import AddNewAddress from './addnewaddress';
 import DeliveryPricingDetail from './deliverypricingdetail';
+import { useColor } from '../../contexts/ColorContext';
 
 interface RegisterLevel4Props {
   isOpen: boolean;
@@ -27,18 +28,21 @@ const RegisterLevel4: React.FC<RegisterLevel4Props> = ({
   const [showAddAddress, setShowAddAddress] = useState(false);
   const [showDeliveryPricing, setShowDeliveryPricing] = useState(false);
 
+  // Get color context for global theme updates
+  const { updateTheme } = useColor();
+
   // Color options matching the image
   const colorOptions = [
-    { name: 'Red', value: '#E53E3E', class: 'bg-red-500' },
-    { name: 'Blue', value: '#0000FF', class: 'bg-blue-500' },
-    { name: 'Purple', value: '#800080', class: 'bg-purple-600' },
-    { name: 'Green', value: '#008000', class: 'bg-green-500' },
-    { name: 'Orange', value: '#FFA500', class: 'bg-orange-500' },
-    { name: 'Lime', value: '#00FF48', class: 'bg-lime-400' },
-    { name: 'Dark Purple', value: '#4C1066', class: 'bg-purple-800' },
-    { name: 'Yellow', value: '#FBFF00', class: 'bg-yellow-400' },
-    { name: 'Pink', value: '#FF0066', class: 'bg-pink-500' },
-    { name: 'Dark Green', value: '#374F23', class: 'bg-green-800' },
+    { name: 'Red', value: '#E53E3E' },
+    { name: 'Blue', value: '#0000FF' },
+    { name: 'Purple', value: '#800080' },
+    { name: 'Green', value: '#008000' },
+    { name: 'Orange', value: '#FFA500' },
+    { name: 'Lime', value: '#00FF48' },
+    { name: 'Dark Purple', value: '#4C1066' },
+    { name: 'Yellow', value: '#FBFF00' },
+    { name: 'Pink', value: '#FF0066' },
+    { name: 'Dark Green', value: '#374F23' },
   ];
 
   useEffect(() => {
@@ -57,6 +61,9 @@ const RegisterLevel4: React.FC<RegisterLevel4Props> = ({
   const handleColorSelect = (color: string) => {
     setSelectedColor(color);
     Cookies.set('registrationSelectedColor', color, { expires: 7 });
+    
+    // Update global theme immediately when color is selected
+    updateTheme(color);
   };
 
   const handleAddStoreAddress = () => {
@@ -135,27 +142,27 @@ const RegisterLevel4: React.FC<RegisterLevel4Props> = ({
       {/* Fixed Header */}
       <div className="p-6 pb-4 flex-shrink-0">
         <div className="text-center mb-6">
-          <h2 className="text-[24px] font-medium text-[#E53E3E] mb-2">Register</h2>
+          <h2 className="text-[24px] font-medium text-primary mb-2">Register</h2>
           <p className="text-[14px] text-gray-500">Create a free account today</p>
         </div>
 
         {/* Level 3 Badge */}
-        <div className="mb-2 border border-[#E53E3E] rounded-lg p-4">
+        <div className="mb-2 border border-primary rounded-lg p-4">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-[20px] font-medium text-[#E53E3E]">Level 3</span>
+            <span className="text-[20px] font-medium text-primary">Level 3</span>
             <button
               onClick={handleViewBenefits}
-              className="text-[14px] text-[#E53E3E] hover:underline"
+              className="text-[14px] text-primary hover:underline"
             >
               <u>View Benefits</u>
             </button>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-[23px] h-[23px] bg-[#E53E3E] text-white rounded-full flex items-center justify-center text-[12px] font-bold">
+            <div className="w-[23px] h-[23px] bg-primary text-white rounded-full flex items-center justify-center text-[12px] font-bold">
               1
             </div>
-            <div className="flex-1 h-0.5 bg-[#E53E3E]"></div>
-            <div className="w-[23px] h-[23px] bg-[#E53E3E] text-white rounded-full flex items-center justify-center text-[12px] font-bold">
+            <div className="flex-1 h-0.5 bg-primary"></div>
+            <div className="w-[23px] h-[23px] bg-primary text-white rounded-full flex items-center justify-center text-[12px] font-bold">
               2
             </div>
           </div>
@@ -204,9 +211,10 @@ const RegisterLevel4: React.FC<RegisterLevel4Props> = ({
               <button
                 key={index}
                 onClick={() => handleColorSelect(color.value)}
-                className={`w-12 h-12 rounded-full ${color.class} ${
-                  selectedColor === color.value ? 'ring-2 ring-[#000000] ring-offset-2' : ''
+                className={`w-12 h-12 rounded-full border-2 border-gray-200 ${
+                  selectedColor === color.value ? 'ring-2 ring-gray-800 ring-offset-2' : ''
                 } hover:scale-110 transition-transform`}
+                style={{ backgroundColor: color.value }}
                 title={color.name}
               />
             ))}
@@ -228,7 +236,7 @@ const RegisterLevel4: React.FC<RegisterLevel4Props> = ({
               type="button"
               onClick={handleSubmit}
               disabled={isLoading || !selectedColor}
-              className="flex-1 bg-[#E53E3E] text-[14px] hover:bg-red-600 text-white font-medium py-4 px-6 rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex-1 bg-primary text-[14px] hover:bg-red-600 text-white font-medium py-4 px-6 rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isLoading ? (
                 <div className="flex items-center justify-center">
@@ -285,7 +293,7 @@ const RegisterLevel4: React.FC<RegisterLevel4Props> = ({
           <div className="mt-8">
             <button
               onClick={handleViewBenefits}
-              className="w-full bg-red-500 hover:bg-red-600 text-white font-medium py-3 px-6 rounded-xl transition-colors"
+              className="w-full bg-primary hover:bg-red-600 text-white font-medium py-3 px-6 rounded-xl transition-colors"
             >
               Continue with Registration
             </button>

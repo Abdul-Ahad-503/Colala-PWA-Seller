@@ -77,22 +77,22 @@ const CreateStore3: React.FC<CreateStore3Props> = ({ onBackToCategories, onProce
   return (
     <div className="w-[680px]">
       {/* Header */}
-       <div className="mb-6 border border-[#E53E3E] rounded-lg p-3">
+       <div className="mb-6 border border-primary rounded-lg p-3">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-[20px] font-medium text-[#E53E3E]">Level 2</span>
+              <span className="text-[20px] font-medium text-primary">Level 2</span>
               <button
                 onClick={handleViewBenefits}
-                className="text-[14px] text-[#E53E3E] hover:underline"
+                className="text-[14px] text-primary hover:underline"
               >
                 <u>View Benefits</u>
               </button>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-[23px] h-[23px] bg-[#E53E3E] text-white rounded-full flex items-center justify-center text-[12px] font-bold">
+              <div className="w-[23px] h-[23px] bg-primary text-white rounded-full flex items-center justify-center text-[12px] font-bold">
                 1
               </div>
-              <div className="flex-1 h-0.5 bg-[#E53E3E]"></div>
-              <div className="w-[23px] h-[23px] bg-[#E53E3E] text-white rounded-full flex items-center justify-center text-[12px] font-bold">
+              <div className="flex-1 h-0.5 bg-primary"></div>
+              <div className="w-[23px] h-[23px] bg-primary text-white rounded-full flex items-center justify-center text-[12px] font-bold">
                 2
               </div>
             </div>
@@ -188,7 +188,7 @@ const CreateStore3: React.FC<CreateStore3Props> = ({ onBackToCategories, onProce
         <button
           onClick={handleProceed}
           disabled={isLoading}
-          className="w-[300px] h-[60px] bg-[#E53E3E] text-[14px] text-white font-sm rounded-2xl hover:bg-red-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-[300px] h-[60px] bg-primary text-[14px] text-white font-sm rounded-2xl hover:bg-red-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isLoading ? (
             <div className="flex items-center justify-center">

@@ -85,7 +85,7 @@ const LoyaltyPoints: React.FC = () => {
                 />
                 <span className="font-medium text-gray-900 text-[16px]">{store.name}</span>
               </div>
-              <span className="text-lg font-bold text-[#E53E3E] pr-6">{store.points}</span>
+              <span className="text-lg font-bold text-primary pr-6">{store.points}</span>
             </div>
           ))}
         </div>

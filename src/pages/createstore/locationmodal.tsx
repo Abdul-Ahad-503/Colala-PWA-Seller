@@ -183,7 +183,7 @@ const LocationModal: React.FC<LocationModalProps> = ({
               placeholder="Search location"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full px-4 py-3 bg-gray-100 rounded-xl text-[12px] text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500"
+              className="w-full px-4 py-3 bg-gray-100 rounded-xl text-[12px] text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary"
             />
           </div>
         </div>

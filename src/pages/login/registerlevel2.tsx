@@ -143,7 +143,7 @@ const RegisterLevel2: React.FC<RegisterLevel2Props> = ({
         </button>
 
         {/* Left Side - Same as before */}
-        <div className="w-1/2 bg-gradient-to-br from-red-500 to-red-600 relative overflow-hidden">
+        <div className="w-1/2 bg-gradient-to-br from-primary to-red-600 relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full">
             <img 
               src={IMAGES.login} 
@@ -157,27 +157,27 @@ const RegisterLevel2: React.FC<RegisterLevel2Props> = ({
         <div className="w-1/2 p-8 flex flex-col justify-center">
           {/* Header */}
           <div className="text-center mb-6">
-            <h2 className="text-[24px] font-semibold text-[#E53E3E] mb-2">Register</h2>
+            <h2 className="text-[24px] font-semibold text-primary mb-2">Register</h2>
             <p className="text-gray-500 text-[14px]">Create a free account today</p>
           </div>
 
           {/* Level Progress */}
-          <div className="mb-6 border border-[#E53E3E] rounded-lg p-3">
+          <div className="mb-6 border border-primary rounded-lg p-3">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-[20px] font-medium text-[#E53E3E]">Level {currentLevel}</span>
+              <span className="text-[20px] font-medium text-primary">Level {currentLevel}</span>
               <button
                 onClick={handleViewBenefits}
-                className="text-[14px] text-[#E53E3E] hover:underline"
+                className="text-[14px] text-primary hover:underline"
               >
                 <u>View Benefits</u>
               </button>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-[23px] h-[23px] bg-[#E53E3E] text-white rounded-full flex items-center justify-center text-[12px] font-bold">
+              <div className="w-[23px] h-[23px] bg-primary text-white rounded-full flex items-center justify-center text-[12px] font-bold">
                 1
               </div>
-              <div className="flex-1 h-0.5 bg-[#E53E3E]"></div>
-              <div className="w-[23px] h-[23px] bg-[#E53E3E] text-white rounded-full flex items-center justify-center text-[12px] font-bold">
+              <div className="flex-1 h-0.5 bg-primary"></div>
+              <div className="w-[23px] h-[23px] bg-primary text-white rounded-full flex items-center justify-center text-[12px] font-bold">
                 2
               </div>
             </div>
@@ -266,7 +266,7 @@ const RegisterLevel2: React.FC<RegisterLevel2Props> = ({
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="flex-1 bg-red-500 text-[14px] hover:bg-red-600 text-white font-medium py-4 px-6 rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex-1 bg-primary text-[14px] hover:bg-red-600 text-white font-medium py-4 px-6 rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isLoading ? (
                     <div className="flex items-center justify-center">

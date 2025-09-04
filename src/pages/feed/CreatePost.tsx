@@ -149,7 +149,7 @@ const CreatePost: React.FC<CreatePostProps> = ({ isOpen, onClose, onCreatePost }
           {/* Create Post Button */}
           <button 
             onClick={handleCreatePost}
-            className="w-full h-[50px] bg-[#E53E3E] text-white py-3 text-[12px]  -mt-4 rounded-2xl font-medium hover:bg-red-600 transition-colors"
+            className="w-full h-[50px] bg-primary text-white py-3 text-[12px]  -mt-4 rounded-2xl font-medium hover:bg-red-600 transition-colors"
           >
             Create Post
           </button>

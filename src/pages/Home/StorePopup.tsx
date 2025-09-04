@@ -119,7 +119,7 @@ const StorePopup: React.FC<StorePopupProps> = ({ isOpen, onClose }) => {
                     </div>
                     {/* Status */}
                     <div className="flex items-center gap-1">
-                      <div className={`w-2 h-2 rounded-full ${storeInfo.isOpen ? "bg-green-500" : "bg-red-500"}`}></div>
+                      <div className={`w-2 h-2 rounded-full ${storeInfo.isOpen ? "bg-green-500" : "bg-primary"}`}></div>
                       <span className={`text-[8px] font-medium ${storeInfo.isOpen ? "text-green-600" : "text-red-600"}`}>
                         {storeInfo.isOpen ? `Open Now - ${storeInfo.openingHours}` : "Closed"}
                       </span>
@@ -275,7 +275,7 @@ const StorePopup: React.FC<StorePopupProps> = ({ isOpen, onClose }) => {
                   onClick={() => setActiveTab("products")}
                   className={`px-10 py-4 rounded-lg font-[400] text-[10px] transition-colors ${
                     activeTab === "products"
-                      ? "bg-red-500 text-white"
+                      ? "bg-primary text-white"
                       : "text-gray-600 bg-white hover:text-gray-900"
                   }`}
                 >
@@ -285,7 +285,7 @@ const StorePopup: React.FC<StorePopupProps> = ({ isOpen, onClose }) => {
                   onClick={() => setActiveTab("services")}
                   className={`px-10 py-4 rounded-lg font-[400] text-[10px] transition-colors ${
                     activeTab === "services"
-                      ? "bg-red-500 text-white"
+                      ? "bg-primary text-white"
                       : "text-gray-600 bg-white hover:text-gray-900"
                   }`}
                 >
@@ -295,7 +295,7 @@ const StorePopup: React.FC<StorePopupProps> = ({ isOpen, onClose }) => {
                   onClick={() => setActiveTab("socialFeed")}
                   className={`px-10 py-4 rounded-lg font-[400] text-[10px] transition-colors ${
                     activeTab === "socialFeed"
-                      ? "bg-red-500 text-white"
+                      ? "bg-primary text-white"
                       : "text-gray-600 bg-white hover:text-gray-900"
                   }`}
                 >
@@ -305,7 +305,7 @@ const StorePopup: React.FC<StorePopupProps> = ({ isOpen, onClose }) => {
                   onClick={() => setActiveTab("reviews")}
                   className={`px-10 py-4 rounded-lg font-[400] text-[10px] transition-colors ${
                     activeTab === "reviews"
-                      ? "bg-red-500 text-white"
+                      ? "bg-primary text-white"
                       : "text-gray-600 bg-white hover:text-gray-900"
                   }`}
                 >

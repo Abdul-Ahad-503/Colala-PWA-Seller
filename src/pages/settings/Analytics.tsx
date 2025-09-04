@@ -91,7 +91,7 @@ const Analytics: React.FC = () => {
             key={index}
             className="bg-white border border-gray-200 rounded-[15px] p-1 py-2 w-[122px] h-[58px] flex relative"
           >
-            <div className="w-1 h-5 bg-red-500 rounded-sm absolute left-0.5 inset-y-[19px]"></div>
+            <div className="w-1 h-5 bg-primary rounded-sm absolute left-0.5 inset-y-[19px]"></div>
             <div className="flex-1 flex justify-between pl-4">
               <div>
                 <div className="text-[10px] font-semibold">{item.label}</div>
@@ -110,7 +110,7 @@ const Analytics: React.FC = () => {
             key={index + 4}
             className="bg-white border border-gray-200 rounded-[15px] p-1 py-2 w-[122px] h-[58px] flex relative"
           >
-            <div className="w-1 h-5 bg-red-500 rounded-sm absolute left-0.5 inset-y-[19px]"></div>
+            <div className="w-1 h-5 bg-primary rounded-sm absolute left-0.5 inset-y-[19px]"></div>
             <div className="flex-1 flex justify-between pl-4">
               <div>
                 <div className="text-[10px] font-semibold">{item.label}</div>
@@ -355,7 +355,7 @@ const Analytics: React.FC = () => {
 
       {/* Full Detailed Analytics Header Section */}
       <div className="mb-8 mt-8">
-        <h1 className="text-18px mr-60 font-semibold text-[#E53E3E] text-center mb-6">Full Detailed Analytics</h1>
+        <h1 className="text-18px mr-60 font-semibold text-primary text-center mb-6">Full Detailed Analytics</h1>
         
         {/* Date Dropdown for Stats Section */}
         <div className="relative w-[105px] h-[56px] mb-6">

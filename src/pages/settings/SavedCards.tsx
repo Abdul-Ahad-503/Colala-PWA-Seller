@@ -18,7 +18,16 @@ const SavedCards: React.FC = () => {
       brand: 'bank',
       number: '**** **** **** 1234',
       holder: 'Sasha Collins', 
-      gradient: 'from-[#E53E3E] to-[#BD0F7B]',
+      gradient: 'from-primary to-[#BD0F7B]',
+      autodebit: false
+    },
+    {
+      id: 2,
+      type: 'My Card',
+      brand: 'bank',
+      number: '**** **** **** 5678',
+      holder: 'Sasha Collins', 
+      gradient: 'from-primary to-[#BD0F7B]',
       autodebit: false
     }
   ]);
@@ -68,14 +77,14 @@ const SavedCards: React.FC = () => {
       </div>
 
       {/* Add New Card Button */}
-      <button className="w-full bg-[#E53E3E] text-white py-4 rounded-[15px] font-medium hover:bg-red-600 transition-colors mb-6">
+      <button className="w-full bg-primary text-white py-4 rounded-[15px] text-sm hover:bg-primary-hover transition-colors mb-6">
         Add New Card
       </button>
 
       {/* Cards Horizontal Scroll */}
       <div className="flex gap-6 overflow-x-auto  pb-4 mb-8 scrollbar-hide">
         {cards.map((card) => (
-          <div key={card.id} className="flex-shrink-0 w-[350px] space-y-4 bg-white shadow-[5px_5px_20px_0px_#00000040]">
+          <div key={card.id} className="flex-shrink-0 w-[350px] space-y-4 bg-white rounded-2xl shadow-lg">
             {/* Credit Card */}
             <div className={`bg-gradient-to-r ${card.gradient} rounded-[20px] p-[22px] text-white relative overflow-hidden `}>
               {/* Card Header */}
@@ -115,18 +124,18 @@ const SavedCards: React.FC = () => {
             </div>
 
             {/* Card Settings */}
-            <div className="bg-white border border-gray-200 rounded-[15px] p-4">
+            <div className=" p-4">
               {/* Autodebit Toggle */}
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-sm font-medium text-gray-900">Autodebit</span>
+              <div className="flex items-center justify-between border-[0.3px] border-[#CDCDCD] [box-shadow:4px_4px_20px_0px_#AAAAAA40] p-4 rounded-[15px] mb-4">
+                <span className="text-sm text-gray-900">Autodebit</span>
                 <button
                   onClick={() => toggleAutodebit(card.id)}
-                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                    card.autodebit ? 'bg-[#E53E3E]' : 'bg-gray-300'
+                  className={`relative inline-flex h-6 w-10 items-center rounded-full  transition-colors ${
+                    card.autodebit ? 'bg-primary ' : 'bg-gray-300'
                   }`}
                 >
                   <span
-                    className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                    className={`inline-block h-[14px] w-[14px] transform rounded-full  bg-white transition-transform ${
                       card.autodebit ? 'translate-x-6' : 'translate-x-1'
                     }`}
                   />
@@ -135,32 +144,30 @@ const SavedCards: React.FC = () => {
 
               {/* Payment History */}
               <div>
-                <h3 className="text-sm font-medium text-gray-900 mb-3">Payment History</h3>
-                <div className="space-y-3 max-h-[240px] overflow-y-auto">
+                <h3 className="text-sm  text-gray-900 mb-3">Payment History</h3>
+                <div className="space-y-3  overflow-y-auto">
                   {paymentHistory.map((payment) => (
                     <div
                       key={payment.id}
-                      className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+                      className="flex items-center justify-between p-1 bg-gray-50 rounded-lg"
                     >
                       <div className="flex items-center gap-3">
                         {/* Payment Icon */}
-                        <div className="w-10 h-10 bg-gray-200 rounded-lg flex items-center justify-center">
-                          <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-                          </svg>
+                        <div className="p-3 bg-gray-200 rounded-lg flex items-center justify-center">
+                          <img src={IMAGES.CreditCard} className='w-6 h-6' alt="" />
                         </div>
                         
                         {/* Payment Details */}
                         <div className="flex flex-col">
-                          <span className="text-sm text-black font-medium">{payment.type}</span>
-                          <span className="text-xs text-green-600">{payment.status}</span>
+                          <span className="text-xs text-black">{payment.type}</span>
+                          <span className="text-[10px] text-[#008000]">{payment.status}</span>
                         </div>
                       </div>
                       
                       {/* Amount and Date */}
                       <div className="flex flex-col items-end">
-                        <span className="text-sm font-bold text-green-600">{payment.amount}</span>
-                        <span className="text-xs text-gray-500">{payment.date}</span>
+                        <span className="text-xs font-bold text-[#008000]">{payment.amount}</span>
+                        <span className="text-[8px] font-light text-[#00000080]">{payment.date}</span>
                       </div>
                     </div>
                   ))}

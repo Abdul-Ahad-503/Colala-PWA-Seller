@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import IMAGES from '../../constants';
+import { useDynamicColors } from '../../hooks/useDynamicColors';
 
 // Sample review data - in a real app this would come from an API
 const sampleReviews = [
@@ -127,6 +128,7 @@ const sampleReviews = [
 ];
 
 const Reviews: React.FC = () => {
+  const colors = useDynamicColors();
   const [activeTab, setActiveTab] = useState<'store' | 'product'>('store');
   const [selectedReview, setSelectedReview] = useState<any>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -233,7 +235,7 @@ const Reviews: React.FC = () => {
         {[1, 2, 3, 4, 5].map((star) => (
           <svg
             key={star}
-            className={`w-[10px] h-[10px] ${star <= rating ? 'text-red-500' : 'text-gray-300'}`}
+            className={`w-[10px] h-[10px] ${star <= rating ? 'text-primary' : 'text-gray-300'}`}
             fill="currentColor"
             viewBox="0 0 20 20"
           >
@@ -255,7 +257,7 @@ const Reviews: React.FC = () => {
             onClick={() => setActiveTab('store')}
             className={`px-8 py-3 w-full rounded-lg font-medium transition-colors ${
               activeTab === 'store'
-                ? 'bg-[#E53E3E] text-white'
+                ? 'bg-primary text-white'
                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
             }`}
           >
@@ -265,7 +267,7 @@ const Reviews: React.FC = () => {
             onClick={() => setActiveTab('product')}
             className={`px-8 py-3 w-full rounded-lg font-medium transition-colors ml-2 ${
               activeTab === 'product'
-                ? 'bg-[#E53E3E] text-white'
+                ? 'bg-primary text-white'
                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
             }`}
           >
@@ -314,11 +316,11 @@ const Reviews: React.FC = () => {
                       />
                       <div>
                         <div className=" text-[8px] text-gray-900">{review.storeName}</div>
-                        <div className="text-[6px] text-red-500">4.5 Stars</div>
+                        <div className="text-[6px] text-primary">4.5 Stars</div>
                       </div>
                     </div>
                     <button 
-                      className="text-[#E53E3E] text-[8px] cursor-pointer  hover:underline"
+                      className="text-primary text-[8px] cursor-pointer  hover:underline"
                       onClick={(e) => {
                         e.stopPropagation();
                         // Handle view store
@@ -371,11 +373,11 @@ const Reviews: React.FC = () => {
                       />
                       <div>
                         <div className=" text-[8px] text-gray-900">{review.storeName}</div>
-                        <div className="text-[6px] text-red-500">4.5 Stars</div>
+                        <div className="text-[6px] text-primary">4.5 Stars</div>
                       </div>
                     </div>
                     <button 
-                      className="text-[#E53E3E] text-[8px] cursor-pointer  hover:underline"
+                      className="text-primary text-[8px] cursor-pointer  hover:underline"
                       onClick={(e) => {
                         e.stopPropagation();
                         // Handle view store
@@ -413,7 +415,7 @@ const Reviews: React.FC = () => {
                   {[1, 2, 3, 4, 5].map((star) => (
                     <div key={star}>
                       {star <= selectedReview.rating ? (
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="#E53E3E">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill={colors.getSVGFill()}>
                           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                         </svg>
                       ) : (
@@ -444,7 +446,7 @@ const Reviews: React.FC = () => {
                     {[1, 2, 3, 4, 5].map((star) => (
                       <div key={star}>
                         {star <= selectedReview.rating ? (
-                          <svg width="12" height="12" viewBox="0 0 24 24" fill="#E53E3E">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill={colors.getSVGFill()}>
                             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                           </svg>
                         ) : (
@@ -504,7 +506,7 @@ const Reviews: React.FC = () => {
               </button>
               <button
                 onClick={handleDeleteReview}
-                className="flex-1 px-4 py-3 bg-[#E53E3E] text-white rounded-2xl text-sm font-medium hover:bg-red-600 transition-colors"
+                className="flex-1 px-4 py-3 bg-primary text-white rounded-2xl text-sm font-medium hover:bg-primary-hover transition-colors"
               >
                 Delete Review
               </button>
@@ -541,7 +543,7 @@ const Reviews: React.FC = () => {
                       className="focus:outline-none transition-transform hover:scale-110"
                     >
                       {star <= (hoveredRating || editRating) ? (
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="#E53E3E">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill={colors.getSVGFill()}>
                           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                         </svg>
                       ) : (
@@ -562,7 +564,7 @@ const Reviews: React.FC = () => {
                 value={editComment}
                 onChange={(e) => setEditComment(e.target.value)}
                 placeholder="Type your review"
-                className="w-full h-32 px-4 py-3 shadow-lg rounded-xl focus:outline-none focus:ring-2 focus:ring-[#E53E3E] focus:border-transparent text-sm resize-none bg-white"
+                className="w-full h-32 px-4 py-3 shadow-lg rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm resize-none bg-white"
               />
             </div>
 
@@ -570,7 +572,7 @@ const Reviews: React.FC = () => {
             <div className="mb-6">
               <div className="flex items-center space-x-2 mb-2">
                 {/* Upload Button */}
-                <label className="w-16 h-16 border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center cursor-pointer hover:border-[#E53E3E] transition-colors">
+                <label className="w-16 h-16 border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center cursor-pointer hover:border-primary transition-colors">
                   <input
                     type="file"
                     accept="image/*"
@@ -592,7 +594,7 @@ const Reviews: React.FC = () => {
                     />
                     <button
                       onClick={() => removeImage(index)}
-                      className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white rounded-full text-xs flex items-center justify-center"
+                      className="absolute -top-1 -right-1 w-5 h-5 bg-primary text-white rounded-full text-xs flex items-center justify-center"
                     >
                       ×
                     </button>
@@ -609,7 +611,7 @@ const Reviews: React.FC = () => {
             {/* Submit Button */}
             <button
               onClick={handleUpdateReview}
-              className="w-full bg-[#E53E3E] text-white py-3 text-[12px] rounded-2xl font-medium hover:bg-red-600 transition-colors"
+              className="w-full bg-primary text-white py-3 text-[12px] rounded-2xl font-medium hover:bg-primary-hover transition-colors"
             >
               Send Review
             </button>

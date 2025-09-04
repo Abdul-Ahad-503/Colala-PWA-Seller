@@ -45,7 +45,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         )}
         {isOutOfStock && (
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-            <span className="bg-red-500 text-white px-3 py-1 rounded text-sm font-medium">
+            <span className="bg-primary text-white px-3 py-1 rounded text-sm font-medium">
               Unavailable
             </span>
           </div>
@@ -59,7 +59,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         </h3>
         
         <div className="mb-2">
-          <span className="text-red-500 font-bold text-xs ">
+          <span className="text-primary font-bold text-xs ">
             {priceRange}
           </span>
         </div>

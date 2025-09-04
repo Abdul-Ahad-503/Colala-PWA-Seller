@@ -7,28 +7,40 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Primary Colors
-        primary: '#E53E3E',
+        // Primary Colors - now using CSS custom properties
+        primary: 'var(--color-primary)',
+        'primary-hover': 'var(--color-primary-hover)',
+        'primary-light': 'var(--color-primary-light)',
+        
+        // Red color variations using CSS custom properties
+        red: {
+          50: 'var(--color-primary-50)',
+          100: 'var(--color-primary-100)', 
+          200: 'var(--color-primary-200)',
+          500: 'var(--color-primary)',
+          600: 'var(--color-primary-600)',
+          700: 'var(--color-primary-700)',
+        },
         
         // Background Colors
-        background: '#F9F9F9',
-        'background-light': '#FAFAFA',
-        'card-bg': '#FFFFFF',
+        background: 'var(--color-background)',
+        'background-light': 'var(--color-background-light)',
+        'card-bg': 'var(--color-card-bg)',
         
         // Text Colors
-        'text-primary': '#222222',
-        'text-primary-alt': '#1A1A1A',
-        'text-secondary': '#555555',
-        'text-tertiary': '#666666',
-        'text-important': '#E53E3E',
+        'text-primary': 'var(--color-text-primary)',
+        'text-primary-alt': 'var(--color-text-primary-alt)',
+        'text-secondary': 'var(--color-text-secondary)',
+        'text-tertiary': 'var(--color-text-tertiary)',
+        'text-important': 'var(--color-text-important)',
         
         // Border Colors
-        'border-light': '#F2F2F2',
-        'border-gray': '#E0DFDF',
+        'border-light': 'var(--color-border-light)',
+        'border-gray': 'var(--color-border-gray)',
         
         // Gradient Colors
-        'gradient-start': '#FF0000',
-        'gradient-end': '#70064B',
+        'gradient-start': 'var(--color-gradient-start)',
+        'gradient-end': 'var(--color-gradient-end)',
       },
       fontFamily: {
         'sans': ['Manrope', 'sans-serif'],

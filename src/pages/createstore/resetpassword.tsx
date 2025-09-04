@@ -160,7 +160,7 @@ const ResetPassword: React.FC<ResetPasswordProps> = ({ isOpen, onClose }) => {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full h-[60px] bg-[#E53E3E] text-white font-sm py-3 px-4 rounded-2xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full h-[60px] bg-primary text-white font-sm py-3 px-4 rounded-2xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isLoading ? (
                   <div className="flex items-center justify-center">
@@ -197,7 +197,7 @@ const ResetPassword: React.FC<ResetPasswordProps> = ({ isOpen, onClose }) => {
                 />
                 <button
                   type="button"
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#E53E3E] text-[10px] border border-[#E53E3E] px-3 py-1 rounded-2xl"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-primary text-[10px] border border-primary px-3 py-1 rounded-2xl"
                 >
                   Paste
                 </button>
@@ -207,7 +207,7 @@ const ResetPassword: React.FC<ResetPasswordProps> = ({ isOpen, onClose }) => {
               <div className="mb-4">
                 {timerActive ? (
                   <p className="text-sm text-gray-600">
-                    You can resend code in <span className="text-[#E53E3E] font-medium">{formatTime(timer)}</span>
+                    You can resend code in <span className="text-primary font-medium">{formatTime(timer)}</span>
                   </p>
                 ) : (
                   <p className="text-sm  text-[#000000]">
@@ -220,7 +220,7 @@ const ResetPassword: React.FC<ResetPasswordProps> = ({ isOpen, onClose }) => {
                 type={timerActive ? "submit" : "button"}
                 onClick={timerActive ? undefined : handleResendCode}
                 disabled={isLoading}
-                className="w-full h-[60px] bg-[#E53E3E] text-white font-sm py-3 px-4 rounded-2xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full h-[60px] bg-primary text-white font-sm py-3 px-4 rounded-2xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isLoading ? (
                   <div className="flex items-center justify-center">
@@ -290,7 +290,7 @@ const ResetPassword: React.FC<ResetPasswordProps> = ({ isOpen, onClose }) => {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full h-[60px] bg-[#E53E3E] text-white font-sm py-3 px-4 rounded-2xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full h-[60px] bg-primary text-white font-sm py-3 px-4 rounded-2xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isLoading ? (
                 <div className="flex items-center justify-center">

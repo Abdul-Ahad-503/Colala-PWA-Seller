@@ -127,7 +127,7 @@ const MyProductsServices: React.FC = () => {
             onClick={() => setActiveTab('products')}
             className={`pb-2 border-b-2 font-medium transition-colors ${
               activeTab === 'products'
-                ? 'border-red-500 text-red-500'
+                ? 'border-primary text-primary'
                 : 'border-transparent text-gray-600 hover:text-gray-900'
             }`}
           >
@@ -137,7 +137,7 @@ const MyProductsServices: React.FC = () => {
             onClick={() => setActiveTab('services')}
             className={`pb-2 border-b-2 font-medium transition-colors ${
               activeTab === 'services'
-                ? 'border-red-500 text-red-500'
+                ? 'border-primary text-primary'
                 : 'border-transparent text-gray-600 hover:text-gray-900'
             }`}
           >
@@ -151,7 +151,7 @@ const MyProductsServices: React.FC = () => {
             onClick={() => setActiveFilter('all')}
             className={`px-12 py-4 rounded-[10px] text-xs transition-colors ${
               activeFilter === 'all'
-                ? 'bg-red-500 text-white'
+                ? 'bg-primary text-white'
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
             }`}
           >
@@ -161,7 +161,7 @@ const MyProductsServices: React.FC = () => {
             onClick={() => setActiveFilter('sponsored')}
             className={`px-12 py-4 rounded-[10px] text-xs transition-colors ${
               activeFilter === 'sponsored'
-                ? 'bg-red-500 text-white'
+                ? 'bg-primary text-white'
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
             }`}
           >
@@ -171,7 +171,7 @@ const MyProductsServices: React.FC = () => {
             onClick={() => setActiveFilter('out-of-stock')}
             className={`px-12 py-4 rounded-[10px] text-xs transition-colors ${
               activeFilter === 'out-of-stock'
-                ? 'bg-red-500 text-white'
+                ? 'bg-primary text-white'
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
             }`}
           >
@@ -221,7 +221,7 @@ const MyProductsServices: React.FC = () => {
                 : `No ${activeTab} match the selected filter.`
               }
             </p>
-            <button className="bg-red-500 text-white px-6 py-2 rounded-lg hover:bg-red-600">
+            <button className="bg-primary text-white px-6 py-2 rounded-lg hover:bg-red-600">
               Add {activeTab === 'products' ? 'Product' : 'Service'}
             </button>
           </div>

@@ -129,12 +129,12 @@ const FullOrderDetail: React.FC<FullOrderDetailProps> = ({ onBack, customerName,
               <input
                 type="checkbox"
                 defaultChecked={true}
-                className="mt-1 w-4 h-4 text-[#E53E3E] border-gray-300 rounded focus:ring-[#E53E3E]"
+                className="mt-1 w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary"
               />
             </div> */}
             
             {/* Header Section in separate rounded container */}
-            <div className="flex-1 bg-[#E53E3E] text-white px-6 py-3 pb-7 flex items-center justify-between rounded-2xl">
+            <div className="flex-1 bg-primary text-white px-6 py-3 pb-7 flex items-center justify-between rounded-2xl">
               <span className="font-medium text-sm">{orderData.orderId}</span>
               <div className="flex items-center space-x-2">
                 
@@ -159,8 +159,8 @@ const FullOrderDetail: React.FC<FullOrderDetailProps> = ({ onBack, customerName,
                     </div>
                     <div className="flex-1">
                       <h3 className="font-medium text-black text-[12px] mb-1">{item.name}</h3>
-                      <p className="text-[#E53E3E] font-bold text-[12px] mb-2">{item.price}</p>
-                      <p className="text-[#E53E3E] text-[12px]">Qty: {item.quantity}</p>
+                      <p className="text-primary font-bold text-[12px] mb-2">{item.price}</p>
+                      <p className="text-primary text-[12px]">Qty: {item.quantity}</p>
                     </div>
                   </div>
                 ))}
@@ -176,7 +176,7 @@ const FullOrderDetail: React.FC<FullOrderDetailProps> = ({ onBack, customerName,
                     type="text"
                     placeholder="NEW200"
                     defaultValue="NEW200"
-                    className="w-full px-7 py-3 pr-24 border border-[#CDCDCD] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E53E3E] text-sm"
+                    className="w-full px-7 py-3 pr-24 border border-[#CDCDCD] rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm"
                     readOnly
                   />
                   
@@ -187,14 +187,14 @@ const FullOrderDetail: React.FC<FullOrderDetailProps> = ({ onBack, customerName,
               <div className="bg-white rounded-2xl p-5">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-black text-[12px] font-medium">Discount Points</span>
-                  <span className="text-[#E53E3E] text-[12px] font-medium">Bal: 200 Points</span>
+                  <span className="text-primary text-[12px] font-medium">Bal: 200 Points</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <input
                     type="text"
                     placeholder="200"
                     defaultValue="200"
-                    className="flex-1 px-7 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E53E3E] text-sm"
+                    className="flex-1 px-7 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm"
                     readOnly
                   />
                 </div>
@@ -211,7 +211,7 @@ const FullOrderDetail: React.FC<FullOrderDetailProps> = ({ onBack, customerName,
               <div className="bg-white rounded-2xl p-4">
                 <div className="flex items-center justify-between mb-3">
                   <span className="text-black text-[12px] font-medium">Delivery Address</span>
-                  <span className="text-[#E53E3E] text-[12px] font-medium"><u>Delivery New Location</u></span>
+                  <span className="text-primary text-[12px] font-medium"><u>Delivery New Location</u></span>
                 </div>
                 <div className="border border-[#CDCDCD] rounded-lg p-2">
                   <div className="text-[#00000080] font-medium text-[12px]">Phone number</div>
@@ -234,23 +234,23 @@ const FullOrderDetail: React.FC<FullOrderDetailProps> = ({ onBack, customerName,
                   </div>
                   <div className="flex justify-between bg-[#EDEDED] p-2 border border-[#CACACA] rounded-lg mb-1">
                     <span className="text-black text-[12px]">Items Cost</span>
-                    <span className="text-[#E53E3E] text-[12px] font-bold">5,000,000</span>
+                    <span className="text-primary text-[12px] font-bold">5,000,000</span>
                   </div>
                   <div className="flex justify-between bg-[#EDEDED] p-2 border border-[#CACACA] rounded-lg mb-1">
                     <span className="text-black text-[12px]">Coupon Discount</span>
-                    <span className="text-red-500 text-[12px] font-bold">-5,000</span>
+                    <span className="text-primary text-[12px] font-bold">-5,000</span>
                   </div>
                   <div className="flex justify-between bg-[#EDEDED] p-2 border border-[#CACACA] rounded-lg mb-1">
                     <span className="text-black text-[12px]">Points Discount</span>
-                    <span className="text-red-500 text-[12px] font-bold">-10,000</span>
+                    <span className="text-primary text-[12px] font-bold">-10,000</span>
                   </div>
                   <div className="flex justify-between bg-[#EDEDED] p-2 border border-[#CACACA] rounded-lg mb-1">
                     <span className="text-black text-[12px]">Delivery fee</span>
-                    <span className="text-[#E53E3E] text-[12px] font-bold">10,000</span>
+                    <span className="text-primary text-[12px] font-bold">10,000</span>
                   </div>
                   <div className="flex justify-between bg-[#EDEDED] p-2 border border-[#CACACA] rounded-lg mb-1">
                     <span className="text-black text-[12px]">Total to pay</span>
-                    <span className="text-[#E53E3E] font-bold text-[12px]">N4,995,000</span>
+                    <span className="text-primary font-bold text-[12px]">N4,995,000</span>
                   </div>
                 </div>
               </div>
@@ -306,7 +306,7 @@ const FullOrderDetail: React.FC<FullOrderDetailProps> = ({ onBack, customerName,
             <div className="bg-[#EDEDED] border border-[#CACACA] rounded-lg p-3">
               <div className="flex justify-between items-center">
                 <span className="text-black text-[12px]">Total</span>
-                <span className="text-[#E53E3E] text-[12px] font-bold">N9,990,000</span>
+                <span className="text-primary text-[12px] font-bold">N9,990,000</span>
               </div>
             </div>
           </div>

@@ -211,7 +211,7 @@ const Feed: React.FC = () => {
         <div className="mb-6">
           {/* My Posts / All Posts Toggle */}
           <div className="flex gap-4 mb-4">
-            <button className="px-20 py-4 bg-[#E53E3E] text-white rounded-xl font-medium text-[10px]">
+            <button className="px-20 py-4 bg-primary text-white rounded-xl font-medium text-[10px]">
               My Posts
             </button>
             <button className="px-20 py-4 bg-[#FFFFFF] text-gray-600 rounded-xl font-medium text-[10px]  transition-colors">
@@ -222,7 +222,7 @@ const Feed: React.FC = () => {
           {/* Add New Posts Button */}
           <button 
             onClick={handleOpenCreatePost}
-            className="w-[420px] bg-[#E53E3E] text-white py-4 rounded-xl font-medium text-[10px] flex items-center justify-center gap-2 hover:bg-red-600 transition-colors"
+            className="w-[420px] bg-primary text-white py-4 rounded-xl font-medium text-[10px] flex items-center justify-center gap-2 hover:bg-red-600 transition-colors"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -286,7 +286,7 @@ const Feed: React.FC = () => {
                             className="w-full flex items-center space-x-3 px-4 py-4 mb-[2px] text-left bg-white rounded-xl hover:bg-gray-50 transition-colors"
                           >
                             <img src="/public/deletepost.svg" alt="Delete Post" className="w-5 h-5 text-black" />
-                            <span className="text-red-500 text-sm">Delete Post</span>
+                            <span className="text-primary text-sm">Delete Post</span>
                           </button>
                         </div>
                       )}
@@ -311,10 +311,10 @@ const Feed: React.FC = () => {
                       <div className="flex items-center space-x-4">
                         <button 
                           onClick={() => handleLike(post.id)}
-                          className="flex items-center space-x-1 text-gray-600 hover:text-red-500 transition-colors"
+                          className="flex items-center space-x-1 text-gray-600 hover:text-primary transition-colors"
                         >
                           {post.isLiked ? (
-                            <svg className="w-7 h-7 text-red-500 fill-current" viewBox="0 0 24 24">
+                            <svg className="w-7 h-7 text-primary fill-current" viewBox="0 0 24 24">
                               <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                             </svg>
                           ) : (
@@ -346,7 +346,7 @@ const Feed: React.FC = () => {
                       </div>
 
                       <div className="flex items-center space-x-2">
-                        <button className="bg-[#E53E3E] text-white px-1 py-1 rounded-lg text-[10px] hover:bg-red-600 transition-colors">
+                        <button className="bg-primary text-white px-1 py-1 rounded-lg text-[10px] hover:bg-red-600 transition-colors">
                           Follow Store
                         </button>
                         <button className="text-gray-600 hover:text-gray-800">
@@ -465,7 +465,7 @@ const Feed: React.FC = () => {
                               <span className="text-[10px] text-gray-500">1 min</span>
                             </div>
                             <p className="text-gray-800 text-base">
-                              <span className="text-red-500 text-[10px] font-medium">@Adam Chris</span>
+                              <span className="text-primary text-[10px] font-medium">@Adam Chris</span>
                               {' '}
                               <span className="text-[10px]">We do deliver nationwide.</span>
                             </p>

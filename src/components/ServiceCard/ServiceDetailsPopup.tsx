@@ -100,7 +100,7 @@ const ServiceDetailsPopup: React.FC<ServiceDetailsPopupProps> = ({
               <h3 className="text-sm font-medium text-gray-900 mb-1">
                 {serviceData.name}
               </h3>
-              <div className="text-red-500 font-bold text-sm mb-1">
+              <div className="text-primary font-bold text-sm mb-1">
                 {serviceData.priceRange}
               </div>
               <div className="text-xs text-gray-500">
@@ -111,7 +111,7 @@ const ServiceDetailsPopup: React.FC<ServiceDetailsPopupProps> = ({
 
           {/* Action Buttons */}
           <div className="flex gap-3 mb-6">
-            <button className="flex-1 bg-red-500 text-white py-3 rounded-lg text-sm font-medium hover:bg-red-600 transition-colors">
+            <button className="flex-1 bg-primary text-white py-3 rounded-lg text-sm font-medium hover:bg-red-600 transition-colors">
               Edit Service
             </button>
             <button className="flex-1 bg-black text-white py-3 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors" onClick={handleViewService}>
@@ -182,7 +182,7 @@ const ServiceDetailsPopup: React.FC<ServiceDetailsPopupProps> = ({
           </div>
 
           {/* Service Statistics Section */}
-          <div className="bg-red-500 rounded-t-xl  px-3 py-2 mb-0">
+          <div className="bg-primary rounded-t-xl  px-3 py-2 mb-0">
             <h3 className="text-white font-medium text-sm">Service Statistics</h3>
           </div>
           

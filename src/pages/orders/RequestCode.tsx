@@ -53,7 +53,7 @@ const RequestCode: React.FC<RequestCodeProps> = ({ isOpen, onClose, onProceed })
           </button>
           <button
             onClick={handleProceed}
-            className="flex-1 py-4 px-4 bg-[#E53E3E] text-[12px] text-white rounded-2xl font-medium hover:bg-red-600 transition-colors"
+            className="flex-1 py-4 px-4 bg-primary text-[12px] text-white rounded-2xl font-medium hover:bg-red-600 transition-colors"
           >
             Proceed
           </button>

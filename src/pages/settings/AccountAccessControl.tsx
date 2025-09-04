@@ -97,7 +97,7 @@ const AccountAccessControl: React.FC = () => {
                 </div>
                 <div>
                   <p className="text-sm font-medium text-gray-900">{user.email}</p>
-                  <p className="text-[12px] text-red-500">{user.role}</p>
+                  <p className="text-[12px] text-primary">{user.role}</p>
                 </div>
               </div>
               
@@ -122,7 +122,7 @@ const AccountAccessControl: React.FC = () => {
       
         <button 
           onClick={() => setIsAddUserModalOpen(true)}
-          className="w-[602px] mt-55 h-[60px]  text-[12px] py-3 bg-[#E53E3E] text-white rounded-xl font-medium hover:bg-red-600 transition-colors"
+          className="w-[602px] mt-55 h-[60px]  text-[12px] py-3 bg-primary text-white rounded-xl font-medium hover:bg-red-600 transition-colors"
         >
           Add new User
         </button>
@@ -150,7 +150,7 @@ const AccountAccessControl: React.FC = () => {
                   value={formData.email}
                   onChange={(e) => handleInputChange('email', e.target.value)}
                   placeholder="User Email Address"
-                  className="w-full h-[60px] px-4 py-3  bg-[#FFFFFF] rounded-xl focus:outline-none border border-[#CDCDCD] focus:ring-2 focus:ring-red-500 focus:border-transparent text-sm  shadow-medium"
+                  className="w-full h-[60px] px-4 py-3  bg-[#FFFFFF] rounded-xl focus:outline-none border border-[#CDCDCD] focus:ring-2 focus:ring-primary focus:border-transparent text-sm  shadow-medium"
                 />
               </div>
 
@@ -161,7 +161,7 @@ const AccountAccessControl: React.FC = () => {
                   value={formData.password}
                   onChange={(e) => handleInputChange('password', e.target.value)}
                   placeholder="User Password"
-                  className="w-full h-[60px] px-4 py-3  rounded-xl focus:outline-none focus:ring-2 border border-[#CDCDCD] focus:ring-red-500 focus:border-transparent text-sm bg-[#FFFFFF] shadow-medium"
+                  className="w-full h-[60px] px-4 py-3  rounded-xl focus:outline-none focus:ring-2 border border-[#CDCDCD] focus:ring-primary focus:border-transparent text-sm bg-[#FFFFFF] shadow-medium"
                 />
               </div>
 
@@ -237,7 +237,7 @@ const AccountAccessControl: React.FC = () => {
                 <button
                   onClick={handleSaveUser}
                   disabled={!formData.email || !formData.password || !selectedRole}
-                  className="w-full py-3  -mt-14 bg-[#E53E3E] text-white rounded-xl font-medium hover:bg-red-600 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
+                  className="w-full py-3  -mt-14 bg-primary text-white rounded-xl font-medium hover:bg-red-600 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
                 >
                   Save User
                 </button>

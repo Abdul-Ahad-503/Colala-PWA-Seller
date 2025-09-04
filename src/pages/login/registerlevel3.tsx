@@ -86,7 +86,7 @@ const RegisterLevel3: React.FC<RegisterLevel3Props> = ({
     <div className="bg-white p-6 relative min-h-screen">
       {/* Header */}
       <div className="text-center mb-3 ml-6">
-        <h2 className="text-[24px] font-medium text-[#E53E3E] mb-1 mt-6">Register</h2>
+        <h2 className="text-[24px] font-medium text-primary mb-1 mt-6">Register</h2>
         <p className="text-[14px] text-gray-500">Create a free account today</p>
       </div>
 
@@ -95,17 +95,17 @@ const RegisterLevel3: React.FC<RegisterLevel3Props> = ({
         <div className="border-2 border-red-400 rounded-2xl p-4 bg-white">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
-              <span className="text-red-500 font-bold text-[20px]">Level 3</span>
+              <span className="text-primary font-bold text-[20px]">Level 3</span>
             </div>
             <button
               onClick={handleViewBenefits}
-              className="text-red-500 font-medium text-[14px] hover:text-red-600 transition-colors"
+              className="text-primary font-medium text-[14px] hover:text-red-600 transition-colors"
             >
               <u>View Benefits</u>
             </button>
           </div>
           <div className="flex items-center justify-end mt-2">
-            <div className="w-[23px] h-[23px] bg-[#E53E3E] text-white rounded-full flex items-center justify-center text-[12px] font-bold">
+            <div className="w-[23px] h-[23px] bg-primary text-white rounded-full flex items-center justify-center text-[12px] font-bold">
               1
             </div>
             <div className="flex-1 h-[0.1px] bg-[#ADADAD]"></div>
@@ -175,7 +175,7 @@ const RegisterLevel3: React.FC<RegisterLevel3Props> = ({
               type="button"
               onClick={handleSubmit}
               disabled={isLoading || !storeVideo}
-              className="flex-1 bg-red-500 text-[14px] hover:bg-red-600 text-white font-medium py-4 px-6 rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex-1 bg-primary text-[14px] hover:bg-red-600 text-white font-medium py-4 px-6 rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isLoading ? (
                 <div className="flex items-center justify-center">
@@ -243,7 +243,7 @@ const RegisterLevel3: React.FC<RegisterLevel3Props> = ({
           <div className="mt-8">
             <button
               onClick={handleViewBenefits}
-              className="w-full bg-red-500 hover:bg-red-600 text-white font-medium py-3 px-6 rounded-xl transition-colors"
+              className="w-full bg-primary hover:bg-red-600 text-white font-medium py-3 px-6 rounded-xl transition-colors"
             >
               Continue with Registration
             </button>

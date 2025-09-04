@@ -31,7 +31,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }) => {
       <div className="flex items-center justify-between  py-[2px] p-2 bg-[#F2F2F2] border border-gray-200">
         <div className="flex items-center space-x-2">
           <img src={IMAGES.sasha} alt="store" className="w-4 h-4 rounded-full" />
-          <span className="text-red-500 text-[8px] font-medium">{product.store}</span>
+          <span className="text-primary text-[8px] font-medium">{product.store}</span>
         </div>
         
         <div className="flex items-center space-x-1">
@@ -46,7 +46,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }) => {
         
         {/* Price */}
         <div className="flex items-center space-x-2 ">
-          <span className="text-red-500 font-bold text-[12px]">{product.salePrice}</span>
+          <span className="text-primary font-bold text-[12px]">{product.salePrice}</span>
           <span className="text-gray-400 line-through text-[8px]">{product.originalPrice}</span>
         </div>
         

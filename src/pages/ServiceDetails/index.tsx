@@ -71,7 +71,7 @@ const ServiceDetails: React.FC = () => {
                 <button
                   onClick={() => setSelectedThumbnail(index)}
                   className={`w-20 h-20 rounded-xl overflow-hidden border-2 transition-colors ${
-                    selectedThumbnail === index ? 'border-red-500' : 'border-gray-200'
+                    selectedThumbnail === index ? 'border-primary' : 'border-gray-200'
                   }`}
                 >
                   <img 
@@ -111,7 +111,7 @@ const ServiceDetails: React.FC = () => {
                 <span className="text-white text-sm font-medium">Sasha Stores</span>
                 </div>
                 <div className="flex items-center gap-1">
-                  <svg className="w-4 h-4 text-red-500 fill-current" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 text-primary fill-current" viewBox="0 0 20 20">
                     <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
                   </svg>
                   <span className="text-white text-sm">{service.rating}</span>
@@ -134,7 +134,7 @@ const ServiceDetails: React.FC = () => {
                 </div>
                 </div>
                 <div className="flex items-center gap-1 mb-4">
-                  <svg className="w-5 h-5 text-red-500 fill-current" viewBox="0 0 20 20">
+                  <svg className="w-5 h-5 text-primary fill-current" viewBox="0 0 20 20">
                     <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
                   </svg>
                   <span className="text-lg font-medium">{service.rating}</span>

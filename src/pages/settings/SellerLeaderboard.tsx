@@ -264,7 +264,7 @@ const SellerLeaderboard: React.FC = () => {
                   />
                   <span className="font-medium text-gray-900">{seller.name}</span>
                 </div>
-                <span className="text-lg font-bold text-[#E53E3E]">{seller.score}</span>
+                <span className="text-lg font-bold text-primary">{seller.score}</span>
               </div>
             ))}
           </div>

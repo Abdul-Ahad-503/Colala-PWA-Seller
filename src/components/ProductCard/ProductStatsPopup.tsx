@@ -176,7 +176,7 @@ const ProductStatsPopup: React.FC<ProductStatsPopupProps> = ({
                   index === 6 ? 'col-start-2' : '' // Center the last item (No Clicks)
                 }`}
               >
-                <div className="w-1 h-5 bg-red-500 rounded-sm absolute left-0.5 inset-y-[19px]"></div>
+                <div className="w-1 h-5 bg-primary rounded-sm absolute left-0.5 inset-y-[19px]"></div>
                 <div className="flex-1 flex  justify-between pl-4 ">
                   <div>
                     <div className="text-[10px] font-semibold">{stat.label}</div>

@@ -98,6 +98,30 @@ npm run build
 npm run preview
 ```
 
+## 📚 Documentation
+
+For comprehensive project documentation and backend integration guidance, refer to these detailed documents:
+
+### 📋 **[Project Documentation](PROJECT_DOCUMENTATION.md)**
+Complete technical documentation covering:
+- **Architecture Overview** - Detailed project structure and component analysis
+- **Feature Modules** - In-depth coverage of all application features
+- **Dynamic Color System** - Complete guide to the theming architecture
+- **State Management** - Data flow and state management patterns
+- **Development Guidelines** - Coding standards and best practices
+- **Performance Considerations** - Optimization strategies and techniques
+
+### 🔗 **[Backend Integration Guide](BACKEND_INTEGRATION.md)**
+Comprehensive backend developer manual including:
+- **Database Schemas** - Complete table structures for all entities
+- **API Endpoints** - Detailed API specifications with request/response examples
+- **Authentication System** - JWT implementation and security patterns
+- **Real-time Features** - WebSocket integration and event handling
+- **Data Flow Patterns** - Frontend to backend integration workflows
+- **Testing Guidelines** - API testing strategies and Postman collections
+
+> **💡 Tip**: These documents are essential for understanding the complete architecture and for backend developers who need to integrate with this frontend application.
+
 ## 🏗️ Architecture
 
 ### 📁 Project Structure

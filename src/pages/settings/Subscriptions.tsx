@@ -18,7 +18,7 @@ const Subscriptions: React.FC = () => {
       ],
       daysLeft: 'days left',
       status: 'Subscription Active',
-      cardBg: 'bg-gradient-to-br from-orange-400 to-pink-500',
+      cardBg: 'bg-gradient-to-br from-[#FDB47D] to-[#FF7395]',
       textColor: 'text-white'
     },
     {
@@ -35,7 +35,7 @@ const Subscriptions: React.FC = () => {
       ],
       daysLeft: 'Upgrade',
       status: 'Upgrade',
-      cardBg: 'bg-gradient-to-br from-purple-500 to-blue-600',
+      cardBg: 'bg-gradient-to-br from-[#E1729A] to-[#3056A9]',
       textColor: 'text-white'
     },
     {
@@ -64,7 +64,7 @@ const Subscriptions: React.FC = () => {
       <div 
         className="w-full min-h-screen rounded-3xl py-8 relative overflow-hidden bg-[#FFC4C4]"
         style={{backgroundColor: '#FFC4C4'}}>        
-        <div className="max-w-6xl mx-auto relative z-10">
+        <div className="max-w-[674px] mx-auto relative z-10">
           <div className=''>
             <h1 className="text-[20px] pl-5 font-semibold text-black mb-4">Subscription</h1>
           </div>
@@ -73,7 +73,7 @@ const Subscriptions: React.FC = () => {
           <img 
             src={IMAGES.airbaloon} 
             alt="Hot Air Balloon" 
-            className="w-full h-[982px] object-contain -z-20 absolute -top-17 left-1/2 transform -translate-x-1/2"
+            className="w-full h-[982px] object-cover -z-20 absolute -top-17 left-1/2 transform -translate-x-1/2"
           />
 
           {/* Subscription Cards - Horizontal Scrollable */}
@@ -85,8 +85,8 @@ const Subscriptions: React.FC = () => {
                   className={`${plan.cardBg} rounded-3xl p-6 relative overflow-hidden w-[513px] h-[847px] shadow-xl flex-shrink-0`}
                 >
                   {/* Plan Header */}
-                  <div className="mb-6">
-                    <h3 className={`font_Oleo_400 text-black  mb-4`}>
+                  <div className="mb-5">
+                    <h3 className={`font_Oleo_400 text-black `}>
                       {plan.name}
                     </h3>
                     <div className="bg-white rounded-r-full px-6 py-4 -ml-6">
@@ -102,7 +102,7 @@ const Subscriptions: React.FC = () => {
                     {plan.benefits.map((benefit, index) => (
                       <div 
                         key={index}
-                        className="bg-black/30 backdrop-blur-sm rounded-2xl px-5 py-4 flex items-center gap-[10px]"
+                        className="bg-black/30 backdrop-blur-sm rounded-2xl px-5 py-3 flex items-center gap-[10px]"
                       >
                         <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center flex-shrink-0">
                           <svg className="w-4 h-4 text-black" fill="currentColor" viewBox="0 0 20 20">

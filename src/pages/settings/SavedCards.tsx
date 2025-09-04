@@ -77,7 +77,7 @@ const SavedCards: React.FC = () => {
       </div>
 
       {/* Add New Card Button */}
-      <button className="w-full bg-primary text-white py-4 rounded-[15px] text-sm hover:bg-red-600 transition-colors mb-6">
+      <button className="w-full bg-primary text-white py-4 rounded-[15px] text-sm hover:bg-primary-hover transition-colors mb-6">
         Add New Card
       </button>
 

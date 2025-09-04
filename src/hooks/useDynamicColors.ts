@@ -27,6 +27,11 @@ export const useDynamicColors = () => {
       color: 'white'
     }),
     
+    getHoverButtonStyle: () => ({ 
+      backgroundColor: `var(--color-primary-hover)`,
+      color: 'white'
+    }),
+    
     getToggleStyle: (isActive: boolean) => ({
       backgroundColor: isActive ? primaryColor : '#d1d5db'
     }),
@@ -34,6 +39,14 @@ export const useDynamicColors = () => {
     getCategoryStyle: () => ({
       backgroundColor: primaryColor + '20',
       color: primaryColor
-    })
+    }),
+
+    // SVG fill color
+    getSVGFill: () => primaryColor,
+    
+    // CSS classes for common patterns
+    getPrimaryClasses: () => 'bg-primary text-white hover:bg-primary-hover',
+    getOutlineClasses: () => 'border-primary text-primary bg-transparent hover:bg-primary-light',
+    getTextClasses: () => 'text-primary'
   };
 };

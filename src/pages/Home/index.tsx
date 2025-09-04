@@ -327,22 +327,24 @@ const HomePage: React.FC = () => {
             {/* Management Cards Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {/* My Orders */}
-              <div className="bg-white rounded-[20px] shadow-sm p-6">
-                <div className="flex flex-col items-start mb-4">
-                  <div className="w-13 h-13 bg-red-50 rounded-full flex items-center justify-center mb-4">
-                    <img
-                      src={IMAGES.shoppingCartSimple}
-                      alt="Orders"
-                      className="w-6 h-6"
-                    />
+              <Link to="/orders" className="block">
+                <div className="bg-white rounded-[20px] shadow-sm p-6 hover:bg-gray-50 transition-colors cursor-pointer">
+                  <div className="flex flex-col items-start mb-4">
+                    <div className="w-13 h-13 bg-red-50 rounded-full flex items-center justify-center mb-4">
+                      <img
+                        src={IMAGES.shoppingCartSimple}
+                        alt="Orders"
+                        className="w-6 h-6"
+                      />
+                    </div>
+                    <h3 className="text-[14px] font-medium text-primary mb-2">My Orders</h3>
                   </div>
-                  <h3 className="text-[14px] font-medium text-primary mb-2">My Orders</h3>
+                  <p className="text-[12px] text-[#00000080]">
+                    Manage your orders effectively view and monitor every aspect
+                    of your customer orders
+                  </p>
                 </div>
-                <p className="text-[12px] text-[#00000080]">
-                  Manage your orders effectively view and monitor every aspect
-                  of your customer orders
-                </p>
-              </div>
+              </Link>
 
               {/* My Products */}
               <Link to="/my-products" className="block">
@@ -364,38 +366,42 @@ const HomePage: React.FC = () => {
               </Link>
 
               {/* Statistics */}
-              <div className="bg-white rounded-[20px] shadow-sm p-6">
-                <div className="flex flex-col items-start mb-4">
-                  <div className="w-13 h-13 bg-red-50 rounded-full flex items-center justify-center mb-4">
-                    <img
-                      src={IMAGES.chartBar}
-                      alt="Statistics"
-                      className="w-6 h-6"
-                    />
+              <Link to="/settings/analytics" className="block">
+                <div className="bg-white rounded-[20px] shadow-sm p-6 hover:bg-gray-50 transition-colors cursor-pointer">
+                  <div className="flex flex-col items-start mb-4">
+                    <div className="w-13 h-13 bg-red-50 rounded-full flex items-center justify-center mb-4">
+                      <img
+                        src={IMAGES.chartBar}
+                        alt="Statistics"
+                        className="w-6 h-6"
+                      />
+                    </div>
+                    <h3 className="text-[14px] font-medium text-primary mb-2">Statistics</h3>
                   </div>
-                  <h3 className="text-[14px] font-medium text-primary mb-2">Statistics</h3>
+                  <p className="text-[12px] text-[#00000080]">
+                    View detailed statistics for all your products
+                  </p>
                 </div>
-                <p className="text-[12px] text-[#00000080]">
-                  View detailed statistics for all your products
-                </p>
-              </div>
+              </Link>
 
               {/* Subscription */}
-              <div className="bg-white rounded-[20px] shadow-sm p-6">
-                <div className="flex flex-col items-start mb-4">
-                  <div className="w-13 h-13 bg-red-50 rounded-full flex items-center justify-center mb-4">
-                    <img
-                      src={IMAGES.shieldCheck}
-                      alt="Subscription"
-                      className="w-6 h-6"
-                    />
+              <Link to="/settings/subscriptions" className="block">
+                <div className="bg-white rounded-[20px] shadow-sm p-6 hover:bg-gray-50 transition-colors cursor-pointer">
+                  <div className="flex flex-col items-start mb-4">
+                    <div className="w-13 h-13 bg-red-50 rounded-full flex items-center justify-center mb-4">
+                      <img
+                        src={IMAGES.shieldCheck}
+                        alt="Subscription"
+                        className="w-6 h-6"
+                      />
+                    </div>
+                    <h3 className="text-[14px] font-medium text-primary mb-2">Subscription</h3>
                   </div>
-                  <h3 className="text-[14px] font-medium text-primary mb-2">Subscription</h3>
+                  <p className="text-[12px] text-[#00000080]">
+                    Manage your subscription package here effectively
+                  </p>
                 </div>
-                <p className="text-[12px] text-[#00000080]">
-                  Manage your subscription package here effectively
-                </p>
-              </div>
+              </Link>
             </div>
           </div>
         </div>

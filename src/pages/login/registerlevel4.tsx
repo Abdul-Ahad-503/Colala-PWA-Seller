@@ -3,6 +3,7 @@ import Cookies from 'js-cookie';
 import IMAGES from '../../constants';
 import AddNewAddress from './addnewaddress';
 import DeliveryPricingDetail from './deliverypricingdetail';
+import { useColor } from '../../contexts/ColorContext';
 
 interface RegisterLevel4Props {
   isOpen: boolean;
@@ -27,18 +28,21 @@ const RegisterLevel4: React.FC<RegisterLevel4Props> = ({
   const [showAddAddress, setShowAddAddress] = useState(false);
   const [showDeliveryPricing, setShowDeliveryPricing] = useState(false);
 
+  // Get color context for global theme updates
+  const { updateTheme } = useColor();
+
   // Color options matching the image
   const colorOptions = [
-    { name: 'Red', value: '#E53E3E', class: 'bg-primary' },
-    { name: 'Blue', value: '#0000FF', class: 'bg-blue-500' },
-    { name: 'Purple', value: '#800080', class: 'bg-purple-600' },
-    { name: 'Green', value: '#008000', class: 'bg-green-500' },
-    { name: 'Orange', value: '#FFA500', class: 'bg-orange-500' },
-    { name: 'Lime', value: '#00FF48', class: 'bg-lime-400' },
-    { name: 'Dark Purple', value: '#4C1066', class: 'bg-purple-800' },
-    { name: 'Yellow', value: '#FBFF00', class: 'bg-yellow-400' },
-    { name: 'Pink', value: '#FF0066', class: 'bg-pink-500' },
-    { name: 'Dark Green', value: '#374F23', class: 'bg-green-800' },
+    { name: 'Red', value: '#E53E3E' },
+    { name: 'Blue', value: '#0000FF' },
+    { name: 'Purple', value: '#800080' },
+    { name: 'Green', value: '#008000' },
+    { name: 'Orange', value: '#FFA500' },
+    { name: 'Lime', value: '#00FF48' },
+    { name: 'Dark Purple', value: '#4C1066' },
+    { name: 'Yellow', value: '#FBFF00' },
+    { name: 'Pink', value: '#FF0066' },
+    { name: 'Dark Green', value: '#374F23' },
   ];
 
   useEffect(() => {
@@ -57,6 +61,9 @@ const RegisterLevel4: React.FC<RegisterLevel4Props> = ({
   const handleColorSelect = (color: string) => {
     setSelectedColor(color);
     Cookies.set('registrationSelectedColor', color, { expires: 7 });
+    
+    // Update global theme immediately when color is selected
+    updateTheme(color);
   };
 
   const handleAddStoreAddress = () => {
@@ -204,9 +211,10 @@ const RegisterLevel4: React.FC<RegisterLevel4Props> = ({
               <button
                 key={index}
                 onClick={() => handleColorSelect(color.value)}
-                className={`w-12 h-12 rounded-full ${color.class} ${
-                  selectedColor === color.value ? 'ring-2 ring-[#000000] ring-offset-2' : ''
+                className={`w-12 h-12 rounded-full border-2 border-gray-200 ${
+                  selectedColor === color.value ? 'ring-2 ring-gray-800 ring-offset-2' : ''
                 } hover:scale-110 transition-transform`}
+                style={{ backgroundColor: color.value }}
                 title={color.name}
               />
             ))}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import IMAGES from '../../constants';
+import { useDynamicColors } from '../../hooks/useDynamicColors';
 
 // Sample review data - in a real app this would come from an API
 const sampleReviews = [
@@ -127,6 +128,7 @@ const sampleReviews = [
 ];
 
 const Reviews: React.FC = () => {
+  const colors = useDynamicColors();
   const [activeTab, setActiveTab] = useState<'store' | 'product'>('store');
   const [selectedReview, setSelectedReview] = useState<any>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -413,7 +415,7 @@ const Reviews: React.FC = () => {
                   {[1, 2, 3, 4, 5].map((star) => (
                     <div key={star}>
                       {star <= selectedReview.rating ? (
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="#E53E3E">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill={colors.getSVGFill()}>
                           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                         </svg>
                       ) : (
@@ -444,7 +446,7 @@ const Reviews: React.FC = () => {
                     {[1, 2, 3, 4, 5].map((star) => (
                       <div key={star}>
                         {star <= selectedReview.rating ? (
-                          <svg width="12" height="12" viewBox="0 0 24 24" fill="#E53E3E">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill={colors.getSVGFill()}>
                             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                           </svg>
                         ) : (
@@ -504,7 +506,7 @@ const Reviews: React.FC = () => {
               </button>
               <button
                 onClick={handleDeleteReview}
-                className="flex-1 px-4 py-3 bg-primary text-white rounded-2xl text-sm font-medium hover:bg-red-600 transition-colors"
+                className="flex-1 px-4 py-3 bg-primary text-white rounded-2xl text-sm font-medium hover:bg-primary-hover transition-colors"
               >
                 Delete Review
               </button>
@@ -541,7 +543,7 @@ const Reviews: React.FC = () => {
                       className="focus:outline-none transition-transform hover:scale-110"
                     >
                       {star <= (hoveredRating || editRating) ? (
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="#E53E3E">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill={colors.getSVGFill()}>
                           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                         </svg>
                       ) : (
@@ -609,7 +611,7 @@ const Reviews: React.FC = () => {
             {/* Submit Button */}
             <button
               onClick={handleUpdateReview}
-              className="w-full bg-primary text-white py-3 text-[12px] rounded-2xl font-medium hover:bg-red-600 transition-colors"
+              className="w-full bg-primary text-white py-3 text-[12px] rounded-2xl font-medium hover:bg-primary-hover transition-colors"
             >
               Send Review
             </button>

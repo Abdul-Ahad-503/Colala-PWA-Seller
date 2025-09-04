@@ -20,7 +20,7 @@ const Header: React.FC = () => {
     if (path === "/feed") return "feed";
     if (path === "/chat") return "chat";
     if (path === "/orders") return "orders";
-    if (path === "/settings") return "settings";
+    if (path.startsWith("/settings")) return "settings";
 
     return "";
   };
@@ -119,7 +119,7 @@ const Header: React.FC = () => {
         <div className="container-custom">
           <nav className="flex items-center">
             {/* Store Name */}
-            <div className="py-4 pr-8">
+            <div className="py-2 pr-8">
               <h2 className="text-3xl font_Oleo font-bold text-white">
                 Sasha Stores
               </h2>

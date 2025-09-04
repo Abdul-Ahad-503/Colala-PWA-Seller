@@ -307,7 +307,7 @@ const HomePage: React.FC = () => {
                     Shop from a variety of Stores for your retail or wholesale
                 purposes
                   </p>
-                  <button className="bg-white text-red-500 px-6 py-2 rounded-xl font-medium text-sm hover:bg-gray-100 transition-colors">
+                  <button className="bg-white text-primary px-6 py-2 rounded-xl font-medium text-sm hover:bg-gray-100 transition-colors">
                     Shop Now
                   </button>
                 </div>

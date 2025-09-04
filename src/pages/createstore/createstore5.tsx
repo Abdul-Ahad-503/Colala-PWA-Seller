@@ -48,18 +48,18 @@ const CreateStore5: React.FC<CreateStore5Props> = ({ onBackToLevel2Files, onProc
   return (
     <div className="w-[680px]">
       {/* Header */}
-      <div className="mb-6 border border-[#E53E3E] w-[680px] h-[93px] rounded-lg p-3">
+      <div className="mb-6 border border-primary w-[680px] h-[93px] rounded-lg p-3">
         <div className="flex items-center justify-between mb-2">
-          <span className="text-[20px] font-medium text-[#E53E3E]">Level 3</span>
+          <span className="text-[20px] font-medium text-primary">Level 3</span>
           <button
             onClick={handleViewBenefits}
-            className="text-[14px] text-[#E53E3E] hover:underline"
+            className="text-[14px] text-primary hover:underline"
           >
             <u>View Benefits</u>
           </button>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-[23px] h-[23px] bg-[#E53E3E] text-white rounded-full flex items-center justify-center text-[14px] font-bold">
+          <div className="w-[23px] h-[23px] bg-primary text-white rounded-full flex items-center justify-center text-[14px] font-bold">
             1
           </div>
           <div className="flex-1 h-0.5 bg-[#ADADAD]"></div>
@@ -140,7 +140,7 @@ const CreateStore5: React.FC<CreateStore5Props> = ({ onBackToLevel2Files, onProc
         <button
           onClick={handleProceed}
           disabled={isLoading || !storeVideo}
-          className="w-[300px] h-[60px] bg-[#E53E3E] text-[14px] text-white font-sm rounded-2xl hover:bg-red-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-[300px] h-[60px] bg-primary text-[14px] text-white font-sm rounded-2xl hover:bg-red-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isLoading ? (
             <div className="flex items-center justify-center">

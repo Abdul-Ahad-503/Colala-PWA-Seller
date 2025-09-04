@@ -183,7 +183,7 @@ const Support: React.FC = () => {
                   placeholder="Search chat"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                  className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                 />
               </div>
             </div>
@@ -196,7 +196,7 @@ const Support: React.FC = () => {
                   onClick={() => setActiveTab(tab)}
                   className={`flex-1 px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
                     activeTab === tab
-                      ? 'border-red-500 text-red-600 bg-red-50'
+                      ? 'border-primary text-red-600 bg-red-50'
                       : 'border-transparent text-gray-600 hover:text-gray-900'
                   }`}
                 >
@@ -234,7 +234,7 @@ const Support: React.FC = () => {
                     <div className="flex items-center space-x-2">
                       <span className="text-xs text-gray-500">{contact.time}</span>
                       {contact.hasNotification && (
-                        <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                        <div className="w-3 h-3 bg-primary rounded-full"></div>
                       )}
                     </div>
                   </div>
@@ -309,7 +309,7 @@ const Support: React.FC = () => {
                     <div
                       className={`max-w-[280px] px-4 py-3 rounded-2xl ${
                         message.sender === 'user'
-                          ? 'bg-[#E53E3E] text-white'
+                          ? 'bg-primary text-white'
                           : 'bg-red-50 text-gray-900'
                       }`}
                     >
@@ -387,7 +387,7 @@ const Support: React.FC = () => {
                   <select
                     value={supportForm.issueCategory}
                     onChange={(e) => setSupportForm({...supportForm, issueCategory: e.target.value})}
-                    className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent appearance-none cursor-pointer"
+                    className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent appearance-none cursor-pointer"
                   >
                     <option value="">Issue Category</option>
                     <option value="order">Order Issues</option>
@@ -410,7 +410,7 @@ const Support: React.FC = () => {
                     value={supportForm.issueDetails}
                     onChange={(e) => setSupportForm({...supportForm, issueDetails: e.target.value})}
                     rows={6}
-                    className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent resize-none"
+                    className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none"
                   />
                 </div>
 
@@ -443,7 +443,7 @@ const Support: React.FC = () => {
                 <div className="pt-4">
                   <button
                     type="submit"
-                    className="w-full bg-[#E53E3E] text-white py-3 rounded-lg font-medium hover:bg-red-600 transition-colors cursor-pointer"
+                    className="w-full bg-primary text-white py-3 rounded-lg font-medium hover:bg-red-600 transition-colors cursor-pointer"
                     onClick={(e) => {
                       e.preventDefault();
                       // Handle form submission here

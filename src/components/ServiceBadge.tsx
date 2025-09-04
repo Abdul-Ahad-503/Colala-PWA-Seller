@@ -7,7 +7,7 @@ interface ServiceBadgeProps {
 
 const ServiceBadge: React.FC<ServiceBadgeProps> = ({ text, type }) => {
   const gradientClass = type === 'delivery' 
-    ? 'bg-gradient-to-r from-red-500 to-orange-400' 
+    ? 'bg-gradient-to-r from-primary to-orange-400' 
     : 'bg-gradient-to-r from-orange-400 to-yellow-400';
 
   return (

@@ -64,13 +64,13 @@ const FAQs: React.FC = () => {
                     onClick={() => toggleFAQ(faq.id)}
                     className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
                   >
-                    <span className="font-medium text-[#E53E3E] text-[14px]">
+                    <span className="font-medium text-primary text-[14px]">
                       {faq.question}
                     </span>
                     <div className="flex-shrink-0">
                       {expandedFAQ === faq.id ? (
                         <svg
-                          className="w-5 h-5 text-[#E53E3E]"
+                          className="w-5 h-5 text-primary"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -108,7 +108,7 @@ const FAQs: React.FC = () => {
                           <ul className="space-y-2 ml-4">
                             {faq.details.map((detail, index) => (
                               <li key={index} className="flex items-center">
-                                <span className="w-1.5 h-1.5 bg-[#E53E3E] rounded-full mr-3 flex-shrink-0"></span>
+                                <span className="w-1.5 h-1.5 bg-primary rounded-full mr-3 flex-shrink-0"></span>
                                 {detail}
                               </li>
                             ))}

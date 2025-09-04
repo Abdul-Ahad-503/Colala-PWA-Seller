@@ -32,7 +32,7 @@ const Settings: React.FC = () => {
             </div>
 
             <div className="flex flex-col items-center ">
-              <div className="flex bg-[#E53E3E] rounded-2xl px-2 gap-4 w-full justify-center py-2 mb-2">
+              <div className="flex bg-primary rounded-2xl px-2 gap-4 w-full justify-center py-2 mb-2">
                 <div className="flex-1 flex items-center py-2 mx-1">
                   <span className="text-[8px] font-normal text-[#FFFFFF80]">
                     Escrow Wallet <span className="text-sm font-bold text-white">₦50,000</span>
@@ -52,12 +52,12 @@ const Settings: React.FC = () => {
                   </button>
                 </div>
               </div>
-              <button onClick={() => navigate('/createstore')} className="bg-[#E53E3E] text-white rounded-xl w-full py-4 px-6 cursor-pointer font-normal text-sm ">Edit Profile</button>
+              <button onClick={() => navigate('/createstore')} className="bg-primary text-white rounded-xl w-full py-4 px-6 cursor-pointer font-normal text-sm ">Edit Profile</button>
             </div>
 
             <div className="flex flex-col gap-2">
-              <button onClick={() => navigate('/settings/My-Products')} className="flex items-center bg-[#E53E3E] rounded-2xl px-0 cursor-pointer shadow-sm relative text-left w-full">
-                <span className={`flex items-center justify-center w-13 ${isActive('My-Products') ? 'h-15' : 'h-13'} bg-[#E53E3E] rounded-l-xl`}>
+              <button onClick={() => navigate('/settings/My-Products')} className="flex items-center bg-primary rounded-2xl px-0 cursor-pointer shadow-sm relative text-left w-full">
+                <span className={`flex items-center justify-center w-13 ${isActive('My-Products') ? 'h-15' : 'h-13'} bg-primary rounded-l-xl`}>
                   <img src={IMAGES.cart} alt="My Products" className="w-7 h-7" />
                 </span>
                 <div className="pl-4 bg-white hover:bg-[#e0dfdf] w-full py-4 border border-[#F2F2F2] rounded-2xl font-semibold">My Products</div>
@@ -95,8 +95,8 @@ const Settings: React.FC = () => {
                 </span>
                 <div className="pl-4 bg-white hover:bg-[#e0dfdf] w-full py-4 border border-[#F2F2F2] rounded-2xl font-semibold">Announcements</div>
               </button>
-              <button onClick={() => navigate('/settings/reviews')} className="flex items-center bg-[#E53E3E] rounded-2xl px-0 cursor-pointer shadow-sm relative text-left w-full">
-                <span className={`flex items-center justify-center ${isActive('reviews') ? 'w-15 h-15' : 'w-14 h-14'} bg-[#E53E3E] rounded-l-xl`}>
+              <button onClick={() => navigate('/settings/reviews')} className="flex items-center bg-primary rounded-2xl px-0 cursor-pointer shadow-sm relative text-left w-full">
+                <span className={`flex items-center justify-center ${isActive('reviews') ? 'w-15 h-15' : 'w-14 h-14'} bg-primary rounded-l-xl`}>
                   <img src={IMAGES.StarWhite} alt="Reviews" className="w-7 h-7" />
                 </span>
                 <div className="pl-4 bg-white hover:bg-[#e0dfdf] w-full py-4 border border-[#F2F2F2] rounded-2xl font-semibold">Reviews</div>
@@ -123,25 +123,25 @@ const Settings: React.FC = () => {
 
             <div className="mt-4">
               <div className="text-sm text-gray-900 mb-2">Others</div>
-              <button onClick={() => navigate('/settings/seller-leaderboard')} className={`flex items-center bg-white hover:bg-[#e0dfdf] rounded-xl px-4 pl-2 py-3 shadow-sm mb-2 relative w-full cursor-pointer text-left ${isActive('seller-leaderboard') ? 'border-2 border-[#E53E3E]' : 'border border-gray-100'}`}>
+              <button onClick={() => navigate('/settings/seller-leaderboard')} className={`flex items-center bg-white hover:bg-[#e0dfdf] rounded-xl px-4 pl-2 py-3 shadow-sm mb-2 relative w-full cursor-pointer text-left ${isActive('seller-leaderboard') ? 'border-2 border-primary' : 'border border-gray-100'}`}>
                 <span className="flex items-center justify-center w-13 h-9 rounded-l-xl">
                   <img src={IMAGES.Ranking} alt="Seller Leaderboard" className="w-7 h-7" />
                 </span>
                 <div>Seller Leaderboard</div>
               </button>
-              <button onClick={() => navigate('/settings/saved-cards')} className={`flex items-center bg-white hover:bg-[#e0dfdf] rounded-xl px-4 pl-2 py-3 shadow-sm mb-2 relative w-full cursor-pointer text-left ${isActive('saved-cards') ? 'border-2 border-[#E53E3E]' : 'border border-gray-100'}`}>
+              <button onClick={() => navigate('/settings/saved-cards')} className={`flex items-center bg-white hover:bg-[#e0dfdf] rounded-xl px-4 pl-2 py-3 shadow-sm mb-2 relative w-full cursor-pointer text-left ${isActive('saved-cards') ? 'border-2 border-primary' : 'border border-gray-100'}`}>
                 <span className="flex items-center justify-center w-13 h-9 rounded-l-xl">
                   <img src={IMAGES.CreditCard} alt="Saved Cards" className="w-7 h-7" />
                 </span>
                 <div>Saved Cards</div>
               </button>
-              <button onClick={() => navigate('/settings/account-access-control')} className={`flex items-center bg-white hover:bg-[#e0dfdf] rounded-xl px-4 pl-2 py-3 shadow-sm mb-2 relative w-full cursor-pointer text-left ${isActive('account-access-control') ? 'border-2 border-[#E53E3E]' : 'border border-gray-100'}`}>
+              <button onClick={() => navigate('/settings/account-access-control')} className={`flex items-center bg-white hover:bg-[#e0dfdf] rounded-xl px-4 pl-2 py-3 shadow-sm mb-2 relative w-full cursor-pointer text-left ${isActive('account-access-control') ? 'border-2 border-primary' : 'border border-gray-100'}`}>
                 <span className="flex items-center justify-center w-13 h-9 rounded-l-xl">
                   <img src={IMAGES.LockKey} alt="Account Access Control" className="w-7 h-7" />
                 </span>
                 <div>Account Access Control</div>
               </button>
-              <button onClick={handleLogout} className="text-[#E53E3E] text-left  bg-white hover:bg-[#e0dfdf] rounded-xl border border-gray-100 px-4 pl-2 py-4 shadow-sm mb-2 font-semibold text-sm flex  w-full cursor-pointer">
+              <button onClick={handleLogout} className="text-primary text-left  bg-white hover:bg-[#e0dfdf] rounded-xl border border-gray-100 px-4 pl-2 py-4 shadow-sm mb-2 font-semibold text-sm flex  w-full cursor-pointer">
                 <span><img src={IMAGES.SignOut} alt="" className="w-5 h-5 mr-3" /></span>
                 Logout
               </button>

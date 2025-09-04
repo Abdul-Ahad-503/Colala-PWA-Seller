@@ -258,7 +258,7 @@ const OrderDetails: React.FC = () => {
           <div className="lg:col-span-1">
             {/* Status Tabs */}
             <div className="flex space-x-1 mb-4">
-              <button className="px-22 py-4 bg-[#E53E3E] text-white rounded-lg font-medium text-[8px]">
+              <button className="px-22 py-4 bg-primary text-white rounded-lg font-medium text-[8px]">
                 New
               </button>
               <button className="px-19 py-4 bg-[#EDEDED] text-gray-600 rounded-lg font-medium text-[8px]">
@@ -273,14 +273,14 @@ const OrderDetails: React.FC = () => {
                   key={index} 
                   className={`rounded-2xl p-4 border w-[390px] cursor-pointer transition-all ${
                     selectedOrderIndex === index 
-                      ? 'border-[#E53E3E] bg-white' 
+                      ? 'border-primary bg-white' 
                       : 'border-gray-200 bg-white hover:border-gray-300'
                   }`}
                   onClick={() => setSelectedOrderIndex(index)}
                 >
                   <div className="flex items-center space-x-3">
                     <div className="bg-[#FEE2E2] p-3 rounded-full">
-                      <svg className="w-6 h-6 text-[#E53E3E]" fill="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M7 4V2C7 1.45 7.45 1 8 1H16C16.55 1 17 1.45 17 2V4H20C20.55 4 21 4.45 21 5S20.55 6 20 6H19V19C19 20.1 18.1 21 17 21H7C5.9 21 5 20.1 5 19V6H4C3.45 6 3 5.55 3 5S3.45 4 4 4H7ZM9 3V4H15V3H9ZM7 6V19H17V6H7Z"/>
                       </svg>
                     </div>
@@ -289,7 +289,7 @@ const OrderDetails: React.FC = () => {
                       <p className="text-gray-500 text-xs">{customer.items}</p>
                     </div>
                     <div className="text-right">
-                      <p className="font-bold text-[#E53E3E] text-sm">{customer.amount}</p>
+                      <p className="font-bold text-primary text-sm">{customer.amount}</p>
                     </div>
                   </div>
                 </div>
@@ -314,7 +314,7 @@ const OrderDetails: React.FC = () => {
 
               {/* Status Tabs */}
               <div className="flex space-x-2 mb-6">
-                <button className="px-4 py-2 bg-[#E53E3E] text-white rounded-lg font-medium text-sm">
+                <button className="px-4 py-2 bg-primary text-white rounded-lg font-medium text-sm">
                   Order placed
                 </button>
                 <button className="px-4 py-2 bg-[#EDEDED] text-gray-600 rounded-lg font-medium text-sm">
@@ -329,7 +329,7 @@ const OrderDetails: React.FC = () => {
               </div>
 
               {/* Items in cart */}
-              <div className="bg-[#E53E3E] rounded-t-2xl">
+              <div className="bg-primary rounded-t-2xl">
                 <h2 className="text-white font-medium text-sm px-6 py-4">Items in cart</h2>
               </div>
               
@@ -344,12 +344,12 @@ const OrderDetails: React.FC = () => {
                       />
                       <div className="flex-1">
                         <h4 className="font-medium text-black text-sm mb-1">{item.name}</h4>
-                        <p className="text-[#E53E3E] font-bold text-sm mb-1">{item.price}</p>
-                        <p className="text-[#E53E3E] text-xs">Qty: {item.quantity}</p>
+                        <p className="text-primary font-bold text-sm mb-1">{item.price}</p>
+                        <p className="text-primary text-xs">Qty: {item.quantity}</p>
                       </div>
                       <button 
                         onClick={() => handleTrackOrder(selectedCustomer)}
-                        className="bg-[#E53E3E] text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-red-600 transition-colors"
+                        className="bg-primary text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-red-600 transition-colors"
                       >
                         Track Order
                       </button>

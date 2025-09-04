@@ -205,7 +205,7 @@ const PromotedProducts: React.FC = () => {
               placeholder="Search products"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full px-4 py-[22px] text-xs rounded-[15px] border border-[#CDCDCD] focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+              className="w-full px-4 py-[22px] text-xs rounded-[15px] border border-[#CDCDCD] focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
             />
           </div>
           
@@ -214,7 +214,7 @@ const PromotedProducts: React.FC = () => {
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="px-4 py-5 text-xs rounded-[15px] border border-[#CDCDCD] focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent appearance-none bg-white pr-10 w-[104px]"
+              className="px-4 py-5 text-xs rounded-[15px] border border-[#CDCDCD] focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent appearance-none bg-white pr-10 w-[104px]"
             >
               <option value="all">Categories</option>
               <option value="electronics">Electronics</option>

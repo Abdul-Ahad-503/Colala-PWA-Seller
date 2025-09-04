@@ -29,7 +29,7 @@ const RegisterLevel4: React.FC<RegisterLevel4Props> = ({
 
   // Color options matching the image
   const colorOptions = [
-    { name: 'Red', value: '#E53E3E', class: 'bg-red-500' },
+    { name: 'Red', value: '#E53E3E', class: 'bg-primary' },
     { name: 'Blue', value: '#0000FF', class: 'bg-blue-500' },
     { name: 'Purple', value: '#800080', class: 'bg-purple-600' },
     { name: 'Green', value: '#008000', class: 'bg-green-500' },
@@ -135,27 +135,27 @@ const RegisterLevel4: React.FC<RegisterLevel4Props> = ({
       {/* Fixed Header */}
       <div className="p-6 pb-4 flex-shrink-0">
         <div className="text-center mb-6">
-          <h2 className="text-[24px] font-medium text-[#E53E3E] mb-2">Register</h2>
+          <h2 className="text-[24px] font-medium text-primary mb-2">Register</h2>
           <p className="text-[14px] text-gray-500">Create a free account today</p>
         </div>
 
         {/* Level 3 Badge */}
-        <div className="mb-2 border border-[#E53E3E] rounded-lg p-4">
+        <div className="mb-2 border border-primary rounded-lg p-4">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-[20px] font-medium text-[#E53E3E]">Level 3</span>
+            <span className="text-[20px] font-medium text-primary">Level 3</span>
             <button
               onClick={handleViewBenefits}
-              className="text-[14px] text-[#E53E3E] hover:underline"
+              className="text-[14px] text-primary hover:underline"
             >
               <u>View Benefits</u>
             </button>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-[23px] h-[23px] bg-[#E53E3E] text-white rounded-full flex items-center justify-center text-[12px] font-bold">
+            <div className="w-[23px] h-[23px] bg-primary text-white rounded-full flex items-center justify-center text-[12px] font-bold">
               1
             </div>
-            <div className="flex-1 h-0.5 bg-[#E53E3E]"></div>
-            <div className="w-[23px] h-[23px] bg-[#E53E3E] text-white rounded-full flex items-center justify-center text-[12px] font-bold">
+            <div className="flex-1 h-0.5 bg-primary"></div>
+            <div className="w-[23px] h-[23px] bg-primary text-white rounded-full flex items-center justify-center text-[12px] font-bold">
               2
             </div>
           </div>
@@ -228,7 +228,7 @@ const RegisterLevel4: React.FC<RegisterLevel4Props> = ({
               type="button"
               onClick={handleSubmit}
               disabled={isLoading || !selectedColor}
-              className="flex-1 bg-[#E53E3E] text-[14px] hover:bg-red-600 text-white font-medium py-4 px-6 rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex-1 bg-primary text-[14px] hover:bg-red-600 text-white font-medium py-4 px-6 rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isLoading ? (
                 <div className="flex items-center justify-center">
@@ -285,7 +285,7 @@ const RegisterLevel4: React.FC<RegisterLevel4Props> = ({
           <div className="mt-8">
             <button
               onClick={handleViewBenefits}
-              className="w-full bg-red-500 hover:bg-red-600 text-white font-medium py-3 px-6 rounded-xl transition-colors"
+              className="w-full bg-primary hover:bg-red-600 text-white font-medium py-3 px-6 rounded-xl transition-colors"
             >
               Continue with Registration
             </button>

@@ -101,7 +101,7 @@ const ManageCoupons: React.FC = () => {
             onClick={() => setActiveTab('coupons')}
             className={`w-[300px] h-[40px] rounded-lg text-[8px] font-medium transition-colors ${
               activeTab === 'coupons'
-                ? 'bg-[#E53E3E] text-white'
+                ? 'bg-primary text-white'
                 : 'bg-white text-gray-700 border border-gray-200'
             }`}
           >
@@ -111,7 +111,7 @@ const ManageCoupons: React.FC = () => {
             onClick={() => setActiveTab('points')}
             className={`w-[300px] h-[40px] rounded-lg text-[8px] font-medium transition-colors ${
               activeTab === 'points'
-                ? 'bg-[#E53E3E] text-white'
+                ? 'bg-primary text-white'
                 : 'bg-white text-gray-700 border border-gray-200'
             }`}
           >
@@ -162,7 +162,7 @@ const ManageCoupons: React.FC = () => {
           <div className="pt-4">
             <button 
               onClick={() => setIsCreateModalOpen(true)}
-              className="w-full py-3 bg-[#E53E3E] text-white mt-8 rounded-xl font-medium hover:bg-red-600 transition-colors"
+              className="w-full py-3 bg-primary text-white mt-8 rounded-xl font-medium hover:bg-red-600 transition-colors"
             >
               Create New
             </button>
@@ -182,7 +182,7 @@ const ManageCoupons: React.FC = () => {
               </div>
               <button 
                 onClick={() => setIsPointsSettingsOpen(true)}
-                className="bg-white -mt-4 text-[#E53E3E] px-5 py-2 rounded-2xl text-[10px] font-medium hover:bg-opacity-30 transition-all"
+                className="bg-white -mt-4 text-primary px-5 py-2 rounded-2xl text-[10px] font-medium hover:bg-opacity-30 transition-all"
               >
                 settings
               </button>
@@ -220,7 +220,7 @@ const ManageCoupons: React.FC = () => {
                   </div>
                   <span className="text-sm font-medium text-gray-800">{customer.name}</span>
                 </div>
-                <span className="text-[#E53E3E] font-semibold text-sm">{customer.points}</span>
+                <span className="text-primary font-semibold text-sm">{customer.points}</span>
               </div>
             ))}
           </div>
@@ -253,7 +253,7 @@ const ManageCoupons: React.FC = () => {
                   placeholder="Coupon Code Name"
                   value={formData.couponCodeName}
                   onChange={(e) => handleInputChange('couponCodeName', e.target.value)}
-                  className="w-full p-3 border border-gray-200 rounded-xl text-sm bg-[#FFFFFF] -mt-3 placeholder-gray-400 h-[60px] focus:outline-none focus:border-[#E53E3E] transition-colors"
+                  className="w-full p-3 border border-gray-200 rounded-xl text-sm bg-[#FFFFFF] -mt-3 placeholder-gray-400 h-[60px] focus:outline-none focus:border-primary transition-colors"
                 />
               </div>
 
@@ -263,7 +263,7 @@ const ManageCoupons: React.FC = () => {
                   placeholder="Percentage off"
                   value={formData.percentageOff}
                   onChange={(e) => handleInputChange('percentageOff', e.target.value)}
-                  className="w-full p-3 pr-10 border border-gray-200 bg-[#FFFFFF] rounded-xl text-sm placeholder-gray-400 h-[60px] focus:outline-none focus:border-[#E53E3E] transition-colors"
+                  className="w-full p-3 pr-10 border border-gray-200 bg-[#FFFFFF] rounded-xl text-sm placeholder-gray-400 h-[60px] focus:outline-none focus:border-primary transition-colors"
                 />
                 <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-lg">%</span>
               </div>
@@ -274,7 +274,7 @@ const ManageCoupons: React.FC = () => {
                   placeholder="Maximum Usage"
                   value={formData.maximumUsage}
                   onChange={(e) => handleInputChange('maximumUsage', e.target.value)}
-                  className="w-full p-3 border border-gray-200 bg-[#FFFFFF] rounded-xl text-sm placeholder-gray-400 h-[60px] focus:outline-none focus:border-[#E53E3E] transition-colors"
+                  className="w-full p-3 border border-gray-200 bg-[#FFFFFF] rounded-xl text-sm placeholder-gray-400 h-[60px] focus:outline-none focus:border-primary transition-colors"
                 />
               </div>
 
@@ -284,7 +284,7 @@ const ManageCoupons: React.FC = () => {
                   placeholder="No of usage / User"
                   value={formData.noOfUsagePerUser}
                   onChange={(e) => handleInputChange('noOfUsagePerUser', e.target.value)}
-                  className="w-full p-3 border border-gray-200 rounded-xl bg-[#FFFFFF] text-sm placeholder-gray-400 h-[60px] focus:outline-none focus:border-[#E53E3E] transition-colors"
+                  className="w-full p-3 border border-gray-200 rounded-xl bg-[#FFFFFF] text-sm placeholder-gray-400 h-[60px] focus:outline-none focus:border-primary transition-colors"
                 />
               </div>
 
@@ -294,7 +294,7 @@ const ManageCoupons: React.FC = () => {
                   placeholder="Expiry date"
                   value={formData.expiryDate}
                   onChange={(e) => handleInputChange('expiryDate', e.target.value)}
-                  className="w-full p-3 pr-10 border border-gray-200 bg-[#FFFFFF] rounded-xl text-sm placeholder-gray-400 focus:outline-none focus:border-[#E53E3E] transition-colors"
+                  className="w-full p-3 pr-10 border border-gray-200 bg-[#FFFFFF] rounded-xl text-sm placeholder-gray-400 focus:outline-none focus:border-primary transition-colors"
                 />
                 <button className="absolute right-3 top-1/2 transform -translate-y-1/2">
                   <img src="/public/CaretLeft.svg" alt="Calendar" className="w-5 h-5" />
@@ -305,7 +305,7 @@ const ManageCoupons: React.FC = () => {
             {/* Save Button */}
             <button
               onClick={handleSave}
-              className="w-full py-3 bg-[#E53E3E] text-white rounded-xl  font-medium hover:bg-red-600 transition-colors"
+              className="w-full py-3 bg-primary text-white rounded-xl  font-medium hover:bg-red-600 transition-colors"
             >
               Save
             </button>
@@ -340,7 +340,7 @@ const ManageCoupons: React.FC = () => {
                   placeholder="Number of points/completed order"
                   value={pointsSettings.pointsPerCompletedOrder}
                   onChange={(e) => handlePointsSettingsChange('pointsPerCompletedOrder', e.target.value)}
-                  className="w-full p-3 border border-[#CDCDCD] shadow-medium bg-[#FFFFFF] rounded-lg text-sm -mt-4 placeholder-gray-400 focus:outline-none focus:border-[#E53E3E] transition-colors"
+                  className="w-full p-3 border border-[#CDCDCD] shadow-medium bg-[#FFFFFF] rounded-lg text-sm -mt-4 placeholder-gray-400 focus:outline-none focus:border-primary transition-colors"
                 />
               </div>
 
@@ -350,7 +350,7 @@ const ManageCoupons: React.FC = () => {
                   placeholder="Number of points/referral"
                   value={pointsSettings.pointsPerReferral}
                   onChange={(e) => handlePointsSettingsChange('pointsPerReferral', e.target.value)}
-                  className="w-full p-3 border border-[#CDCDCD] shadow-medium bg-[#FFFFFF] rounded-lg text-sm placeholder-gray-400 focus:outline-none focus:border-[#E53E3E] transition-colors"
+                  className="w-full p-3 border border-[#CDCDCD] shadow-medium bg-[#FFFFFF] rounded-lg text-sm placeholder-gray-400 focus:outline-none focus:border-primary transition-colors"
                 />
               </div>
 
@@ -361,7 +361,7 @@ const ManageCoupons: React.FC = () => {
                   <button
                     onClick={() => handlePointsSettingsChange('completedOrderPointsEnabled', !pointsSettings.completedOrderPointsEnabled)}
                     className={`relative inline-flex h-7 w-12 items-center rounded-full transition-colors ${
-                      pointsSettings.completedOrderPointsEnabled ? 'bg-[#E53E3E]' : 'bg-gray-300'
+                      pointsSettings.completedOrderPointsEnabled ? 'bg-primary' : 'bg-gray-300'
                     }`}
                   >
                     <span
@@ -377,7 +377,7 @@ const ManageCoupons: React.FC = () => {
                   <button
                     onClick={() => handlePointsSettingsChange('referralPointsEnabled', !pointsSettings.referralPointsEnabled)}
                     className={`relative inline-flex h-7 w-12 items-center rounded-full transition-colors ${
-                      pointsSettings.referralPointsEnabled ? 'bg-[#E53E3E]' : 'bg-gray-300'
+                      pointsSettings.referralPointsEnabled ? 'bg-primary' : 'bg-gray-300'
                     }`}
                   >
                     <span
@@ -393,7 +393,7 @@ const ManageCoupons: React.FC = () => {
             {/* Save Button */}
             <button
               onClick={handlePointsSettingsSave}
-              className="w-full py-3 bg-[#E53E3E] text-[14px] mt-18 h-[60px] text-white rounded-2xl font-medium hover:bg-red-600 transition-colors"
+              className="w-full py-3 bg-primary text-[14px] mt-18 h-[60px] text-white rounded-2xl font-medium hover:bg-red-600 transition-colors"
             >
               Save
             </button>

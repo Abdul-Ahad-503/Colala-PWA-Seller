@@ -103,7 +103,7 @@ const ProductDetails: React.FC = () => {
                   alt={`${product.name} ${index + 1}`}
                   onClick={() => setSelectedThumbnail(index)}
                   className={`w-[65px] h-[65px] object-cover rounded-lg cursor-pointer border-2 ${
-                    selectedThumbnail === index ? 'border-red-500' : 'border-gray-200'
+                    selectedThumbnail === index ? 'border-primary' : 'border-gray-200'
                   } hover:border-red-400 transition-colors`}
                 />
               </div>
@@ -127,7 +127,7 @@ const ProductDetails: React.FC = () => {
                   onClick={() => setSelectedTab('description')}
                   className={`px-7 py-3 rounded-[10px] text-xs  ${
                     selectedTab === 'description' 
-                      ? 'bg-red-500 text-white' 
+                      ? 'bg-primary text-white' 
                       : ' border border-[#CDCDCD] text-gray-700 hover:bg-gray-300'
                   }`}
                 >
@@ -137,7 +137,7 @@ const ProductDetails: React.FC = () => {
                   onClick={() => setSelectedTab('reviews')}
                   className={`px-7 py-3 rounded-[10px] text-xs  ${
                     selectedTab === 'reviews' 
-                      ? 'bg-red-500 text-white' 
+                      ? 'bg-primary text-white' 
                       : ' border border-[#CDCDCD] text-gray-700 hover:bg-gray-300'
                   }`}
                 >
@@ -172,11 +172,11 @@ const ProductDetails: React.FC = () => {
               <h1 className="text-2xl font-bold text-black mb-3">{product.name}</h1>
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-4">
-                  <span className="text-2xl font-bold text-red-500">{product.price}</span>
+                  <span className="text-2xl font-bold text-primary">{product.price}</span>
                   <span className="text-lg text-gray-400 line-through">{product.originalPrice}</span>
                 </div>
                 <div className="flex items-center gap-1">
-                  <span className="text-red-500">★</span>
+                  <span className="text-primary">★</span>
                   <span className="text-sm text-gray-600">{product.rating}</span>
                 </div>
               </div>
@@ -207,7 +207,7 @@ const ProductDetails: React.FC = () => {
                     key={color.name}
                     onClick={() => setSelectedColor(color.name.toLowerCase())}
                     className={`w-12 h-12 rounded-full border-3 ${
-                      selectedColor === color.name.toLowerCase() ? 'border-red-500' : 'border-gray-300'
+                      selectedColor === color.name.toLowerCase() ? 'border-primary' : 'border-gray-300'
                     }`}
                     style={{ backgroundColor: color.value }}
                   />
@@ -225,7 +225,7 @@ const ProductDetails: React.FC = () => {
                     onClick={() => setSelectedSize(size)}
                     className={`px-[18px] py-[13px] rounded-[15px] border text-sm font-medium ${
                       selectedSize === size
-                        ? 'bg-red-500 text-white border-red-500'
+                        ? 'bg-primary text-white border-primary'
                         : 'bg-white text-gray-700 border-gray-300 hover:border-gray-400'
                     }`}
                   >
@@ -237,7 +237,7 @@ const ProductDetails: React.FC = () => {
 
             {/* Bulk Prices */}
             <div>
-              <div className="bg-red-500 text-white px-4 py-3 ">
+              <div className="bg-primary text-white px-4 py-3 ">
                 <h3 className="font-medium">Bulk Prices</h3>
               </div>
               <div className="bg-white overflow-hidden">
@@ -254,7 +254,7 @@ const ProductDetails: React.FC = () => {
                     <span className="text-gray-800 font-medium">{price.quantity}</span>
                     <span className="text-gray-800 font-medium">{price.amount}</span>
                     <span className="text-gray-800 font-medium">{price.youSave}</span>
-                    <span className="text-red-500 justify-self-end font-medium">{price.percentage}</span>
+                    <span className="text-primary justify-self-end font-medium">{price.percentage}</span>
                   </div>
                 ))}
               </div>
@@ -264,20 +264,20 @@ const ProductDetails: React.FC = () => {
             <div className="flex items-center justify-between border-b pb-5">
               <div className="space-y-1">
                 <div className="text-sm text-gray-500">Quantity left</div>
-                <div className="text-2xl font-bold text-red-500">{product.price}</div>
+                <div className="text-2xl font-bold text-primary">{product.price}</div>
               </div>
               
               <div className="flex items-center gap-4">
                 <button 
                   onClick={() => handleQuantityChange('decrement')}
-                  className="w-14 h-14 bg-red-500 text-white rounded-lg flex items-center justify-center font-bold text-xl hover:bg-red-600"
+                  className="w-14 h-14 bg-primary text-white rounded-lg flex items-center justify-center font-bold text-xl hover:bg-red-600"
                 >
                   −
                 </button>
-                <span className="text-2xl font-bold text-red-500 px-4">{quantity}</span>
+                <span className="text-2xl font-bold text-primary px-4">{quantity}</span>
                 <button 
                   onClick={() => handleQuantityChange('increment')}
-                  className="w-14 h-14 bg-red-500 text-white rounded-lg flex items-center justify-center font-bold text-xl hover:bg-red-600"
+                  className="w-14 h-14 bg-primary text-white rounded-lg flex items-center justify-center font-bold text-xl hover:bg-red-600"
                 >
                   +
                 </button>

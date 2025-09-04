@@ -34,7 +34,7 @@ const OrderStore: React.FC<OrderStoreProps> = ({
         <button 
           className={`px-3 py-3 rounded-lg font-medium text-[10px] ${
             activeStatus === 'Order Placed' 
-              ? 'bg-[#E53E3E] text-white' 
+              ? 'bg-primary text-white' 
               : 'bg-[#EDEDED] text-gray-600 hover:bg-gray-300'
           }`}
           onClick={() => setActiveStatus('Order Placed')}
@@ -44,7 +44,7 @@ const OrderStore: React.FC<OrderStoreProps> = ({
         <button 
           className={`px-3 py-3 rounded-lg font-medium text-[10px] ${
             activeStatus === 'Out for Delivery' 
-              ? 'bg-[#E53E3E] text-white' 
+              ? 'bg-primary text-white' 
               : 'bg-[#EDEDED] text-gray-600 hover:bg-gray-300'
           }`}
           onClick={() => setActiveStatus('Out for Delivery')}
@@ -54,7 +54,7 @@ const OrderStore: React.FC<OrderStoreProps> = ({
         <button 
           className={`px-3 py-3 rounded-lg font-medium text-[10px] ${
             activeStatus === 'Delivered' 
-              ? 'bg-[#E53E3E] text-white' 
+              ? 'bg-primary text-white' 
               : 'bg-[#EDEDED] text-gray-600 hover:bg-gray-300'
           }`}
           onClick={() => setActiveStatus('Delivered')}
@@ -64,7 +64,7 @@ const OrderStore: React.FC<OrderStoreProps> = ({
         <button 
           className={`px-3 py-3 rounded-lg font-medium text-[10px] ${
             activeStatus === 'Completed' 
-              ? 'bg-[#E53E3E] text-white' 
+              ? 'bg-primary text-white' 
               : 'bg-[#EDEDED] text-gray-600 hover:bg-gray-300'
           }`}
           onClick={() => setActiveStatus('Completed')}
@@ -78,7 +78,7 @@ const OrderStore: React.FC<OrderStoreProps> = ({
         {currentOrderStores.map((store) => (
           <div key={store.id} className="overflow-hidden">
             {/* Store Header - Reduced padding */}
-            <div className="bg-[#E53E3E] text-white px-4 py-2 pb-4 flex items-center justify-between rounded-2xl">
+            <div className="bg-primary text-white px-4 py-2 pb-4 flex items-center justify-between rounded-2xl">
               <span className="font-medium text-sm">{store.name}</span>
             </div>
             
@@ -94,12 +94,12 @@ const OrderStore: React.FC<OrderStoreProps> = ({
                     />
                     <div className="flex-1">
                       <h4 className="font-semibold text-black text-[12px] mb-1">{item.name}</h4>
-                      <p className="text-[#E53E3E] font-bold text-[12px] mb-2">{item.price}</p>
-                      <p className="text-[#E53E3E] text-xs font-medium">Qty: {item.quantity}</p>
+                      <p className="text-primary font-bold text-[12px] mb-2">{item.price}</p>
+                      <p className="text-primary text-xs font-medium">Qty: {item.quantity}</p>
                     </div>
                     <button 
                       onClick={() => onTrackOrder(store)}
-                      className="bg-[#E53E3E] text-white px-4 py-2 rounded-2xl mt-10 font-sm text-xs hover:bg-red-600 transition-colors"
+                      className="bg-primary text-white px-4 py-2 rounded-2xl mt-10 font-sm text-xs hover:bg-red-600 transition-colors"
                     >
                       Track Order
                     </button>

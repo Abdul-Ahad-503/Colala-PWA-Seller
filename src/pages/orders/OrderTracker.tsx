@@ -139,7 +139,7 @@ const OrderTracker: React.FC<OrderTrackerProps> = ({ onBack, storeName, storeDat
           <button className="flex-1 py-3 px-2 bg-gray-50 border border-[#CACACA] rounded-2xl text-gray-700 font-medium text-sm hover:bg-gray-100 transition-colors">
             Full Details
           </button>
-          <button className="flex-1 py-3 px-2 bg-[#E53E3E] text-white rounded-2xl font-medium text-sm hover:bg-red-600 transition-colors">
+          <button className="flex-1 py-3 px-2 bg-primary text-white rounded-2xl font-medium text-sm hover:bg-red-600 transition-colors">
             Open Chat
           </button>
         </div>
@@ -148,12 +148,12 @@ const OrderTracker: React.FC<OrderTrackerProps> = ({ onBack, storeName, storeDat
         <div className="px-4 pb-4">
           <div className="relative">
             {/* Timeline Line */}
-            <div className="absolute left-6 top-16 w-px h-[800px] -mt-5 bg-[#E53E3E]"></div>
+            <div className="absolute left-6 top-16 w-px h-[800px] -mt-5 bg-primary"></div>
             
             {/* Order Placed */}
             <div className="relative mb-6">
               <div className="flex items-start">
-                <div className="flex items-center justify-center w-8 h-8 ml-2 bg-[#E53E3E] text-white rounded-full text-sm font-semibold relative z-10 mr-4 mt-4">
+                <div className="flex items-center justify-center w-8 h-8 ml-2 bg-primary text-white rounded-full text-sm font-semibold relative z-10 mr-4 mt-4">
                   1
                 </div>
                 <div className="flex-1 bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
@@ -164,11 +164,11 @@ const OrderTracker: React.FC<OrderTrackerProps> = ({ onBack, storeName, storeDat
                       className="w-16 h-16 rounded-lg object-cover"
                     />
                     <div className="flex-1">
-                      <h3 className="font-semibold text-[#E53E3E] text-[20px] mb-1">Order Placed</h3>
+                      <h3 className="font-semibold text-primary text-[20px] mb-1">Order Placed</h3>
                       <p className="text-gray-600 text-[12px] mb-1">
                         {storeData.items[0]?.name || "Iphone 16 pro max + iphone i6 pro m..."}
                       </p>
-                      <p className="text-[#E53E3E] font-bold text-[12px]">
+                      <p className="text-primary font-bold text-[12px]">
                         {storeData.items[0]?.price || "N2,500,000"}
                       </p>
                     </div>
@@ -183,7 +183,7 @@ const OrderTracker: React.FC<OrderTrackerProps> = ({ onBack, storeName, storeDat
             {/* Out for Delivery */}
             <div className="relative mb-6">
               <div className="flex items-start">
-                <div className="flex items-center justify-center w-8 h-8 ml-2 bg-[#E53E3E] text-white rounded-full text-sm font-semibold relative z-10 mr-4 mt-4">
+                <div className="flex items-center justify-center w-8 h-8 ml-2 bg-primary text-white rounded-full text-sm font-semibold relative z-10 mr-4 mt-4">
                   2
                 </div>
                 <div className="flex-1 bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
@@ -194,11 +194,11 @@ const OrderTracker: React.FC<OrderTrackerProps> = ({ onBack, storeName, storeDat
                       className="w-16 h-16 rounded-lg object-cover"
                     />
                     <div className="flex-1">
-                      <h3 className="font-semibold text-[#E53E3E] text-[20px] mb-1">Out for Delivery</h3>
+                      <h3 className="font-semibold text-primary text-[20px] mb-1">Out for Delivery</h3>
                       <p className="text-gray-600 text-[12px] mb-1">
                         {storeData.items[0]?.name || "Iphone 16 pro max + iphone i6 pro m..."}
                       </p>
-                      <p className="text-[#E53E3E] font-bold text-[12px]">
+                      <p className="text-primary font-bold text-[12px]">
                         {storeData.items[0]?.price || "N2,500,000"}
                       </p>
                     </div>
@@ -207,7 +207,7 @@ const OrderTracker: React.FC<OrderTrackerProps> = ({ onBack, storeName, storeDat
                     </div>
                   </div>
                   <div className="mt-4">
-                    <button className="w-full py-3 bg-[#E53E3E] text-white rounded-2xl text-sm font-medium">
+                    <button className="w-full py-3 bg-primary text-white rounded-2xl text-sm font-medium">
                       Out for delivery
                     </button>
                   </div>
@@ -218,7 +218,7 @@ const OrderTracker: React.FC<OrderTrackerProps> = ({ onBack, storeName, storeDat
             {/* Delivered */}
             <div className="relative mb-6">
               <div className="flex items-start">
-                <div className="flex items-center justify-center w-8 h-8 ml-2 bg-[#E53E3E] text-white rounded-full text-sm font-semibold relative z-10 mr-4 mt-4">
+                <div className="flex items-center justify-center w-8 h-8 ml-2 bg-primary text-white rounded-full text-sm font-semibold relative z-10 mr-4 mt-4">
                   3
                 </div>
                 <div className="flex-1 bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
@@ -229,11 +229,11 @@ const OrderTracker: React.FC<OrderTrackerProps> = ({ onBack, storeName, storeDat
                       className="w-16 h-16 rounded-lg object-cover"
                     />
                     <div className="flex-1">
-                      <h3 className="font-semibold text-[#E53E3E] text-[20px] mb-1">Delivered</h3>
+                      <h3 className="font-semibold text-primary text-[20px] mb-1">Delivered</h3>
                       <p className="text-gray-600 text-[12px] mb-1">
                         {storeData.items[0]?.name || "Iphone 16 pro max + iphone i6 pro m..."}
                       </p>
-                      <p className="text-[#E53E3E] font-bold text-[12px]">
+                      <p className="text-primary font-bold text-[12px]">
                         {storeData.items[0]?.price || "N2,500,000"}
                       </p>
                     </div>
@@ -243,13 +243,13 @@ const OrderTracker: React.FC<OrderTrackerProps> = ({ onBack, storeName, storeDat
                   </div>
                   
                   {/* Alert message */}
-                  <div className="mt-4 flex items-center bg-[#FFF5F5] border border-[#E53E3E] rounded-lg p-3">
+                  <div className="mt-4 flex items-center bg-[#FFF5F5] border border-primary rounded-lg p-3">
                     <div className="flex items-center justify-center w-6 h-6 rounded-full mr-3">
-                      <svg className="w-4 h-4 text-[#E53E3E]" fill="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                       </svg>
                     </div>
-                    <p className="text-[#E53E3E] text-[10px]">
+                    <p className="text-primary text-[10px]">
                       This item needs to be hand picked up by the seller on delivery
                     </p>
                   </div>
@@ -258,7 +258,7 @@ const OrderTracker: React.FC<OrderTrackerProps> = ({ onBack, storeName, storeDat
                   <div className="mt-4 space-y-2">
                     <button 
                       onClick={handleRequestCodeClick}
-                      className="w-full py-2 bg-[#E53E3E] text-white rounded-2xl text-[12px] font-medium hover:bg-red-600 transition-colors"
+                      className="w-full py-2 bg-primary text-white rounded-2xl text-[12px] font-medium hover:bg-red-600 transition-colors"
                     >
                       Request Code
                     </button>
@@ -273,7 +273,7 @@ const OrderTracker: React.FC<OrderTrackerProps> = ({ onBack, storeName, storeDat
             {/* Funds Released */}
             <div className="relative mb-6">
               <div className="flex items-start">
-                <div className="flex items-center justify-center w-8 h-8 ml-2 bg-[#E53E3E] text-white rounded-full text-sm font-semibold relative z-10 mr-4 mt-4">
+                <div className="flex items-center justify-center w-8 h-8 ml-2 bg-primary text-white rounded-full text-sm font-semibold relative z-10 mr-4 mt-4">
                   4
                 </div>
                 <div className="flex-1 bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
@@ -284,11 +284,11 @@ const OrderTracker: React.FC<OrderTrackerProps> = ({ onBack, storeName, storeDat
                       className="w-16 h-16 rounded-lg object-cover"
                     />
                     <div className="flex-1">
-                      <h3 className="font-semibold text-[#E53E3E] text-[20px] mb-1">Funds Released</h3>
+                      <h3 className="font-semibold text-primary text-[20px] mb-1">Funds Released</h3>
                       <p className="text-gray-600 text-[12px] mb-1">
                         {storeData.items[0]?.name || "Iphone 16 pro max + iphone i6 pro m..."}
                       </p>
-                      <p className="text-[#E53E3E] font-bold text-[12px]">
+                      <p className="text-primary font-bold text-[12px]">
                         {storeData.items[0]?.price || "N2,500,000"}
                       </p>
                     </div>
@@ -299,7 +299,7 @@ const OrderTracker: React.FC<OrderTrackerProps> = ({ onBack, storeName, storeDat
                   <div className="mt-4">
                     <button 
                       onClick={handleViewWalletClick}
-                      className="w-full py-2 bg-[#E53E3E] text-white rounded-2xl text-[12px] font-medium hover:bg-red-600 transition-colors"
+                      className="w-full py-2 bg-primary text-white rounded-2xl text-[12px] font-medium hover:bg-red-600 transition-colors"
                     >
                       View Wallet
                     </button>
@@ -311,7 +311,7 @@ const OrderTracker: React.FC<OrderTrackerProps> = ({ onBack, storeName, storeDat
             {/* Order Completed */}
             <div className="relative">
               <div className="flex items-start">
-                <div className="flex items-center justify-center w-8 h-8 ml-2 bg-[#E53E3E] text-white rounded-full text-sm font-semibold relative z-10 mr-4 mt-4">
+                <div className="flex items-center justify-center w-8 h-8 ml-2 bg-primary text-white rounded-full text-sm font-semibold relative z-10 mr-4 mt-4">
                   5
                 </div>
                 <div className="flex-1 bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
@@ -322,11 +322,11 @@ const OrderTracker: React.FC<OrderTrackerProps> = ({ onBack, storeName, storeDat
                       className="w-16 h-16 rounded-lg object-cover"
                     />
                     <div className="flex-1">
-                      <h3 className="font-semibold text-[#E53E3E] text-[20px] mb-1">Order Completed</h3>
+                      <h3 className="font-semibold text-primary text-[20px] mb-1">Order Completed</h3>
                       <p className="text-gray-600 text-[12px] mb-1">
                         {storeData.items[0]?.name || "Iphone 16 pro max + iphone i6 pro m..."}
                       </p>
-                      <p className="text-[#E53E3E] font-bold text-[12px]">
+                      <p className="text-primary font-bold text-[12px]">
                         {storeData.items[0]?.price || "N2,500,000"}
                       </p>
                     </div>
@@ -367,7 +367,7 @@ const OrderTracker: React.FC<OrderTrackerProps> = ({ onBack, storeName, storeDat
         <button className="flex-1 py-3 px-2 bg-gray-50 border border-[#CACACA] rounded-2xl text-gray-700 font-medium text-sm hover:bg-gray-100 transition-colors">
           Full Details
         </button>
-        <button className="flex-1 py-3 px-2 bg-[#E53E3E] text-white rounded-2xl font-medium text-sm hover:bg-red-600 transition-colors">
+        <button className="flex-1 py-3 px-2 bg-primary text-white rounded-2xl font-medium text-sm hover:bg-red-600 transition-colors">
           Open Chat
         </button>
       </div>
@@ -376,13 +376,13 @@ const OrderTracker: React.FC<OrderTrackerProps> = ({ onBack, storeName, storeDat
       <div className="px-4 pb-4">
         <div className="relative">
           {/* Timeline Line - Shorter for 2 steps */}
-          <div className="absolute left-6 top-16 w-px h-[300px] -mt-5 bg-[#E53E3E]"></div>
+          <div className="absolute left-6 top-16 w-px h-[300px] -mt-5 bg-primary"></div>
           
           {/* Order Placed */}
           <div className="relative mb-6">
             <div className="flex items-start">
               {/* Circle indicator */}
-              <div className="flex items-center justify-center w-8 h-8 ml-2 bg-[#E53E3E] text-white rounded-full text-sm font-semibold relative z-10 mr-4 mt-4">
+              <div className="flex items-center justify-center w-8 h-8 ml-2 bg-primary text-white rounded-full text-sm font-semibold relative z-10 mr-4 mt-4">
                 1
               </div>
               
@@ -395,11 +395,11 @@ const OrderTracker: React.FC<OrderTrackerProps> = ({ onBack, storeName, storeDat
                     className="w-16 h-16 rounded-lg object-cover"
                   />
                   <div className="flex-1">
-                    <h3 className="font-semibold text-[#E53E3E] text-[20px] mb-1">Order Placed</h3>
+                    <h3 className="font-semibold text-primary text-[20px] mb-1">Order Placed</h3>
                     <p className="text-gray-600 text-[12px] mb-1">
                       {storeData.items[0]?.name || "Iphone 16 pro max + iphone i6 pro m..."}
                     </p>
-                    <p className="text-[#E53E3E] font-bold text-[12px]">
+                    <p className="text-primary font-bold text-[12px]">
                       {storeData.items[0]?.price || "N2,500,000"}
                     </p>
                   </div>
@@ -415,7 +415,7 @@ const OrderTracker: React.FC<OrderTrackerProps> = ({ onBack, storeName, storeDat
           <div className="relative mb-6">
             <div className="flex items-start">
               {/* Circle indicator */}
-              <div className="flex items-center justify-center w-8 h-8 ml-2 bg-[#E53E3E] text-white rounded-full text-sm font-semibold relative z-10 mr-4 mt-4">
+              <div className="flex items-center justify-center w-8 h-8 ml-2 bg-primary text-white rounded-full text-sm font-semibold relative z-10 mr-4 mt-4">
                 2
               </div>
               
@@ -428,11 +428,11 @@ const OrderTracker: React.FC<OrderTrackerProps> = ({ onBack, storeName, storeDat
                     className="w-16 h-16 rounded-lg object-cover"
                   />
                   <div className="flex-1">
-                    <h3 className="font-semibold text-[#E53E3E] text-[20px] mb-1">Out for Delivery</h3>
+                    <h3 className="font-semibold text-primary text-[20px] mb-1">Out for Delivery</h3>
                     <p className="text-gray-600 text-[12px] mb-1">
                       {storeData.items[0]?.name || "Iphone 16 pro max + iphone i6 pro m..."}
                     </p>
-                    <p className="text-[#E53E3E] font-bold text-[12px]">
+                    <p className="text-primary font-bold text-[12px]">
                       {storeData.items[0]?.price || "N2,500,000"}
                     </p>
                   </div>
@@ -445,7 +445,7 @@ const OrderTracker: React.FC<OrderTrackerProps> = ({ onBack, storeName, storeDat
                 <div className="mt-4">
                   <button 
                     onClick={handleMarkAsOutForDelivery}
-                    className="w-full py-3 bg-white border border-[#E53E3E] text-[#E53E3E] rounded-2xl text-sm font-medium hover:bg-red-50 transition-colors flex items-center justify-center"
+                    className="w-full py-3 bg-white border border-primary text-primary rounded-2xl text-sm font-medium hover:bg-red-50 transition-colors flex items-center justify-center"
                   >
                     <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />

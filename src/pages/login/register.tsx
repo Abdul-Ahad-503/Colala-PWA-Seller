@@ -188,7 +188,7 @@ const Register: React.FC<RegisterProps> = ({ isOpen, onClose, onRegister, onBack
           </button>
 
           {/* Left Side - Same as other levels */}
-          <div className="w-1/2 bg-gradient-to-br from-red-500 to-red-600 relative overflow-hidden">
+          <div className="w-1/2 bg-gradient-to-br from-primary to-red-600 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-full">
               <img 
                 src={IMAGES.login} 
@@ -225,7 +225,7 @@ const Register: React.FC<RegisterProps> = ({ isOpen, onClose, onRegister, onBack
           </button>
 
           {/* Left Side - Same as other levels */}
-          <div className="w-1/2 bg-gradient-to-br from-red-500 to-red-600 relative overflow-hidden">
+          <div className="w-1/2 bg-gradient-to-br from-primary to-red-600 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-full">
               <img 
                 src={IMAGES.login} 
@@ -263,7 +263,7 @@ const Register: React.FC<RegisterProps> = ({ isOpen, onClose, onRegister, onBack
           </button>
 
           {/* Left Side - Same as before */}
-          <div className="w-1/2 bg-gradient-to-br from-red-500 to-red-600 relative overflow-hidden">
+          <div className="w-1/2 bg-gradient-to-br from-primary to-red-600 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-full">
               <img 
                 src={IMAGES.login} 
@@ -278,31 +278,31 @@ const Register: React.FC<RegisterProps> = ({ isOpen, onClose, onRegister, onBack
             {/* Fixed Header */}
             <div className="p-8 pb-4">
               <div className="text-center mb-6">
-                <h2 className="text-[24px] font-semibold text-[#E53E3E] mb-2">Register</h2>
+                <h2 className="text-[24px] font-semibold text-primary mb-2">Register</h2>
                 <p className="text-gray-500 text-[14px]">Create a free account today</p>
               </div>
 
               {/* Level Progress - All steps completed */}
-              <div className="mb-6 border border-[#E53E3E] rounded-lg p-3">
+              <div className="mb-6 border border-primary rounded-lg p-3">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-[20px] font-medium text-[#E53E3E]">Level {currentLevel}</span>
+                  <span className="text-[20px] font-medium text-primary">Level {currentLevel}</span>
                   <button
                     onClick={handleViewBenefits}
-                    className="text-[14px] text-[#E53E3E] hover:underline"
+                    className="text-[14px] text-primary hover:underline"
                   >
                     <u>View Benefits</u>
                   </button>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-[23px] h-[23px] bg-[#E53E3E] text-white rounded-full flex items-center justify-center text-[12px] font-bold">
+                  <div className="w-[23px] h-[23px] bg-primary text-white rounded-full flex items-center justify-center text-[12px] font-bold">
                     1
                   </div>
-                  <div className="flex-1 h-0.5 bg-[#E53E3E]"></div>
-                  <div className="w-[23px] h-[23px] bg-[#E53E3E] text-white rounded-full flex items-center justify-center text-[12px] font-bold">
+                  <div className="flex-1 h-0.5 bg-primary"></div>
+                  <div className="w-[23px] h-[23px] bg-primary text-white rounded-full flex items-center justify-center text-[12px] font-bold">
                     2
                   </div>
-                  <div className="flex-1 h-0.5 bg-[#E53E3E]"></div>
-                  <div className="w-[23px] h-[23px] bg-[#E53E3E] text-white rounded-full flex items-center justify-center text-[12px] font-bold">
+                  <div className="flex-1 h-0.5 bg-primary"></div>
+                  <div className="w-[23px] h-[23px] bg-primary text-white rounded-full flex items-center justify-center text-[12px] font-bold">
                     3
                   </div>
                 </div>
@@ -342,8 +342,8 @@ const Register: React.FC<RegisterProps> = ({ isOpen, onClose, onRegister, onBack
                     onClick={() => handleSubcategoryToggle('Electronics')}
                     className={`px-4 py-2 rounded-full text-[12px] font-medium transition-colors ${
                       selectedSubcategories.includes('Electronics')
-                        ? 'bg-[#E53E3E] text-white'
-                        : 'bg-[#FFDEDE] text-[#E53E3E] hover:bg-[#FFDEDE]'
+                        ? 'bg-primary text-white'
+                        : 'bg-[#FFDEDE] text-primary hover:bg-[#FFDEDE]'
                     }`}
                   >
                     Electronics
@@ -352,8 +352,8 @@ const Register: React.FC<RegisterProps> = ({ isOpen, onClose, onRegister, onBack
                     onClick={() => handleSubcategoryToggle('Phones')}
                     className={`px-4 py-2 rounded-full text-[12px] font-medium transition-colors ${
                       selectedSubcategories.includes('Phones')
-                        ? 'bg-[#E53E3E] text-white'
-                        : 'bg-[#FFDEDE] text-[#E53E3E] hover:bg-[#FFDEDE]'
+                        ? 'bg-primary text-white'
+                        : 'bg-[#FFDEDE] text-primary hover:bg-[#FFDEDE]'
                     }`}
                   >
                     Phones
@@ -417,7 +417,7 @@ const Register: React.FC<RegisterProps> = ({ isOpen, onClose, onRegister, onBack
                   <button
                     onClick={handleProceedToLevel2}
                     disabled={isLoading}
-                    className="flex-1 bg-red-500 text-[11px] hover:bg-red-600 text-white font-lg py-5 px-5 rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="flex-1 bg-primary text-[11px] hover:bg-red-600 text-white font-lg py-5 px-5 rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isLoading ? (
                       <div className="flex items-center justify-center">
@@ -468,7 +468,7 @@ const Register: React.FC<RegisterProps> = ({ isOpen, onClose, onRegister, onBack
           </button>
 
           {/* Left Side - Same as before */}
-          <div className="w-1/2 bg-gradient-to-br from-red-500 to-red-600 relative overflow-hidden">
+          <div className="w-1/2 bg-gradient-to-br from-primary to-red-600 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-full">
               <img 
                 src={IMAGES.login} 
@@ -483,27 +483,27 @@ const Register: React.FC<RegisterProps> = ({ isOpen, onClose, onRegister, onBack
             {/* Fixed Header */}
             <div className="p-8 pb-4">
               <div className="text-center mb-6">
-                <h2 className="text-[24px] font-semibold text-[#E53E3E] mb-2">Register</h2>
+                <h2 className="text-[24px] font-semibold text-primary mb-2">Register</h2>
                 <p className="text-gray-500 text-[14px]">Create a free account today</p>
               </div>
 
               {/* Level Progress */}
-              <div className="mb-6 border border-[#E53E3E] rounded-lg p-3">
+              <div className="mb-6 border border-primary rounded-lg p-3">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-[20px] font-medium text-[#E53E3E]">Level {currentLevel}</span>
+                  <span className="text-[20px] font-medium text-primary">Level {currentLevel}</span>
                   <button
                     onClick={handleViewBenefits}
-                    className="text-[14px] text-[#E53E3E] hover:underline"
+                    className="text-[14px] text-primary hover:underline"
                   >
                     <u>View Benefits</u>
                   </button>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-[23px] h-[23px] bg-[#E53E3E] text-white rounded-full flex items-center justify-center text-[12px] font-bold">
+                  <div className="w-[23px] h-[23px] bg-primary text-white rounded-full flex items-center justify-center text-[12px] font-bold">
                     1
                   </div>
-                  <div className="flex-1 h-0.5 bg-[#E53E3E]"></div>
-                  <div className="w-[23px] h-[23px] bg-[#E53E3E] text-white rounded-full flex items-center justify-center text-[12px] font-bold">
+                  <div className="flex-1 h-0.5 bg-primary"></div>
+                  <div className="w-[23px] h-[23px] bg-primary text-white rounded-full flex items-center justify-center text-[12px] font-bold">
                     2
                   </div>
                   <div className="flex-1 h-0.5 bg-gray-200"></div>
@@ -583,7 +583,7 @@ const Register: React.FC<RegisterProps> = ({ isOpen, onClose, onRegister, onBack
                   <button
                     onClick={handleProceed}
                     disabled={isLoading}
-                    className="flex-1 bg-[#E53E3E] text-[14px] hover:bg-red-600 text-white font-sm py-4 px-4 rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="flex-1 bg-primary text-[14px] hover:bg-red-600 text-white font-sm py-4 px-4 rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isLoading ? (
                       <div className="flex items-center justify-center">
@@ -626,7 +626,7 @@ const Register: React.FC<RegisterProps> = ({ isOpen, onClose, onRegister, onBack
         </button>
 
         {/* Left Side - Same as Login (Just red frame with main image) */}
-        <div className="w-1/2 bg-gradient-to-br from-red-500 to-red-600 relative overflow-hidden">
+        <div className="w-1/2 bg-gradient-to-br from-primary to-red-600 relative overflow-hidden">
           {/* Main Image - Woman with phone covering full left side */}
           <div className="absolute top-0 left-0 w-full h-full">
             <img 
@@ -642,23 +642,23 @@ const Register: React.FC<RegisterProps> = ({ isOpen, onClose, onRegister, onBack
           {/* Fixed Header - Outside scroll area */}
           <div className="p-8 pb-4">
             <div className="text-center mb-6">
-              <h2 className="text-[24px] font-semibold text-[#E53E3E] mb-2">Register</h2>
+              <h2 className="text-[24px] font-semibold text-primary mb-2">Register</h2>
               <p className="text-gray-500 text-[14px]">Create a free account today</p>
             </div>
 
             {/* Level Progress */}
-            <div className="mb-6 border border-[#E53E3E] rounded-lg p-3">
+            <div className="mb-6 border border-primary rounded-lg p-3">
               <div className="flex items-center  justify-between mb-2">
-                <span className="text-[20px] font-medium text-[#E53E3E]">Level {currentLevel}</span>
+                <span className="text-[20px] font-medium text-primary">Level {currentLevel}</span>
                 <button
                   onClick={handleViewBenefits}
-                  className="text-[14px] text-[#E53E3E] hover:underline"
+                  className="text-[14px] text-primary hover:underline"
                 >
                     <u>View Benefits</u>
                 </button>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-[23px] h-[23px] bg-[#E53E3E] text-white rounded-full flex items-center justify-center text-[12px] font-bold">
+                <div className="w-[23px] h-[23px] bg-primary text-white rounded-full flex items-center justify-center text-[12px] font-bold">
                   1
                 </div>
                 <div className="flex-1 h-0.5 bg-gray-200"></div>
@@ -740,7 +740,7 @@ const Register: React.FC<RegisterProps> = ({ isOpen, onClose, onRegister, onBack
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full bg-red-500 text-[12px] hover:bg-red-600 text-white font-medium py-4 px-6 rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed mt-6"
+                className="w-full bg-primary text-[12px] hover:bg-red-600 text-white font-medium py-4 px-6 rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed mt-6"
               >
                 {isLoading ? (
                   <div className="flex items-center justify-center">
@@ -771,14 +771,14 @@ const Register: React.FC<RegisterProps> = ({ isOpen, onClose, onRegister, onBack
                     type="checkbox"
                     checked={agreedToTerms}
                     onChange={(e) => setAgreedToTerms(e.target.checked)}
-                    className="mt-0.5 w-3 h-3 text-red-600 border-gray-300 rounded focus:ring-red-500"
+                    className="mt-0.5 w-3 h-3 text-red-600 border-gray-300 rounded focus:ring-primary"
                     required
                   />
                   <span>
                     By proceeding you agree to Colala's{' '}
-                    <button type="button" className="text-[#E53E3E] hover:underline">terms of use</button>{' '}
+                    <button type="button" className="text-primary hover:underline">terms of use</button>{' '}
                     and{' '}
-                    <button type="button" className="text-[#E53E3E] hover:underline">privacy policy</button>
+                    <button type="button" className="text-primary hover:underline">privacy policy</button>
                   </span>
                 </label>
               </div>

@@ -166,7 +166,7 @@ const AdPreview: React.FC = () => {
               {/* Progress Bar */}
               <div className="mb-6">
                 <div className="w-full bg-gray-200 rounded-full h-2">
-                  <div className="bg-red-500 h-2 rounded-full" style={{ width: '40%' }}></div>
+                  <div className="bg-primary h-2 rounded-full" style={{ width: '40%' }}></div>
                 </div>
               </div>
 
@@ -204,7 +204,7 @@ const AdPreview: React.FC = () => {
               <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
                 <div className="flex items-center justify-between">
                   <p className="text-sm text-gray-500">Total Approximate Spend</p>
-                  <p className="text-2xl font-bold text-red-500">N{totalSpend.toLocaleString()}</p>
+                  <p className="text-2xl font-bold text-primary">N{totalSpend.toLocaleString()}</p>
                 </div>
               </div>
 

@@ -186,13 +186,13 @@ const DeliveryPricingDetail: React.FC<DeliveryPricingDetailProps> = ({
                 <div className="flex gap-2 -mt-10">
                   <button
                     onClick={() => handleToggleLocation(location.id)}
-                    className="bg-[#E53E3E] ml-132 text-white text-[8px] font-medium py-2 px-6 rounded-2xl hover:bg-red-600 transition-colors"
+                    className="bg-primary ml-132 text-white text-[8px] font-medium py-2 px-6 rounded-2xl hover:bg-red-600 transition-colors"
                   >
                     Edit
                   </button>
                   <button
                     onClick={() => handleDeleteLocation(location.id)}
-                    className="bg-white text-[#E53E3E] text-[8px] font-medium py-2 px-4 rounded-lg hover:bg-red-50 transition-colors"
+                    className="bg-white text-primary text-[8px] font-medium py-2 px-4 rounded-lg hover:bg-red-50 transition-colors"
                   >
                     Delete
                   </button>
@@ -205,7 +205,7 @@ const DeliveryPricingDetail: React.FC<DeliveryPricingDetailProps> = ({
           <div className="mb-6">
             <button
               onClick={handleAddNewPrice}
-              className="w-full bg-[#E53E3E] text-white font-medium py-4 px-6 rounded-xl transition-colors hover:bg-red-600 text-[14px]"
+              className="w-full bg-primary text-white font-medium py-4 px-6 rounded-xl transition-colors hover:bg-red-600 text-[14px]"
             >
               Add New Price
             </button>

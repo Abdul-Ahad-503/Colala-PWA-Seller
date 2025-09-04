@@ -160,7 +160,7 @@ const ShoppingWallet: React.FC = () => {
             onClick={() => setActiveTab('withdrawals')}
             className={`flex-1 py-3 px-4 rounded-lg font-medium transition-colors ${
               activeTab === 'withdrawals'
-                ? 'bg-red-500 text-white'
+                ? 'bg-primary text-white'
                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
             }`}
           >
@@ -170,7 +170,7 @@ const ShoppingWallet: React.FC = () => {
             onClick={() => setActiveTab('payments')}
             className={`flex-1 py-3 px-4 rounded-lg font-medium transition-colors ${
               activeTab === 'payments'
-                ? 'bg-red-500 text-white'
+                ? 'bg-primary text-white'
                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
             }`}
           >
@@ -234,7 +234,7 @@ const ShoppingWallet: React.FC = () => {
                   placeholder="Amount to withdraw"
                   value={withdrawalForm.amount}
                   onChange={(e) => setWithdrawalForm({...withdrawalForm, amount: e.target.value})}
-                  className="w-full bg-gray-50 border border-gray-200 rounded-[15px] text-sm px-4 py-5 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                  className="w-full bg-gray-50 border border-gray-200 rounded-[15px] text-sm px-4 py-5 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                 />
               </div>
 
@@ -245,7 +245,7 @@ const ShoppingWallet: React.FC = () => {
                   placeholder="Account Number"
                   value={withdrawalForm.accountNumber}
                   onChange={(e) => setWithdrawalForm({...withdrawalForm, accountNumber: e.target.value})}
-                  className="w-full bg-gray-50 border border-gray-200 rounded-[15px] text-sm px-4 py-5 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                  className="w-full bg-gray-50 border border-gray-200 rounded-[15px] text-sm px-4 py-5 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                 />
               </div>
 
@@ -256,7 +256,7 @@ const ShoppingWallet: React.FC = () => {
                   placeholder="Bank Name"
                   value={withdrawalForm.bankName}
                   onChange={(e) => setWithdrawalForm({...withdrawalForm, bankName: e.target.value})}
-                  className="w-full bg-gray-50 border border-gray-200 rounded-[15px] text-sm px-4 py-5 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                  className="w-full bg-gray-50 border border-gray-200 rounded-[15px] text-sm px-4 py-5 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                 />
               </div>
 
@@ -267,7 +267,7 @@ const ShoppingWallet: React.FC = () => {
                   placeholder="Account Name"
                   value={withdrawalForm.accountName}
                   onChange={(e) => setWithdrawalForm({...withdrawalForm, accountName: e.target.value})}
-                  className="w-full bg-gray-50 border border-gray-200 rounded-[15px] text-sm px-4 py-5 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                  className="w-full bg-gray-50 border border-gray-200 rounded-[15px] text-sm px-4 py-5 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                 />
               </div>
 
@@ -279,7 +279,7 @@ const ShoppingWallet: React.FC = () => {
                     id="saveDetails"
                     checked={withdrawalForm.saveDetails}
                     onChange={(e) => setWithdrawalForm({...withdrawalForm, saveDetails: e.target.checked})}
-                    className="w-4 h-4 text-[#E53E3E] bg-white border-gray-300 rounded focus:ring-[#E53E3E] cursor-pointer accent-[#E53E3E]"
+                    className="w-4 h-4 text-primary bg-white border-gray-300 rounded focus:ring-primary cursor-pointer accent-primary"
                   />
                 </div>
                 <label htmlFor="saveDetails" className="text-sm text-gray-700 cursor-pointer">
@@ -291,7 +291,7 @@ const ShoppingWallet: React.FC = () => {
               <div className="pt-4">
                 <button
                   type="submit"
-                  className="w-full bg-[#E53E3E] text-white py-5 rounded-lg text-sm hover:bg-red-600 transition-colors cursor-pointer"
+                  className="w-full bg-primary text-white py-5 rounded-lg text-sm hover:bg-red-600 transition-colors cursor-pointer"
                   onClick={(e) => {
                     e.preventDefault();
                     // Handle withdrawal processing here
@@ -366,7 +366,7 @@ const ShoppingWallet: React.FC = () => {
                   });
                   // Navigate to wallet or stay on current page since this is already the wallet
                 }}
-                className="flex-1 bg-[#E53E3E] text-white py-4 rounded-2xl font-medium hover:bg-red-600 transition-colors cursor-pointer text-xs"
+                className="flex-1 bg-primary text-white py-4 rounded-2xl font-medium hover:bg-red-600 transition-colors cursor-pointer text-xs"
               >
                 Go to wallet
               </button>

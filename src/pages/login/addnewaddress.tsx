@@ -134,7 +134,7 @@ const AddNewAddress: React.FC<AddNewAddressProps> = ({
       {/* Fixed Header */}
       <div className="p-6 pb-4 flex-shrink-0">
         <div className="text-center mb-6">
-          <h2 className="text-[24px] font-medium text-[#E53E3E] mb-2">Register</h2>
+          <h2 className="text-[24px] font-medium text-primary mb-2">Register</h2>
           <p className="text-[14px] text-gray-500">Create a free account today</p>
         </div>
 
@@ -244,7 +244,7 @@ const AddNewAddress: React.FC<AddNewAddressProps> = ({
                 onChange={(e) => setIsMainStore(e.target.checked)}
                 className="sr-only"
               />
-              <div className={`w-5 h-5 rounded border-2 ${isMainStore ? 'bg-red-500 border-red-500' : 'border-gray-300'} flex items-center justify-center`}>
+              <div className={`w-5 h-5 rounded border-2 ${isMainStore ? 'bg-primary border-primary' : 'border-gray-300'} flex items-center justify-center`}>
                 {isMainStore && (
                   <svg className="w-3 h-3 text-[14px] text-white" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
@@ -260,7 +260,7 @@ const AddNewAddress: React.FC<AddNewAddressProps> = ({
         <div className="mb-6">
           <button
             onClick={handleSave}
-            className="w-full bg-[#E53E3E] text-white font-medium py-4 px-6 rounded-xl transition-colors text-[14px]"
+            className="w-full bg-primary text-white font-medium py-4 px-6 rounded-xl transition-colors text-[14px]"
           >
             Save
           </button>

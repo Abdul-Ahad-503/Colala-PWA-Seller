@@ -138,7 +138,7 @@ const Announcements: React.FC = () => {
             onClick={() => setActiveTab('coupons')}
             className={`w-[300px] h-[40px] rounded-lg text-[8px] font-medium transition-colors ${
               activeTab === 'coupons'
-                ? 'bg-[#E53E3E] text-white'
+                ? 'bg-primary text-white'
                 : 'bg-white text-gray-700 border border-gray-200'
             }`}
           >
@@ -148,7 +148,7 @@ const Announcements: React.FC = () => {
             onClick={() => setActiveTab('points')}
             className={`w-[300px] h-[40px] rounded-lg text-[8px] font-medium transition-colors ${
               activeTab === 'points'
-                ? 'bg-[#E53E3E] text-white'
+                ? 'bg-primary text-white'
                 : 'bg-white text-gray-700 border border-gray-200'
             }`}
           >
@@ -196,7 +196,7 @@ const Announcements: React.FC = () => {
           <div className="pt-4">
             <button 
               onClick={() => setIsCreateModalOpen(true)}
-              className="w-full py-3 bg-[#E53E3E] text-white text-[12px] rounded-xl font-sm hover:bg-red-600 transition-colors"
+              className="w-full py-3 bg-primary text-white text-[12px] rounded-xl font-sm hover:bg-red-600 transition-colors"
             >
               Create New
             </button>
@@ -229,7 +229,7 @@ const Announcements: React.FC = () => {
                 </div>
                 <div className="flex justify-between -mt-2 items-center">
                   <span className="text-[#00000080]  text-[12px]">Link</span>
-                  <span className="text-[#E53E3E]  text-[12px] break-all">{banner.link}</span>
+                  <span className="text-primary  text-[12px] break-all">{banner.link}</span>
                 </div>
               </div>
 
@@ -249,7 +249,7 @@ const Announcements: React.FC = () => {
           <div className="pt-4">
             <button 
               onClick={() => setIsCreateBannerModalOpen(true)}
-              className="w-full py-3 h-[60px] mt-60 bg-[#E53E3E] text-white text-[12px] rounded-xl font-sm hover:bg-red-600 transition-colors"
+              className="w-full py-3 h-[60px] mt-60 bg-primary text-white text-[12px] rounded-xl font-sm hover:bg-red-600 transition-colors"
             >
               Create New
             </button>
@@ -286,7 +286,7 @@ const Announcements: React.FC = () => {
                       handleInputChange('announcement', e.target.value);
                     }
                   }}
-                  className="w-full h-[193px] p-4 border border-gray-200 rounded-xl text-sm bg-[#FFFFFF] -mt-3 placeholder-gray-400 focus:outline-none focus:border-[#E53E3E] transition-colors resize-none"
+                  className="w-full h-[193px] p-4 border border-gray-200 rounded-xl text-sm bg-[#FFFFFF] -mt-3 placeholder-gray-400 focus:outline-none focus:border-primary transition-colors resize-none"
                   maxLength={200}
                 />
                 <div className="absolute bottom-3 right-4 text-xs text-gray-400">
@@ -298,7 +298,7 @@ const Announcements: React.FC = () => {
             {/* Save Button */}
             <button
               onClick={handleSave}
-              className="w-full py-3 bg-[#E53E3E] text-white rounded-xl  font-medium hover:bg-red-600 transition-colors"
+              className="w-full py-3 bg-primary text-white rounded-xl  font-medium hover:bg-red-600 transition-colors"
             >
               Save
             </button>
@@ -358,7 +358,7 @@ const Announcements: React.FC = () => {
                   value={bannerFormData.bannerLink}
                   onChange={(e) => handleBannerInputChange('bannerLink', e.target.value)}
                   placeholder="Banner Link"
-                  className="w-full px-4 py-3 shadow-lg rounded-xl bg-[white] focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent text-sm"
+                  className="w-full px-4 py-3 shadow-lg rounded-xl bg-[white] focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
                 />
               </div>
 
@@ -367,7 +367,7 @@ const Announcements: React.FC = () => {
                 <button
                   onClick={handleSaveBanner}
                   disabled={!bannerFormData.bannerImage || !bannerFormData.bannerLink}
-                  className="w-full py-3 bg-[#E53E3E] text-[14px] text-white rounded-xl font-medium hover:bg-red-600 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
+                  className="w-full py-3 bg-primary text-[14px] text-white rounded-xl font-medium hover:bg-red-600 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
                 >
                   Save
                 </button>

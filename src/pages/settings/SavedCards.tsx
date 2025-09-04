@@ -18,7 +18,7 @@ const SavedCards: React.FC = () => {
       brand: 'bank',
       number: '**** **** **** 1234',
       holder: 'Sasha Collins', 
-      gradient: 'from-[#E53E3E] to-[#BD0F7B]',
+      gradient: 'from-primary to-[#BD0F7B]',
       autodebit: false
     },
     {
@@ -27,7 +27,7 @@ const SavedCards: React.FC = () => {
       brand: 'bank',
       number: '**** **** **** 5678',
       holder: 'Sasha Collins', 
-      gradient: 'from-[#E53E3E] to-[#BD0F7B]',
+      gradient: 'from-primary to-[#BD0F7B]',
       autodebit: false
     }
   ]);
@@ -131,7 +131,7 @@ const SavedCards: React.FC = () => {
                 <button
                   onClick={() => toggleAutodebit(card.id)}
                   className={`relative inline-flex h-6 w-10 items-center rounded-full  transition-colors ${
-                    card.autodebit ? 'bg-[#E53E3E] ' : 'bg-gray-300'
+                    card.autodebit ? 'bg-primary ' : 'bg-gray-300'
                   }`}
                 >
                   <span

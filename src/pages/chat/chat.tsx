@@ -178,7 +178,7 @@ const Chat: React.FC = () => {
                 onClick={() => setSelectedContact(contact.id)}
                 className={`cursor-pointer transition-all ${
                   selectedContact === contact.id 
-                    ? 'bg-white border-2 border-red-500  rounded-2xl p-4 shadow-sm' 
+                    ? 'bg-white border-2 border-primary  rounded-2xl p-4 shadow-sm' 
                     : 'bg-white rounded-2xl p-4 shadow-sm hover:shadow-md'
                 }`}
               >
@@ -199,7 +199,7 @@ const Chat: React.FC = () => {
                       <div className="flex items-center space-x-2">
                         <span className="text-[8px] text-gray-500">{contact.time}</span>
                         {contact.isOnline && (
-                          <div className="w-5 h-5 bg-red-500 rounded-full flex items-center justify-center">
+                          <div className="w-5 h-5 bg-primary rounded-full flex items-center justify-center">
                             <span className="text-white text-[8px] font-bold">1</span>
                           </div>
                         )}
@@ -250,7 +250,7 @@ const Chat: React.FC = () => {
               </div>
 
               {/* Cart Items */}
-              <div className="bg-[#FFE5E5] p-4  border border-[#E53E3E]     w-[580px]  mx-6 mt-4 rounded-2xl
+              <div className="bg-[#FFE5E5] p-4  border border-primary     w-[580px]  mx-6 mt-4 rounded-2xl
                ">
                 <div className="flex items-center justify-between mb-4">
                   <h4 className="text-[12px] font-medium text-gray-900">Items in cart (2)</h4>
@@ -288,7 +288,7 @@ const Chat: React.FC = () => {
                     <div
                       className={`max-w-xs px-4 py-3 ${
                         message.sender === 'user'
-                          ? 'bg-red-500 text-white'
+                          ? 'bg-primary text-white'
                           : 'bg-red-100 text-gray-900'
                       }`}
                       style={{

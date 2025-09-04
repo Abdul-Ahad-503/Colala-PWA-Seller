@@ -381,7 +381,7 @@ const MyProducts: React.FC = () => {
             onClick={() => setActiveTab('products')}
             className={`px-6 py-3 text-sm font-medium border-b-5  -mb-[1px] transition-colors ${
               activeTab === 'products'
-                ? 'text-red-500 border-red-500'
+                ? 'text-primary border-primary'
                 : 'text-gray-500 border-transparent hover:text-gray-700'
             }`}
           >
@@ -391,7 +391,7 @@ const MyProducts: React.FC = () => {
             onClick={() => setActiveTab('services')}
             className={`px-6 py-3 text-sm font-medium border-b-2 transition-colors ${
               activeTab === 'services'
-                ? 'text-red-500 border-red-500'
+                ? 'text-primary border-primary'
                 : 'text-gray-500 border-transparent hover:text-gray-700'
             }`}
           >

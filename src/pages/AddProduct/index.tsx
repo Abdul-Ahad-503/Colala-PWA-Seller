@@ -344,7 +344,7 @@ const AddProduct: React.FC = () => {
                   />
                   <button
                     onClick={() => removeVariant(index)}
-                    className="w-10 h-10 flex items-center justify-center text-red-500 hover:bg-red-50 rounded-xl transition-colors"
+                    className="w-10 h-10 flex items-center justify-center text-primary hover:bg-red-50 rounded-xl transition-colors"
                   >
                     ×
                   </button>
@@ -454,19 +454,19 @@ const AddProduct: React.FC = () => {
 
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
-                  <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-primary rounded-full"></div>
                   <span className="text-sm text-gray-700">Download bulk template below</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-primary rounded-full"></div>
                   <span className="text-sm text-gray-700">Fill the template accordingly</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-primary rounded-full"></div>
                   <span className="text-sm text-gray-700">Upload the filled template in the space provided</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-primary rounded-full"></div>
                   <span className="text-sm text-gray-700">Bulk Upload Successful</span>
                 </div>
               </div>

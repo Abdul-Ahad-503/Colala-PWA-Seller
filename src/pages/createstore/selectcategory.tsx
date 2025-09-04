@@ -67,7 +67,7 @@ const SelectCategory: React.FC<SelectCategoryProps> = ({ isOpen, onClose, onAppl
             {selectedCategories.map((category) => (
               <div
                 key={category}
-                className="bg-[#FFDEDE] text-[#E53E3E] px-3 py-1 rounded-full text-[12px] font-medium"
+                className="bg-[#FFDEDE] text-primary px-3 py-1 rounded-full text-[12px] font-medium"
               >
                 {category}
               </div>
@@ -86,7 +86,7 @@ const SelectCategory: React.FC<SelectCategoryProps> = ({ isOpen, onClose, onAppl
                   type="checkbox"
                   checked={selectedCategories.includes(category)}
                   onChange={() => handleCategoryToggle(category)}
-                  className="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 rounded focus:ring-red-500 focus:ring-2"
+                  className="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 rounded focus:ring-primary focus:ring-2"
                   style={{
                     accentColor: selectedCategories.includes(category) ? '#E53E3E' : undefined
                   }}
@@ -99,7 +99,7 @@ const SelectCategory: React.FC<SelectCategoryProps> = ({ isOpen, onClose, onAppl
           <div className="mt-6">
             <button
               onClick={handleApply}
-              className="w-full h-[45px] bg-[#E53E3E]  -mt-2 text-white font-sm text-[12px] py-3 px-4 rounded-lg transition-colors"
+              className="w-full h-[45px] bg-primary  -mt-2 text-white font-sm text-[12px] py-3 px-4 rounded-lg transition-colors"
             >
               Apply
             </button>

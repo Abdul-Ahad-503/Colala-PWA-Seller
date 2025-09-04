@@ -207,15 +207,15 @@ const CreateStore: React.FC = () => {
               {levels.map((level, index) => (
                 <div key={level.number} className="relative">
                   {/* Level Number Circle - Outside the card */}
-                  <div className={`absolute -left-6 top-6 w-8 h-8 -mt-4  rounded-full flex items-center justify-center border border-[#E53E3E] font-bold text-sm z-10 ${
-                    level.number === 1 ? 'bg-red-500 text-white' : 'bg-[white] text-[#E53E3E]' 
+                  <div className={`absolute -left-6 top-6 w-8 h-8 -mt-4  rounded-full flex items-center justify-center border border-primary font-bold text-sm z-10 ${
+                    level.number === 1 ? 'bg-primary text-white' : 'bg-[white] text-primary' 
                   }`}>
                     {level.number}
                   </div>
 
                   {/* Connecting Line */}
                   {index < levels.length - 1 && (
-                    <div className="absolute  -left-2 top-14 -mt-4 w-[0.1rem] h-[350px] bg-[#E53E3E]"></div>
+                    <div className="absolute  -left-2 top-14 -mt-4 w-[0.1rem] h-[350px] bg-primary"></div>
                   )}
 
                   {/* Level Card */}
@@ -245,15 +245,15 @@ const CreateStore: React.FC = () => {
                         />
                       </svg>
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="text-[6px] ml-24 font-semibold text-red-500">{level.progress}%</span>
+                        <span className="text-[6px] ml-24 font-semibold text-primary">{level.progress}%</span>
                       </div>
                     </div>
 
                     {/* Level Content */}
                     <div className="mr-12">
-                      <h3 className="text-base font-semibold text-[#E53E3E] mb-1">{level.title}</h3>
+                      <h3 className="text-base font-semibold text-primary mb-1">{level.title}</h3>
                       <p className="text-[8px] text-gray-600 mb-4">{level.subtitle}</p>
-                       <p className="text-[12px] font-bold -mt-3 border-b border-[#D9D9D9]  p-1 text-[#E53E3E] mb-4">{level.subtitle2}</p>
+                       <p className="text-[12px] font-bold -mt-3 border-b border-[#D9D9D9]  p-1 text-primary mb-4">{level.subtitle2}</p>
 
                       {/* Level Requirements */}
                       <div className="mb-4">
@@ -282,7 +282,7 @@ const CreateStore: React.FC = () => {
                       </div>
 
                       {/* View Details Button */}
-                      <button className="w-[280px]  bg-[#E53E3E] text-white text-[12px] font-medium py-3 px-4 rounded-lg hover:bg-[#E53E3E] transition-colors">
+                      <button className="w-[280px]  bg-primary text-white text-[12px] font-medium py-3 px-4 rounded-lg hover:bg-primary transition-colors">
                         View Details
                       </button>
                     </div>
@@ -322,15 +322,15 @@ const CreateStore: React.FC = () => {
             ) : !showUploadStep ? (
               <>
                 {/* Header */}
-                <div className="mb-6 border border-[#E53E3E] w-[680px] h-[93px] rounded-lg p-3">
+                <div className="mb-6 border border-primary w-[680px] h-[93px] rounded-lg p-3">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-[20px] font-medium text-[#E53E3E]">Level 1</span>
-                    <button className="text-[14px] text-[#E53E3E] hover:underline">
+                    <span className="text-[20px] font-medium text-primary">Level 1</span>
+                    <button className="text-[14px] text-primary hover:underline">
                       <u>View Benefits</u>
                     </button>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="w-[23px] h-[23px] bg-[#E53E3E] text-white rounded-full flex items-center justify-center text-[14px] font-bold">
+                    <div className="w-[23px] h-[23px] bg-primary text-white rounded-full flex items-center justify-center text-[14px] font-bold">
                       1
                     </div>
                     <div className="flex-1 h-0.5 bg-[#ADADAD]"></div>
@@ -364,7 +364,7 @@ const CreateStore: React.FC = () => {
                       placeholder="Store Email"
                       value={storeEmail}
                       onChange={(e) => setStoreEmail(e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-[#FFFFFF] focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent text-[#00000080] text-[14px] placeholder-gray-500"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-[#FFFFFF] focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-[#00000080] text-[14px] placeholder-gray-500"
                     />
                   </div>
 
@@ -375,7 +375,7 @@ const CreateStore: React.FC = () => {
                       placeholder="Store Phone Number"
                       value={storePhone}
                       onChange={(e) => setStorePhone(e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg text-[14px] bg-[#FFFFFF] focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent text-[#00000080] placeholder-gray-500"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg text-[14px] bg-[#FFFFFF] focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-[#00000080] placeholder-gray-500"
                     />
                   </div>
 
@@ -386,7 +386,7 @@ const CreateStore: React.FC = () => {
                       placeholder="Store Location"
                       value={storeLocation}
                       onChange={(e) => setStoreLocation(e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-[#FFFFFF] focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent text-[#00000080] text-[14px] placeholder-gray-500"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-[#FFFFFF] focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-[#00000080] text-[14px] placeholder-gray-500"
                     />
                   </div>
 
@@ -407,7 +407,7 @@ const CreateStore: React.FC = () => {
                     <button
                       onClick={() => setShowPhoneOnProfile(!showPhoneOnProfile)}
                       className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none ${
-                        showPhoneOnProfile ? 'bg-red-500' : 'bg-gray-300'
+                        showPhoneOnProfile ? 'bg-primary' : 'bg-gray-300'
                       }`}
                     >
                       <span
@@ -425,7 +425,7 @@ const CreateStore: React.FC = () => {
                       placeholder="Referral Code (Optional)"
                       value={referralCode}
                       onChange={(e) => setReferralCode(e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-[#FFFFFF] text-[14px]  focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent text-[#00000080] placeholder-gray-500"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-[#FFFFFF] text-[14px]  focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-[#00000080] placeholder-gray-500"
                     />
                   </div>
                 </div>
@@ -449,7 +449,7 @@ const CreateStore: React.FC = () => {
                   <button
                     onClick={handleProceed}
                     disabled={isLoading}
-                    className="w-[320px] h-[60px] bg-[#E53E3E] text-[14px] text-white font-sm rounded-2xl hover:bg-red-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-[320px] h-[60px] bg-primary text-[14px] text-white font-sm rounded-2xl hover:bg-red-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isLoading ? (
                       <div className="flex items-center justify-center">
@@ -468,19 +468,19 @@ const CreateStore: React.FC = () => {
             ) : (
               <>
                 {/* Upload Step Header */}
-                <div className="mb-6 border border-[#E53E3E] w-[680px] h-[93px] rounded-lg p-3">
+                <div className="mb-6 border border-primary w-[680px] h-[93px] rounded-lg p-3">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-[20px] font-medium text-[#E53E3E]">Level 1</span>
-                    <button className="text-[14px] text-[#E53E3E] hover:underline">
+                    <span className="text-[20px] font-medium text-primary">Level 1</span>
+                    <button className="text-[14px] text-primary hover:underline">
                       <u>View Benefits</u>
                     </button>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="w-[23px] h-[23px] bg-[#E53E3E] text-white rounded-full flex items-center justify-center text-[14px] font-bold">
+                    <div className="w-[23px] h-[23px] bg-primary text-white rounded-full flex items-center justify-center text-[14px] font-bold">
                       1
                     </div>
                     <div className="flex-1 h-0.5  bg-[#ADADAD]"></div>
-                    <div className="w-[23px] h-[23px] bg-[#E53E3E] text-white rounded-full flex items-center justify-center text-[14px] font-bold">
+                    <div className="w-[23px] h-[23px] bg-primary text-white rounded-full flex items-center justify-center text-[14px] font-bold">
                       2
                     </div>
                     <div className="flex-1 h-0.5 bg-[#ADADAD]"></div>
@@ -554,7 +554,7 @@ const CreateStore: React.FC = () => {
                     <button
                       onClick={handleUploadProceed}
                       disabled={isLoading}
-                      className="flex-1 bg-[#E53E3E] text-[14px]  text-white font-sm py-4 px-4 rounded-2xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="flex-1 bg-primary text-[14px]  text-white font-sm py-4 px-4 rounded-2xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {isLoading ? (
                         <div className="flex items-center justify-center">

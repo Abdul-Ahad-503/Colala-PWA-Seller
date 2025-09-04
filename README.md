@@ -337,16 +337,16 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
     <td align="center">
       <a href="https://github.com/Abdul-Ahad-503">
         <img src="https://github.com/Abdul-Ahad-503.png" width="100px;" alt="Abdul Ahad"/><br />
-        
+        <sub><b>Abdul Ahad</b></sub>
       </a><br />
-      <sub>Lead Developer</sub>
+      <sub> Developer</sub>
     </td>
     <td align="center">
       <a href="https://github.com/Aman-ahmad1143">
         <img src="https://github.com/Aman-ahmad1143.png" width="100px;" alt="Aman Ahmad"/><br />
         <sub><b>Aman Ahmad</b></sub>
       </a><br />
-      
+      <sub> Developer</sub>
     </td>
   </tr>
 </table>

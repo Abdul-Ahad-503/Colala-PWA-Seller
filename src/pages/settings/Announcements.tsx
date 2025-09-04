@@ -127,7 +127,7 @@ const Announcements: React.FC = () => {
  
 
   return (
-    <div className="bg-white rounded-2xl p-6 w-[653px] shadow-sm h-[800px]">
+    <div className="bg-white rounded-2xl p-6 w-[653px] shadow-sm min-h-[800px] max-h-none overflow-visible">
       {/* Header */}
       <div className="mb-6">
         <h1 className="text-xl font-semibold text-[#000000] mb-4">Manage Announcements</h1>
@@ -206,7 +206,7 @@ const Announcements: React.FC = () => {
 
       {/* Banners Section */}
       {activeTab === 'points' && (
-        <div className="space-y-4">
+        <div className="space-y-4 pb-6">
           {/* Banner Cards */}
           {banners.map((banner) => (
             <div key={banner.id} className="border border-gray-200 w-[613px] h-[298px] shadow-lg rounded-2xl p-6 bg-white">
@@ -249,7 +249,7 @@ const Announcements: React.FC = () => {
           <div className="pt-4">
             <button 
               onClick={() => setIsCreateBannerModalOpen(true)}
-              className="w-full py-3 mt-55 h-[60px] bg-[#E53E3E] text-white text-[12px] rounded-xl font-sm hover:bg-red-600 transition-colors"
+              className="w-full py-3 h-[60px] mt-60 bg-[#E53E3E] text-white text-[12px] rounded-xl font-sm hover:bg-red-600 transition-colors"
             >
               Create New
             </button>
@@ -306,10 +306,10 @@ const Announcements: React.FC = () => {
         </div>
       )}
 
-      {/* Create Banner Modal - Exact design from image */}
+      {/* Create Banner Modal -  */}
       {isCreateBannerModalOpen && (
         <div className="fixed inset-0 backdrop-brightness-50 bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-[#F9F9F9] rounded-3xl p-8 w-[430px] h-[452px] relative">
+          <div className="bg-[#F9F9F9] rounded-3xl p-8 w-[430px] min-h-[452px] max-h-[90vh] overflow-y-auto relative">
             {/* Header */}
              <div className="flex items-center justify-center pop_up relative p-6 pb-4 -mt-7 mb-1">
               <h2 className="text-[20px] font-semibold text-black">NewBanner</h2>
@@ -321,7 +321,7 @@ const Announcements: React.FC = () => {
               </button>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-6 flex-1">
               {/* Image Upload Area - Exact match to design */}
               <div className="relative">
                 <input
@@ -330,13 +330,13 @@ const Announcements: React.FC = () => {
                   onChange={handleFileUpload}
                   className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
                 />
-                <div className=" rounded-xl p-12 text-center bg-[#FFFFFF] shadow-lg hover:bg-gray-100 transition-colors">
+                <div className="rounded-xl p-12 text-center bg-[#FFFFFF] shadow-lg hover:bg-gray-100 transition-colors">
                   {bannerFormData.bannerImage ? (
                     <div className="space-y-3">
                       <img 
                         src={URL.createObjectURL(bannerFormData.bannerImage)} 
                         alt="Banner preview"
-                        className="max-h-24 mx-auto rounded-lg object-cover"
+                        className="max-h-32 w-auto mx-auto rounded-lg object-cover"
                       />
                       <p className="text-sm text-gray-600 font-medium">{bannerFormData.bannerImage.name}</p>
                     </div>
@@ -363,13 +363,15 @@ const Announcements: React.FC = () => {
               </div>
 
               {/* Save Button */}
-              <button
-                onClick={handleSaveBanner}
-                disabled={!bannerFormData.bannerImage || !bannerFormData.bannerLink}
-                className="w-full py-3 bg-[#E53E3E] text-[14px] mt-10 text-white rounded-xl font-medium hover:bg-red-600 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
-              >
-                Save
-              </button>
+              <div className="pt-4">
+                <button
+                  onClick={handleSaveBanner}
+                  disabled={!bannerFormData.bannerImage || !bannerFormData.bannerLink}
+                  className="w-full py-3 bg-[#E53E3E] text-[14px] text-white rounded-xl font-medium hover:bg-red-600 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
+                >
+                  Save
+                </button>
+              </div>
             </div>
           </div>
         </div>
